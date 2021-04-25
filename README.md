@@ -1,7 +1,7 @@
 # Negative_Constructions
 This repository contains code and data for the paper "English Negative Constructions and Communicative Functions in Child Language". The study investigates negative syntactic constructions and the communicative functions they play in early child language of English (age ranges from 12 to 72 months). 
 
-## Data set construction ##
+## Experimental flow ##
 
 ### From childes-db to csv ###
 ```

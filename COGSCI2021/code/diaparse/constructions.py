@@ -1,0 +1,858 @@
+import io, os, argparse
+
+AUX = ['can', 'could', 'ca', 'dare', 'do', 'did', 'does', 'have', 'had', 'has', 'may', 'might', 'must', 'need', 'ought', 'shall', 'should', 'will', 'would']
+COP = ['be', 'is', 'was', 'am', 'are', 'were']
+SUBJ = ['I', 'you', 'she', 'he', 'they', 'it', 'we']
+POSS = ['my', 'mine', 'your', 'yours', 'her', 'hers', 'his', 'their', 'theirs', 'its', 'us', 'ours']
+
+### reading in sentences in CoNLL format ###
+
+def conll_read_sentence(file_handle):
+	sent = []
+	for line in file_handle:
+		line = line.strip('\n')
+		if line.startswith('#') is False:
+			toks = line.split("\t")
+			if len(toks) != 10 and sent not in [[], ['']]:
+				return sent 
+			if len(toks) == 10 and '-' not in toks[0] and '.' not in toks[0]:
+				sent.append(toks)	
+	return None
+
+
+### dependents ###
+
+def dependents(index, sent):
+
+	idx_list = []
+	d_list = []
+
+	for d in sent:
+		if int(d[6]) == int(index):
+			idx_list.append(int(d[0]))
+
+	idx_list.sort()
+
+	for idx in idx_list:
+		d_list.append(sent[idx - 1])
+
+	return d_list
+
+
+### has negation marker as dependent? ###
+
+def has_neg(index, sent):
+
+	neg_d = []
+
+	d_list = dependents(index, sent)
+
+	for d in d_list:
+		if d[1] in ['not', 'no', "n't"] and d[7] not in ['discourse']:	
+			neg_d.append(d)
+
+		if d[2] in ['more']:
+			d_d_list = dependents(d[0], sent)
+
+			for z in d_d_list:
+				if z[1] in ['not', 'no', "n't"]:
+					neg_d.append(z)
+
+	return neg_d
+
+
+### get descriptive statistics of child ###
+
+def descriptive(file):
+
+	child_data = {}
+	parent_data = {}
+
+	age_list = []
+	
+	child_raw = []
+	parent_raw = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
+				speaker_name = speaker_info[0]
+				speaker_role = speaker_info[-1]
+
+				child_name = corpus_info[0]
+				age = int(float(corpus_info[1]))
+				corpus_name = corpus_info[3]
+
+				age_list.append(str(age))
+
+				info = [str(age), corpus_name + child_name]
+
+				if speaker_role in ['Target_Child', 'Child']:
+					child_raw.append(info)
+
+				if speaker_role in ['Mother', 'Father']:
+					parent_raw.append(info)
+
+			sent = conll_read_sentence(f)
+
+	age_list = set(age_list)
+
+	for age in age_list:
+	
+		child_c = []
+		child_u = 0
+		parent_c = []
+		parent_u = 0
+
+		for tok in child_raw:
+			if tok[0] == age:
+				if tok[1] not in child_c:
+					child_c.append(tok[1])
+
+				child_u += 1
+
+		for tok in parent_raw:
+			if tok[0] == age:
+				if tok[1] not in parent_c:
+					parent_c.append(tok[1])
+
+				parent_u += 1
+
+		child_data[age] = [len(set(child_c)), child_u]
+		parent_data[age] = [len(set(parent_c)), parent_u]
+
+	return child_data, parent_data
+
+
+### emotion: rejection ###
+
+def emotion(file):
+
+	data = []
+
+	c =0
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+
+			saying = ' '.join(w[1] for w in sent)
+		
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			speaker_name = speaker_info[0]
+			speaker_role = speaker_info[-1]
+
+			child_name = corpus_info[0]
+			corpus_name = corpus_info[-5]
+
+			age = ''
+
+			try:
+				age = int(float(corpus_info[1]))
+
+			except:
+				age = ''
+				
+			sent_type = ' '.join(w for w in corpus_info[4 : -3])
+
+			for tok in sent:
+
+				if tok[2] in ['like', 'want', 'wan'] and tok[3].startswith('v'): 
+
+					info = ''
+
+					### include cases such as 'I don't like book' ###
+
+					neg = ''
+				
+					try:
+						potential = sent[int(tok[0]) - 2]
+						if potential[2] not in AUX and potential[1] in ['not', 'no', "n't"]:
+							neg = potential
+						if potential[2] in AUX:  ### cannot ###
+							if 'not' in potential[1]:
+								neg = ['', 'not']
+							if 'no' in potential[1]:
+								neg = ['', 'no']
+							if "n't" in potential[1]:
+								neg = ['', "n't"]
+
+					except:
+						try:
+							far = sent[int(tok[0]) - 3] 
+							if far[1] in ['not', 'no', "n't"]:
+								neg = far
+
+						except:
+							try:
+								temp = has_neg(tok[0], sent)
+								if len(temp) != 0:
+									neg = temp[-1]
+
+						### include cases such as 'I like no book' ??? ###
+
+							except:
+								try:
+									d_list = dependents(tok[0], sent)
+									obj = ''
+									obj_neg = ''
+									for d in d_list:
+										if d[7] == 'obj':
+											obj_neg = has_neg(d[0], sent)
+											if len(obj_neg) != 0:
+												neg = obj_neg[-1]
+								except:
+									neg = ''
+
+					function = 'rejection'
+
+					aux = 'NONE'
+					aux_stem = 'NONE'
+					aux_idx = ''
+
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
+
+					d_list = dependents(tok[0], sent)
+
+					for d in d_list:
+						if d[1] in AUX or d[7] == 'aux':
+							aux = d[1]
+							aux_stem = d[2]
+							aux_idx = d[0]				
+
+						if d[7] == 'nsubj':								
+							subj = d[1]
+							subj_stem = d[2]
+							subj_idx = d[0]
+
+					if neg != '':
+						info = ['emotion', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+					else:
+						info = ['emotion', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
+						c += 1
+						data.append(info)
+
+			sent = conll_read_sentence(f)
+	print(c)
+	return data
+
+### theory of mind: epistemic ###
+
+def epistemic(file):
+
+	data = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+			
+			saying = ' '.join(w[1] for w in sent)
+
+
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			speaker_name = speaker_info[0]
+			speaker_role = speaker_info[-1]
+
+			child_name = corpus_info[0]
+			corpus_name = corpus_info[-5]
+
+			age = ''
+
+			try:
+				age = int(float(corpus_info[1]))
+
+			except:
+				age = ''
+
+			sent_type = ' '.join(w for w in corpus_info[4 : -3])
+
+			for tok in sent:
+
+				if tok[2] in ['know', 'think', 'remember'] and tok[3].startswith('v'): 
+
+					info = ''
+
+					neg = ''
+				
+					try:
+						potential = sent[int(tok[0]) - 2]
+						if potential[2] not in AUX and potential[1] in ['not', 'no', "n't"]:
+							neg = potential
+						if potential[2] in AUX:  ### cannot ###
+							if 'not' in potential[1]:
+								neg = ['', 'not']
+							if 'no' in potential[1]:
+								neg = ['', 'no']
+							if "n't" in potential[1]:
+								neg = ['', "n't"]
+
+					except:
+						try:
+							far = sent[int(tok[0]) - 3] 
+							if far[1] in ['not', 'no', "n't"]:
+								neg = far
+
+						except:
+							try:
+								temp = has_neg(tok[0], sent)
+								if len(temp) != 0:
+									neg = temp[-1]
+
+							except:
+								neg = ''
+
+					function = 'epistemic'
+
+					aux = 'NONE'
+					aux_stem = 'NONE'
+					aux_idx = ''
+
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
+
+					d_list = dependents(tok[0], sent)
+
+					for d in d_list:
+						if d[1] in AUX or d[7] == 'aux':
+							aux = d[1]
+							aux_stem = d[2]
+							aux_idx = d[0]				
+
+						if d[7] == 'nsubj':								
+							subj = d[1]
+							subj_stem = d[2]
+							subj_idx = d[0] 
+
+					if neg != '':
+						info = ['theory of mind', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+					else:
+						info = ['theory of mind', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
+						data.append(info)
+			
+				if tok[2] in ['dunno', 'duno']:
+
+					info = ''
+
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
+
+					d_list = dependents(tok[0], sent)
+
+					for d in d_list:
+
+						if d[7] == 'nsubj':								
+							subj = d[1]
+							subj_stem = d[2]
+							subj_idx = d[0] 
+				
+					info = ['theory of mind', function, tok[2], "n't", 'dunno', 'do', subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+
+					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
+						data.append(info)
+
+			sent = conll_read_sentence(f)
+
+	return data
+
+### motor control ###
+
+def motor(file):
+
+	data = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+
+			saying = ' '.join(w[1] for w in sent)
+
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			speaker_name = speaker_info[0]
+			speaker_role = speaker_info[-1]
+
+			child_name = corpus_info[0]
+			corpus_name = corpus_info[-5]
+
+			age = ''
+
+			try:
+				age = int(float(corpus_info[1]))
+
+			except:
+				age = ''
+				
+			sent_type = ' '.join(w for w in corpus_info[4 : -3])
+
+			for tok in sent:
+
+				if tok[3].startswith('v') and tok[2] not in ['like', 'want', 'know', 'think', 'remember', 'have', 'dunno']:
+
+					info = ''
+
+					d_list = dependents(tok[0], sent)
+
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
+
+					aux = 'NONE'
+					aux_stem = 'NONE'
+					aux_idx = ''
+
+					neg = ''
+
+					for d in d_list:
+						if d[7] == 'nsubj':
+							subj = d[1]
+							subj_stem = d[2]
+							subj_idx = d[0]
+
+						if d[7] == 'aux':
+							aux = d[1]
+							aux_stem = d[2]
+							aux_idx = d[0]
+
+						if d[1] in ['no', 'not', "n't"]:
+							neg = d
+
+					if 'imperative' in sent_type and subj == 'NONE':
+
+						function = 'prohibition'
+					
+						if neg != '' and subj == 'NONE':
+							if aux_stem == 'do':
+								info = ['theory of mind', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+						if neg == '' and subj == 'NONE':
+							info = ['theory of mind', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+					else:
+
+						function = 'inability'
+
+						if neg != '' and subj in ['I', 'i']:
+							if aux_stem == 'can' or neg[1] == 'cannot':
+								info = ['theory of mind', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+						if neg != '' and subj in ['I', 'i']:
+							info = ['theory of mind', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
+						data.append(info)
+
+			sent = conll_read_sentence(f)
+
+	return data
+
+
+### language learning: labeling ###
+
+def learning(file):
+
+	data = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+
+			saying = ' '.join(w[1] for w in sent)
+
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			speaker_name = speaker_info[0]
+			speaker_role = speaker_info[-1]
+
+			child_name = corpus_info[0]
+			corpus_name = corpus_info[-5]
+
+			age = ''
+
+			try:
+				age = int(float(corpus_info[1]))
+
+			except:
+				age = ''
+				
+			sent_type = ' '.join(w for w in corpus_info[4 : -3])
+
+			for tok in sent:
+
+				if tok[2] in ['be'] and tok[7] == 'cop': # and tok[1] in ['am', 'was', 'is', 'are', 'were']:
+
+					info = ''
+
+					neg = ''
+				
+					try:
+						potential = sent[int(tok[0])]
+						if potential[1] in ['not', 'no', "n't"]:
+							neg = potential
+
+					except:
+						neg = ''
+
+					head = sent[int(tok[6]) - 1]
+
+					pred = ''
+					pred_stem = ''
+					pred_pos = ''
+
+					if head != '' and (head[3] in ['n', 'n:pt'] or head[3].startswith('adj') or head[3].startswith('pro')) and head[1] not in POSS:
+						pred = head[1]
+						pred_stem = head[2]
+						pred_pos = head[3]
+
+					function = 'labeling'
+			
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
+
+					d_list = dependents(tok[0], sent)
+
+					for d in d_list:
+
+						if d[7] == 'nsubj':
+							subj_idx = d[0]
+							subj = d[1]
+							subj_stem = d[2]
+
+					expletive = ''
+
+					head_d = dependents(head[0], sent)
+
+					for d in head_d:
+
+						if d[7] == 'nsubj':
+							subj_idx = d[0]
+							subj = d[1]
+							subj_stem = d[2]
+
+						if d[7] == 'expl' and d[2] == 'there':
+							expletive = d
+
+					if pred != '' and subj_stem not in ['there', 'There'] and expletive == '':
+
+						if neg != '':
+							info = ['learning', function, head[2], neg[1], pred_pos, pred_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+						else:
+							info = ['learning', function, head[2], '', pred_pos, pred_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
+						data.append(info)
+
+			sent = conll_read_sentence(f)
+
+	return data
+
+### Perception ###
+
+def perception(file):
+
+	data = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+
+			saying = ' '.join(w[1] for w in sent)
+
+		
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			speaker_name = speaker_info[0]
+			speaker_role = speaker_info[-1]
+
+			child_name = corpus_info[0]
+			corpus_name = corpus_info[-5]
+
+			age = ''
+
+			try:
+
+				age = int(float(corpus_info[1]))
+
+			except:
+
+				age = ''
+
+			sent_type = ' '.join(w for w in corpus_info[4 : -3])
+
+			### have the toy ###
+
+			for tok in sent:
+
+				if tok[2] == 'have' and tok[7] != 'aux':
+
+					info = ''
+
+					aux = 'NONE'
+					aux_stem = 'NONE'
+					aux_idx = ''
+
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
+
+					obj = 'NONE'
+					obj_stem = 'NONE'
+					obj_idx = ''
+					obj_pos = ''
+
+					d_list = dependents(tok[0], sent)
+
+					for d in d_list:
+							
+						if d[1] in AUX or d[7] == 'aux':
+							aux = d[1]
+							aux_stem = d[2]
+							aux_idx = d[0]
+					
+						if d[7] == 'nsubj':
+							subj = d[1]
+							subj_stem = d[2]
+							subj_idx = d[0]
+
+						if d[7] == 'obj':
+							obj = d[1]
+							obj_stem = d[2]
+							obj_idx = d[0]
+							obj_pos = d[3]
+
+					head = ''
+				
+					try:
+						head = sent[int(tok[6]) - 1]
+					except:
+						head = tok
+
+					neg = has_neg(tok[0], sent)
+
+					### I don't have ###
+
+					if obj == 'NONE':
+						function = 'possession'
+
+						if len(neg) != 0 and int(neg[-1][0]) < int(tok[0]):
+						
+							info = ['perception', function, tok[2], neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+													
+					### I don't have it ###
+
+					if obj != 'NONE' and (obj_pos in ['n', 'n:pt'] or obj_pos.startswith('pro')):
+						function = 'possession'
+
+						if len(neg) != 0  and int(neg[-1][0]) < int(tok[0]):
+						
+							info = ['perception', function, tok[2], neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+						
+						else:
+							info = ['perception', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+							
+					### I have no book ###
+
+					if len(neg) == 0 and obj != 'NONE' and (obj_pos in ['n', 'n:pt'] or obj_pos.startswith('pro')):
+
+						obj_neg = has_neg(obj_idx, sent)
+
+						if len(obj_neg) != 0:
+
+							function = 'possession'
+						
+							info = ['perception', function, tok[2], obj_neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+								
+					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
+						data.append(info)
+
+			### mine ###
+			### exclude there's mine ###
+
+			
+				if tok[1] in POSS and tok[7] == 'root':
+
+
+					d_list = dependents(tok[0], sent)
+
+					expletive = 'NONE'
+
+					for d in d_list:
+
+						if d[7] == 'expl' and d[2] == 'there':
+							expletive = d
+
+					if expletive == 'NONE':
+						try:
+							if sent[int(tok[0]) - 2][2] == 'there':
+								expletive = 'there'
+					
+						except:
+							expletive = 'NONE'
+
+					if expletive == 'NONE':
+
+						info = ''
+
+						function = 'possession'
+
+						neg = has_neg(tok[0], sent)
+
+						if len(neg) != 0:
+
+							info = ['perception', function, tok[1], tok[2], neg[-1][1], '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+						else:
+							info = ['perception', function, tok[1], tok[2], '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+						if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age >= 12 and age <= 72:
+							data.append(info)
+
+
+	#		### more milk ###
+
+	#		for tok in sent:
+			
+	#			if tok[1] not in POSS and tok[7] == 'root' and (tok[3] in ['n', 'n:pt'] or tok[3].startswith('pro')):
+
+	#				d_list = dependents(tok[0], sent)
+
+	#				copula = 'NONE'
+
+	#				for d in d_list:
+
+	#					if d[7] == 'cop':
+	#						copula = d
+
+	#				function = 'existence'
+
+	#				if copula == 'NONE':
+	#					if len(has_neg(tok[0], sent)) != 0:
+
+	#						info = ['perception', function, 'root', tok[2], '_', '_', '_', '_', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+	#					else:
+
+	#						info = ['perception', function, 'root', tok[2], '_', '_', '_', '_', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+	#		if info not in data:
+	#			data.append(info)
+
+
+			### there's soup ###
+
+				if tok[2] == 'be':
+				#	print(saying)
+					d_list = dependents(tok[0], sent)
+
+					expletive = 'NONE'
+					subj = 'NONE'
+
+					for d in d_list:
+				
+						if d[7] == 'expl' and d[2] == 'there':
+							
+							expletive = d 
+				
+						if d[7] == 'nsubj':
+
+							subj = d
+
+					if expletive != 'NONE' and subj != 'NONE' and (subj[3] in ['n', 'n:pt'] or subj[3].startswith('pro')): # and subj[1] not in POSS:
+
+						info = ''
+
+						function = 'existence'
+
+						neg = has_neg(subj[0], sent)
+
+						if len(neg) != 0:
+
+							info = ['perception', function, tok[1], neg[-1][1], 'there', '', subj[1], subj[2], speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+
+						else:
+
+							info = ['perception', function, tok[1], '', 'there', '', subj[1], subj[2], speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
+
+
+						if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age >= 12 and age <= 72:
+							data.append(info)
+
+			sent = conll_read_sentence(f)
+
+	return data
+
+if __name__ == '__main__':
+
+	parser = argparse.ArgumentParser()
+	parser.add_argument('--input', type = str, help = 'negation .conllu file')
+	parser.add_argument('--output', type = str, help = 'output file')
+	parser.add_argument('--domain', type = str, help = 'concept domain/function')
+	parser.add_argument('--desp', help = 'file for descriptive statistics')
+
+	args = parser.parse_args()
+
+	path = args.input
+
+	all_domain = {'emotion': emotion, 'motor': motor, 'learning': learning, 'epistemic': epistemic, 'perception': perception}
+
+#	child_descriptive, parent_descriptive = descriptive(args.input)
+
+	if args.desp:
+
+		with io.open(args.desp + 'child_descriptive.txt', 'w', encoding = 'utf-8') as f:
+			f.write('Age' + '\t' + 'N_speaker' + '\t' + 'N_utterance' + '\n')
+			for k, v in child_descriptive.items():
+				f.write(str(k) + '\t' + '\t'.join(str(c) for c in v) + '\n')
+
+		with io.open(args.desp + 'parent_descriptive.txt', 'w', encoding = 'utf-8') as f:
+			f.write('Age' + '\t' + 'N_speaker' + '\t' + 'N_utterance' + '\n')
+			for k, v in parent_descriptive.items():
+				f.write(str(k) + '\t' + '\t'.join(str(c) for c in v) + '\n')
+
+		print('done describing data')
+
+	data = []
+
+	with io.open(args.output, 'w', encoding = 'utf-8') as f:
+		f.write('Domain' + '\t' + 'Function' + '\t' + 'Head' + '\t' + 'Negator' + '\t' + 'Aux' + '\t' 'Aux_stem' + '\t' + 'Subj' + '\t' + 'Subj_stem' + '\t' + 'Role' + '\t' + 'Utterance' + '\t' + 'Age' +  '\t' + 'Sent_len' + '\t' + 'Sent_type' + '\t' + 'Child' + '\t' + 'Polarity' + '\n')	
+	
+		for file in os.listdir(args.input):
+			if file.endswith('conllu'):
+				for tok in all_domain[args.domain](args.input + file):
+					f.write('\t'.join(str(w) for w in tok) + '\n')
+
+#	data = all_domain[args.domain](args.input)
+
+	print('done collecting data')
+
+
+

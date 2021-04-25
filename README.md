@@ -15,5 +15,7 @@ python3 COGSCI2021/diaparse/diaparser.py --input CSV_DIRECTORY --output CONLL_DI
 
 ### Extract negative (and positive) utterances ###
 ```
-python3 COGSCI2021/diaparse/construction.py --input CONLL_DIRECTORY --output FILENAME --domain DOMAIN (--desp)
+python3 COGSCI2021/diaparse/construction.py --input CONLL_DIRECTORY --output FILENAME --domain DOMAIN/FUNCTION (--desp)
 ```
+    1. ```-desp``` is for whether you'd like to generate descriptive file (e.g. number of uterances at each age of the childre) for both child and parent speech
+    2. 

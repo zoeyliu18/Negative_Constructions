@@ -17,5 +17,14 @@ python3 COGSCI2021/diaparse/diaparser.py --input CSV_DIRECTORY --output CONLL_DI
 ```
 python3 COGSCI2021/diaparse/construction.py --input CONLL_DIRECTORY --output FILENAME --domain DOMAIN/FUNCTION (--desp)
 ```
-    1. ```-desp``` is for whether you'd like to generate descriptive file (e.g. number of uterances at each age of the childre) for both child and parent speech
-    2. 
+   1. ```-desp``` is for whether you'd like to generate descriptive file (e.g. number of uterances at each age of the childre) for both child and parent speech
+   2. For ```--domain```, set it to:
+      ```emotion``` for emotion
+      ```motor``` for prohibition and inability
+      ```learning``` for labeling
+      ```epistemic``` for epistemic negation
+      ```percetion``` for non-existence
+
+### Output ###
+   1. Descriptive files for child and parent speech are in ```COGSCI2021/data/```
+   2. Data for each domain/function of negation is in ```COGSCI2021/data/```

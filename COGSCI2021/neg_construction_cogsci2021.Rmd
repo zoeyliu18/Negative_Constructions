@@ -612,7 +612,7 @@ existence_data %>%
 
 ```{r motordata, include=FALSE}
 
-motor <-read.csv('data/motor_pre.txt', header = T, sep = '\t')
+motor <-read.csv('data/motor.txt', header = T, sep = '\t')
 # motor <- subset(motor, Subj == 'I' | Subj == 'NONE')
 motor$Role[which(motor$Role == "Father")] <- 'Parent'
 motor$Role[which(motor$Role == "Mother")] <- 'Parent'

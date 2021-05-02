@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2021 14:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  2 MAY 2021 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -493,12 +493,12 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Underfull \vbox (badness 1681) has occurred while \output is active []
 
-
-Underfull \vbox (badness 7722) has occurred while \output is active []
-
 [5 <./figs/prohibition-1.pdf> <./figs/inability-1.pdf> <./figs/learning-1.pdf>]
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 3343) has occurred while \output is active []
 
 [6 <./figs/epistemic-1.pdf> <./figs/possession-1.pdf>]
 Underfull \vbox (badness 3503) has occurred while \output is active []
@@ -530,7 +530,7 @@ exlive/2018/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2018/texmf-
 dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texmf-dist/fonts
 /type1/urw/times/utmri8a.pfb>
-Output written on neg_construction_cogsci2021.pdf (8 pages, 250813 bytes).
+Output written on neg_construction_cogsci2021.pdf (8 pages, 250809 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  177 compressed objects within 2 object streams

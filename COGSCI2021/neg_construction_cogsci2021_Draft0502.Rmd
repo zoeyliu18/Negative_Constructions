@@ -882,7 +882,7 @@ For the function of inability, we analyzed instances where the negative morpheme
 <!--The amount of production variability in child speech for inability is near `r format(round(entropy(subset(inability_data_child, Which=='ratio')),3), big.mark=",")` (parent: `r format(round(entropy(subset(inability_data_parent, Which=='ratio')),3), big.mark=",")`).-->
 
 
-As shown in Figure 4, the developmental trajectory of inability is similar to that for rejection; negation is being applied more and more regularly between 19-36 months. By contrast, the pattern for inability is different from those of non-existence and prohibition in at least the settings that we investigated. It seems that the production trajectories of the latter two both are becoming more regular at a later age (27 and 24 months, respectively), an observation different from the original argument by @choi1988semantic, which proposes vice versa.
+As shown in Figure 4, the developmental trajectory of inability is similar to that for rejection; negation is being applied more and more regularly between 19-36 months. By contrast, the pattern for inability is different from those of non-existence and prohibition in the settings that we investigated. It seems that the production trajectories of the latter two both are becoming more regular at a later age (27 and 24 months, respectively), an observation different from the original argument by @choi1988semantic, which proposes vice versa.
 
 
 ### Labeling

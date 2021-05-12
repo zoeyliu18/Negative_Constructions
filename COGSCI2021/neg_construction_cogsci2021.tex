@@ -66,23 +66,24 @@ Language}
 \begin{abstract}
 How does abstract linguistic negation develop in early child language?
 Previous research has suggested that abstract negation develops in
-stages and from less abstract communicative functions such as rejection,
+stages and from more concrete communicative functions such as rejection,
 prohibition, or non-existence. The evidence for the emergence of these
 functions in stages is mixed, however, leaving the possibility that
-negation is an abstract concept from the beginning and can serve the
-specific functions in children's environemnts. Leveraging automatic
-annotations of large-scale child speech corpora in English, we examine
-the production trajectores of seven negative constructions that tend to
-convey communicative functions previously discussed in the literature.
-The results demonstrate the emergence and gradual increase of these
-constructions in child speech within the age range of 18-36 months.
-Production mostly remains stable, regular, and close to parents' levels
-after this age range. These findings are consistent with two hypotheses:
-first, that negation starts as an abstract concept that can serve
-multiple functions from the beginning; and second, that negation
-develops in stages from specific communicative functions but this
-development is early and quick, leaving our corpus methods incapable of
-detecting them from the available corpus data.
+negation is an abstract concept from the beginning that can serve
+multiple specific functions depending on early communicative
+environment. Leveraging automatic annotations of large-scale child
+speech corpora in English, we examine the production trajectores of
+seven negative constructions that tend to convey communicative functions
+previously discussed in the literature. The results demonstrate the
+emergence and gradual increase of these constructions in child speech
+within the age range of 18-36 months. Production mostly remains stable,
+regular, and close to parents' levels after this age range. These
+findings are consistent with two hypotheses: first, that negation starts
+as an abstract concept that can serve multiple functions from the
+beginning; and second, that negation develops in stages from specific
+communicative functions but this development is early and quick, leaving
+our corpus methods incapable of detecting them from the available corpus
+data.
 
 \textbf{Keywords:}
 negation; syntactic construction; communicative function; development;
@@ -122,35 +123,35 @@ involve conceptualizing actions and negating them. Choi (1988) suggested
 that expressions of inability emerge after the functions in the first
 phase, namely non-existence, rejection, and prohibition.
 
-Despite considerable research on early functions of negation, their
-developmental trajectories in children's production have remained
-unclear. Recently, Nordmeyer \& Frank (2018) looked at the speech of
-five children in the Providence corpus (Demuth, Culbertson, \& Alter,
-2006) and found a great deal of individual variation in how early a
-negative function is attested. They reported that the developmental
+Despite considerable research on early communicative functions of
+negation, their developmental trajectories in children's production have
+remained unclear. Recently, Nordmeyer \& Frank (2018) looked at the
+speech of five children in the Providence corpus (Demuth, Culbertson, \&
+Alter, 2006) and found a great deal of individual variation in how early
+a negative function is attested. They reported that the developmental
 trajectory of negation in their study was not as consistent as
 previously claimed. This leaves the possibility that negation develops
 as an abstract concept that can serve multiple communicative functions
-early in the development based on the contxt of use in parent-child
+early in the development based on the context of use in parent-child
 interactions. Therefore, across (a larger number of) children, distinct
 functions of negation could develop within the same age range and share
-common production trajectories. However, previous experiments have
-mainly relied on manual annotations of corpus data to determine the
-communicative function of a given negative utterance, which in turn has
-limited their work to only a handful of children per study.
+common production trajectories.
 
-Here we aim to go beyond existing work via utilizing a large collection
-of child speech corpora in English (MacWhinney, 2000) along with
-computational tools to automatically identify negative utterances that
-tend to convey the communicative functions discussed in prior research
-(Table 1). In particular, our study investigates three questions: (1)
-how does the developmental trajectory of the negative constructions for
-each function look like? (2) for utterances expressing the same
-function, does the developmental trajectory differ depending on
-particular lexical items that negation modifies (e.g.~\emph{like} or
-\emph{want} for rejection)? (3) taking all functions into account, do
-they share similar developmental characteristics, or would there be
-function-specific differences?
+However, previous experiments have mainly relied on manual annotations
+of corpus data to determine the communicative function of a given
+negative utterance, which in turn has limited their work to only a
+handful of children per study. Here we aim to go beyond existing work
+via utilizing a large collection of child speech corpora in English
+(MacWhinney, 2000) along with computational tools to automatically
+identify negative utterances that tend to convey the communicative
+functions discussed in prior research (Table 1). In particular, our
+study investigates three questions: (1) how does the developmental
+trajectory of the negative constructions for each function look like?
+(2) for utterances expressing the same function, does the developmental
+trajectory differ depending on particular lexical items that negation
+modifies (e.g.~\emph{like} or \emph{want} for rejection)? (3) taking all
+functions into account, do they share similar developmental
+characteristics, or would there be function-specific differences?
 
 Given the automatic fashion of our approach, we focus on larger/longer
 negative constructions at the single-sentence level. This is in
@@ -190,30 +191,31 @@ Possession & with \textit{have}; or possesive pronouns & \textit{not have the to
 \hypertarget{data-and-preprocessing}{%
 \subsection{Data and preprocessing}\label{data-and-preprocessing}}
 
-In this study we used the CHILDES database (MacWhinney,
+For developmental production data of child speech in English, we turned
+to the CHILDES database (MacWhinney,
 2000)\footnote{Code and data are in quarantine at \url{https://github.com/zoeyliu18/Negative_Constructions.}}
 and focused on children with typical development within the age range of
 12 - 72 months. Parents' and children's utterances were extracted via
-the childes-db (Sanchez et al., 2019) interface in the programming
+the childes-db (Sanchez et al., 2019) interface using the programming
 language R. Structures containing the morphemes \emph{no}, \emph{not}
-and \emph{n't} were identified as negative. Utterances with a single
-\emph{no} or such repetitions (e.g.~\emph{no no no}!) were excluded. To
-add (morpho)syntactic representations to parents' and children's
-utterances we used the dependency grammar framework (Tesnière, 1959).
-Dependency relations for all negative utterances were automatically
-derived with DiaParser (Attardi, Sartiano, \& Yu, n.d.), a dependency
-parsing system that has been demonstrated to achieve excellent
-performance for English. To facilitate identification of negative
-constructions, we also utilized the available part-of-speech (POS)
-information initially provided by CHILDES (Sagae, Davis, Lavie,
-MacWhinney, \& Wintner, 2010) when necessary. In this study we consider
-seven communicative functions of negation shown in Table 1. For each
-function, using our parsed data set, we characterized the syntactic
-features of the negative construction associated with it. Based on these
-features, negative utterances were automatically extracted in a
-rule-based fashion with the help of POS information and syntactic
-dependencies. Preprocessing led to a data set of 365,260 negative
-utterances from a total of 811 children across 56 corpora.
+and \emph{n't} were identified as negative. Cases with a single
+\emph{no} or such repetitions (e.g.~\emph{no no no}!) were excluded. In
+order to obtain (morpho)syntactic representations for parents' and
+children's utterances, we used the dependency grammar framework
+(Tesnière, 1959). Dependency relations for all negative utterances were
+automatically derived with DiaParser (Attardi, Sartiano, \& Yu, n.d.), a
+dependency parsing system that has been demonstrated to achieve
+excellent performance for English. To facilitate identification of
+negative constructions, we also utilized the available part-of-speech
+(POS) information initially provided by CHILDES (Sagae, Davis, Lavie,
+MacWhinney, \& Wintner, 2010) when necessary.
+
+In this study, we consider seven communicative functions of negation
+shown in Table 1. For each function, using our parsed data set, we
+characterized the syntactic features of the negative construction
+associated with it. Based on these features, negative utterances were
+automatically extracted in a rule-based fashion with the help of POS
+information and syntactic dependencies.
 
 \hypertarget{measures}{%
 \subsection{Measures}\label{measures}}
@@ -423,8 +425,8 @@ As shown in Figure 4, the developmental trajectory of inability is
 similar to that of rejection. Negation is applied more and more
 regularly between 18-36 months. By contrast, it is different from those
 of non-existence and prohibition. It seems that the production
-trajectories of the latter two are becoming more regular at a later age
-(25 and 24 months, respectively).
+trajectories of the latter two are both becoming more regular at a later
+age (25 and 24 months, respectively).
 
 \hypertarget{labeling}{%
 \subsubsection{Labeling}\label{labeling}}

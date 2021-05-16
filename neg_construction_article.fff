@@ -1,0 +1,70 @@
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/emotion-1}
+
+}
+
+\caption{Rejection and its positive counterparts}\label{fig:emotion}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/existence-1}
+
+}
+
+\caption{Non-existence and its positive counterparts}\label{fig:existence}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/prohibition-1}
+
+}
+
+\caption{Prohibition and its positive counterparts}\label{fig:prohibition}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/inability-1}
+
+}
+
+\caption{Inability and its positive counterparts}\label{fig:inability}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/learning-1}
+
+}
+
+\caption{Labeling and its positive counterparts}\label{fig:learning}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/epistemic-1}
+
+}
+
+\caption{Epistemic negation and its positive counterparts}\label{fig:epistemic}
+\end{figure*}
+\begin{figure*}[hbt]
+\ifnextchar[{\eatarg}{}
+[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/possession-1}
+
+}
+
+\caption{Possession and its positive counterparts}\label{fig:possession}
+\end{figure*}

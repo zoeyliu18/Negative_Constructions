@@ -1,0 +1,1042 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  man,floatsintext]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={English Negative Constructions and Communicative Functions in Early Child Language},
+  pdfauthor={1 \& 2},
+  pdflang={en-EN},
+  pdfkeywords={negation; syntactic construction; communicative function; development; child language.},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Negation and communicative functions}
+\keywords{negation; syntactic construction; communicative function; development; child language.
+\newline\indent Word count: X}
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
+
+\title{English Negative Constructions and Communicative Functions in Early Child Language}
+\author{\textsuperscript{1} \& \textsuperscript{2}}
+\date{}
+
+
+\authornote{
+
+Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+Enter author note here.
+
+Correspondence concerning this article should be addressed to , . E-mail:
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} \\\textsuperscript{2} }
+
+\abstract{
+How does abstract linguistic negation develop in early child language? Previous research has suggested that abstract negation develops in stages and from more concrete communicative functions such as rejection, prohibition, or non-existence. The evidence for the emergence of these functions in stages is mixed, however, leaving the possibility that negation is an abstract concept from the beginning that can serve multiple specific functions depending on early communicative environment. Leveraging automatic annotations of large-scale child speech corpora in English, we examine the production trajectores of seven negative constructions that tend to convey communicative functions previously discussed in the literature. The results demonstrate the emergence and gradual increase of these constructions in child speech within the age range of 18-36 months. Production mostly remains stable, regular, and close to parents' levels after this age range. These findings are consistent with two hypotheses: first, that negation starts as an abstract concept that can serve multiple functions from the beginning; and second, that negation develops in stages from specific communicative functions but this development is early and quick, leaving our corpus methods incapable of detecting them from the available corpus data.
+}
+
+
+
+\begin{document}
+\maketitle
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+Negation is an abstract concept that serves different communicative functions in everyday communication. A coffee shop can divide its menu into \enquote{coffee} and \enquote{not coffee} sections, with \enquote{not coffee} bringing together diverse items with no common label like tea and hot chocolate. It could be used in a sign like \enquote{no mask, no entry} to regulate people's behaviors. An employee could say \enquote{I don't like Mondays} to communicate their desires or dislikes. But how does abstract multi-functional negation emerge and develop in the human mind? Are early stages of negation in child language specific to one or a few functions? Or does negation emerge as an abstract and multifunctional concept from the beginning?
+
+Previous literature has proposed that abstract negation develops from less abstract communicative functions in ordered stages (Pea, 1978). For instance, Darwin (1872) hypothesized that the earliest manifestation of negation in infants is when they refuse or reject food from parents by withdrawing their heads laterally. Similarly, Pea (1978) also proposed \enquote{rejection} as the first function of negation in child language. By contrast, Bloom (1970) argued that the use of negation to express \enquote{non-existence} emerges before \enquote{rejection}. For example, when an object that children expect to be present is not, children may say: \enquote{there is no window}. Follow-up study by Choi (1988) argued that \enquote{prohibition} emerges as early as rejections and non-existence. In cases of prohibition, children use negation to stop others or themselves from performing actions (e.g.~\enquote{don't go}). A function similar to prohibition is \enquote{inability} (e.g.~\enquote{I cannot zip it}), in that both involve conceptualizing actions and negating them. Choi (1988) suggested that expressions of inability emerge after the functions in the first phase, namely non-existence, rejection, and prohibition.
+
+Despite considerable research on early communicative functions of negation, their developmental trajectories in children's production have remained unclear. Recently, Nordmeyer and Frank (2018) looked at the speech of five children in the Providence corpus (Demuth, Culbertson, \& Alter, 2006) and found a great deal of individual variation in how early a negative function is attested. They reported that the
+developmental trajectory of negation in their study was not as consistent as previously claimed. This leaves the possibility that negation develops as an abstract concept that can serve multiple communicative functions early in the development based on the context of use in parent-child interactions. Therefore, across (a larger number of) children, distinct functions of negation could develop within the same age range and share common production trajectories.
+
+However, previous experiments have mainly relied on manual annotations of corpus data to determine the communicative function of a given negative utterance, which in turn has limited their work to only a handful of children per study.
+Here we aim to go beyond existing work via utilizing a large collection of child speech corpora in English (MacWhinney, 2000) along with computational tools to automatically identify negative utterances that tend to convey the communicative functions discussed in prior research (Table 1). In particular, our study investigates three questions: (1) how does the developmental trajectory of the negative constructions for each function look like? (2) for utterances expressing the same function, does the developmental trajectory differ depending on particular lexical items that negation modifies (e.g.~\emph{like} or \emph{want} for rejection)? (3) taking all functions into account, do they share similar developmental characteristics, or would there be function-specific differences?
+
+Given the automatic fashion of our approach, we focus on larger/longer negative constructions at the single-sentence level. This is in opposition to short negative forms at the discourse-level such as cases consisting of one morpheme (e.g.~\enquote{no!}) or repetition of negative morphemes (e.g.~\enquote{no no no}), which arguably could express multiple functions when not taking the discourse context into account and accordingly leave more room for ambiguous interpretation. Therefore the negative utterances in our study do not fully cover all negation instances from the corpora investigated, nor reflect all possible communicative functions that could be played by negation more broadly, but it could provide at least a conservative estimate of the age range during which negation is developed gradually in child production.
+
+\begin{table*}[h]
+\small
+\centering
+\begin{tabular}{rrr}
+  \hline
+ \textbf{Function} & \textbf{Linguistic Composition} & \textbf{Examples} \\
+  \hline
+Rejection & with \textit{like} or \textit{want} & \textit{I not like it}, \textit{not want it}  \\
+Non-existence & expletives & \textit{there is no soup} \\
+Prohibition & with imperative subjectless \textit{do} & \textit{do not spill milk} \\
+Inability & with modal \textit{can} & \textit{I cannot zip it} \\
+Labeling & modifying nominal or adjectival predicatives & \textit{that's not a crocodile}; \textit{it's no interesting} \\
+Epistemic negation & with \textit{know}, \textit{think}, \textit{remember}  & \textit{I not know} \\
+Possession & with \textit{have}; or possesive pronouns & \textit{not have the toy}; \textit{not mine} \\
+   \hline
+\end{tabular}
+\caption{Communicative functions of negation in early child language of English.}
+\end{table*}
+
+\hypertarget{related-work}{%
+\section{Related Work}\label{related-work}}
+
+Starting a century and a half ago, Darwin (1872) thought that negation has roots in the expression of human emotions and desires. He hypothesized the earliest manifestation of negation and affirmation in infants is when they refuse food from parents, by withdrawing their heads laterally, or when they accept the food, by inclining their heads forward. He suggested that head shaking and nodding as common gestures for negation and affirmation pro developed from this early habit. Similarly, many researchers studying early functions of negative morphemes like \emph{no} proposed that children use them to \enquote{reject} or \enquote{refuse} (Bloom, 1970; Choi, 1988; Pea, 1978). For example, when they are asked \enquote{do you want juice?}, they may say \enquote{no}, \enquote{not want it}, or \enquote{don't like it}. Pea (1978) proposed this negation function is the first to emerge in children's early speech.
+
+Bloom (1970) argued that the use of negation to expresses \enquote{non-existence} emerges before rejection or refusal. For example, when an object that children expect to be present is not present, children may say: \enquote{no window}, \enquote{no fish in the bathroom}, or \enquote{I do not pro underpants}. Two close concepts to non-existence are \enquote{disappearance} and \enquote{non-occurrence} (Pea, 1978; Villiers \& Villiers, 1979). Disappearance refers to situations where an object disappears and children use negation to express it (e.g.~\enquote{no food. all gone} or \enquote{no more noise}). Non-occurrence refers to cases when an expected action or event does not occur as in \enquote{not working} or \enquote{doggie not barking}. Some researchers referred to these cases as \enquote{failures} and included examples like \enquote{no fit in da box} or \enquote{it don't fit} (Cameron-Faulkner, Lieven, \& Theakston, 2007; Choi, 1988). Non-existence can also be expressed by negation of locative prepositional phrases (e.g.~\enquote{no in there} or \enquote{daddy was not on the phone}). While rejection was hypothesized to interact with human emotions and desires, non-existence (broadly construed to include \enquote{disappearance} and \enquote{non-occurrence}) likely interacts with human perception. Choi (1988) proposed that children's early linguistic negation is used to express both rejection and non-existence.
+
+Additionally, Choi (1988) introduced \enquote{prohibition} and suggested that it emerges as early as rejection and non-existence. In cases of prohibition, children use negation to stop others from performing actions; for example \enquote{don't go} or \enquote{do not spill milk}. A special case of prohibition is \enquote{self-prohibition}. For example, a child may approach prohibited food but immediately say \enquote{no, don't eat} to stop themselves. A function similar to prohibition is \enquote{inability} (e.g.~\emph{I can't reach} / \emph{I cannot zip it}), in that both involve conceptualizing actions and negating them, possibly interacting with early development of motor control. Choi (1988) suggested that expression of inability emerges after the first phase, namely non-existence, rejection, and prohibition.
+
+\enquote{Denial} is another function of negation that is argued to be late in development. Bloom (1970) defined it as asserting that \enquote{an actual or supposed predication was not the case}, for example \enquote{It's not sharp}. Later researchers formulated it as \enquote{truth-functional negation} because it is used to negate the truth of a proposition (Cameron-Faulkner et al., 2007; Pea, 1978). However, this definition depends on the assumed logical system and its assumptions on what type of propositions receive truth values. A particular sub-function of denial is \enquote{labeling}, which is realized as the negation of nominal or adjectival predicates such as \enquote{this is not a bunny} or \enquote{not red}. These utterances are often used to introduce new linguistic labels by parents and in turn may facilitate word learning (Clark, 2010). Conversely, labeling and word learning may aid the development of abstract negation.
+
+Despite considerable research on early functions of negation, their developmental trajectories in children's productions pro remained unclear. Different studies pro claimed different order of acquisition (Pea, 1978). In a recent study, Nordmeyer and Frank (2018) looked at the speech of five children in the Providence corpus (Demuth et al., 2006) and found a great deal of individual differences in how early a negative function is attested. This is partly because previous studies pro had to rely on human annotation and identification of functions from corpus data, a time-consuming and difficult process that has limited previous studies to a handful of children and a relatively small sample of their speech.
+
+\clearpage
+
+\hypertarget{experiments}{%
+\section{Experiments}\label{experiments}}
+
+\hypertarget{data-and-preprocessing}{%
+\subsection{Data and preprocessing}\label{data-and-preprocessing}}
+
+For developmental production data of child speech in English, we turned to the CHILDES database (MacWhinney, 2000)\footnote{Code and data are in quarantine at \url{https://github.com/zoeyliu18/Negative_Constructions.}} and focused on children with typical development within the age range of 12 - 72 months. Parents' and children's utterances were extracted via the childes-db (Sanchez et al., 2019) interface using the programming language R. Structures containing the morphemes \emph{no}, \emph{not} and \emph{n't} were identified as negative. Cases with a single \emph{no} or such repetitions (e.g.~\emph{no no no}!) were excluded. In order to obtain (morpho)syntactic representations for parents' and children's utterances, we used the dependency grammar framework (Tesnière, 1959). Dependency relations for all negative utterances were automatically derived with DiaParser (Attardi, Sartiano, \& Yu, n.d.), a dependency parsing system that has been demonstrated to achieve excellent performance for English. To facilitate identification of negative constructions, we also utilized the available part-of-speech (POS) information initially provided by CHILDES (Sagae, Davis, Lavie, MacWhinney, \& Wintner, 2010) when necessary.
+
+In this study, we consider seven communicative functions of negation shown in Table 1. For each function, using our parsed data set, we characterized the syntactic features of the negative construction associated with it. Based on these features, negative utterances were automatically extracted in a rule-based fashion with the help of POS information and syntactic dependencies.
+
+\hypertarget{measures}{%
+\subsection{Measures}\label{measures}}
+
+As indexes of the developmental trajectory for negative constructions and their communicative functions in child speech, we measured the following two metrics at each given age of the children. The first one is the \emph{ratio} of negative utterances. For instance, the number of utterances produced by children at the age of 30 months (not just all negative constructions at this age) is 52,491 in total. Among these utterances, negative structures that have the function of inability occur for 141 times; the ratio for this communicative function at 30 months is then calculated as 141 / 52,491 = 0.003.
+
+Given the noisy nature of child production data in general, and the facts that there are different numbers of utterances and children at each age, another measure that we utilized is \emph{moving ratio}, borrowed from the model of moving average in analyses of time series data (Wei, 2006). For a communicative function, the goal of the moving ratio is still to reflect the production of the negative utterances at the given age; meanwhile it takes into account the previous production of all negative constructions of the same function before the specified age. This would allow us to have a more balanced look at individual developmental stage (e.g.~age) of a communicative function, in relation to its development patterns thus far.
+
+The computation of the moving ratio is as follows. For instance, given that the number of negative utterances that express inability in child speech is 141 at the age of 30 months, we: (1) count the total number of negative constructions with the same function produced by children \emph{at and before} 30 months old (682); (2) compute the total number of utterances (419,949) within the same age range; (3) divide the number of (1) by that of (2) (682 / 419,949 = 0.002).
+
+While our focus is negative utterances in child production, we used parents' speech as comparative references. Therefore for every communicative function, the same two ratio measures were calculated for parent speech in a similar fashion. Our plots accordingly contrast the ratio / moving ratio of different negative constructions between children's and parents' production at corresponding ages of the children.
+
+In what follows, we describe in detail the results of each communicative function and their negative constructions. While we computed both ratio and moving ratio for every function, our analyses mainly rely on the latter.
+
+\hypertarget{communicative-functions-of-negative-constructions-and-their-positive-counterparts}{%
+\subsection{Communicative functions of negative constructions and their positive counterparts}\label{communicative-functions-of-negative-constructions-and-their-positive-counterparts}}
+
+\hypertarget{rejection}{%
+\subsubsection{Rejection}\label{rejection}}
+
+For the function of rejection, we examined cases where the lemma of the head verb of the phrase is either \emph{like} or \emph{want}, and the head verb is modified by one of the three negative morphemes. Other than expressions that the speakers used to describe their own desires with (e.g.~(1)) or without (e.g.~(2)) an auxiliary verb, we also included cases that express rhetorical inquiries of desires from one interlocutor addressed to another (e.g.~(3)), and instances where the speaker is describing the desires of somebody else (e.g.~(4)). This resulted in a total of 143,165 negative utterances (child: 53,948; parent: 89,217).
+
+~
+(1) \emph{I no like sea}
+
+~
+(2) \emph{don't wanna go}
+
+~
+(3) \emph{don't you wanna try it}
+
+~
+(4) \emph{Sarah doesn't like that either}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/emotion-1} 
+
+}
+
+\caption{Rejection and its positive counterparts}\label{fig:emotion}
+\end{figure}
+
+As presented in Figure 1, the overall pattern for children's usage of negative morphemes for rejection is comparable regardless of the particular head verb. Comparing child and parent speech, it seems that children's production of rejection is gradually increasing between the age of 18 to 36 months. And the production moving ratio in child speech appears to be more comparable to that of parent speech after 32-34 months.
+
+For both negative and positive:
+
+Model: Production ratio \textasciitilde{} Age + MLU + Parent\_negative\_ratio + Parent\_Positive\_ratio + Parent\_negative\_MLU + Parent\_positive\_MLU
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-1}Estimating Production Ratio of Rejection in Child Speech, when head verb is like}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -30.77 & 5.797 & -5.31 & <0.001\\
+\hline
+Age & 0.01 & 0.002 & 3.55 & <0.001\\
+\hline
+MLU & -0.51 & 0.113 & -4.52 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 4.50 & 0.403 & 11.17 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & -10.53 & 1.159 & -9.08 & <0.001\\
+\hline
+Parent\_negative\_MLU & -1.02 & 0.220 & -4.63 & <0.001\\
+\hline
+Parent\_positive\_MLU & 2.36 & 0.128 & 18.42 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-1}Estimating Production Ratio of Positive Counterparts for Rejection in Child Speech, when head verb is like}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -52.05 & 5.901 & -8.82 & <0.001\\
+\hline
+Age & 0.00 & 0.003 & 0.46 & 0.645\\
+\hline
+MLU & 0.55 & 0.099 & 5.54 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 0.97 & 0.416 & 2.33 & 0.024\\
+\hline
+log(Parent\_positive\_ratio) & -9.86 & 1.136 & -8.68 & <0.001\\
+\hline
+Parent\_negative\_MLU & -1.07 & 0.222 & -4.81 & <0.001\\
+\hline
+Parent\_positive\_MLU & 1.91 & 0.123 & 15.51 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}Estimating Production Ratio of Rejection in Child Speech, when head verb is want}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 14.90 & 4.954 & 3.01 & 0.004\\
+\hline
+Age & -0.01 & 0.003 & -1.73 & 0.090\\
+\hline
+MLU & -0.36 & 0.043 & -8.45 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 4.55 & 0.650 & 7.01 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 2.80 & 0.960 & 2.92 & 0.005\\
+\hline
+Parent\_negative\_MLU & -1.73 & 0.337 & -5.12 & <0.001\\
+\hline
+Parent\_positive\_MLU & 4.27 & 0.474 & 9.01 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}Estimating Production Ratio of Positive Counterparts for Rejection in Child Speech, when head verb is want}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -21.50 & 7.946 & -2.71 & 0.009\\
+\hline
+Age & -0.01 & 0.005 & -2.67 & 0.010\\
+\hline
+MLU & -0.02 & 0.028 & -0.60 & 0.549\\
+\hline
+log(Parent\_negative\_ratio) & -0.82 & 0.963 & -0.85 & 0.399\\
+\hline
+log(Parent\_positive\_ratio) & 0.63 & 1.400 & 0.45 & 0.652\\
+\hline
+Parent\_negative\_MLU & -0.20 & 0.678 & -0.30 & 0.766\\
+\hline
+Parent\_positive\_MLU & 2.39 & 0.703 & 3.40 & 0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{non-existence}{%
+\subsubsection{Non-existence}\label{non-existence}}
+
+For the function of non-existence, we extracted utterances that have expletives marked by \emph{there} (e.g.~(5) and (6)), and that the predicate modified by the negative morphemes is a nominal phrase (headed by either nouns or pronouns). This led to a total of 30,609 negative utterances (child: 6,639; parent: 23,970).
+
+~
+(5) \emph{there's no (more) water}
+
+~
+(6) \emph{there isn't it}
+
+In child speech, the production of negative constructions to express non-existence is gradually increasing from 25 to 36 months (Figure 2), which is by contrast later than that for the communicative function of rejection presented in Figure 1. This observation does not seem to align with Bloom (1970), which initially proposed that the development of non-existence is earlier than that of rejection. On the other hand, children's production moving ratio gradually approaches that in parent speech at 36-38 months.
+
+Notice that there appears to be fluctuations of moving ratios between the age of 19 and 25 months regarding child production. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore while the number of total utterances increases along the developmental trajectory, the moving ratio for negative utterances actually decreases.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/existence-1} 
+
+}
+
+\caption{Non-existence and its positive counterparts}\label{fig:existence}
+\end{figure}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}Estimating Production Ratio of Non-existence in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -162.14 & 53.399 & -3.04 & 0.004\\
+\hline
+Age & -0.02 & 0.012 & -1.53 & 0.133\\
+\hline
+MLU & -0.25 & 0.399 & -0.62 & 0.538\\
+\hline
+log(Parent\_negative\_ratio) & 1.34 & 3.943 & 0.34 & 0.735\\
+\hline
+log(Parent\_positive\_ratio) & -41.24 & 14.917 & -2.76 & 0.008\\
+\hline
+Parent\_negative\_MLU & -1.16 & 0.695 & -1.67 & 0.102\\
+\hline
+Parent\_positive\_MLU & -0.33 & 1.659 & -0.20 & 0.841\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-3}Estimating Production Ratio of Positive Counterparts for Non-existence in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 45.48 & 5.023 & 9.05 & <0.001\\
+\hline
+Age & -0.01 & 0.003 & -3.10 & 0.003\\
+\hline
+MLU & 0.05 & 0.122 & 0.37 & 0.712\\
+\hline
+log(Parent\_negative\_ratio) & 3.72 & 0.559 & 6.66 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 7.20 & 1.151 & 6.26 & <0.001\\
+\hline
+Parent\_negative\_MLU & -0.04 & 0.126 & -0.29 & 0.773\\
+\hline
+Parent\_positive\_MLU & 1.08 & 0.248 & 4.34 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{prohibition}{%
+\subsubsection{Prohibition}\label{prohibition}}
+
+For constructions that articulate the function of prohibition, we focused on cases that are annotated as imperatives from the initial CHILDES annotations. These utterances do not take any subject; the negative morphemes are combined with the auxiliary verb \emph{do} (\emph{do}, \emph{does}, \emph{did}) and they together modify the head verbs of the sentences.
+In order to not overlap with rejection, non-existence, epistemic negation and possession (see below), our search excluded cases where the head verb has any of the following lemma forms: \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, \emph{have}. This resulted in a total of 18,586 negative utterances (child: 6,431; parent: 12,155).
+
+Based on Figure 3, children are combining negative morphemes for prohibition more and more regularly between 24-36 months, which is comparable to that of the function of non-existence, but slightly later than that of rejection. In comparison, the production moving ratio in child speech for prohibition is consistently lower than that in parent speech at any age of the children.
+
+~
+(7) \emph{don't blame Charlotte}
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/prohibition-1} 
+
+}
+
+\caption{Prohibition and its positive counterparts}\label{fig:prohibition}
+\end{figure}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Estimating Production Ratio of Prohibition in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -43.00 & 7.989 & -5.38 & <0.001\\
+\hline
+Age & 0.01 & 0.005 & 1.63 & 0.115\\
+\hline
+MLU & -0.58 & 0.134 & -4.32 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & -7.24 & 1.621 & -4.47 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 5.57 & 1.646 & 3.39 & 0.002\\
+\hline
+Parent\_negative\_MLU & -1.82 & 0.791 & -2.29 & 0.029\\
+\hline
+Parent\_positive\_MLU & 3.55 & 0.882 & 4.03 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-4}Estimating Production Ratio of Positive Counterparts for Prohibition in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 5.63 & 7.189 & 0.78 & 0.438\\
+\hline
+Age & 0.00 & 0.008 & -0.24 & 0.809\\
+\hline
+MLU & 0.47 & 0.157 & 2.98 & 0.005\\
+\hline
+log(Parent\_negative\_ratio) & 3.87 & 0.961 & 4.02 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & -3.10 & 1.041 & -2.97 & 0.005\\
+\hline
+Parent\_negative\_MLU & -1.61 & 1.241 & -1.30 & 0.202\\
+\hline
+Parent\_positive\_MLU & 2.08 & 1.280 & 1.62 & 0.112\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{inability}{%
+\subsubsection{Inability}\label{inability}}
+
+For the function of inability, we analyzed instances where the negative morphemes co-occur with the auxiliary \emph{can} (\emph{can} and \emph{could}; e.g.~(8)) and both of them modify the head verbs of the utterances. Again, we filtered out cases where the head verbs are the focus for other functions. Cases without a subject (e.g.~\enquote{can't play}) or where the subject is not \emph{I} (e.g.~\enquote{you can't do that}) could yield ambiguous readings when not looking at a larger discourse context; they could be a rhetorical question or also express the concept of prohibition. Therefore to potentially avoid less ambiguity, we restricted our analyses only to cases with a subject \emph{I}. This led to 110,879 negative utterances (child: 61,300; parent: 49,579).
+
+~
+(8) \emph{I can't see}
+
+As shown in Figure 4, the developmental trajectory of inability is similar to that of rejection. Negation is applied more and more regularly between 18-36 months. By contrast, it is different from those of non-existence and prohibition. It seems that the production trajectories of the latter two are both becoming more regular at a later age (25 and 24 months, respectively).
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/inability-1} 
+
+}
+
+\caption{Inability and its positive counterparts}\label{fig:inability}
+\end{figure}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}Estimating Production Ratio of Inability in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -4.20 & 4.644 & -0.90 & 0.371\\
+\hline
+Age & 0.00 & 0.008 & -0.22 & 0.824\\
+\hline
+MLU & 1.28 & 0.162 & 7.88 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 2.46 & 0.269 & 9.15 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & -1.96 & 0.641 & -3.06 & 0.004\\
+\hline
+Parent\_negative\_MLU & 0.35 & 0.401 & 0.87 & 0.390\\
+\hline
+Parent\_positive\_MLU & -0.50 & 0.539 & -0.92 & 0.362\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-5}Estimating Production Ratio of Positive Counterparts for Inability in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -2.74 & 3.435 & -0.80 & 0.428\\
+\hline
+Age & 0.01 & 0.004 & 1.69 & 0.097\\
+\hline
+MLU & -0.14 & 0.037 & -3.74 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 1.96 & 0.204 & 9.65 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & -2.02 & 0.402 & -5.02 & <0.001\\
+\hline
+Parent\_negative\_MLU & -0.42 & 0.184 & -2.26 & 0.028\\
+\hline
+Parent\_positive\_MLU & 1.03 & 0.102 & 10.04 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{labeling}{%
+\subsubsection{Labeling}\label{labeling}}
+
+To capture the function of labeling, we concentrated on cases where negative morphemes indicate the identity (e.g.~(9)), and/or characteristics (e.g.~(10)) of a predicative nominal. We also included instances where negation is used to modify a predicative adjective (e.g.~(11)). Utterances where negative morphemes modify a nominal or adjectival predicate of a copula verb were extracted. None of the utterances contained expletives (e.g.~\enquote{there is no book}) to distinguish from non-existence. This resulted in a total of 377,128 negative utterances (Child: 88,552; Parent: 288,576).
+
+~
+(9) \emph{that's not a farmer}
+
+~
+(10) \emph{I'm not a heavy baby Mum}
+
+~
+(11) \emph{It's no good}
+
+Based on Figure 5, the developmental pattern for labeling is comparable to non-existence and prohibition; children are increasing their use of the negative morphemes around the age range of of 22-36 months.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/learning-1} 
+
+}
+
+\caption{Labeling and its positive counterparts}\label{fig:learning}
+\end{figure}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Estimating Production Ratio of Learning in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -37.24 & 10.643 & -3.50 & 0.001\\
+\hline
+Age & -0.01 & 0.009 & -0.82 & 0.418\\
+\hline
+MLU & 1.15 & 0.185 & 6.21 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 3.78 & 0.813 & 4.65 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & -20.02 & 3.266 & -6.13 & <0.001\\
+\hline
+Parent\_negative\_MLU & 0.06 & 0.816 & 0.08 & 0.940\\
+\hline
+Parent\_positive\_MLU & 0.20 & 0.872 & 0.23 & 0.822\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-6}Estimating Production Ratio of Positive Counterparts for Learning in Child Speech}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 7.47 & 5.347 & 1.40 & 0.168\\
+\hline
+Age & -0.01 & 0.005 & -2.00 & 0.051\\
+\hline
+MLU & 1.48 & 0.217 & 6.78 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & 1.12 & 0.275 & 4.08 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 3.14 & 1.170 & 2.68 & 0.010\\
+\hline
+Parent\_negative\_MLU & -0.11 & 0.439 & -0.24 & 0.812\\
+\hline
+Parent\_positive\_MLU & -0.86 & 0.447 & -1.92 & 0.060\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{epistemic-negation}{%
+\subsubsection{Epistemic Negation}\label{epistemic-negation}}
+
+Previous studies have reported instances where negative morphemes are combined with mental/epistemic state verbs such as \emph{know}, \emph{think}, and \emph{remember} in child speech to express epistemic negation. Here we focused on these three verbs and analyzed negative utterances that articulate the concept of not knowing (e.g.~(12)) or uncertainty (e.g.~(13)). The verbs in these cases are modified by the negative morphemes directly or by the combination of negation with auxiliaries. Instances where the speaker asks about or describes the negative epistemic state of another speaker (e.g.~(14)) were also selected, leading to 109,325 negative utterances in total (child: 18,581; parent: 90,744).
+
+~
+(12) \emph{I not know} / \emph{I didn't remember}
+
+~
+(13) \emph{I don't think so}
+
+~
+(14) \emph{don't you remember} / \emph{She doesn't know this}
+
+Based on the data analyzed here (Figure 6), the production of negative utterances headed by \emph{know} are becoming more regular at an earlier age (17-18 months) compared to that of \emph{remember} (\textasciitilde19 months) or \emph{think} (\textasciitilde20 months). Overall the production moving ratio of utterances with \emph{know} is comparatively the highest.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/epistemic-1} 
+
+}
+
+\caption{Epistemic negation and its positive counterparts}\label{fig:epistemic}
+\end{figure}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-7}Estimating Production Ratio of Epistemic Negation in Child Speech, when head verb is know}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 22.27 & 2.160 & 10.31 & <0.001\\
+\hline
+Age & 0.00 & 0.002 & 2.06 & 0.044\\
+\hline
+MLU & 0.02 & 0.031 & 0.53 & 0.598\\
+\hline
+log(Parent\_negative\_ratio) & 3.97 & 0.401 & 9.90 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 0.62 & 0.357 & 1.72 & 0.091\\
+\hline
+Parent\_negative\_MLU & -0.12 & 0.151 & -0.81 & 0.419\\
+\hline
+Parent\_positive\_MLU & -0.45 & 0.108 & -4.13 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-7}Estimating Production Ratio of Positive Counterparts for Epistemic Negation in Child Speech, when head verb is know}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 28.95 & 2.986 & 9.70 & <0.001\\
+\hline
+Age & 0.00 & 0.002 & 1.25 & 0.216\\
+\hline
+MLU & 0.11 & 0.039 & 2.91 & 0.005\\
+\hline
+log(Parent\_negative\_ratio) & 4.03 & 0.504 & 8.00 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 2.78 & 0.398 & 6.98 & <0.001\\
+\hline
+Parent\_negative\_MLU & 0.11 & 0.184 & 0.57 & 0.569\\
+\hline
+Parent\_positive\_MLU & -0.34 & 0.143 & -2.40 & 0.020\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-8}Estimating Production Ratio of Epistemic Negation in Child Speech, when head verb is remember}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 27.11 & 8.811 & 3.08 & 0.004\\
+\hline
+Age & 0.02 & 0.005 & 3.85 & <0.001\\
+\hline
+MLU & 0.11 & 0.080 & 1.40 & 0.169\\
+\hline
+log(Parent\_negative\_ratio) & -3.51 & 1.207 & -2.91 & 0.006\\
+\hline
+log(Parent\_positive\_ratio) & 8.79 & 1.879 & 4.68 & <0.001\\
+\hline
+Parent\_negative\_MLU & -1.17 & 0.298 & -3.93 & <0.001\\
+\hline
+Parent\_positive\_MLU & -0.63 & 0.407 & -1.55 & 0.130\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-8}Estimating Production Ratio of Positive Counterparts for Epistemic Negation in Child Speech, when head verb is remember}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 0.57 & 7.728 & 0.07 & 0.941\\
+\hline
+Age & 0.00 & 0.005 & 0.72 & 0.474\\
+\hline
+MLU & 0.21 & 0.073 & 2.89 & 0.006\\
+\hline
+log(Parent\_negative\_ratio) & 1.24 & 0.825 & 1.50 & 0.142\\
+\hline
+log(Parent\_positive\_ratio) & 0.67 & 1.118 & 0.60 & 0.554\\
+\hline
+Parent\_negative\_MLU & 0.53 & 0.203 & 2.61 & 0.013\\
+\hline
+Parent\_positive\_MLU & -0.15 & 0.351 & -0.42 & 0.675\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-9}Estimating Production Ratio of Epistemic Negation in Child Speech, when head verb is think}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -12.07 & 3.255 & -3.71 & <0.001\\
+\hline
+Age & 0.01 & 0.003 & 3.65 & <0.001\\
+\hline
+MLU & 0.13 & 0.052 & 2.44 & 0.019\\
+\hline
+log(Parent\_negative\_ratio) & -0.69 & 0.815 & -0.84 & 0.403\\
+\hline
+log(Parent\_positive\_ratio) & 2.95 & 1.058 & 2.79 & 0.008\\
+\hline
+Parent\_negative\_MLU & 1.78 & 0.670 & 2.65 & 0.011\\
+\hline
+Parent\_positive\_MLU & -0.87 & 0.640 & -1.35 & 0.183\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-9}Estimating Production Ratio of Positive Counterparts for Epistemic Negation in Child Speech, when head verb is think}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 29.18 & 2.103 & 13.87 & <0.001\\
+\hline
+Age & 0.01 & 0.002 & 5.03 & <0.001\\
+\hline
+MLU & 0.53 & 0.047 & 11.27 & <0.001\\
+\hline
+log(Parent\_negative\_ratio) & -0.01 & 0.483 & -0.01 & 0.989\\
+\hline
+log(Parent\_positive\_ratio) & 2.43 & 0.520 & 4.66 & <0.001\\
+\hline
+Parent\_negative\_MLU & -2.53 & 0.267 & -9.48 & <0.001\\
+\hline
+Parent\_positive\_MLU & -0.44 & 0.068 & -6.53 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{possession}{%
+\subsubsection{Possession}\label{possession}}
+
+The last function we explored is possession. We selected cases where the negative morphemes are combined with auxiliary verbs to modify a head verb with the lemma form \emph{have} (e.g.~(15)). We also included individual noun phrases with possessive pronouns as heads and modified by negative morphemes (e.g.~(16)). Cases in which the syntactic head of the negative morphemes is a predicate of a copula verb (e.g.~\enquote{this is not mine}) were excluded to separate them from the function \enquote{labeling}. The number of negative utterances that were subjected to analysis for this function is 66,783 (child: 19,097; parent: 47,686).
+
+~
+(15) \emph{I don't have it}
+
+~
+(16) \emph{not mine}
+
+Given Figure 7, the developmental trajectory for possession in child speech appears to have notable differences depending on what the negative morphemes are modifying. When their syntactic head is \emph{have}, the pattern is comparable to those of \enquote{rejection} and \enquote{labeling}, where children are increasing their combination of negative morphemes from 18 to 36 months. However, the production moving ratio for utterances headed by possessive pronouns seems to be relatively stable across different ages.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/possession-1} 
+
+}
+
+\caption{Possession and its positive counterparts}\label{fig:possession}
+\end{figure}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-10}Estimating Production Ratio of Posession in Child Speech, when head verb is have}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 38.51 & 18.126 & 2.12 & 0.039\\
+\hline
+Age & 0.00 & 0.005 & 0.69 & 0.496\\
+\hline
+MLU & -0.15 & 0.066 & -2.26 & 0.029\\
+\hline
+log(Parent\_negative\_ratio) & 5.42 & 1.358 & 3.99 & <0.001\\
+\hline
+log(Parent\_positive\_ratio) & 0.62 & 5.332 & 0.12 & 0.907\\
+\hline
+Parent\_negative\_MLU & -2.35 & 0.305 & -7.70 & <0.001\\
+\hline
+Parent\_positive\_MLU & 1.53 & 0.470 & 3.26 & 0.002\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-10}Estimating Production Ratio of Positive Counterparts for Posession in Child Speech, when head verb is have}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & 55.54 & 5.195 & 10.69 & <0.001\\
+\hline
+Age & 0.00 & 0.002 & -0.94 & 0.351\\
+\hline
+MLU & 0.13 & 0.060 & 2.24 & 0.030\\
+\hline
+log(Parent\_negative\_ratio) & -1.10 & 0.576 & -1.90 & 0.063\\
+\hline
+log(Parent\_positive\_ratio) & 14.14 & 1.014 & 13.94 & <0.001\\
+\hline
+Parent\_negative\_MLU & -1.02 & 0.151 & -6.76 & <0.001\\
+\hline
+Parent\_positive\_MLU & -0.35 & 0.126 & -2.77 & 0.008\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-11}Estimating Production Ratio of Posession in Child Speech, when syntactic head is pronoun}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -29.61 & 4.201 & -7.05 & <0.001\\
+\hline
+Age & 0.00 & 0.002 & -1.33 & 0.194\\
+\hline
+MLU & 0.34 & 0.113 & 2.98 & 0.006\\
+\hline
+log(Parent\_negative\_ratio) & -0.66 & 0.503 & -1.32 & 0.197\\
+\hline
+log(Parent\_positive\_ratio) & -2.29 & 0.818 & -2.80 & 0.009\\
+\hline
+Parent\_negative\_MLU & -1.42 & 0.208 & -6.85 & <0.001\\
+\hline
+Parent\_positive\_MLU & 1.51 & 0.196 & 7.69 & <0.001\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-11}Estimating Production Ratio of Positive Counterparts for Posession in Child Speech, when syntactic head is pronoun}
+\centering
+\begin{tabular}[t]{l|r|r|r|l}
+\hline
+Predictor & B & SE & t & p\\
+\hline
+Intercept & -15.69 & 6.861 & -2.29 & 0.028\\
+\hline
+Age & 0.00 & 0.002 & -1.77 & 0.085\\
+\hline
+MLU & 0.98 & 0.309 & 3.16 & 0.003\\
+\hline
+log(Parent\_negative\_ratio) & -0.40 & 0.385 & -1.05 & 0.301\\
+\hline
+log(Parent\_positive\_ratio) & -0.62 & 0.844 & -0.73 & 0.468\\
+\hline
+Parent\_negative\_MLU & -0.20 & 0.213 & -0.93 & 0.359\\
+\hline
+Parent\_positive\_MLU & -0.11 & 0.200 & -0.54 & 0.593\\
+\hline
+\end{tabular}
+\end{table}
+
+\clearpage
+
+\hypertarget{an-overall-look}{%
+\subsubsection{An overall look}\label{an-overall-look}}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+Using automatic annotations of large-scale corpora of child-parent interactions, we presented production trajectories for seven negative constructions that tend to express rejection, non-existence, prohibition, inability, labeling, epistemic states, and possession (Table 1). The results suggest that the production of almost all these negative constructions (except for prohibition) emerges and gradually increases within the 18-36 months age range (Figure 8). Their production frequencies remain stable and regular after 36 months and relatively close to parents' levels of production. It is important to note that similar to prior studies, our conclusions are limited to negation in children's production. Systematic experiments testing children's comprehension of negative utterances with different communicative functions are necessary to better understand the origins and developmental trajectory of negation.
+
+For future work, we would like to explore several directions. First, to more thoroughly examine and potentially model the developmental trajectories of negation in child production, certain production-specific factors (e.g.~length of utterance, ease of pronunciation) should be taken into account as well. In addition, we aim to investigate the production trajectory of positive counterparts to our negative structures (e.g.~\enquote{I know} for \enquote{I don't know}). Comparisons of negative utterances in relation to their positive counterparts would allow us to further analyze the developmental paths of negation within specific constructions.
+
+Lastly, our experiments have concentrated on larger syntactic structures at the utterance level, hence cases where negation is used as discourse markers to respond to previous utterance(s) were excluded. However, these instances also have important semantic and conceptual roles in the communication between children and parents (e.g.~parent: \emph{do you want some bread?}; child: \emph{no no no}). Thus inclusions of negative structures at a more comprehensive level would be able to paint a more clear picture about the development of negation.
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\endgroup
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-diaparser}{}%
+Attardi, G., Sartiano, D., \& Yu, Z. (n.d.). DiaParser attentive dependency parser. \emph{Submitted for Publication}.
+
+\leavevmode\hypertarget{ref-bloom1970language}{}%
+Bloom, L. M. (1970). \emph{Language development: Form and function in emerging grammars} (PhD thesis). Columbia University.
+
+\leavevmode\hypertarget{ref-cameron2007part}{}%
+Cameron-Faulkner, T., Lieven, E., \& Theakston, A. (2007). What part of no do children not understand? A usage-based account of multiword negation. \emph{Journal of Child Language}, \emph{34}(2), 251.
+
+\leavevmode\hypertarget{ref-choi1988semantic}{}%
+Choi, S. (1988). The semantic development of negation: A cross-linguistic longitudinal study. \emph{Journal of Child Language}, \emph{15}(3), 517--531.
+
+\leavevmode\hypertarget{ref-clark2010adult}{}%
+Clark, E. V. (2010). Adult offer, word-class, and child uptake in early lexical acquisition. \emph{First Language}, \emph{30}(3-4), 250--269.
+
+\leavevmode\hypertarget{ref-darwin1872expression}{}%
+Darwin, C. (1872). \emph{The expression of the emotions in man and animals}. John Murray.
+
+\leavevmode\hypertarget{ref-demuth2006word}{}%
+Demuth, K., Culbertson, J., \& Alter, J. (2006). Word-minimality, epenthesis and coda licensing in the early acquisition of English. \emph{Language and Speech}, \emph{49}(2), 137--173.
+
+\leavevmode\hypertarget{ref-macwhinney2000childes}{}%
+MacWhinney, B. (2000). \emph{The childes project: Tools for analyzing talk. Transcription format and programs} (Vol. 1). Psychology Press.
+
+\leavevmode\hypertarget{ref-nordmeyer2018individual}{}%
+Nordmeyer, A., \& Frank, M. C. (2018). Individual variation in children's early production of negation. In \emph{Proceedings of the 40th annual meeting of the cognitive science society} (pp. 2167--2172).
+
+\leavevmode\hypertarget{ref-pea1978}{}%
+Pea, R. (1978). \emph{The development of negation in early child language} (PhD thesis). University of Oxford.
+
+\leavevmode\hypertarget{ref-sagae2010morphosyntactic}{}%
+Sagae, K., Davis, E., Lavie, A., MacWhinney, B., \& Wintner, S. (2010). Morphosyntactic annotation of childes transcripts. \emph{Journal of Child Language}, \emph{37}(3), 705--729.
+
+\leavevmode\hypertarget{ref-sanchez2019childes}{}%
+Sanchez, A., Meylan, S. C., Braginsky, M., MacDonald, K. E., Yurovsky, D., \& Frank, M. C. (2019). Childes-db: A flexible and reproducible interface to the child language data exchange system. \emph{Behavior Research Methods}, \emph{51}(4), 1928--1941.
+
+\leavevmode\hypertarget{ref-dg}{}%
+Tesnière, L. (1959). \emph{Éléments de syntaxe structurale}. Paris: Klincksieck.
+
+\leavevmode\hypertarget{ref-de1979form}{}%
+Villiers, P. A. de, \& Villiers, J. G. de. (1979). Form and function in the development of sentence negation. \emph{Papers and Reports on Child Language Development}, \emph{17}, 57--64.
+
+\leavevmode\hypertarget{ref-wei2006time}{}%
+Wei, W. W. (2006). Time series analysis. In \emph{The oxford handbook of quantitative methods in psychology: Vol. 2}.
+
+
+\end{document}

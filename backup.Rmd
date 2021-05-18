@@ -629,6 +629,131 @@ As presented in Figure 1,  the overall pattern for children's usage of negative 
 
 
 
+```{r emotion_model, include=FALSE}
+
+child_like_neg_Model <- merge(child_like_neg_mlu, subset(child_like_neg, Measure == 'negative construction moving ratio'))
+
+child_want_neg_Model <- merge(child_want_neg_mlu, subset(child_want_neg, Measure == 'negative construction moving ratio'))
+
+parent_like_neg_Model <- merge(parent_like_neg_mlu, subset(parent_like_neg, Measure == 'negative construction moving ratio'))
+
+parent_want_neg_Model <- merge(parent_want_neg_mlu, subset(parent_want_neg, Measure == 'negative construction moving ratio'))
+
+child_like_pos_Model <- merge(child_like_pos_mlu, subset(child_like_pos, Measure == 'positive construction moving ratio'))
+
+child_want_pos_Model <- merge(child_want_pos_mlu, subset(child_want_pos, Measure == 'positive construction moving ratio'))
+
+parent_like_pos_Model <- merge(parent_like_pos_mlu, subset(parent_like_pos, Measure == 'positive construction moving ratio'))
+
+parent_want_pos_Model <- merge(parent_want_pos_mlu, subset(parent_want_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_like_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_like_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_like_neg_Model$MLU
+
+temp2<-data.frame(parent_like_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_like_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_like_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_like_neg_Model <- merge(child_like_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_like_pos_Model <- merge(child_like_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_like_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_like_neg_Model)
+
+child_like_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_like_neg_Model)
+
+child_like_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_like_pos_Model)
+
+temp1<-data.frame(parent_want_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_want_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_want_neg_Model$MLU
+
+temp2<-data.frame(parent_want_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_want_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_want_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_want_neg_Model <- merge(child_want_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_want_pos_Model <- merge(child_want_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_want_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_want_neg_Model)
+
+child_want_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_want_neg_Model)
+
+child_want_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_want_pos_Model)
+
+```
+
+For both negative and positive:
+
+Model: Production ratio ~ Age + MLU + Parent_negative_ratio + Parent_Positive_ratio + Parent_negative_MLU + Parent_positive_MLU
+
+```{r echo = FALSE, results = 'asis'}
+
+child_like_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Rejection in Child Speech, when head verb is like",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_like_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Rejection in Child Speech, when head verb is like",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_want_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Rejection in Child Speech, when head verb is want",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_want_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Rejection in Child Speech, when head verb is want",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+```
+
+
 \clearpage
 
 ### Non-existence
@@ -909,6 +1034,131 @@ existence_data %>%
 
 
 
+```{r nonexistence_model, include=FALSE}
+
+child_existence_neg_Model <- merge(child_existence_neg_mlu, subset(child_existence_neg, Measure == 'negative construction moving ratio'))
+
+child_possession_have_neg_Model <- merge(child_possession_have_neg_mlu, subset(child_possession_have_neg, Measure == 'negative construction moving ratio'))
+
+child_possession_pro_neg_Model <- merge(child_possession_pro_neg_mlu, subset(child_possession_pro_neg, Measure == 'negative construction moving ratio'))
+
+parent_existence_neg_Model <- merge(parent_existence_neg_mlu, subset(parent_existence_neg, Measure == 'negative construction moving ratio'))
+
+parent_possession_have_neg_Model <- merge(parent_possession_have_neg_mlu, subset(parent_possession_have_neg, Measure == 'negative construction moving ratio'))
+
+parent_possession_pro_neg_Model <- merge(parent_possession_pro_neg_mlu, subset(parent_possession_pro_neg, Measure == 'negative construction moving ratio'))
+
+child_existence_pos_Model <- merge(child_existence_pos_mlu, subset(child_existence_pos, Measure == 'positive construction moving ratio'))
+
+child_possession_have_pos_Model <- merge(child_possession_have_pos_mlu, subset(child_possession_have_pos, Measure == 'positive construction moving ratio'))
+
+child_possession_pro_pos_Model <- merge(child_possession_pro_pos_mlu, subset(child_possession_pro_pos, Measure == 'positive construction moving ratio'))
+
+parent_existence_pos_Model <- merge(parent_existence_pos_mlu, subset(parent_existence_pos, Measure == 'positive construction moving ratio'))
+
+parent_possession_have_pos_Model <- merge(parent_possession_have_pos_mlu, subset(parent_possession_have_pos, Measure == 'positive construction moving ratio'))
+
+parent_possession_pro_pos_Model <- merge(parent_possession_pro_pos_mlu, subset(parent_possession_pro_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_existence_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_existence_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_existence_neg_Model$MLU
+
+temp2<-data.frame(parent_existence_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_existence_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_existence_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_existence_neg_Model <- merge(child_existence_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_existence_pos_Model <- merge(child_existence_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_existence_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_existence_neg_Model)
+
+child_existence_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_existence_neg_Model)
+
+child_existence_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_existence_pos_Model)
+
+temp1<-data.frame(parent_possession_have_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_possession_have_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_possession_have_neg_Model$MLU
+
+temp2<-data.frame(parent_possession_have_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_possession_have_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_possession_have_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_possession_have_neg_Model <- merge(child_possession_have_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_possession_have_pos_Model <- merge(child_possession_have_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_possession_have_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_possession_have_neg_Model)
+
+child_possession_have_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_possession_have_neg_Model)
+
+child_possession_have_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_possession_have_pos_Model)
+
+temp1<-data.frame(parent_possession_pro_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_possession_pro_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_possession_pro_neg_Model$MLU
+
+temp2<-data.frame(parent_possession_pro_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_possession_pro_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_possession_pro_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_possession_pro_neg_Model <- merge(child_possession_pro_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_possession_pro_pos_Model <- merge(child_possession_pro_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_possession_pro_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_possession_pro_neg_Model)
+
+child_possession_pro_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_possession_pro_neg_Model)
+
+child_possession_pro_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_possession_pro_pos_Model)
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_existence_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Non-existence in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_existence_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Non-existence in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+
+```
+
+
+\clearpage
+
 ### Prohibition
 
 
@@ -1118,6 +1368,100 @@ prohibition_data %>%
 
 ```
 
+
+```{r prohibition_model, include=FALSE}
+
+child_prohibition_neg_Model <- merge(child_prohibition_neg_mlu, subset(child_prohibition_neg, Measure == 'negative construction moving ratio'))
+
+child_inability_neg_Model <- merge(child_inability_neg_mlu, subset(child_inability_neg, Measure == 'negative construction moving ratio'))
+
+parent_prohibition_neg_Model <- merge(parent_prohibition_neg_mlu, subset(parent_prohibition_neg, Measure == 'negative construction moving ratio'))
+
+parent_inability_neg_Model <- merge(parent_inability_neg_mlu, subset(parent_inability_neg, Measure == 'negative construction moving ratio'))
+
+child_prohibition_pos_Model <- merge(child_prohibition_pos_mlu, subset(child_prohibition_pos, Measure == 'positive construction moving ratio'))
+
+child_inability_pos_Model <- merge(child_inability_pos_mlu, subset(child_inability_pos, Measure == 'positive construction moving ratio'))
+
+parent_prohibition_pos_Model <- merge(parent_prohibition_pos_mlu, subset(parent_prohibition_pos, Measure == 'positive construction moving ratio'))
+
+parent_inability_pos_Model <- merge(parent_inability_pos_mlu, subset(parent_inability_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_prohibition_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_prohibition_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_prohibition_neg_Model$MLU
+
+temp2<-data.frame(parent_prohibition_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_prohibition_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_prohibition_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_prohibition_neg_Model <- merge(child_prohibition_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_prohibition_pos_Model <- merge(child_prohibition_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_prohibition_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_prohibition_neg_Model)
+
+child_prohibition_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_prohibition_neg_Model)
+
+child_prohibition_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_prohibition_pos_Model)
+
+temp1<-data.frame(parent_inability_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_inability_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_inability_neg_Model$MLU
+
+temp2<-data.frame(parent_inability_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_inability_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_inability_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_inability_neg_Model <- merge(child_inability_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_inability_pos_Model <- merge(child_inability_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_inability_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_inability_neg_Model)
+
+child_inability_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_inability_neg_Model)
+
+child_inability_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_inability_pos_Model)
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_prohibition_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Prohibition in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_prohibition_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Prohibition in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+
+```
+
 \clearpage
 
 ### Inability 
@@ -1149,6 +1493,36 @@ inability_data %>%
   ylab("log(ratio)") + 
   ylim(-10, -2) +
   guides(linetype = guide_legend(nrow = 2))
+
+```
+
+
+```{r echo = FALSE, results = 'asis'}
+
+child_inability_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Inability in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_inability_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Inability in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
 
 ```
 
@@ -1284,6 +1658,73 @@ learning_data %>%
   ylab("log(ratio)") + 
   ylim(-10, -1.7) +
   guides(linetype = guide_legend(nrow = 2))
+
+```
+
+
+
+```{r learning_model, include=FALSE}
+
+child_learning_neg_Model <- merge(child_learning_neg_mlu, subset(child_learning_neg, Measure == 'negative construction moving ratio'))
+
+parent_learning_neg_Model <- merge(parent_learning_neg_mlu, subset(parent_learning_neg, Measure == 'negative construction moving ratio'))
+
+child_learning_pos_Model <- merge(child_learning_pos_mlu, subset(child_learning_pos, Measure == 'positive construction moving ratio'))
+
+parent_learning_pos_Model <- merge(parent_learning_pos_mlu, subset(parent_learning_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_learning_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_learning_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_learning_neg_Model$MLU
+
+temp2<-data.frame(parent_learning_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_learning_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_learning_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_learning_neg_Model <- merge(child_learning_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_learning_pos_Model <- merge(child_learning_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_learning_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_learning_neg_Model)
+
+child_learning_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_learning_neg_Model)
+
+child_learning_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_learning_pos_Model)
+
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_learning_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Learning in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_learning_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Learning in Child Speech",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
 
 ```
 
@@ -1561,6 +2002,190 @@ epistemic_data %>%
 ```
 
 
+```{r epistemic_model, include=FALSE}
+
+child_know_neg_Model <- merge(child_know_neg_mlu, subset(child_know_neg, Measure == 'negative construction moving ratio'))
+
+parent_know_neg_Model <- merge(parent_know_neg_mlu, subset(parent_know_neg, Measure == 'negative construction moving ratio'))
+
+child_know_pos_Model <- merge(child_know_pos_mlu, subset(child_know_pos, Measure == 'positive construction moving ratio'))
+
+parent_know_pos_Model <- merge(parent_know_pos_mlu, subset(parent_know_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_know_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_know_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_know_neg_Model$MLU
+
+temp2<-data.frame(parent_know_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_know_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_know_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_know_neg_Model <- merge(child_know_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_know_pos_Model <- merge(child_know_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_know_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_know_neg_Model)
+
+child_know_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_know_neg_Model)
+
+child_know_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_know_pos_Model)
+
+child_remember_neg_Model <- merge(child_remember_neg_mlu, subset(child_remember_neg, Measure == 'negative construction moving ratio'))
+
+parent_remember_neg_Model <- merge(parent_remember_neg_mlu, subset(parent_remember_neg, Measure == 'negative construction moving ratio'))
+
+child_remember_pos_Model <- merge(child_remember_pos_mlu, subset(child_remember_pos, Measure == 'positive construction moving ratio'))
+
+parent_remember_pos_Model <- merge(parent_remember_pos_mlu, subset(parent_remember_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_remember_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_remember_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_remember_neg_Model$MLU
+
+temp2<-data.frame(parent_remember_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_remember_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_remember_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_remember_neg_Model <- merge(child_remember_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_remember_pos_Model <- merge(child_remember_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_remember_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_remember_neg_Model)
+
+child_remember_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_remember_neg_Model)
+
+child_remember_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_remember_pos_Model)
+
+
+child_think_neg_Model <- merge(child_think_neg_mlu, subset(child_think_neg, Measure == 'negative construction moving ratio'))
+
+parent_think_neg_Model <- merge(parent_think_neg_mlu, subset(parent_think_neg, Measure == 'negative construction moving ratio'))
+
+child_think_pos_Model <- merge(child_think_pos_mlu, subset(child_think_pos, Measure == 'positive construction moving ratio'))
+
+parent_think_pos_Model <- merge(parent_think_pos_mlu, subset(parent_think_pos, Measure == 'positive construction moving ratio'))
+
+temp1<-data.frame(parent_think_neg_Model$Age)
+names(temp1) <- c('Age')
+temp1$Parent_negative_ratio <- parent_think_neg_Model$Total_ratio
+temp1$Parent_negative_MLU <- parent_think_neg_Model$MLU
+
+temp2<-data.frame(parent_think_pos_Model$Age)
+names(temp2) <- c('Age')
+temp2$Parent_positive_ratio <- parent_think_pos_Model$Total_ratio
+temp2$Parent_positive_MLU <- parent_think_pos_Model$MLU
+
+temp <- merge(temp1, temp2, by.x = 'Age', all.x = TRUE)
+
+child_think_neg_Model <- merge(child_think_neg_Model, temp, by.x = 'Age', all.x = TRUE)
+child_think_pos_Model <- merge(child_think_pos_Model, temp, by.x = 'Age', all.x = TRUE)
+
+child_think_neg_m1 <- glm(log(Total_ratio) ~ Age + MLU, data = child_think_neg_Model)
+
+child_think_neg_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_think_neg_Model)
+
+child_think_pos_m2 <- glm(log(Total_ratio) ~ Age + MLU + log(Parent_negative_ratio) + log(Parent_positive_ratio) + Parent_negative_MLU + Parent_positive_MLU, data = child_think_pos_Model)
+
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_know_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Epistemic Negation in Child Speech, when head verb is know",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_know_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Epistemic Negation in Child Speech, when head verb is know",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_remember_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Epistemic Negation in Child Speech, when head verb is remember",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_remember_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Epistemic Negation in Child Speech, when head verb is remember",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_think_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Epistemic Negation in Child Speech, when head verb is think",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_think_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Epistemic Negation in Child Speech, when head verb is think",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+
+```
+
 
 \clearpage
 
@@ -1604,6 +2229,64 @@ possession_data %>%
 ```
 
 
+
+```{r echo = FALSE, results = 'asis'}
+
+child_possession_have_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Posession in Child Speech, when head verb is have",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_possession_have_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Posession in Child Speech, when head verb is have",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+```
+
+\clearpage
+
+```{r echo = FALSE, results = 'asis'}
+
+child_possession_pro_neg_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Posession in Child Speech, when syntactic head is pronoun",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+child_possession_pro_pos_m2 %>%
+tidy() %>%
+   mutate(
+    p.value = scales::pvalue(p.value),
+    term = c("Intercept", "Age", "MLU", "log(Parent_negative_ratio)", "log(Parent_positive_ratio)", "Parent_negative_MLU ", "Parent_positive_MLU")
+  ) %>%
+  kable(
+    caption = "Estimating Production Ratio of Positive Counterparts for Posession in Child Speech, when syntactic head is pronoun",
+    col.names = c("Predictor", "B", "SE", "t", "p"),
+    digits = c(0, 2, 3, 2, 3)
+  )
+
+```
 
 \clearpage
 
@@ -1670,7 +2353,7 @@ pos_together_final <- rbind(child_pos_together, parent_pos_together)
 ```
 
 <!--
-```{r all_neg, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='All negative functions'}
+```{r all_neg, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='All negative functions'}
 
 
 neg_together_final %>% 
@@ -1689,10 +2372,12 @@ neg_together_final %>%
 
 ```
 
+
 \clearpage
 
+\begin{figure*}[h!]
 
-```{r all_pos, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Positive counpterparts of all negative functions'}
+```{r all_pos, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Positive counpterparts of all negative functions'}
 
 
 pos_together_final %>% 
@@ -1710,9 +2395,11 @@ pos_together_final %>%
   guides(linetype = guide_legend(nrow = 2))
 
 ```
+
+\caption[This image spans both columns]{All functions; ratio measures plotted here are moving ratios.}\label{fig:all}
+\end{figure*}
+
 -->
-
-
 
 <!--; ratio measures plotted here are moving ratios-->
 

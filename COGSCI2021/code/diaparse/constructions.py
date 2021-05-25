@@ -1,9 +1,24 @@
 import io, os, argparse
+import pandas as pd
 
 AUX = ['can', 'could', 'ca', 'dare', 'do', 'did', 'does', 'have', 'had', 'has', 'may', 'might', 'must', 'need', 'ought', 'shall', 'should', 'will', 'would']
 COP = ['be', 'is', 'was', 'am', 'are', 'were']
 SUBJ = ['I', 'you', 'she', 'he', 'they', 'it', 'we']
 POSS = ['my', 'mine', 'your', 'yours', 'her', 'hers', 'his', 'their', 'theirs', 'its', 'us', 'ours']
+
+
+#### Selected children for investigating individual variation ####
+
+#individuals = {'Kuczaj': ['Abe'], 'Brown': ['Adam', 'Sarah'], 'Thomas': ['Thomas'], 'Weist': ['Emma', 'Roman'],
+#			   'Lara': ['Lara'], 'Braunwald': ['Laura'], 'Sachs': ['Naomi'], 'Suppes': ['Nina'], 'MacWhinney': ['Ross'],
+#			   'Providence': ['Alex', 'William', 'Lily', 'Naima', 'Violet']}
+
+individuals = {'MacWhinney': ['Ross'], 'Davis': ['Rebecca', 'Cameron', 'Georgia', 'Rowan'], 'Tardif': ['Julia', 'Melissa'], 'Wells': ['Elspeth', 'Gary', 'Gavin', 'Ellen', 'Jason', 'Rosie', 'Benjamin', 'Darren', 'Nancy'], 'Braunwald': ['Laura'],
+               'Providence': ['William', 'Lily', 'Naima', 'Ethan'], 'Howe': ['Oliver', 'Sally'], 'Bloom': ['Peter'],
+               'Manchester': ['John', 'Carl', 'Liz', 'Warren'], 'Brown': ['Eve'], 'Nelson': ['Emily'], 'Lara': ['Lara'],
+               'NewmanRatner': ['6510LC', '5196AVI24', '5266EC', '5346GG24mos', '5949DL24mos', '4724LM24mos', '4946RC', '7075MB24mos', '7534EM24mos'],
+               'Peters': ['Seth'], 'Post': ['Tow', 'Lew', 'She'], 'Bates': ['Keith'], 'McCune': ['Alice'], 'MPI-EVA-Manchester': ['Eleanor', 'Fraser'],
+               'Sachs': ['Naomi'], 'Suppes': ['Nina'], 'Demetras1': ['Trevor'], 'McCune': ['Alice', 'Jase']}
 
 ### reading in sentences in CoNLL format ###
 
@@ -61,7 +76,7 @@ def has_neg(index, sent):
 	return neg_d
 
 
-### get descriptive statistics of child ###
+### get descriptive statistics of all children ###
 
 def descriptive(file):
 
@@ -85,18 +100,24 @@ def descriptive(file):
 				speaker_role = speaker_info[-1]
 
 				child_name = corpus_info[0]
-				age = int(float(corpus_info[1]))
-				corpus_name = corpus_info[3]
+				try:
+					age = int(float(corpus_info[1]))
+				except:
+					age = ''
 
-				age_list.append(str(age))
+				if age != '':
 
-				info = [str(age), corpus_name + child_name]
+					corpus_name = corpus_info[3]
 
-				if speaker_role in ['Target_Child', 'Child']:
-					child_raw.append(info)
+					age_list.append(str(age))
 
-				if speaker_role in ['Mother', 'Father']:
-					parent_raw.append(info)
+					info = [str(age), corpus_name + child_name]
+
+					if speaker_role in ['Target_Child', 'Child']:
+						child_raw.append(info)
+
+					if speaker_role in ['Mother', 'Father']:
+						parent_raw.append(info)
 
 			sent = conll_read_sentence(f)
 
@@ -128,6 +149,79 @@ def descriptive(file):
 
 	return child_data, parent_data
 
+
+### get descriptive statistics of individual child ###
+
+def individual_descriptive(file, name):
+
+	child_data = {}
+	parent_data = {}
+
+	age_list = []
+	
+	child_raw = []
+	parent_raw = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
+				speaker_name = speaker_info[0]
+				speaker_role = speaker_info[-1]
+
+				child_name = corpus_info[0]
+				try:
+					age = int(float(corpus_info[1]))
+				except:
+					age = ''
+
+				if age != '' and child_name == name:
+
+					corpus_name = corpus_info[3]
+
+					age_list.append(str(age))
+
+					info = [str(age), corpus_name + child_name]
+
+					if speaker_role in ['Target_Child', 'Child']:
+						child_raw.append(info)
+
+					if speaker_role in ['Mother', 'Father']:
+						parent_raw.append(info)
+
+			sent = conll_read_sentence(f)
+
+	age_list = set(age_list)
+
+	for age in age_list:
+	
+		child_c = []
+		child_u = 0
+		parent_c = []
+		parent_u = 0
+
+		for tok in child_raw:
+			if tok[0] == age:
+				if tok[1] not in child_c:
+					child_c.append(tok[1])
+
+				child_u += 1
+
+		for tok in parent_raw:
+			if tok[0] == age:
+				if tok[1] not in parent_c:
+					parent_c.append(tok[1])
+
+				parent_u += 1
+
+		child_data[age] = [len(set(child_c)), child_u]
+		parent_data[age] = [len(set(parent_c)), parent_u]
+
+	return child_data, parent_data
 
 ### emotion: rejection ###
 
@@ -810,13 +904,17 @@ def perception(file):
 
 	return data
 
+
+
 if __name__ == '__main__':
 
 	parser = argparse.ArgumentParser()
-	parser.add_argument('--input', type = str, help = 'negation .conllu file')
+	parser.add_argument('--input', type = str, help = 'path to .conllu file')
 	parser.add_argument('--output', type = str, help = 'output file')
 	parser.add_argument('--domain', type = str, help = 'concept domain/function')
 	parser.add_argument('--desp', help = 'file for descriptive statistics')
+	parser.add_argument('--individual', help = 'whether investigating individual variation')
+	parser.add_argument('--ind_desp', help = 'whether to generate descriptive files for individual children')
 
 	args = parser.parse_args()
 
@@ -824,9 +922,11 @@ if __name__ == '__main__':
 
 	all_domain = {'emotion': emotion, 'motor': motor, 'learning': learning, 'epistemic': epistemic, 'perception': perception}
 
-#	child_descriptive, parent_descriptive = descriptive(args.input)
+
 
 	if args.desp:
+	
+		child_descriptive, parent_descriptive = descriptive(args.input)
 
 		with io.open(args.desp + 'child_descriptive.txt', 'w', encoding = 'utf-8') as f:
 			f.write('Age' + '\t' + 'N_speaker' + '\t' + 'N_utterance' + '\n')
@@ -842,15 +942,64 @@ if __name__ == '__main__':
 
 	data = []
 
+	individual_child_descriptive = [['Age','N_speaker', 'N_utterance', 'Child']]
+	individual_parent_descriptive = [['Age','N_speaker', 'N_utterance', 'Child']]
+
+	all_child_names = {}
+
+#	for file in os.listdir(args.input):
+#		if file.endswith('csv'):
+#			filename = file.split('.')[0]
+#			all_child_names[filename] = []
+#			data = pd.read_csv(args.input + file, encoding = 'utf-8')
+#			target_child_names = set(data['target_child_name'].tolist())
+#			for name in target_child_names:
+#				if type(name) is str:
+#					name = filename + ' ' + name
+#					all_child_names[filename].append(name)
+
 	with io.open(args.output, 'w', encoding = 'utf-8') as f:
-		f.write('Domain' + '\t' + 'Function' + '\t' + 'Head' + '\t' + 'Negator' + '\t' + 'Aux' + '\t' 'Aux_stem' + '\t' + 'Subj' + '\t' + 'Subj_stem' + '\t' + 'Role' + '\t' + 'Utterance' + '\t' + 'Age' +  '\t' + 'Sent_len' + '\t' + 'Sent_type' + '\t' + 'Child' + '\t' + 'Polarity' + '\n')	
-	
+		f.write('Domain' + '\t' + 'Function' + '\t' + 'Head' + '\t' + 'Negator' + '\t' + 'Aux' + '\t' 'Aux_stem' + '\t' + 'Subj' + '\t' + 'Subj_stem' + '\t' + 'Role' + '\t' + 'Utterance' + '\t' + 'Age' +  '\t' + 'Sent_len' + '\t' + 'Sent_type' + '\t' + 'Child' + '\t' + 'Polarity' + '\n')		
+		
 		for file in os.listdir(args.input):
 			if file.endswith('conllu'):
-				for tok in all_domain[args.domain](args.input + file):
+			
+				if args.individual == 'yes':
+
+					filename = file.split('.')[0]
+					if filename in individuals:
+
+				#		for tok in all_domain[args.domain](args.input + file):
+				#			if tok[-2].split()[1] in individuals[filename]:
+				#				f.write('\t'.join(str(w) for w in tok) + '\n')
+
+						if args.ind_desp:
+							for child in individuals[filename]:
+								child_descriptive, parent_descriptive = individual_descriptive(args.input + file, child)
+						
+								for k, v in child_descriptive.items():
+									v.insert(0, k)
+									v.append(filename + ' ' + child)
+									individual_child_descriptive.append(v)	
+
+								for k, v in parent_descriptive.items():
+									v.insert(0, k)
+									v.append(filename + ' ' + child)
+									individual_parent_descriptive.append(v)		
+
+				else:
+					for tok in all_domain[args.domain](args.input + file):
+						f.write('\t'.join(str(w) for w in tok) + '\n')
+
+		if len(individual_child_descriptive) > 1:
+			with io.open(args.ind_desp + 'individual_child_descriptive.txt', 'w', encoding = 'utf-8') as f:
+				for tok in individual_child_descriptive:
 					f.write('\t'.join(str(w) for w in tok) + '\n')
 
-#	data = all_domain[args.domain](args.input)
+			with io.open(args.ind_desp + 'individual_parent_descriptive.txt', 'w', encoding = 'utf-8') as f:
+				for tok in individual_parent_descriptive:
+					f.write('\t'.join(str(w) for w in tok) + '\n')
+
 
 	print('done collecting data')
 

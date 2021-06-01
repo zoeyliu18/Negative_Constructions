@@ -1,0 +1,1 @@
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Role	Utterance	Age	Sent_len	Sent_type	Child	Polarity

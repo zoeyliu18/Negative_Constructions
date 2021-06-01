@@ -764,6 +764,66 @@ individual_emotion_data <- subset(individual_emotion_data, Measure %in% c('negat
 individual_emotion_data_child <- subset(individual_emotion_data, Role == 'Child')
 individual_emotion_data_parent <- subset(individual_emotion_data, Role == 'Parent')
 
+for (i in emotion_children){
+  child = i
+  select <- data.frame(subset(individual_emotion_data_child, Child == i))
+  if (nrow(select) != 0){
+  summary <- data.frame(aggregate(Total_ratio~Age+Polarity, data = select, sum))
+  summary$Freq <- rep(0, nrow(summary))
+  summary$Role <- rep('Child', nrow(summary))
+  summary$Head <- rep('combined', nrow(summary))
+  summary$N_speaker <- rep(0, nrow(summary))
+  summary$N_utterance <- rep(0, nrow(summary))
+  summary$Ratio <- rep(0, nrow(summary))
+  Measure <- as.vector(rep(0, nrow(summary)))
+  for (z in 1:nrow(summary)){
+    if (as.vector(summary$Polarity)[z] == 'negative'){
+      Measure[z] = 'negative construction moving ratio'
+    }
+    
+    if (as.vector(summary$Polarity)[z] == 'positive'){
+      Measure[z] = 'positive construction moving ratio'
+    }
+  }
+  print(Measure)
+  summary$Measure <- Measure
+  summary$Which <- rep('moving ratio', nrow(summary))
+  summary$Function <- rep('Rejection', nrow(summary))
+  summary$Child <- rep(child, nrow(summary))
+  individual_emotion_data <- rbind(individual_emotion_data, summary)
+}}
+
+for (i in emotion_children){
+  child = i
+  select <- data.frame(subset(individual_emotion_data_parent, Child == i))
+  if (nrow(select) != 0){
+  summary <- data.frame(aggregate(Total_ratio~Age+Polarity, data = select, sum))
+  summary$Freq <- rep(0, nrow(summary))
+  summary$Role <- rep('Parent', nrow(summary))
+  summary$Head <- rep('combined', nrow(summary))
+  summary$N_speaker <- rep(0, nrow(summary))
+  summary$N_utterance <- rep(0, nrow(summary))
+  summary$Ratio <- rep(0, nrow(summary))
+  Measure <- as.vector(rep(0, nrow(summary)))
+  for (z in 1:nrow(summary)){
+    if (as.vector(summary$Polarity)[z] == 'negative'){
+      Measure[z] = 'negative construction moving ratio'
+    }
+    
+    if (as.vector(summary$Polarity)[z] == 'positive'){
+      Measure[z] = 'positive construction moving ratio'
+    }
+  }
+  print(Measure)
+  summary$Measure <- Measure
+  summary$Which <- rep('moving ratio', nrow(summary))
+  summary$Function <- rep('Rejection', nrow(summary))
+  summary$Child <- rep(child, nrow(summary))
+  individual_emotion_data <- rbind(individual_emotion_data, summary)
+}}
+
+individual_emotion_data_child <- subset(individual_emotion_data, Role == 'Child')
+individual_emotion_data_parent <- subset(individual_emotion_data, Role == 'Parent')
 
 emotion_like_children = ''
 
@@ -1045,7 +1105,7 @@ As presented in Figure 1,  the overall pattern for children's usage of negative 
 
 ```{r individualemotion, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=9, set.cap.width=T, num.cols.cap=1, fig.cap='Individual Variation for  Rejection and its positive counterparts',warning=FALSE}
 
-individual_emotion_data %>% 
+subset(individual_emotion_data, Head == 'combined') %>% 
   ggplot(aes(as.numeric(as.character(Age)), round(log(Total_ratio), 2), group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("solid", 'solid')) +
@@ -1552,7 +1612,7 @@ children <- as.vector(unique(subset(perception, Age<=36)$Child))
 
 for (i in 1:length(children)){
   select <- data.frame(subset(perception, Child == children[i] & Polarity == 'negative' & Role == 'Child' & Polarity == 'negative' & Function == 'existence' & grepl(' nan', children[i]) == FALSE))
-    if (min(as.vector(unique(select$Age))) < 24 & as.numeric(length(unique(select$Age))) >= 5){#} & nrow(select) >= 50){
+    if (min(as.vector(unique(select$Age))) < 30 & as.numeric(length(unique(select$Age))) >= 5){#} & nrow(select) >= 50){
   existence_children = c(children[i], existence_children)
   }
 }
@@ -3040,7 +3100,10 @@ epistemic_children = epistemic_children[1: length(epistemic_children) - 1]
 individual_epistemic_data <- 0
 
 for (i in epistemic_children){
-  
+
+#child_individual_epistemic_neg <- subset(epistemic_neg, Role %in% c('Child') & Child == i & Head %in% c('know', 'remember', 'think'))
+#parent_individual_epistemic_neg <- subset(epistemic_neg, Role %in% c('Parent') & Child == i & Head %in% c('know', 'remember', 'think'))
+
 child_individual_epistemic_neg <- subset(epistemic_neg, Role %in% c('Child') & Child == i)
 parent_individual_epistemic_neg <- subset(epistemic_neg, Role %in% c('Parent') & Child == i)
 child_individual_know_neg <- subset(child_individual_epistemic_neg, Head %in% c('know'))
@@ -3067,6 +3130,7 @@ child_individual_know_neg <- negative_moving(child_individual_know_neg, subset(c
 child_individual_know_neg$Child <- rep(i, nrow(child_individual_know_neg))
 individual_epistemic_data <- rbind(child_individual_know_neg, individual_epistemic_data)
 }
+
 child_individual_remember_neg <- data.frame(table(child_individual_remember_neg$Age))
 if (nrow(child_individual_remember_neg) != 0){
   
@@ -3276,6 +3340,68 @@ individual_epistemic_data <- rbind(parent_individual_think_pos, individual_epist
 }}
 individual_epistemic_data$Measure <- factor(individual_epistemic_data$Measure, levels = c('negative construction ratio', 'negative construction moving ratio', 'positive construction ratio', 'positive construction moving ratio'))
 individual_epistemic_data <- subset(individual_epistemic_data, Measure %in% c('negative construction moving ratio', 'positive construction moving ratio') & Child != '0')
+individual_epistemic_data_child <- subset(individual_epistemic_data, Role == 'Child')
+individual_epistemic_data_parent <- subset(individual_epistemic_data, Role == 'Parent')
+
+
+for (i in epistemic_children){
+  child = i
+  select <- data.frame(subset(individual_epistemic_data_child, Child == i))
+  if (nrow(select) != 0){
+  summary <- data.frame(aggregate(Total_ratio~Age+Polarity, data = select, sum))
+  summary$Freq <- rep(0, nrow(summary))
+  summary$Role <- rep('Child', nrow(summary))
+  summary$Head <- rep('combined', nrow(summary))
+  summary$N_speaker <- rep(0, nrow(summary))
+  summary$N_utterance <- rep(0, nrow(summary))
+  summary$Ratio <- rep(0, nrow(summary))
+  Measure <- as.vector(rep(0, nrow(summary)))
+  for (z in 1:nrow(summary)){
+    if (as.vector(summary$Polarity)[z] == 'negative'){
+      Measure[z] = 'negative construction moving ratio'
+    }
+    
+    if (as.vector(summary$Polarity)[z] == 'positive'){
+      Measure[z] = 'positive construction moving ratio'
+    }
+  }
+  print(Measure)
+  summary$Measure <- Measure
+  summary$Which <- rep('moving ratio', nrow(summary))
+  summary$Function <- rep('Epistemic', nrow(summary))
+  summary$Child <- rep(child, nrow(summary))
+  individual_epistemic_data <- rbind(individual_epistemic_data, summary)
+}}
+
+for (i in epistemic_children){
+  child = i
+  select <- data.frame(subset(individual_epistemic_data_parent, Child == i))
+  if (nrow(select) != 0){
+  summary <- data.frame(aggregate(Total_ratio~Age+Polarity, data = select, sum))
+  summary$Freq <- rep(0, nrow(summary))
+  summary$Role <- rep('Parent', nrow(summary))
+  summary$Head <- rep('combined', nrow(summary))
+  summary$N_speaker <- rep(0, nrow(summary))
+  summary$N_utterance <- rep(0, nrow(summary))
+  summary$Ratio <- rep(0, nrow(summary))
+  Measure <- as.vector(rep(0, nrow(summary)))
+  for (z in 1:nrow(summary)){
+    if (as.vector(summary$Polarity)[z] == 'negative'){
+      Measure[z] = 'negative construction moving ratio'
+    }
+    
+    if (as.vector(summary$Polarity)[z] == 'positive'){
+      Measure[z] = 'positive construction moving ratio'
+    }
+  }
+  print(Measure)
+  summary$Measure <- Measure
+  summary$Which <- rep('moving ratio', nrow(summary))
+  summary$Function <- rep('Epistemic', nrow(summary))
+  summary$Child <- rep(child, nrow(summary))
+  individual_epistemic_data <- rbind(individual_epistemic_data, summary)
+}}
+
 individual_epistemic_data_child <- subset(individual_epistemic_data, Role == 'Child')
 individual_epistemic_data_parent <- subset(individual_epistemic_data, Role == 'Parent')
 
@@ -3704,7 +3830,7 @@ epistemic_data %>%
 ```{r individualepistemic, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=9, set.cap.width=T, num.cols.cap=1, fig.cap='Individual variation for Epistemic negation and its positive counterparts', warning=FALSE}
 
 
-individual_epistemic_data %>% 
+subset(individual_epistemic_data, Head == 'combined') %>% 
   ggplot(aes(as.numeric(as.character(Age)), round(log(Total_ratio), 2), group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'solid')) +

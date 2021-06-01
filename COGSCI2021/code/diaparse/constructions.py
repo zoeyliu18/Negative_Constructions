@@ -10,7 +10,7 @@ POSS = ['my', 'mine', 'your', 'yours', 'her', 'hers', 'his', 'their', 'theirs', 
 #### Selected children for investigating individual variation ####
 
 individuals = {'MacWhinney': ['Ross'], 'Davis': ['Rebecca', 'Cameron', 'Georgia', 'Rowan', 'Hannah'], 'Tardif': ['Julia', 'Melissa'], 'Wells': ['Elspeth', 'Gary', 'Gavin', 'Ellen', 'Jason', 'Rosie', 'Benjamin', 'Darren', 'Nancy', 'Penny', 'Debbie'], 'Braunwald': ['Laura'],
-               'Providence': ['William', 'Lily', 'Naima', 'Ethan'], 'Howe': ['Oliver', 'Sally'], 'Bloom': ['Peter'],
+               'Providence': ['William', 'Lily', 'Naima', 'Ethan', 'Alex'], 'Howe': ['Oliver', 'Sally'], 'Bloom': ['Peter'],
                'Manchester': ['John', 'Carl', 'Liz', 'Warren', 'Joel', 'Gail', 'Dominic', 'Anne'], 'Brown': ['Eve'], 'Nelson': ['Emily'], 'Lara': ['Lara'],
                'NewmanRatner': ['6510LC', '5196AVI24', '5266EC', '5346GG24mos', '5949DL24mos', '4724LM24mos', '4946RC', '7075MB24mos', '7534EM24mos'],
                'Peters': ['Seth'], 'Post': ['Tow', 'Lew', 'She'], 'Bates': ['Keith', 'Gloria', 'Amy', 'Mandy', 'Hank'], 'McCune': ['Alice'], 'MPI-EVA-Manchester': ['Eleanor', 'Fraser'],

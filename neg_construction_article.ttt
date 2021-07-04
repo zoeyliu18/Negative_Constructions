@@ -1,17 +1,17 @@
 \begin{table*}[h]
 \small
 \centering
-\begin{tabular}{rrr}
+\begin{tabular}{rrrr}
   \hline
- \textbf{Function} & \textbf{Linguistic Composition} & \textbf{Examples} \\
+ \textbf{Function} & \textbf{Linguistic Composition} & \textbf{Examples} & \textbf{Positive counterpars} \\
   \hline
-Rejection & with \textit{like} or \textit{want} & \textit{I not like it}, \textit{not want it}  \\
-Non-existence & expletives & \textit{there is no soup} \\
-Prohibition & with imperative subjectless \textit{do} & \textit{do not spill milk} \\
-Inability & with modal \textit{can} & \textit{I cannot zip it} \\
-Labeling & modifying nominal or adjectival predicatives & \textit{that's not a crocodile}; \textit{it's no interesting} \\
-Epistemic negation & with \textit{know}, \textit{think}, \textit{remember}  & \textit{I not know} \\
-Possession & with \textit{have}; or possesive pronouns & \textit{not have the toy}; \textit{not mine} \\
+Rejection & with \textit{like} or \textit{want} & \textit{I not like it}; \textit{not want it}  & \textit{I like that}; \textit{You want this} \\
+Non-existence & expletives & \textit{there is no soup} & \textit{there are books} \\
+Prohibition & with imperative subjectless \textit{do} & \textit{do not spill milk} & \textit{eat it} \\
+Inability & with modal \textit{can} & \textit{I cannot zip it} & \textit{She can try} \\
+Labeling & modifying nominal or adjectival predicatives & \textit{that's not a crocodile}; \textit{it's no interesting} & \textit{that's a table}; \textit{it's cool} \\
+Epistemic negation & with \textit{know}, \textit{think}, \textit{remember}  & \textit{I not know/think/remember} & \textit{He knows/thinks/remembers that} \\
+Possession & with \textit{have}; or possesive pronouns & \textit{not have the toy}; \textit{not mine} & \textit{have the water}; \textit{theirs} \\
    \hline
 \end{tabular}
 \caption{Communicative functions of negation in early child language of English.}

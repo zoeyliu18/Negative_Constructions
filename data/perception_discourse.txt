@@ -1,9 +1,12 @@
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		lot	lot	32	Father	Target_Child	oh there 's a lot of stuff in there	no do n't baby	9	4	declarative	declarative	Demetras1 Trevor	positive	discourse
+perception	possession	have	n't	does	do	it	it	47	Father	Target_Child	it does n't have a top	no it 's not	6	4	declarative	declarative	Demetras1 Trevor	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	possession	ours	not					26	Mother	Target_Child	that 's not ours that belongs Pat and Lois	no the tape	9	3	declarative	declarative	Bloom Peter	negative	discourse
 perception	possession	yours	not					28	Target_Child	Target_Child	it 's not yours it 's mine	no it 's not it 's mine	7	7	declarative	declarative	Bloom Peter	negative	discourse
+perception	possession	have	n't	did	do	you	you	28	Mother	Target_Child	did you tell Patsy and Loi you did n't have a nap today	no did n't have a nap today	13	7	question	declarative	Bloom Peter	negative	discourse
 perception	possession	mine							28	Mother	Target_Child	those are mine	no those are mine no mine	3	6	declarative	declarative	Bloom Peter	positive	discourse
+perception	possession	have	n't	do	do	you	you	29	Mother	Target_Child	you do n't have a tape recorder in your room	no I had a record player	10	6	declarative	declarative	Bloom Peter	negative	discourse
 perception	existence	is		there		sled	sled	29	Investigator	Target_Child	uhhuh is there a sled in there	no this is a	7	4	question	declarative	Bloom Peter	positive	discourse
 perception	existence	's	no	there		trains	train	30	Mother	Target_Child	I wish we could go on a train there 's no trains that go to atlantic city	no we ca n't go on a train	17	8	declarative	declarative	Bloom Peter	negative	discourse
 perception	possession	yours							31	Investigator	Target_Child	are they yours	no I do n't know	3	5	question	declarative	Bloom Peter	positive	discourse
@@ -24,6 +27,8 @@ perception	possession	mine							26	Mother	Target_Child	Tigger 's mine	no my Tig
 perception	possession	mine							28	Mother	Target_Child	no it 's mine	no it 's mine	4	4	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	possession	yours							31	Mother	Target_Child	it 's yours	no it 's not	3	4	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	existence	's		there		lot	lot	32	Mother	Target_Child	you see there 's still a lot of pieces missing darling	no I can do this	11	5	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+perception	possession	have	n't	do	do	you	you	32	Mother	Target_Child	you do n't have food	no I not have c I not have c food cat	5	11	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+perception	possession	have	n't	do	do	I	I	32	Target_Child	Mother	I do n't have cat food	no you do n't have cat food	6	7	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	's	no	there		rush	rush	33	Mother	Target_Child	there 's no rush	no a zip	4	3	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	's	no	there		monkey	monkey	35	Target_Child	Mother	there 's no purple monkey	no there is n't	5	4	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	was		there		slide	slide	35	Mother	Target_Child	was there a slide at babyschool	no there was a climbing frame	6	6	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
@@ -32,18 +37,26 @@ perception	possession	mine							36	Target_Child	Mother	is that mine	no that one
 perception	existence	's		there		house	house	36	Target_Child	Mother	at there 's house	no the Grandma and Grandad are downstairs	4	7	question	trail	MPI-EVA-Manchester Fraser	positive	discourse
 perception	existence	's	no	there		bubbles	bubble	36	Target_Child	Mother	but there 's no bubbles here is there	no there 's no bubbles is there	8	7	question	question	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	is		there		snow	snow	36	Target_Child	Mother	a is there snow	no there 's no snow	4	5	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+perception	possession	have	n't	did	do	we	we	36	Target_Child	Mother	we did n't have a look at my sunflower	no we did n't have a look at your sunflower either did we	9	13	declarative	question	MPI-EVA-Manchester Fraser	negative	discourse
+perception	possession	have	n't	did	do	Daddy	Daddy	36	Target_Child	Mother	Daddy and you did n't have a Fruitshoot	no we did n't	8	4	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	possession	my							36	Target_Child	Mother	but I not a I not a monkey are my	no you 're not a monkey	10	6	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+perception	possession	have	n't	does	do	he	he	36	Target_Child	Mother	that boy does n't have a number does he	no he does n't	9	4	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	's		there		stickers	sticker	36	Target_Child	Mother	there 's a bit more stickers	no they 're all done	6	5	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	existence	is		there		stickers	sticker	36	Target_Child	Mother	is is there no bit more stickers	no there 's no more stickers to do because you 've done them all	7	14	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	possession	mine							36	Target_Child	Mother	they 're mine	no they 're mine	3	4	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+perception	possession	have	n't	do	do	NONE	NONE	36	Target_Child	Mother	does does they have does do n't have name	no they do n't have names do they	9	8	question	question	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	's		there		blue	blue	36	Target_Child	Mother	but there 's another blue	no it 's not blue it 's Baloo	5	8	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	existence	's		there		penny	penny	36	Target_Child	Mother	there 's a penny there	no that 's not a penny	5	6	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	possession	mine							36	Target_Child	Mother	mine	no that 's Mummy 's	1	5	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	existence	is		there		something	something	36	Target_Child	Mother	but what is there something on your knee	no there 's nothing on my knee	8	7	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	possession	mine							36	Target_Child	Mother	are they in mine	no they 're in Jwww 's bedroom	4	7	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	possession	mine	not					36	Target_Child	Mother	is that not mine	no that 's Mummy 's	4	5	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+perception	possession	have	n't	do	do	NONE	NONE	36	Target_Child	Father	do n't haf ta cry	no that 's silly to cry int it	5	8	declarative	question	MPI-EVA-Manchester Fraser	negative	discourse
+perception	possession	have	n't	do	do	you	you	36	Mother	Mother	you do n't haf ta worry about that	no that 's fine	8	4	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	's		there		tail	tail	36	Father	Target_Child	because look there 's his tail	no that is n't	6	4	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
 perception	possession	my	not					36	Target_Child	Mother	I not are my	no you 're not	4	4	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+perception	possession	have	n't	do	do	you	you	37	Target_Child	Mother	you do n't haf ta color them in do you	no when you 're writing you haf ta follow them	10	10	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+perception	possession	have	n't	did	do	I	i	37	Target_Child	Mother	I did n't have chicken+pox did I	no you had chicken+pox last year	7	6	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
 perception	existence	's		there		couple	couple	24	Mother	Mother	if you have a look under the towel there 's a couple under the towel	no there 's your towel darling over there	15	8	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
 perception	existence	's		there		Winnie	Winnie	24	Father	Target_Child	there 's Winnie the Pooh	no the Rob	5	3	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
 perception	existence	's		there		cow	cow	24	Target_Child	Mother	there 's a cow	no that 's not a cow darling	4	7	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
@@ -54,7 +67,10 @@ perception	existence	's		there		Hook	Hook	36	Target_Child	Mother	there 's Captai
 perception	existence	's		there		sun	sun	36	Mother	Mother	there 's a sun	no we 're going to do it on the paper here	4	11	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
 perception	existence	's		there		animal	animal	36	Target_Child	Mother	there 's a animal in our door	no you have a look at your blackboard because look what 's happened to your teddy	7	16	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	does	do	Sue	Sue	24	Mother	Mother	and the other Sue does n't have any dogs but she has a pussy+cat called Smokey	no no do n't throw anything at the light	16	9	declarative	declarative	Thomas Thomas	negative	discourse
 perception	existence	is		there		mess	mess	26	Mother	Target_Child	oh is there a mess	no no mess	5	3	question	declarative	Thomas Thomas	positive	discourse
+perception	possession	have	n't	need	need	you	you	27	Mother	Target_Child	you need n't have move	no Nin Nin	5	3	declarative	declarative	Thomas Thomas	negative	discourse
+perception	possession	have	n't	ca	can	you	you	29	Mother	Mother	no you ca n't have	no do n't damage the box	5	6	interruption	declarative	Thomas Thomas	negative	discourse
 perception	existence	's		there		van	van	29	Mother	Target_Child	there 's a big white van outside Thomas	no see it	8	3	declarative	declarative	Thomas Thomas	positive	discourse
 perception	existence	's		there		mess	mess	30	Mother	Target_Child	there 's a big mess is n't there	no it a come	8	4	question	declarative	Thomas Thomas	positive	discourse
 perception	existence	's		there		fireman	fireman	30	Mother	Mother	there 's the little fireman	no it 's the policeman from your police car	5	9	self	declarative	Thomas Thomas	positive	discourse
@@ -70,18 +86,27 @@ perception	existence	are		there		messages	message	41	Mother	Target_Child	seeing 
 perception	existence	's		there		station	station	43	Mother	Target_Child	there 's a fire station there	no thank you	6	3	declarative	declarative	Thomas Thomas	positive	discourse
 perception	existence	was		there		things	thing	46	Mother	Mother	remember where there was all that art and craft things where Mummy bought some card	no do n't crush it Thomas	15	6	question	declarative	Thomas Thomas	positive	discourse
 perception	existence	's		there		something	something	46	Target_Child	Mother	because because there 's something I need ta put out	no do n't get down there	10	6	declarative	declarative	Thomas Thomas	positive	discourse
+perception	possession	have	n't	do	do	you	you	47	Mother	Target_Child	you get dressed and you do n't have breakfast	no I just dress get dressed and go some tea shop	9	11	question	declarative	Thomas Thomas	negative	discourse
+perception	possession	have	not	did	do	you	you	50	Mother	Target_Child	did you not haf ta struggle at all	no you just need ta go like this	8	8	question	declarative	Thomas Thomas	negative	discourse
+perception	possession	have	n't	do	do	we	we	50	Mother	Target_Child	we do n't haf ta read it	no I do n't want the pictures either	7	8	declarative	declarative	Thomas Thomas	negative	discourse
+perception	possession	have	n't	ca	can	you	you	50	Target_Child	Mother	you ca n't have your tea yet	no no I 'm going out for a meal later are n't I	7	13	declarative	question	Thomas Thomas	negative	discourse
 perception	existence	is		there		one	one	52	Investigator	Mother	is there is there really a one	no it 's a moth	7	5	question	declarative	Thomas Thomas	positive	discourse
 perception	existence	's		there		lumps	lump	52	Target_Child	Target_Child	look there 's lumps	no it does n't Mum	4	5	declarative	declarative	Thomas Thomas	positive	discourse
+perception	possession	have	n't	did	do	he	he	53	Mother	Target_Child	he he did n't have nice teeth Alex	no he just had two out	8	6	declarative	declarative	Thomas Thomas	negative	discourse
 perception	existence	is		there		mess	mess	54	Mother	Mother	there is a mess	no it 's not funny	4	5	declarative	declarative	Thomas Thomas	positive	discourse
 perception	existence	's		there		area	area	56	Mother	Target_Child	and there 's an area where you can swing	no in Ben 's garden there 's a goalpost	9	9	declarative	declarative	Thomas Thomas	positive	discourse
 perception	existence	's		there		fire	fire	56	Target_Child	Mother	there 's a fire	no that way	4	3	declarative	declarative	Thomas Thomas	positive	discourse
 perception	existence	is		there		room	room	56	Investigator	Target_Child	hello is there room at the inn for me and my baby	no I 'm not playing	12	5	question	declarative	Thomas Thomas	positive	discourse
+perception	possession	have	n't	do	do	you	you	56	Investigator	Mother	you do n't haf ta cry just because I made a mistake do you	no you do n't haf ta cry come on	14	9	question	declarative	Thomas Thomas	negative	discourse
+perception	possession	have	not	will	will	we	we	57	Target_Child	Mother	will we not have any lunch	no we 're going out to have our lunch out	6	10	question	declarative	Thomas Thomas	negative	discourse
+perception	possession	have	n't	does	do	she	she	57	Mother	Target_Child	she takes them all at once and then she does n't have any left for the rest of the day	no do n't take all of these	20	7	question	declarative	Thomas Thomas	negative	discourse
 perception	possession	mine							57	Target_Child	Mother	mine	no it is n't	1	4	declarative	declarative	Thomas Thomas	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	possession	mine							24	Mother	Mother	this one 's mine	no it 's mine	4	4	imperative_emphatic	imperative_emphatic	Bernstein Lena	positive	discourse
 perception	existence	's		there		tongue	tongue	17	Mother	Mother	there 's a tongue	no okay	4	2	trail	declarative	Bernstein Alice	positive	discourse
 perception	existence	's		there		bowl	bowl	22	Mother	Mother	and there 's the bowl and it says all ready but where 's the spoon	no you know what that is	15	6	question	question	Bernstein Anne	positive	discourse
+perception	possession	have	n't	do	do	I	I	22	Investigator	Mother	I was going to ask if she can take her clothes on and off and I guess I do n't haf ta	no she can	22	3	imperative_emphatic	imperative_emphatic	Bernstein None	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	possession	mine							16	Target_Child	Mother	mine	no this is mine	1	4	question	declarative	Higginson June	positive	discourse
 perception	possession	mine							16	Target_Child	Mother	mine	no this is mine	1	4	declarative	declarative	Higginson June	positive	discourse
@@ -95,11 +120,13 @@ perception	existence	's		there		farmer	farmer	33	Mother	Target_Child	now there '
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		Bert	Bert	12	Mother	Mother	there 's Bert	no this is a bird	3	5	declarative	declarative	Rollins nan	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	no	NONE	NONE	NONE	NONE	29	Target_Child	Mother	no Baaee no have de microphone	no Nathaniel does n't have a microphone that 's right	6	10	declarative	declarative	Snow Nathaniel	negative	discourse
 perception	existence	's		there		t	t	31	Target_Child	Mother	eh there 's a t for to put it up there	no we do n't need a t	11	7	declarative	declarative	Snow Nathaniel	positive	discourse
 perception	existence	's		there		chance	chance	36	Mother	Father	there 's one chance in ten you lose your money completely but	no I think was that catalogue from that place in Colorado	12	11	declarative	question	Snow Nathaniel	positive	discourse
 perception	existence	be		there		something	something	36	Grandmother	Mother	oh there must be something else in between here	no no the it t turn it around	9	8	declarative	declarative	Snow Nathaniel	positive	discourse
 perception	existence	's		there		weeds	weed	40	Target_Child	Mother	there 's some more weeds	no those are n't weeds	5	5	declarative	declarative	Snow Nathaniel	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	ca	can	you	you	28	Mother	Target_Child	you ca n't have them now	no want it	6	3	declarative	declarative	Manchester Warren	negative	discourse
 perception	existence	are		there		plenty	plenty	24	Mother	Mother	there are plenty of other boxes outside to break are n't they	no do n't do that darling	12	6	question	declarative	Manchester Aran	positive	discourse
 perception	possession	mine							25	Target_Child	Mother	mine	no no no they 're not yours	1	7	declarative	declarative	Manchester Aran	positive	discourse
 perception	existence	is		there		cake	cake	24	Mother	Target_Child	there is n't any cake there	no eat the cake	6	4	declarative	declarative	Manchester Aran	positive	discourse
@@ -114,17 +141,25 @@ perception	possession	yours	not					24	Target_Child	Mother	not yours	no these ar
 perception	possession	mine							26	Target_Child	Mother	mine	no love it 's mine	1	5	declarative	declarative	Manchester Liz	positive	discourse
 perception	possession	mine							27	Target_Child	Mother	mine	no if you ca n't use it properly Liz you 're not having it	1	14	declarative	declarative	Manchester Liz	positive	discourse
 perception	existence	's		there		biscuit	biscuit	28	Target_Child	Mother	there 's a biscuit	no it 's not a biscuit	4	6	declarative	declarative	Manchester Liz	positive	discourse
+perception	possession	have	n't	do	do	they	they	30	Mother	Target_Child	because they do n't have them any more	no we do n't	8	4	declarative	declarative	Manchester Liz	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		nothing	nothing	21	Mother	Father	yeah if he keeps doing it we should just block off the stairs and make sure there 's nothing dangerous upstairs and let him do what he wants	no that 's what I mean we 'll lower the sides so that he can	28	15	declarative	trail	Valian nan	positive	discourse
 perception	possession	mine							27	Target_Child	Mother	these are mine	no I want that one	3	5	declarative	declarative	Valian nan	positive	discourse
+perception	possession	have	n't	do	do	we	we	27	Mother	Target_Child	we do n't have any	no I want some where my cereal	5	7	declarative	question	Valian nan	negative	discourse
+perception	possession	have	n't	do	do	you	you	30	Mother	Mother	no you do n't have any chocolate on your face	no you like to nosh though right	10	7	question	question	Valian nan	negative	discourse
+perception	possession	have	n't	do	do	I	I	30	Target_Child	Mother	but I do n't have a gum cause I do n't have gum	no you do n't have gum today	13	7	declarative	declarative	Valian nan	negative	discourse
 perception	existence	's		there		fire	fire	30	Target_Child	Mother	there 's a fire	no that 's a crane	4	5	declarative	declarative	Valian nan	positive	discourse
 perception	existence	's		there		stuff	stuff	28	Investigator	Mother	I think there 's stuff you do n't wan na touch in there	no that 's	13	3	declarative	trail	Valian nan	positive	discourse
+perception	possession	have	n't	do	do	you	you	29	Target_Child	Mother	you do n't have your big coat	no she does n't	7	4	declarative	declarative	Valian nan	negative	discourse
 perception	existence	's		there		something	something	29	Target_Child	Mother	there 's something in there that they have n't seen before	no that 's that 's not it	11	7	question	declarative	Valian nan	positive	discourse
 perception	existence	's		there		animals	animal	31	Mother	Target_Child	a farm family since there 's so many farm animals	no there not	10	3	declarative	declarative	Valian nan	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		zoo	zoo	35	Mother	Mother	look there 's the zoo oh go on oh mummy 's not doing very well at this	no it does n't seem to wan na go oh	17	10	declarative	declarative	Tommerdahl nan	positive	discourse
 perception	existence	is		there		ambulance	ambulance	40	Mother	Target_Child	quick is there an ambulance	no there 's not a ambulance	5	6	declarative	declarative	Tommerdahl nan	positive	discourse
+perception	possession	have	n't	do	do	they	they	37	Mother	Target_Child	cause they do n't have a bed in the dining room	no that 's a baby 's room	11	7	declarative	declarative	Tommerdahl nan	negative	discourse
+perception	possession	have	not	can	can	I	I	45	Mother	Target_Child	can I not have that one	no you can get another one	6	6	question	declarative	Tommerdahl nan	negative	discourse
 perception	possession	yours							45	Mother	Target_Child	are they yours	no they 're look at	3	5	question	imperative_emphatic	Tommerdahl nan	positive	discourse
+perception	possession	have	n't	ca	can	you	you	45	Mother	Mother	you ca n't have mine in future then	no you 're cheating because I 've got to do that one	8	12	declarative	declarative	Tommerdahl nan	negative	discourse
 perception	existence	's		there		one	one	39	Mother	Mother	there 's the white one	no you need ta say I	5	6	declarative	declarative	Tommerdahl nan	positive	discourse
 perception	existence	is		there		potty	potty	31	Target_Child	Mother	in the potty but there is n't a potty	no never mind	9	3	declarative	declarative	Tommerdahl nan	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
@@ -138,10 +173,12 @@ Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	
 perception	existence	's		there		ball	ball	14	Mother	Mother	there 's your ball	no that 's Daddy 's	4	5	declarative	declarative	Brent Timothy	positive	discourse
 perception	existence	's		there		Dakota	Dakota	14	Mother	Mother	there 's Dakota	no you do n't like it	3	6	declarative	question	Brent Tabitha	positive	discourse
 perception	existence	's		there		one	one	14	Mother	Mother	there 's another one	no this these are sticking together	4	6	declarative	declarative	Brent Tabitha	positive	discourse
+perception	possession	have	n't	ca	can	you	you	13	Mother	Mother	oh no you ca n't have the microphone	no no bunny	8	3	declarative	declarative	Brent Henry	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		you	you	22	Father	Father	okay sweetie there 's a blanket now you	no sweetie it 's time for a nap	8	8	interruption	declarative	Nelson Emily	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	is		there		nut	nut	28	Mother	Mother	is there a nut right here	no not right here no not right over here	6	9	question	declarative	Weist Matt	positive	discourse
+perception	possession	have	n't	do	do	it	it	33	Target_Child	Mother	no it do n't have Sully	no it does not have Sully but at least they can watch Mike	6	13	declarative	declarative	Weist Matt	negative	discourse
 perception	existence	is		there		storm	storm	44	Target_Child	Mother	is there a storm outside	no there 's no storm outside is it I think it 's just the chairs upstairs making loud noises	5	19	question	declarative	Weist Matt	positive	discourse
 perception	existence	's		there		lots	lot	51	Mother	Target_Child	there 's lots of stuff at our house that 's like that	no you know that thing that was kinda like a kinda like my first radio but it does n't have any but it 's not kinda like a regular not regular but as tall as a regular one	12	38	declarative	declarative	Weist Matt	positive	discourse
 perception	possession	you							51	Mother	Target_Child	your what you brought this here to put it in my hair	no I brought it to the track	12	7	question	declarative	Weist Matt	positive	discourse
@@ -150,26 +187,35 @@ perception	existence	was	no	there		zebras	zebras	39	Target_Child	Mother	there wa
 perception	existence	's		there		mommy	mommy	32	Father	Target_Child	there 's mommy right	no not mommy	4	3	question	declarative	Weist Roman	positive	discourse
 perception	possession	mine							34	Target_Child	Father	mine	no what kind what kind of ball is this	1	9	declarative	question	Weist Roman	positive	discourse
 perception	existence	is		there		wood	wood	45	Investigator	Target_Child	wow there is wood all over the place	no dere 's not	8	4	declarative	declarative	Weist Roman	positive	discourse
+perception	possession	have	n't	do	do	we	we	45	Target_Child	Father	we do n't have a dog	no we do n't put it back Roman	6	8	declarative	declarative	Weist Roman	negative	discourse
 perception	existence	's		there		ghosts	ghost	47	Father	Target_Child	no it means there 's ghosts who live in that house	no it 's skeletons see	11	5	declarative	question	Weist Roman	positive	discourse
 perception	existence	was		there		candy	candy	52	Investigator	Target_Child	so you said there was candy where was the candy was the candy taped to the egg	no no no it was in	17	6	question	declarative	Weist Roman	positive	discourse
 perception	possession	yours							39	Mother	Target_Child	are all of them yours	no these are mine	5	4	question	declarative	Weist Emma	positive	discourse
+perception	possession	have	n't	do	do	I	I	44	Target_Child	Father	I do n't have hands	no you do n't do you	5	6	declarative	declarative	Weist Emma	negative	discourse
 perception	possession	she							51	Target_Child	Target_Child	her	no how about this be the babysitter	1	7	declarative	declarative	Weist Emma	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	we	we	23	Mother	Target_Child	no we do n't have butter on cereal	no I want toast	8	4	declarative	declarative	Braunwald Laura	negative	discourse
+perception	possession	have	n't	do	do	I	I	26	Target_Child	Mother	I do n't have some	no we 're out of cones are n't we	5	9	declarative	question	Braunwald Laura	negative	discourse
 perception	possession	mine							27	Target_Child	Mother	that 's one mine	no that 's really Dwww 's	4	6	declarative	declarative	Braunwald Laura	positive	discourse
+perception	possession	have	n't	wo	will	she	she	32	Sister	Mother	but she wo n't haf ta wait	no she wants the one out of the	7	8	interruption	declarative	Braunwald Laura	negative	discourse
 perception	possession	mine							37	Target_Child	Mother	that 's mine	no just keep it	3	4	declarative	declarative	Braunwald Laura	positive	discourse
 perception	possession	yours							32	Target_Child	Mother	yours	no yours	1	2	question	declarative	Braunwald Laura	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	they	they	45	Adult	Target_Child	they do n't haf ta wear something	no they do n't do it	7	6	question	declarative	VanKleeck Brent	negative	discourse
 perception	existence	's		there		bit	bit	44	Adult	Target_Child	oh there 's just a little bit left	no a bunch	8	3	declarative	declarative	VanKleeck Jessica	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	possession	mine							29	Target_Child	Mother	that 's mine	no that 's not yours	3	5	declarative	declarative	Gelman nan	positive	discourse
+perception	possession	have	n't	do	do	you	you	59	Mother	Target_Child	you do n't have a big chair like that in your bedroom do you	no I have a different chair	14	6	question	declarative	Gelman nan	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	I	I	30	Target_Child	Mother	I do n't have	no but you 've got some on your face	4	9	declarative	declarative	Morisset Heather	negative	discourse
 perception	possession	she							30	Target_Child	Mother	that her 's	no that 's some juice for the baby	3	8	question	declarative	Morisset Travis	positive	discourse
 perception	possession	yours							30	Target_Child	Mother	that yours	no you can have some too	2	6	question	declarative	Morisset nan	positive	discourse
 perception	existence	's		there		juice	juice	30	Mother	Mother	there 's some juice	no you do n't put that in cup you 're a big girl now	4	14	declarative	declarative	Morisset nan	positive	discourse
 perception	possession	mine							30	Target_Child	Mother	that 's mine	no just wait	3	3	declarative	declarative	Morisset nan	positive	discourse
+perception	possession	have	n't	ca	can	you	you	30	Mother	Mother	but you ca n't have it for a few m	no you ca n't have it for a few minutes	10	10	trail	declarative	Morisset Amanda	negative	discourse
 perception	existence	's		there		nothing	nothing	30	Target_Child	Mother	there 's nothing in it	no that 's all gone you leave that alone	5	9	declarative	declarative	Morisset Brianne	positive	discourse
 perception	possession	mine							30	Target_Child	Mother	that mine	no you haf ta wait	2	5	declarative	declarative	Morisset Andrew	positive	discourse
 perception	possession	mine							30	Target_Child	Mother	mine	no it 's a cookie yeah it 's yours	1	9	declarative	declarative	Morisset David	positive	discourse
@@ -177,10 +223,12 @@ Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	are		there		blocks	block	28	Relative	Mother	there are n't any white blocks	no we ca n't build a white house	6	8	declarative	declarative	Suppes Nina	positive	discourse
 perception	possession	she							29	Target_Child	Mother	her at the hospital	no she is n't	4	4	declarative	declarative	Suppes Nina	positive	discourse
+perception	possession	have	n't	do	do	her	she	29	Target_Child	Mother	her do n't have a paw	no the dog has a paw	6	6	declarative	declarative	Suppes Nina	negative	discourse
 perception	possession	mine							29	Target_Child	Mother	he 's mine	no he 's Ari 's	3	5	declarative	declarative	Suppes Nina	positive	discourse
 perception	possession	she							29	Target_Child	Mother	her in the mud	no this is sand	4	4	declarative	declarative	Suppes Nina	positive	discourse
 perception	possession	she							29	Target_Child	Mother	her in the mud	no she 's in the sand	4	6	declarative	declarative	Suppes Nina	positive	discourse
 perception	existence	's		there		table	table	34	Mother	Target_Child	there 's the kitchen table	no let 's play with them on the other table	5	10	declarative	declarative	Suppes Nina	positive	discourse
+perception	possession	have	n't	do	do	I	I	36	Mother	Target_Child	I do n't have any food left in the house	no we have	10	3	declarative	trail	Suppes Nina	negative	discourse
 perception	existence	's		there		deer	deer	37	Mother	Target_Child	there 's a Mommy deer and what else	no you ca n't see it	8	6	question	declarative	Suppes Nina	positive	discourse
 perception	existence	's		there		drop	drop	38	Target_Child	Mother	see there 's a little drop left	no there is n't	7	4	declarative	declarative	Suppes Nina	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
@@ -195,6 +243,8 @@ perception	possession	yours							32	Target_Child	Mother	this yours	no I think i
 perception	existence	's	no	there		music	music	14	Mother	Mother	there 's no music there	no there 's no music	5	5	declarative	declarative	NewEngland Michael	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		dip	dip	30	Father	Father	apart from apart from you see the one where there 's a dip	no there	13	2	question	declarative	Lara Lara	positive	discourse
+perception	possession	have	n't	did	do	NONE	NONE	34	Mother	Mother	did n't have any what	no I mean from the sideboard	5	6	question	declarative	Lara Lara	negative	discourse
+perception	possession	have	n't	have	have	you	you	35	Mother	Mother	no you have n't have you Amy	no you have n't	7	4	question	declarative	Lara Lara	negative	discourse
 perception	possession	yours							38	Target_Child	Mother	that one 's yours and that one 's mine	no that one 's mine	9	5	declarative	declarative	Lara Lara	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
@@ -215,8 +265,12 @@ perception	existence	is		there		video	video	32	Investigator	Mother	I do n't know
 perception	existence	's		there		pin	pin	33	Target_Child	Mother	and that there 's a rolling pin	no that 's just the handle of the pot that bit there see	7	13	declarative	question	Belfast Rachel	positive	discourse
 perception	existence	's		there		things	thing	35	Mother	Mother	well there 's still some things you could could get confused about	no Rachel still calls hot cold and cold hot	12	9	declarative	declarative	Belfast Rachel	positive	discourse
 perception	existence	was		there		boys	boy	38	Target_Child	Mother	eh one there was n't any boys or girls	no there was n't any boys	9	6	declarative	declarative	Belfast Rachel	positive	discourse
+perception	possession	have	n't	do	do	you	you	47	Investigator	Mother	you do n't haf ta wear them	no you do n't haf ta	7	6	question	declarative	Belfast David	negative	discourse
+perception	possession	have	n't	do	do	I	I	47	Investigator	Mother	I do n't have fifty friends to invite	no neither do I but	8	5	declarative	trail	Belfast David	negative	discourse
 perception	existence	's		there		lot	lot	52	Mother	Target_Child	there 's a whole lot of horsies missing	no the black they were them	8	6	declarative	declarative	Belfast Stuart	positive	discourse
 perception	possession	mine							52	Target_Child	Mother	mine	no the lady 's	1	4	question	declarative	Belfast Stuart	positive	discourse
+perception	possession	have	n't	do	do	you	you	38	Investigator	Target_Child	you do n't have time afterwards	no this is mine	6	4	declarative	declarative	Belfast Barbara	negative	discourse
+perception	possession	have	n't	could	could	you	you	30	Investigator	Mother	och no you could n't have that	no it was too much	7	5	declarative	declarative	Belfast Barbara	negative	discourse
 perception	existence	's	no	there		problem	problem	44	Investigator	Mother	passed his hearing text and there 's no problem	no he 's had a perforated ear when he was	9	10	question	self	Belfast Conor	negative	discourse
 perception	existence	's	no	there		key	key	48	Mother	Target_Child	Conor there 's no key on it	no it 's only magic one	7	6	declarative	declarative	Belfast Conor	negative	discourse
 perception	existence	is		there		gelatin	gelatin	54	Target_Child	Mother	is there gelatin in the strawberries	no there 's not sweetheart	6	5	question	declarative	Belfast Conor	positive	discourse
@@ -229,6 +283,10 @@ Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	
 perception	existence	is		there		truck	truck	23	Mother	Mother	is there a truck	no that 's a frisbee Nomi	4	6	question	declarative	Sachs Naomi	positive	discourse
 perception	possession	yours	not					28	Target_Child	Father	that 's not yours	no that 's not mine	4	5	imperative_emphatic	declarative	Sachs Naomi	negative	discourse
 perception	possession	mine							29	Target_Child	Mother	those are mine	no they 're not	3	4	declarative	declarative	Sachs Naomi	positive	discourse
+perception	possession	have	n't	do	do	you	you	30	Mother	Mother	Nomi Nomi you do n't have an yet	no not with the spoon	8	5	declarative	declarative	Sachs Naomi	negative	discourse
+perception	possession	have	n't	do	do	Kimmy	Kimmy	33	Target_Child	Mother	we have Milo book but Kimmy do n't have it	no Kimmy does n't have a Milo book	10	8	declarative	declarative	Sachs Naomi	negative	discourse
+perception	possession	have	n't	do	do	they	they	35	Mother	Target_Child	they do n't have puzzles at nursery school	no they have	8	3	question	trail	Sachs Naomi	negative	discourse
+perception	possession	have	n't	do	do	sandals	sandal	35	Target_Child	Mother	your sandals do n't have red	no that 's right honey	6	5	declarative	declarative	Sachs Naomi	negative	discourse
 perception	existence	was		there		face	face	40	Mother	Father	you told me there was a face that was scaring you Naomi	no sweetheart you misunderstood her Jacqueline	12	6	declarative	declarative	Sachs Naomi	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
@@ -236,6 +294,8 @@ Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	possession	my							18	Target_Child	Mother	my my	no it 's not yours	2	5	declarative	declarative	Brown Eve	positive	discourse
+perception	possession	have	not	may	may	you	you	19	Mother	Mother	no you may not have it	no I 'm sorry	6	4	declarative	declarative	Brown Eve	negative	discourse
+perception	possession	have	n't	have	have	you	you	21	Mother	Father	you have n't had tapioca for a whole week	no she has n't had a cheese sandwich either	9	9	declarative	declarative	Brown Eve	negative	discourse
 perception	possession	mine							21	Target_Child	Mother	that mine	no that 's Sarah 's	2	5	declarative	declarative	Brown Eve	positive	discourse
 perception	possession	mine							21	Target_Child	Mother	that mine	no that 's Sarah 's	2	5	declarative	declarative	Brown Eve	positive	discourse
 perception	possession	mine							21	Target_Child	Mother	that mine	no that 's Sarah 's bottle	2	6	declarative	declarative	Brown Eve	positive	discourse
@@ -245,10 +305,15 @@ perception	possession	mine							21	Target_Child	Mother	that mine	no that 's not
 perception	possession	mine							21	Target_Child	Mother	mine	no it 's Sarah 's turn	1	6	declarative	declarative	Brown Eve	positive	discourse
 perception	existence	are		there		none	none	25	Mother	Mother	are there none out here	no they 're all gone	5	5	question	declarative	Brown Eve	positive	discourse
 perception	possession	my							27	Target_Child	Mother	my my	no there 's your paper	2	5	declarative	declarative	Brown Adam	positive	discourse
+perception	possession	have	n't	would	would	he	he	28	Mother	Target_Child	he 'd haf ta do without a suitcase because he would n't have one	no no have one	14	4	declarative	declarative	Brown Adam	negative	discourse
 perception	possession	yours							36	Mother	Mother	that 's yours	no no switches	3	3	declarative	declarative	Brown Adam	positive	discourse
+perception	possession	have	n't	do	do	I	I	38	Investigator	Target_Child	I do n't have a pencil in there	no you got pencil in your bag	8	7	declarative	declarative	Brown Adam	negative	discourse
 perception	existence	was		there		Adam	Adam	38	Investigator	Target_Child	was there smoke Adam	no yeah I saw some smoke	4	6	question	declarative	Brown Adam	positive	discourse
+perception	possession	have	n't	do	do	he	he	40	Target_Child	Mother	Mommy he do n't have a baseball	no he does n't have one does he	7	8	declarative	question	Brown Adam	negative	discourse
+perception	possession	have	n't	do	do	it	it	41	Target_Child	Mother	is it it 's do n't have wheels	no it does n't have wheels	8	6	declarative	declarative	Brown Adam	negative	discourse
 perception	possession	she							42	Mother	Target_Child	her	no you ca n't eat my apples	1	7	declarative	declarative	Brown Adam	positive	discourse
 perception	existence	is		there		jeep	jeep	47	Target_Child	Mother	Mommy is there another jeep up here	no there is n't	7	4	question	declarative	Brown Adam	positive	discourse
+perception	possession	have	n't	do	do	I	I	50	Target_Child	Mother	I do n't have de top on	no no Adam	7	3	declarative	declarative	Brown Adam	negative	discourse
 perception	possession	mine							53	Target_Child	Mother	but it 's mine	no it 's not	4	4	declarative	declarative	Brown Adam	positive	discourse
 perception	possession	yours							31	Target_Child	Mother	dat yours	no it 's yours	2	4	declarative	declarative	Brown Sarah	positive	discourse
 perception	possession	yours							31	Mother	Target_Child	no it 's yours	no yours	4	2	declarative	declarative	Brown Sarah	positive	discourse
@@ -257,30 +322,46 @@ perception	possession	yours							33	Mother	Target_Child	no that 's yours	no not
 perception	possession	you							33	Mother	Mother	that 's from your	no this over here	4	4	trail	declarative	Brown Sarah	positive	discourse
 perception	possession	yours							34	Target_Child	Mother	dat yours	no it 's yours	2	4	declarative	declarative	Brown Sarah	positive	discourse
 perception	existence	's		there		crayon	crayon	37	Target_Child	Mother	there 's one crayon	no I have the crayon you just get the book	4	10	declarative	declarative	Brown Sarah	positive	discourse
+perception	possession	have	n't	did	do	he	he	39	Target_Child	Mother	he uh he did n't have something to eat	no he did n't have anything to eat	9	8	declarative	declarative	Brown Sarah	negative	discourse
 perception	existence	's		there		bubble+bath	bubble+bath	41	Target_Child	Mother	there 's some more bubble+bath	no it 's shampoo	5	4	declarative	declarative	Brown Sarah	positive	discourse
 perception	existence	's		there		water	water	43	Mother	Target_Child	there 's enough water in there	no I ca n't dry	6	5	declarative	declarative	Brown Sarah	positive	discourse
 perception	existence	's		there		egg	egg	44	Target_Child	Mother	there 's an egg in the other one t	no I took it out	9	5	trail	declarative	Brown Sarah	positive	discourse
+perception	possession	have	not	does	do	Saint	Saint	49	Investigator	Mother	does Saint Paul 's not have a kindergarten	no they do n't have a kindergarten	8	7	question	declarative	Brown Sarah	negative	discourse
 perception	existence	's		there		farmhouse	farmhouse	50	Target_Child	Mother	there 's the animal farmhouse	no that 's a lighthouse	5	5	declarative	declarative	Brown Sarah	positive	discourse
+perception	possession	have	n't	do	do	you	you	50	Father	Father	you do n't have many cartoons	no the other guys	6	4	declarative	declarative	Brown Sarah	negative	discourse
 perception	possession	yours	not					52	Investigator	Target_Child	yeah not like yours	no I got sharp teeth but hurts though	4	8	declarative	declarative	Brown Sarah	negative	discourse
+perception	possession	have	n't	do	do	we	we	53	Target_Child	Mother	we do n't have any green	no so you 'll haf ta color it blue I guess huh	6	12	declarative	question	Brown Sarah	negative	discourse
+perception	possession	have	n't	did	do	I	I	59	Target_Child	Father	I did n't have breakfast	no you can have breakfast in a minute	5	8	declarative	declarative	Brown Sarah	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	is		there		place	place	27	Investigator	Target_Child	okay well is there any place that mommy 'll let us dig	no I want it	12	4	question	declarative	Clark Shem	positive	discourse
 perception	possession	mine							31	Investigator	Target_Child	no those are mine	no is mine car keys	4	5	declarative	declarative	Clark Shem	positive	discourse
+perception	possession	have	n't	do	do	you	you	33	Investigator	Target_Child	you do n't have a telephone on top of your house do you	no I just have one telephone	13	6	question	declarative	Clark Shem	negative	discourse
 perception	existence	's	no	there		snow	snow	35	Investigator	Target_Child	but how can we make snow+ball men if there 's no snow outside	no we can make snow+ball mans out of duh play+dough	13	10	question	declarative	Clark Shem	negative	discourse
+perception	possession	have	n't	do	do	we	we	35	Investigator	Target_Child	we do n't haf ta be afraid of him right	no no dat 's not it	10	6	question	imperative_emphatic	Clark Shem	negative	discourse
+perception	possession	have	n't	do	do	I	I	37	Investigator	Target_Child	no I do n't have one	no but I just have one	6	6	trail	declarative	Clark Shem	negative	discourse
 perception	existence	's		there		o	o	37	Investigator	Target_Child	no see the right back there right in the same thing there 's an o right next to the red one	no I do n't wan na do dat I wan na do dis	21	13	declarative	declarative	Clark Shem	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	I	I	39	Investigator	Target_Child	Mommy I do n't have any room on the merry+go+round	no they 're gon ta share	10	6	declarative	declarative	VanHouten Adam	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		book	book	19	Mother	Mother	there 's a little book in there	no I mean on this book on this page look	7	10	declarative	declarative	McCune Alice	positive	discourse
+perception	possession	have		NONE	NONE	NONE	NONE	20	Target_Child	Mother	have these toys no	no we do n't have these toys	4	7	declarative	declarative	McCune Alice	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	Spidey	Spidey	34	Target_Child	Father	Spidey do n't have no more money	no Spidey does n't have any money so he 's not going to get anything	7	15	declarative	declarative	MacWhinney Ross	negative	discourse
 perception	existence	is		there		tea	tea	51	Father	Mother	is there any hot tea	no but it 's sure easy enough to do	5	9	question	declarative	MacWhinney Ross	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	're		there		letters	letter	17	Mother	Mother	yeah there 're letters on the camera	no sweetie do n't do that	7	6	declarative	declarative	Providence Ethan	positive	discourse
 perception	possession	my							18	Target_Child	Mother	my	no yours is over here	1	5	declarative	declarative	Providence Ethan	positive	discourse
+perception	possession	have	n't	does	do	he	he	25	Target_Child	Mother	he does n't have a porthole	no he does n't	6	4	declarative	declarative	Providence Ethan	negative	discourse
 perception	existence	's		there		head	head	33	Target_Child	Mother	there 's his head is down the table	no it 's hanging over the edge	8	7	declarative	declarative	Providence Ethan	positive	discourse
+perception	possession	have	n't	do	do	I	I	35	Target_Child	Mother	I do n't have a pocket	no these pants do n't have pockets	6	7	declarative	declarative	Providence Ethan	negative	discourse
 perception	existence	's		there		grandma	grandma	15	Mother	Mother	there 's the grandma	no the green hat is too old look at the spider where 's the spider	4	15	declarative	question	Providence Violet	positive	discourse
+perception	possession	have	n't	does	do	NONE	NONE	16	Mother	Mother	does n't have school next week ya know	no it 's February vacation	8	5	declarative	declarative	Providence Violet	negative	discourse
+perception	possession	have	n't	do	do	I	I	18	Mother	Mother	I really should go through that cabinet but I do n't have the energy	no do n't put those in the bag cause this is garbage	14	12	trail	declarative	Providence Violet	negative	discourse
 perception	existence	is		there		money	money	30	Mother	Father	hm do the is there money that still goes from our checking to our savings	no I do n't think so	15	6	question	declarative	Providence Violet	positive	discourse
+perception	possession	have	n't	did	do	we	we	27	Mother	Target_Child	and then we went back into the car but we did n't have it in the car right because it was in your stereo	no it was in the car	24	6	declarative	declarative	Providence Lily	negative	discourse
 perception	possession	yours							27	Target_Child	Mother	no it 's yours	no look I have mine	4	5	declarative	declarative	Providence Lily	positive	discourse
 perception	existence	's		there		bug	bug	28	Mother	Target_Child	there 's a bug	no that 's a fly	4	5	question	declarative	Providence Lily	positive	discourse
 perception	possession	mine							29	Target_Child	Mother	is it mine	no it 's the backpack 's	3	6	question	declarative	Providence Lily	positive	discourse
@@ -290,15 +371,21 @@ perception	existence	was		there		table	table	38	Mother	Target_Child	there was a 
 perception	existence	is		there		wrap	wrap	38	Mother	Mother	is there bubble wrap in there	no no bubble wrap just your little box	6	8	question	declarative	Providence Lily	positive	discourse
 perception	existence	's		there		song	song	40	Mother	Target_Child	maybe there 's a song about a princess you would like to sing	no no help help grab my hand	13	7	declarative	declarative	Providence Lily	positive	discourse
 perception	possession	mine							46	Target_Child	Mother	mine	no silly it 's not your birthday yet	1	8	declarative	imperative_emphatic	Providence Lily	positive	discourse
-perception	possession	have	n't	should	should	NONE	NONE	28	Mother	Target_Child	yeah but this should n't have been left outside William	no should n't go outside	10	5	declarative	question	Providence William	negative	discourse
+perception	possession	have	n't	do	do	I	I	27	Father	Mother	I do n't have it right now	no I know that	7	4	declarative	declarative	Providence William	negative	discourse
 perception	possession	you							30	Mother	Mother	your	no that 's your toe your feet your tongue in your mouth	1	12	self	declarative	Providence William	positive	discourse
 perception	existence	's		there		wind	wind	17	Mother	Mother	there 's not enough wind	no I ca n't get it to fly	5	8	declarative	declarative	Providence Alex	positive	discourse
+perception	possession	have	n't	do	do	I	I	22	Mother	Mother	no I do n't have a b	no b I 'm sorry there 's no bee	7	9	declarative	declarative	Providence Alex	negative	discourse
 perception	existence	's		there		purple	purple	28	Target_Child	Mother	there 's a pink purple	no the purple one has plastic on it we ca n't open the ones with the plastic	5	17	question	declarative	Providence Alex	positive	discourse
+perception	possession	have	n't	do	do	I	I	31	Mother	Mother	I do n't have a Grant	no Daddy definitely does n't have a Grant	6	8	declarative	declarative	Providence Alex	negative	discourse
+perception	possession	have	n't	did	do	you	you	33	Mother	Target_Child	you did n't have much breakfast would you like a snack	no I going stay	11	4	question	declarative	Providence Alex	negative	discourse
+perception	possession	have	n't	do	do	you	you	33	Grandmother	Mother	you do n't have any more Windex	no we have n't had any Windex in a hundred years because you kept saying you were gon ta buy a refill buy a refill then you took mine	7	29	question	trail	Providence Alex	negative	discourse
 perception	existence	's		there		cheese	cheese	34	Target_Child	Mother	there 's some macaroni cheese	no it 's green beans	5	5	declarative	declarative	Providence Alex	positive	discourse
 perception	possession	she							36	Mother	Target_Child	what 's her what 's her name	no that 's my stop it it 's my kiss	7	10	question	declarative	Providence Alex	positive	discourse
 perception	existence	's		there		plenty	plenty	40	Mother	Target_Child	there 's plenty of beans to go around	no I want that bean	8	5	declarative	declarative	Providence Alex	positive	discourse
 perception	existence	's		there		lot	lot	17	Father	Mother	yeah there 's a lot of stuff in there is n't there	no I think she thinks it 's just full of chipmunks	12	11	question	declarative	Providence Naima	positive	discourse
+perception	possession	have	n't	does	do	it	it	21	Mother	Target_Child	you do n't need too much just need enough to keep the flap down it does n't haf ta be	no there 's more sticking up over there	20	8	trail	declarative	Providence Naima	negative	discourse
 perception	existence	's		there		box	box	21	Mother	Target_Child	there 's a box of tissues right there if you need one	no no it was just itch on my nose	12	9	interruption	declarative	Providence Naima	positive	discourse
+perception	possession	have	n't	do	do	I	I	21	Father	Father	you know I do n't have a clue	no it 's Monday I ca n't be on call	8	10	declarative	declarative	Providence Naima	negative	discourse
 perception	existence	is		there		picture	picture	22	Mother	Mother	is there a picture of strawberries on that	no there is n't	8	4	question	declarative	Providence Naima	positive	discourse
 perception	existence	's		there		fox	fox	24	Target_Child	Target_Child	there 's a fox	no it is	4	3	declarative	declarative	Providence Naima	positive	discourse
 perception	existence	's		there		truck	truck	25	Mother	Target_Child	yes there 's a big black truck there also	no there 's a	9	4	declarative	declarative	Providence Naima	positive	discourse
@@ -307,10 +394,11 @@ perception	existence	is		there		sign	sign	26	Mother	Mother	is there a sign on it
 perception	existence	's		there		toast	toast	29	Mother	Target_Child	I mean there 's toast and there 's jam I do n't	no it 's not	12	4	trail	declarative	Providence Naima	positive	discourse
 perception	existence	's		there		yogurt	yogurt	29	Father	Target_Child	there 's your yogurt	no you knocked	4	3	declarative	trail	Providence Naima	positive	discourse
 perception	existence	's		there		bunch	bunch	30	Mother	Target_Child	oh yeah there 's a bunch of oh and there 's a giraffe even	no but but that 's not very very high	14	9	declarative	declarative	Providence Naima	positive	discourse
-perception	possession	have	n't	do	do	you	you	30	Target_Child	Mother	you do n't have have put the laundry basket in the laundry	no I haf ta put the laundry in the laundry basket and then carry it to the washing machine	12	19	declarative	declarative	Providence Naima	negative	discourse
 perception	existence	is		there		child	child	32	Mother	Target_Child	is there a child somewhere in here	no no not in the kitchen	7	6	question	declarative	Providence Naima	positive	discourse
 perception	existence	's		there		lots	lot	34	Mother	Target_Child	there 's lots of different places that might even be where the books are over there	no I could n't it 's not a it 's not a book though	16	14	declarative	declarative	Providence Naima	positive	discourse
 perception	existence	's		there		wood	wood	35	Mother	Target_Child	okay may be there 's a creaking wood you mean right now we 're hearing it or	no no we no we 're pretending	17	7	declarative	declarative	Providence Naima	positive	discourse
+perception	possession	have	n't	do	do	they	they	46	Mother	Target_Child	well she 's saying they do n't have them	no you haf ta ask for something else that we do n't carry	9	13	declarative	declarative	Providence Naima	negative	discourse
+perception	possession	have	n't	did	do	you	you	46	Mother	Target_Child	I 'm a grumpy customer now cause you did n't have things I wanted	no I 'm beeping the lemon first	14	7	declarative	declarative	Providence Naima	negative	discourse
 perception	existence	are		there		bears	bear	46	Mother	Target_Child	are there any bears	no they 're all dogs	4	5	question	declarative	Providence Naima	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	possession	mine							24	Target_Child	Mother	mine	no let Megan wear it for a minute and then you can wear it	1	14	declarative	declarative	Post Lew	positive	discourse
@@ -322,30 +410,41 @@ perception	possession	mine							24	Sibling	Mother	that 's mine	no it 's not	3	4
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	are		there		things	thing	24	Mother	Mother	there are fun things in these little guys	no not yet	8	3	declarative	declarative	NewmanRatner 5903AE	positive	discourse
+perception	possession	have	n't	does	do	she	she	24	Mother	Mother	she does n't have boots	no she does n't	5	4	declarative	declarative	NewmanRatner 5903AE	negative	discourse
+perception	possession	have	n't	do	do	you	you	18	Investigator	Mother	so you do n't have pretend food at home	no we do n't	9	4	question	declarative	NewmanRatner 5266EC18	negative	discourse
 perception	existence	was		there		anything	anything	24	Investigator	Mother	okay um so was there anything in here that you tried to get him to play with that he just was n't interested in	no I really well maybe the habitat for the animal thing I tried to um say oh look you can play with the animals on here	24	26	question	declarative	NewmanRatner 5777FC	positive	discourse
 perception	existence	is		there		anything	anything	24	Investigator	Mother	and is there anything that you kind of tried to get him interested in here but he did n't really wan na do	no he seemed to even if I did n't um even if I brought it out and he turned his attention away he came back to it	23	27	question	declarative	NewmanRatner 5066WT24	positive	discourse
 perception	existence	's		there		favorite	favorite	24	Mother	Mother	oh there 's your favorite	no that 's not your f	5	6	imperative_emphatic	trail	NewmanRatner 5111CG24	positive	discourse
+perception	possession	have	not	's	be	NONE	NONE	24	Investigator	Mother	he 's he 's not had his second birthday yet	no not yet	10	3	declarative	declarative	NewmanRatner 5111CG24	negative	discourse
 perception	possession	you							24	Mother	Mother	your your	no what are you looking for	2	6	trail	question	NewmanRatner 5196AVI24	positive	discourse
 perception	existence	is		there		phone	phone	24	Mother	Mother	there is n't a phone over here is there	no I do n't see one	9	6	declarative	declarative	NewmanRatner 5482DF	positive	discourse
 perception	existence	was		there		anything	anything	24	Investigator	Mother	um was there anything else that she played with	no not really	9	3	question	declarative	NewmanRatner 6815KG24	positive	discourse
 perception	existence	's		there		cow	cow	24	Mother	Mother	yeah there 's the cow	no not that one	5	4	declarative	declarative	NewmanRatner 7119CM24	positive	discourse
+perception	possession	have	n't	do	do	you	you	24	Investigator	Mother	so I bet you do n't have so many um you do n't have kitchen toys at home	no no we do n't uh have any	18	8	question	declarative	NewmanRatner 5073AC24	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	I	I	42	Mother	Target_Child	and and af after supper we 'll do it cause I do n't have time now okay	no we haf ta do it now	17	7	question	declarative	Gleason Isadora	negative	discourse
 perception	existence	's		there		lot	lot	52	Mother	Target_Child	oh well Hel look there 's a lot of corn on here and	no I do n't wannoo	13	5	trail	declarative	Gleason Helen	positive	discourse
 perception	existence	is		there		one	one	59	Target_Child	Mother	is there another one in there	no there 's just the book and the car and then there 's some stuff to play with here we can play store over here okay	6	26	question	question	Gleason Helen	positive	discourse
 perception	possession	yours							38	Mother	Target_Child	it 's yours you can take it home with you	no I not take it home	10	6	declarative	declarative	Gleason Katie	positive	discourse
 perception	existence	's		there		nobody	nobody	38	Father	Target_Child	is n't it there 's nobody in there	no and this is the window	8	6	declarative	declarative	Gleason Olivia	positive	discourse
 perception	existence	's		there		anything	anything	25	Father	Father	okay here 's this is tea here 's a box of it let 's see if there 's anything in it	no there 's no tea	21	5	declarative	declarative	Gleason Nanette	positive	discourse
+perception	possession	have	n't	do	do	we	we	50	Father	Target_Child	we we do n't haf ta bring it to the garage	no not yet	11	3	question	declarative	Gleason Theresa	negative	discourse
+perception	possession	have	n't	does	do	it	it	38	Target_Child	Mother	it does n't have a spider in it	no there 's no spider in it I think we would get a little bit more out if you blow hard	8	21	declarative	declarative	Gleason Susan	negative	discourse
 perception	existence	's		there		drawer	drawer	32	Mother	Mother	there 's a drawer for money	no not over there	6	4	declarative	declarative	Gleason Richard	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	be		there		strawberry	strawberry	24	Mother	Mother	there might be a strawberry on it	no I do n't think there is	7	7	declarative	declarative	Howe Sally	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	do	do	he	he	43	Target_Child	Mother	he now he do n't have he 's not a butterfly no more	no he 's not a caterpillar anymore	13	7	question	declarative	HSLLD nan	negative	discourse
 perception	possession	he							43	Target_Child	Target_Child	that 's his	no that 's his silky	3	5	trail	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	do	do	he	he	50	Target_Child	Mother	look Ma he do n't have no feet	no he does n't in that does he he 's just moving like magic huh	8	15	declarative	question	HSLLD nan	negative	discourse
 perception	possession	yours							46	Target_Child	Mother	and yours	no my birthday 's already gone	2	6	imperative_emphatic	declarative	HSLLD nan	positive	discourse
 perception	possession	my							47	Target_Child	Father	that was in my in my milk	no there 's nothing in your milk	7	7	imperative_emphatic	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	does	do	city	city	48	Father	Target_Child	what happened was the city does n't have as much money	no tell me the rest	11	5	declarative	declarative	HSLLD nan	negative	discourse
 perception	possession	mine							51	Target_Child	Mother	it 's mine and Sis 's it 's mine	no this is mommy 's	9	5	question	declarative	HSLLD nan	positive	discourse
 perception	possession	yours							51	Target_Child	Mother	it 's yours and mine and Sis 's	no it 's mommy 's	8	5	question	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	do	do	I	I	48	Target_Child	Mother	I do n't have any chair	no I prefer you to come back over here please	6	10	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	are		there		lot	lot	50	Mother	Target_Child	there are n't a real lot of wild animals here	no but if we see a whole bunch um I would waked up	10	13	declarative	declarative	HSLLD nan	positive	discourse
 perception	possession	mine							47	Brother	Target_Child	mine	no these are mine	1	4	imperative_emphatic	declarative	HSLLD nan	positive	discourse
 perception	possession	mine							45	Target_Child	Mother	these are mine	no they 're not	3	4	question	declarative	HSLLD nan	positive	discourse
@@ -354,72 +453,108 @@ perception	existence	's		there		people	people	48	Sister	Target_Child	but there '
 perception	possession	ours							46	Target_Child	Mother	ours	no they 're not our toys	1	6	imperative_emphatic	declarative	HSLLD nan	positive	discourse
 perception	existence	's		there		belts	belt	45	Mother	Target_Child	no no Bro let your brother toy all the all the people out the bus and you gotta to make sure you put them in there and when you put them in there there 's seat belts like you do	no I do it	40	4	declarative	imperative_emphatic	HSLLD nan	positive	discourse
 perception	existence	's		there		sugar	sugar	52	Mother	Target_Child	now there 's sugar all over the floor	no there 's not because the top was still on it	8	11	declarative	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	do	do	I	I	51	Target_Child	Mother	I do n't have this one	no you do n't have this one	6	7	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	's		there		lot	lot	47	Target_Child	Mother	there 's a lot in this	no fix it	6	3	declarative	declarative	HSLLD nan	positive	discourse
 perception	existence	is		there		fire	fire	53	Target_Child	Mother	is there fire in here	no that 's make+believe fire	5	5	question	declarative	HSLLD nan	positive	discourse
 perception	existence	's		there		bees	bee	57	Target_Child	Mother	because there 's bees	no th that 's a cocoon	4	6	imperative_emphatic	imperative_emphatic	HSLLD nan	positive	discourse
 perception	existence	are		there		girls	girl	62	Mother	Mother	are there any other girls in this house asked the grand duke	no said the stepmother	12	4	declarative	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	did	do	we	we	53	Mother	Mother	no we did n't have a stomach ache	no remember	8	2	declarative	question	HSLLD nan	negative	discourse
 perception	existence	's		there		mustard	mustard	51	Mother	Target_Child	I did n't put relish on it there 's only mustard and catsup like you wanted	no I saw white stuff on that	16	7	declarative	declarative	HSLLD nan	positive	discourse
 perception	existence	's		there		things	thing	49	Sister	Father	that 's the fireworks and she she goes there 's so many um fireworks things that are nearby we were we went all over you know how many fireworks things there were	no that was i that was in New Hampshire	32	9	question	declarative	HSLLD nan	positive	discourse
 perception	existence	is		there		anything	anything	56	Father	Mother	is there anything still in the oven in the broiler	no did n't I did I fail to turn it off	10	11	question	question	HSLLD nan	positive	discourse
+perception	possession	have	n't	ca	can	you	you	65	Mother	Target_Child	well you ca n't have your you ca n't ride your bike alone in the street	no you you you can go with me	16	8	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	's		there		things	thing	49	Sister	Father	that 's the fireworks and she she goes there 's so many um fireworks things that are nearby we were we went all over you know how many fireworks things there were	no that was i that was in New Hampshire	32	9	question	declarative	HSLLD nan	positive	discourse
 perception	existence	is		there		bread	bread	58	Sister	Mother	is there any more bread	no you did n't eat any of your corn	5	9	question	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	did	do	you	you	68	Mother	Target_Child	oh you did n't have pen time today	no the teacher had lay down	8	6	question	declarative	HSLLD nan	negative	discourse
 perception	existence	's	no	there		spots	spot	54	Target_Child	Mother	but there 's no spots on here	no but there there is a dog the same color as a Dalmation	7	13	declarative	declarative	HSLLD nan	negative	discourse
-perception	possession	have	n't	could	could	NONE	NONE	71	Mother	Target_Child	not she could n't have been might be my mother	no not your mother	10	4	declarative	declarative	HSLLD nan	negative	discourse
+perception	possession	have	n't	does	do	this	this	68	Target_Child	Mother	the other kid this does n't have um his name because he 's he um Miss Shine is gon ta give him it tomorrow because the bus almost m left me so that 's why that 's why Miss Shine did n't put his name on it	no I do n't wan na hear that story	47	9	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	's		there		room	room	64	Mother	Mother	get up and see if there 's any room	no wo n't stick	9	4	declarative	question	HSLLD nan	positive	discourse
+perception	possession	have	n't	did	do	you	you	68	Mother	Target_Child	you did n't have any slippers or um costume or anything	no I got to uh	11	5	declarative	trail	HSLLD nan	negative	discourse
+perception	possession	have	n't	do	do	we	we	66	Target_Child	Mother	we do n't have that in gym	no not yet you 're too young for that	7	9	declarative	declarative	HSLLD nan	negative	discourse
 perception	possession	my							70	Target_Child	Target_Child	my	no that was Bro	1	4	self	declarative	HSLLD nan	positive	discourse
 perception	possession	yours							68	Target_Child	Mother	this one is yours	no that one 's for the dog	4	7	declarative	declarative	HSLLD nan	positive	discourse
 perception	existence	's	no	there		number	number	64	Mother	Target_Child	there 's no real phone number	no tell him his tell me his phone number	6	9	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	is	no	there		number	number	64	Mother	Target_Child	I there is no phone number	no tell me his phone number	6	6	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	is		there		momma	momma	69	Target_Child	Mother	um is there any zebras momma	no I do n't see a mama zebra	6	8	question	declarative	HSLLD nan	positive	discourse
+perception	possession	have	n't	does	do	he	he	69	Target_Child	Mother	well he does n't have a family either	no the elephant and the tiger	8	6	declarative	declarative	HSLLD nan	negative	discourse
 perception	existence	's		there		beak	beak	51	Child	Mother	there 's is his beak	no I do n't think so Jake	5	7	declarative	declarative	HSLLD Connor	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	did	do	you	you	57	Father	Father	you did n't have your room done though did you	no you did n't	10	4	question	declarative	Warren Beth	negative	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		girl	girl	39	Mother	Mother	do n't touch anything there 's a good girl	no not on the glass	9	5	declarative	declarative	Wells Sheila	positive	discourse
 perception	possession	my							24	Target_Child	Mother	my	no you do it once	1	5	declarative	declarative	Wells Abigail	positive	discourse
+perception	possession	have	n't	did	do	they	they	18	Father	Mother	they did n't have any small ones in there love	no but they had the big ones	10	7	declarative	declarative	Wells Gavin	negative	discourse
 perception	existence	is		there		Cloud	Cloud	59	Mother	Mother	is there a Mister Cloud	no there 's a Mister	5	5	question	declarative	Wells Geoffrey	positive	discourse
 perception	existence	's		there		eggie	eggie	17	Mother	Mother	there 's an eggie with a	no do n't hold it because you might drop it	6	10	trail	declarative	Wells Benjamin	positive	discourse
+perception	possession	have	not	're	be	you	you	60	Mother	Mother	you 're not having a bath	no you do n't have a bath now daft hapth	6	10	declarative	declarative	Wells Benjamin	negative	discourse
 perception	existence	's		there		lots	lot	30	Mother	Target_Child	there 's lots	no I 'm not	3	4	declarative	declarative	Wells Darren	positive	discourse
+perception	possession	have	n't	wo	will	you	you	42	Unidentified	Target_Child	if I bash your nose in you wo n't have no nose and I 'll have six noses	no you wo n't	18	4	declarative	declarative	Wells Darren	negative	discourse
 perception	existence	's		there		piece	piece	21	Mother	Mother	there 's another piece of paper here	no you	7	2	declarative	declarative	Wells Harriet	positive	discourse
 perception	possession	mine							39	Target_Child	Mother	oh is that mine	no that 's Daddy 's	4	5	question	declarative	Wells Jason	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 perception	existence	's		there		butter	butter	29	Mother	Mother	uhhuh there 's peanut butter on your glass	no you wan na see Bumpa 's overalls Abe	8	9	declarative	question	Kuczaj Abe	positive	discourse
 perception	possession	mine							35	Target_Child	Father	no that 's mine	no it 's mine see	4	5	declarative	question	Kuczaj Abe	positive	discourse
 perception	existence	is		there		anything	anything	35	Mother	Target_Child	is there anything else in there	no are we getting ready for Christmas	6	7	question	question	Kuczaj Abe	positive	discourse
+perception	possession	have	n't	does	do	it	it	38	Father	Target_Child	oh it wo n't work if it does n't have holes	no it wo n't work when it do n't has holes in it	11	13	question	declarative	Kuczaj Abe	negative	discourse
 perception	possession	we	n't					38	Father	Target_Child	it was n't for us	no it was cold out there	5	6	question	declarative	Kuczaj Abe	negative	discourse
+perception	possession	have	n't	do	do	I	I	39	Mother	Target_Child	so I do n't haf ta throw it away	no hey you almost did n't know when to stop	9	10	declarative	declarative	Kuczaj Abe	negative	discourse
+perception	possession	have	n't	did	do	they	they	40	Mother	Target_Child	they did n't have bathtubs	no no um got a policeman	5	6	question	declarative	Kuczaj Abe	negative	discourse
+perception	possession	have	n't	did	do	he	he	40	Father	Target_Child	he did n't have any eyes did he	no and what did he have under his mouth	8	9	question	question	Kuczaj Abe	negative	discourse
 perception	existence	's		there		milk	milk	41	Father	Target_Child	there 's some milk on the table	no get me some more milk in case I get real thirsty	7	12	declarative	declarative	Kuczaj Abe	positive	discourse
 perception	existence	's		there		milk	milk	42	Father	Target_Child	I doubt if there 's any milk outside	no there is milk outside	8	5	declarative	declarative	Kuczaj Abe	positive	discourse
+perception	possession	have	n't	ca	can	we	we	42	Father	Target_Child	we ca n't have a horse here	no a real horsie	7	4	declarative	declarative	Kuczaj Abe	negative	discourse
+perception	possession	have	n't	does	do	it	it	44	Father	Target_Child	oh it does n't have any paper on it does it	no Mom look it 's a magic picture	11	8	question	declarative	Kuczaj Abe	negative	discourse
 perception	existence	was		there		one	one	46	Father	Target_Child	I thought there was another one	no that 's the only one	6	6	declarative	declarative	Kuczaj Abe	positive	discourse
 perception	possession	mine							51	Target_Child	Father	me mine and Mother 's	no it was somebody who 's coming to our house this Sunday	5	12	declarative	declarative	Kuczaj Abe	positive	discourse
-perception	possession	have	n't	would	would	NONE	NONE	51	Father	Target_Child	would we have been able to see the Easter_Bunny 's footprints if it would n't have snowed	no that 's the other thing	17	6	question	declarative	Kuczaj Abe	negative	discourse
+perception	possession	have	n't	did	do	you	you	51	Father	Target_Child	oh you did n't haf ta pay your own money	no I still have it	10	5	question	declarative	Kuczaj Abe	negative	discourse
+perception	possession	have	n't	did	do	it	it	56	Father	Target_Child	it did n't have legs	no here it is	5	4	question	declarative	Kuczaj Abe	negative	discourse
 perception	possession	yours							57	Father	Target_Child	no here 's yours	no that 's not mine	4	5	declarative	declarative	Kuczaj Abe	positive	discourse
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
 Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+perception	possession	have	n't	does	do	she	she	57	Teacher	Target_Child	she does n't have any money at all	no he got durty he got durty cents	8	8	question	declarative	Hall Patrick	negative	discourse
 perception	possession	mine							57	Target_Child	Target_Child	no it 's mine	no it 's mine	4	4	imperative_emphatic	imperative_emphatic	Hall Matthew	positive	discourse
 perception	possession	mine							57	Child	Target_Child	that one 's mine	no no you no you haf ta go around like dis and you go ri like that and I go like this	4	22	declarative	declarative	Hall Robert	positive	discourse
+perception	possession	have	n't	ca	can	I	I	57	Target_Child	Mother	because it you said jello I ca n't have	no you can have it	9	5	declarative	declarative	Hall Robert	negative	discourse
+perception	possession	have	n't	do	do	I	I	57	Mother	Target_Child	that 's alright I still do n't haf ta pick them up	no that lobster was that was the lobster that was useta be alive somebody killed it	12	16	declarative	declarative	Hall Robert	negative	discourse
+perception	possession	have	n't	do	do	I	I	57	Target_Child	Mother	an and I do n't have them	no when yours fall out then you 'll be about seven	7	11	declarative	declarative	Hall Robert	negative	discourse
 perception	existence	is		there		stuff	stuff	57	Target_Child	Mother	how come is there any white s stuff	no this there 's no vanilla this is n't vanilla fudge	8	11	question	declarative	Hall Robert	positive	discourse
 perception	existence	's		there		nothing	nothing	57	Investigator	Mother	no there 's nothing to hear	no Graeme is going to do the listening	6	8	declarative	declarative	Hall Todd	positive	discourse
 perception	existence	's		there		spos	spo	57	Adult	Mother	you know there 's spos ta be snow flurries tonight	no I did n't know that	10	6	declarative	declarative	Hall Chris	positive	discourse
 perception	existence	's		there		David	David	57	Teacher	Child	there 's so many David	no do n't do it	5	5	declarative	declarative	Hall David	positive	discourse
 perception	possession	mine							57	Target_Child	Child	some half a mine	no me and derrick do n't have none	4	8	declarative	declarative	Hall Michael	positive	discourse
+perception	possession	have	n't	do	do	I	I	57	Investigator	Mother	I do n't have change for a dollar but I could give him a dollar if	no I have a dollar	16	5	trail	declarative	Hall Kip	negative	discourse
 perception	existence	's		there		piece	piece	57	Target_Child	Mother	but there 's only one piece	no that 's not the paper	6	6	declarative	declarative	Hall Kip	positive	discourse
 perception	existence	's		there		nothing	nothing	57	Target_Child	Target_Child	it looks very nice there 's nothing wrong with it	no it 's just that it has this stuff on it and I know why so that means there 's there 's something wrong	10	24	declarative	declarative	Hall Kip	positive	discourse
 perception	possession	mine							57	Target_Child	Child	too mine	no you 're not	2	4	declarative	declarative	Hall Roland	positive	discourse
 perception	possession	yours							57	Target_Child	Target_Child	yours	no I 'm in	1	4	question	declarative	Hall Ronald	positive	discourse
 perception	existence	's		there		hole	hole	57	Target_Child	Mother	see there 's a little hole there	no that 's not where they live	7	7	declarative	declarative	Hall Kayode	positive	discourse
 perception	existence	was	no	there		skoowuhl	skoowuhl	57	Target_Child	Mother	yesterday was there was no skoowuhl	no yesterday was when you had the party	6	8	declarative	declarative	Hall Tony	negative	discourse
+perception	possession	have	not	're	be	you	you	57	Mother	Target_Child	no you 're not having no party at school	no I said after	9	4	declarative	declarative	Hall Tony	negative	discourse
 perception	existence	is		there		battery	battery	57	Target_Child	Father	is there a battery in the engine	no there 's a spring in there	7	7	question	declarative	Hall Tony	positive	discourse
 perception	possession	mine							57	Child	Target_Child	it gon be mine right here	no its not	6	3	declarative	declarative	Hall Derwood	positive	discourse
 perception	possession	mine							57	Brother	Target_Child	mine the basement	no yours is in the garage	3	6	imperative_emphatic	trail	Hall Jason	positive	discourse
+perception	possession	have	n't	do	do	I	I	57	Target_Child	Father	I do n't haf ta put this on	no not tonight	8	3	declarative	declarative	Hall Bobby	negative	discourse
 perception	possession	mine							57	Target_Child	Mother	that golden key 's mine	no that 's not golden key	5	6	declarative	declarative	Hall Bobby	positive	discourse
+perception	possession	have	n't	do	do	I	i	57	Sister	Mother	I do n't have a nickname do I	no you do n't have a nickname	8	7	question	declarative	Hall Mia	negative	discourse
+perception	possession	have	n't	do	do	I	I	57	Investigator	Target_Child	I do n't haf ta get up early	no not on that side on this side	8	8	declarative	declarative	Hall Mia	negative	discourse
+perception	possession	have	n't	do	do	you	you	57	Target_Child	Child	this is empty so you do n't haf ta worry	no I better leave my bag here	10	7	declarative	declarative	Hall Mia	negative	discourse
 perception	possession	mine							57	Target_Child	Target_Child	mine	no mommy can I have this	1	6	declarative	question	Hall Mia	positive	discourse
+perception	possession	have	not	're	be	we	we	57	Mother	Target_Child	we 're not having salad	no let me take those salad bowls	5	7	declarative	declarative	Hall Mia	negative	discourse
 perception	possession	mine							57	Investigator	Target_Child	uh mine to uh have and to hold as they say	no I mean to pit in your pocket	11	8	declarative	declarative	Hall Mia	positive	discourse
 perception	possession	he							57	Brother	Mother	that 's his	no he has his	3	4	declarative	declarative	Hall Mia	positive	discourse
+perception	possession	have	not	'm	be	I	I	57	Target_Child	Target_Child	I 'm not having seconds	no thank you	5	3	declarative	declarative	Hall Mia	negative	discourse
 perception	existence	is		there		lot	lot	57	Target_Child	Mother	is there a lot of snow	no not too much	6	4	question	declarative	Hall Steven	positive	discourse
+perception	possession	have	n't	ca	can	you	you	57	Target_Child	Mother	you ca n't have it	no no I just wan na take some change	5	9	imperative_emphatic	imperative_emphatic	Hall Karen	negative	discourse
 perception	possession	mine							57	Target_Child	Mother	these are mine	no that 's my change	3	5	question	declarative	Hall Karen	positive	discourse
 perception	existence	's		there		fishes	fish	57	Child	Child	there 's fishes	no it 's not	3	4	imperative_emphatic	imperative_emphatic	Hall Karen	positive	discourse
+perception	possession	have	n't	do	do	you	you	57	Father	Mother	you do n't have	no I wan na check it because I do n't want it to burn	4	14	trail	declarative	Hall Karen	negative	discourse
 perception	existence	's		there		something	something	54	Target_Child	Target_Child	there 's something on my heel too	no it does n't matter	7	5	declarative	declarative	Hall Samantha	positive	discourse
+perception	possession	have	n't	do	do	I	I	54	Target_Child	Mother	but I do n't have an antenna	no you do n't have an antenna	7	7	declarative	declarative	Hall Samantha	negative	discourse
+perception	possession	have	n't	do	do	you	you	54	Mother	Target_Child	no you do n't have an antenna	no ah nah nurt duh du uh duh	7	8	declarative	declarative	Hall Samantha	negative	discourse
 perception	possession	yours							54	Target_Child	Target_Child	right and that 's yours	no this is mine	5	4	declarative	declarative	Hall Samantha	positive	discourse
 perception	possession	yours							57	Brother	Target_Child	no it 's yours	no it ai n't	4	4	declarative	declarative	Hall Dexter	positive	discourse
+perception	possession	have	n't	do	do	you	you	57	Mother	Target_Child	you do n't haf ta give it to him if you do n't wan na you know	no no I mean know what he always says	17	9	declarative	question	Hall Joey	negative	discourse
 perception	existence	's		there		Oscar	Oscar	57	Mother	Target_Child	and the airplane yeah so anyway there 's Oscar looking up into the sky and boom he walks right smack into	no not Oscar	21	3	declarative	imperative_emphatic	Hall Joey	positive	discourse
+perception	possession	have	n't	wo	will	you	you	57	Mother	Target_Child	okay well sit up and then you wo n't have the shadow	no I mean duh shadow on my toast I do n't want	12	12	declarative	declarative	Hall Gabriel	negative	discourse
 perception	possession	yours							57	Target_Child	Child	dis yours	no I 'm wearing look what I got	2	8	question	declarative	Hall Keisha	positive	discourse

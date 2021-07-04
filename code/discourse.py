@@ -934,7 +934,7 @@ def perception(index, sent, corpus_name, level, data):
 
 		for tok in sent:
 
-			if (tok[2] == 'have' or tok[1] in ['have', 'has', 'had']) and tok[3] != 'VERB':
+			if (tok[2] == 'have' or tok[1] in ['have', 'has', 'had']) and tok[3] == 'VERB':
 
 				info = ''
 
@@ -987,7 +987,7 @@ def perception(index, sent, corpus_name, level, data):
 
 					if neg != '':
 						if int(neg[0]) < int(tok[0]):						
-							info = ['perception', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
+							info = ['perception', function, 'have', neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
 				
 				### I don't have it ###
 
@@ -996,9 +996,9 @@ def perception(index, sent, corpus_name, level, data):
 
 					if neg != '':
 						if int(neg[0]) < int(tok[0]):						
-							info = ['perception', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']						
+							info = ['perception', function, 'have', neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']						
 						else:
-							info = ['perception', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive', 'sentential']
+							info = ['perception', function, 'have', '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive', 'sentential']
 							
 				if info != '':
 					return info
@@ -1065,7 +1065,7 @@ def perception(index, sent, corpus_name, level, data):
 			previous_sent_type = previous[0][-1].split()[3]
 
 			for tok in previous:
-				if (tok[2] == 'have' or tok[1] in ['have', 'has', 'had']) and tok[3] != 'VERB':
+				if (tok[2] == 'have' or tok[1] in ['have', 'has', 'had']) and tok[3] == 'VERB':
 
 					info = ''
 
@@ -1118,7 +1118,7 @@ def perception(index, sent, corpus_name, level, data):
 
 						if neg != '':
 							if int(neg[0]) < int(tok[0]):						
-								info = ['perception', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
+								info = ['perception', function, 'have', neg[1], aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
 				
 					### I don't have it ###
 
@@ -1127,9 +1127,9 @@ def perception(index, sent, corpus_name, level, data):
 
 						if neg != '':
 							if int(neg[0]) < int(tok[0]):						
-								info = ['perception', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
+								info = ['perception', function, 'have', neg[1], aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
 							else:
-								info = ['perception', function, tok[2], '', aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'positive', 'discourse']
+								info = ['perception', function, 'have', '', aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'positive', 'discourse']
 							
 					if info != '':
 						return info

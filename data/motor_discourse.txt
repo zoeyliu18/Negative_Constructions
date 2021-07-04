@@ -1,0 +1,623 @@
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	go		NONE	NONE	NONE	NONE	30	Target_Child	Target_Child	ee um daddy 's g gus g g gon ta come off his tsair and say	no no ca n't yell at Dzen Dzen 's house	16	10	quotation	imperative_emphatic	Demetras1 Trevor	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	32	Father	Father	yeah we do	no we do n't	3	4	question	imperative_emphatic	Demetras1 Trevor	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	36	Father	Father	well first take him off the truck	no let me wait wait do n't pull do n't pull do n't pull oh look at what your doing	7	20	declarative	imperative_emphatic	Demetras1 Trevor	positive	discourse
+motor	prohibition	play		NONE	NONE	NONE	NONE	47	Father	Target_Child	okay then I 'm gon ta play in my dump truck	no that 's mine	11	4	declarative	imperative_emphatic	Demetras1 Trevor	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	look		NONE	NONE	NONE	NONE	26	Investigator	Target_Child	well I 'm gon ta look and see what 's in here you did n't really show it to oh what do you do with this	no that 's mine	26	4	question	imperative_emphatic	Bloom Peter	positive	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	26	Investigator	Target_Child	gone gone gone	no that 's my writing	3	5	declarative	imperative_emphatic	Bloom Peter	positive	discourse
+motor	inability	look		can	can	I	I	27	Investigator	Target_Child	well can I look at it	no it 's tire a tire	6	6	question	declarative	Bloom Peter	positive	discourse
+motor	inability	wear		can	can	I	I	28	Investigator	Target_Child	oh can I wear it for awhile	no I 'm wear it for awhile	7	7	question	declarative	Bloom Peter	positive	discourse
+motor	inability	use		can	can	I	I	28	Investigator	Target_Child	can I use this right now	no I 'm use it	6	5	question	declarative	Bloom Peter	positive	discourse
+motor	inability	break		can	can	I	I	29	Target_Child	Mother	can I break this	no you cannot break that	4	5	declarative	declarative	Bloom Peter	positive	discourse
+motor	prohibition	thank		NONE	NONE	NONE	NONE	29	Investigator	Target_Child	oh wonderful thank you	no it 's not	4	4	declarative	imperative_emphatic	Bloom Peter	positive	discourse
+motor	prohibition	walk		NONE	NONE	NONE	NONE	30	Investigator	Target_Child	okay walk	no I ca n't I 'm busy	2	7	declarative	imperative_emphatic	Bloom Peter	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	30	Investigator	Target_Child	I do n't know let 's see	no it 's mine	7	4	declarative	imperative_emphatic	Bloom Peter	positive	discourse
+motor	inability	touch	n't	ca	can	I	I	31	Investigator	Target_Child	is that why I ca n't touch it	no ca n't touch it	8	5	question	declarative	Bloom Peter	negative	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	33	Investigator	Target_Child	okay you gon ta put it where there are n't any toys	no uh	12	2	question	imperative_emphatic	Bloom Peter	positive	discourse
+motor	inability	do	n't	ca	can	I	I	32	Investigator	Target_Child	I ca n't do it all by myself	no you ca n't do it all by yourselves	8	9	question	declarative	Bloom Peter	negative	discourse
+motor	prohibition	push		NONE	NONE	NONE	NONE	32	Investigator	Target_Child	to push it oh you want ta give me my pen and put it back in the um pencil case for me	no I 'm you gon ta you gon ta get it tomorrow	22	12	question	imperative_emphatic	Bloom Peter	positive	discourse
+motor	inability	see	n't	ca	can	I	I	37	Investigator	Target_Child	I ca n't see hm is it the living room maybe	no we can make it the living room	11	8	question	declarative	Bloom Peter	negative	discourse
+motor	inability	do		can	can	I	I	30	Investigator	Target_Child	now can I do it	no now I do a dit	5	6	question	declarative	Bloom Gia	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	knock		NONE	NONE	NONE	NONE	24	Target_Child	Target_Child	that a knock a knock	no a duck	5	3	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	dah		NONE	NONE	NONE	NONE	24	Target_Child	Target_Child	we dah worm	no a tree	3	3	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	24	Mother	Target_Child	do you wan na put your jacket on Fraser	no I got see oh gosh	9	6	question	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	see		ca	can	I	I	24	Mother	Target_Child	I ca n't even see it Fraser	no see it	7	3	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	25	Mother	Target_Child	well let 's just put this on you	no want jigsaw puzzle	8	4	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	25	Mother	Target_Child	let 's just sort this out look	no open the door	7	4	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	see		can	can	I	I	26	Mother	Target_Child	I can see all your teeth	no you	6	2	declarative	trail	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	26	Mother	Target_Child	let go	no it 's mine	2	4	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	get		can	can	I	I	27	Target_Child	Mother	can I get them	no do n't do that	4	5	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	hide	n't	ca	can	I	I	29	Target_Child	Mother	I ca n't hide	no you ca n't hide back there Fraser	4	8	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+motor	prohibition	play		NONE	NONE	NONE	NONE	29	Mother	Target_Child	and played	no I got to say that	2	6	interruption	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	wash		can	can	I	I	30	Target_Child	Mother	can I wash my hand	no I 'll get you a wipe	5	7	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	see		can	can	I	I	33	Father	Target_Child	I can see your toesies	no you ca n't now	5	5	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	talk		NONE	NONE	NONE	NONE	34	Mother	Target_Child	because it 's what you listen to people talking with	no let me do it now Jwww	10	7	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	34	Target_Child	Target_Child	I no I wan na put them off	no I	8	2	declarative	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	go		can	can	I	I	34	Target_Child	Target_Child	can I go	no I do n't wan na have some socks	3	9	self	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	eat	n't	ca	can	I	I	36	Target_Child	Mother	but I ca n't eat plants or Jwww or you or Daddy	no you must n't eat plants	12	6	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+motor	inability	do		can	can	I	I	36	Target_Child	Mother	can I do this	no do n't do that	4	5	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	go		can	can	I	I	36	Target_Child	Mother	can I go on trains	no you ca n't go on the trains but you can go and s	5	14	question	self	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	get		can	can	I	I	36	Target_Child	Mother	over there because I want because I so I can get up	no no no you 're not getting a chair	12	9	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	see	n't	ca	can	I	I	36	Target_Child	Mother	I ca n't see it	no I ca n't see it either	5	7	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+motor	inability	reach	n't	ca	can	I	I	36	Target_Child	Mother	I ca n't reach it	no you wo n't be able to get it now	5	10	declarative	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+motor	inability	scr		can	can	I	I	36	Target_Child	Mother	but I want but I I can scr I can hold them	no not now because they 're wet	12	7	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	put		can	can	I	I	36	Target_Child	Father	can I just put it on the big blue bit	no you put it on the floor there sweetheart	10	9	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	36	Mother	Mother	come	no do n't do that because you 'll get crayon on the door	1	13	trail	imperative_emphatic	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	draw		can	can	I	I	36	Target_Child	Mother	now I can draw a hand here	no that 's enough drawing hands now	7	7	declarative	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	go	n't	can	can	I	I	36	Target_Child	Mother	I ca n't go in that web can I	no you ca n't go in that web	9	8	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+motor	inability	do		can	can	I	I	36	Target_Child	Father	can I do um can I do this	no you do this first	8	5	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	do		can	can	I	I	36	Target_Child	Mother	can I do that	no come on	4	3	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	close		can	can	I	I	36	Target_Child	Mother	oh can I close it	no leave it because it 's letting some fresh air in because it 's very warm is n't it	5	19	question	question	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	come	n't	ca	can	I	I	36	Mother	Target_Child	I ca n't come in	no you can come in	5	5	question	declarative	MPI-EVA-Manchester Fraser	negative	discourse
+motor	inability	see		can	can	I	I	36	Target_Child	Mother	can I see from Jwww bedroom now	no she 's up there	7	5	question	declarative	MPI-EVA-Manchester Fraser	positive	discourse
+motor	inability	find	n't	ca	can	I	I	24	Target_Child	Mother	no I ca n't find it	no no no do n't touch those	6	7	declarative	declarative	MPI-EVA-Manchester Eleanor	negative	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	24	Mother	Target_Child	yeah but when you take it out you haf ta put it back in darling	no take it out	15	4	declarative	imperative_emphatic	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	do		can	can	I	I	26	Target_Child	Mother	can I do it	no not yet darling	4	4	question	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	prohibition	work		NONE	NONE	NONE	NONE	29	Mother	Target_Child	can we do work well yesterday	no I said	6	3	question	imperative_emphatic	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	lie		can	can	I	I	31	Mother	Target_Child	can I lie next to you	no you ca n't sit on the floor	6	8	question	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	drink		can	can	I	I	31	Target_Child	Mother	can I drink it	no it 's very hot	4	5	question	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	put		can	can	I	I	34	Target_Child	Target_Child	no I can put it in	no I can put it in	6	6	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	make	n't	ca	can	I	I	36	Mother	Target_Child	I ca n't make you omelette sandwich	no I want omelette	7	4	declarative	declarative	MPI-EVA-Manchester Eleanor	negative	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	36	Mother	Target_Child	put this you can use this as blank	no that 's Hannah 's	8	5	trail	imperative_emphatic	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	use		can	can	I	I	36	Target_Child	Mother	can I use this	no it 's too small	4	5	question	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	wash		can	can	I	I	36	Target_Child	Mother	can I wash them	no you just sit there	4	5	question	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+motor	inability	read		can	can	I	I	36	Target_Child	Father	I can I can read	no no darling	5	3	declarative	declarative	MPI-EVA-Manchester Eleanor	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	dust		can	can	I	I	25	Mother	Mother	we 've just taken it down from the bureau so I can dust	no do n't press any buttons	13	6	declarative	declarative	Thomas Thomas	positive	discourse
+motor	prohibition	peer		NONE	NONE	NONE	NONE	27	Mother	Target_Child	well I think if you open the red doors and peer inside you will see somebody there	no there	17	2	declarative	imperative_emphatic	Thomas Thomas	positive	discourse
+motor	inability	carry		can	can	I	I	27	Mother	Target_Child	but I can carry on blowing them and you can watch	no watch windy	11	3	declarative	declarative	Thomas Thomas	positive	discourse
+motor	inability	see	n't	ca	can	I	I	30	Investigator	Target_Child	I ca n't see Purdie anymore	no see it	6	3	declarative	declarative	Thomas Thomas	negative	discourse
+motor	inability	see	n't	ca	can	I	I	31	Mother	Target_Child	I ca n't see her either	no see a car going past	6	6	declarative	declarative	Thomas Thomas	negative	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	31	Mother	Target_Child	look	no Jess no	1	3	declarative	imperative_emphatic	Thomas Thomas	positive	discourse
+motor	inability	kiss		can	can	I	I	33	Mother	Target_Child	can I kiss them	no ah no not cut another	4	6	question	declarative	Thomas Thomas	positive	discourse
+motor	inability	sit		can	can	I	I	42	Target_Child	Mother	can I sit	no you sit in this chair	3	6	question	declarative	Thomas Thomas	positive	discourse
+motor	inability	watch		can	can	I	I	42	Target_Child	Mother	Buzz Lightyear now can I watch	no we 're not watching television now	6	7	question	declarative	Thomas Thomas	positive	discourse
+motor	inability	hear	n't	ca	can	I	I	43	Mother	Target_Child	I ca n't hear you whistling no	no just a wee wee whistle	7	6	declarative	declarative	Thomas Thomas	negative	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	43	Mother	Target_Child	no I think it 's time to get	no it is n't	8	4	interruption	imperative_emphatic	Thomas Thomas	positive	discourse
+motor	inability	open		can	can	I	I	45	Target_Child	Mother	I can open this	no do rip it because	4	5	declarative	self	Thomas Thomas	positive	discourse
+motor	inability	see	n't	ca	can	I	I	46	Target_Child	Mother	I ca n't see the apples	no well the apples wo n't grow yet	6	8	declarative	declarative	Thomas Thomas	negative	discourse
+motor	inability	show		can	can	I	I	47	Mother	Target_Child	well can I just show you this train	no it does n't matter	8	5	question	declarative	Thomas Thomas	positive	discourse
+motor	inability	show		can	can	I	I	49	Mother	Target_Child	or can I show here because look she might be spoken about	no no I do n't wan na	12	7	interruption	declarative	Thomas Thomas	positive	discourse
+motor	inability	put		can	can	I	I	53	Target_Child	Mother	Mummy can I put my pants on	no they 're not pants it 's a skirt	7	9	question	declarative	Thomas Thomas	positive	discourse
+motor	inability	snip		can	can	I	I	54	Target_Child	Mother	can I snip any flowers apart	no now	6	2	question	declarative	Thomas Thomas	positive	discourse
+motor	inability	play		can	can	I	I	57	Target_Child	Mother	oh can I play with this box	no be no because that box	7	6	question	self	Thomas Thomas	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	57	Mother	Target_Child	look at this steady Eddie	no do n't cut	5	4	declarative	imperative_emphatic	Thomas Thomas	positive	discourse
+motor	inability	cut	n't	ca	can	I	I	57	Target_Child	Mother	I ca n't cut a bottle	no do n't you 're going to cut your fingers	6	10	declarative	declarative	Thomas Thomas	negative	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	go		NONE	NONE	NONE	NONE	17	Mother	Mother	do you wan na go swimming when we get home	no you do too	10	4	question	imperative_emphatic	Bernstein Alice	positive	discourse
+motor	prohibition	play		NONE	NONE	NONE	NONE	17	Mother	Mother	would you like to play rosie with the with Humpty	no no no do n't touch please	10	7	question	imperative_emphatic	Bernstein Anne	positive	discourse
+motor	prohibition	read		NONE	NONE	NONE	NONE	24	Investigator	Mother	she did n't do much with the blocks but she was interested in reading them	no and we have some beautiful wooden blocks too that she just got and she she the only thing she 'll make with them is she 'll lay them flat on the floor and make a house to sit on not stack	15	42	trail	imperative_emphatic	Bernstein None	positive	discourse
+motor	prohibition	ask		NONE	NONE	NONE	NONE	22	Investigator	Mother	I was going to ask if she can take her clothes on and off and I guess I do n't haf ta	no she can	22	3	imperative_emphatic	imperative_emphatic	Bernstein None	positive	discourse
+motor	prohibition	happen		NONE	NONE	NONE	NONE	24	Mother	Mother	probably she does n't expect it to happen so and because I do n't let her talk on the phone that often it 's not anything she 's really accustomed to	no but she sees Maura 's hair in the morning and she sees me do my own oh	31	18	declarative	imperative_emphatic	Bernstein None	positive	discourse
+motor	prohibition	read		NONE	NONE	NONE	NONE	24	Mother	Mother	but she does pull the books out of the bookcase and reads them to herself	no she looks at the she likes reading the telephone book	15	11	declarative	imperative_emphatic	Bernstein None	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	put		can	can	I	I	16	Mother	Mother	can I put that back	no when can I put it back	5	7	question	question	Higginson June	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	17	Mother	Mother	let 's put the nose in	no okay	6	2	declarative	imperative_emphatic	Higginson June	positive	discourse
+motor	inability	color		can	can	I	I	33	Mother	Target_Child	can I color on this side instead	no you color on that side	7	6	question	declarative	Higginson April	positive	discourse
+motor	inability	put		can	can	I	I	33	Target_Child	Mother	I can put it in the	no I 'll hold this tape	6	6	declarative	declarative	Higginson April	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	thank		NONE	NONE	NONE	NONE	26	Mother	Mother	thank you	no we 're not done honey	2	6	imperative_emphatic	imperative_emphatic	Demetras2 Michael	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	26	Mother	Mother	put it back	no all of it	3	4	declarative	imperative_emphatic	Demetras2 Michael	positive	discourse
+motor	prohibition	crack		NONE	NONE	NONE	NONE	33	Father	Target_Child	okay crack the egg	no I 'm gon ta bake it	4	7	declarative	imperative_emphatic	Demetras2 Jimmy	positive	discourse
+motor	prohibition	fly		NONE	NONE	NONE	NONE	31	Mother	Target_Child	do you like to fly on airplanes	no I 'm zooming them away they go	7	8	question	imperative_emphatic	Demetras2 Jimmy	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	bite	n't	ca	can	I	I	25	Target_Child	Mother	I ca n't bite	no it 's not real	4	5	declarative	declarative	Manchester Carl	negative	discourse
+motor	inability	see		can	can	I	I	23	Mother	Target_Child	what can I see on this page	no want that	7	3	question	declarative	Manchester Anne	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	sweep		can	can	I	I	22	Mother	Target_Child	okay can I sweep with your broom	no my broom	7	3	question	declarative	Valian nan	positive	discourse
+motor	prohibition	talk		NONE	NONE	NONE	NONE	30	Sibling	Target_Child	you stop talking	no no a balloon	3	4	imperative_emphatic	imperative_emphatic	Valian nan	positive	discourse
+motor	inability	go		ca	can	I	I	27	Target_Child	Mother	ca n't I go to sleep	no you can sleep out here	6	6	question	declarative	Valian nan	positive	discourse
+motor	inability	see	n't	ca	can	I	I	32	Target_Child	Mother	I I ca n't see it though	no well it 's kind of pretend	7	7	declarative	declarative	Valian nan	negative	discourse
+motor	inability	see	n't	ca	can	I	I	32	Target_Child	Mother	I ca n't see it very much	no it 's very small	7	5	declarative	declarative	Valian nan	negative	discourse
+motor	inability	see		can	can	I	I	29	Adult	Target_Child	can I see your book J	no it 's mine	6	4	question	declarative	Valian nan	positive	discourse
+motor	inability	have		can	can	I	I	32	Target_Child	Mother	can I 've some can you have some more water	no I do n't want any more water	10	8	question	declarative	Valian nan	positive	discourse
+motor	inability	take		can	can	I	I	31	Target_Child	Mother	when can I take this in the bath+tub	no that 's Observer 's	8	5	question	declarative	Valian nan	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	see	n't	ca	can	I	I	30	Target_Child	Mother	I ca n't see any cats today	no I did n't see any cats	7	7	declarative	declarative	Tommerdahl nan	negative	discourse
+motor	inability	eat		can	can	I	I	42	Target_Child	Mother	cheese can I eat it	no it 's pretend cheese	5	5	question	declarative	Tommerdahl nan	positive	discourse
+motor	inability	see	n't	ca	can	I	I	32	Mother	Target_Child	I ca n't see a bell no	no you ca n't see	7	5	declarative	trail	Tommerdahl nan	negative	discourse
+motor	inability	climb	n't	ca	can	I	I	35	Target_Child	Mother	then I ca n't climb in my bed	no you do n't want it like that	8	8	declarative	question	Tommerdahl nan	negative	discourse
+motor	inability	get	n't	ca	can	I	I	37	Mother	Mother	I ca n't get it to come up	no I do n't think so	8	6	declarative	declarative	Tommerdahl nan	negative	discourse
+motor	inability	do		can	can	I	I	45	Mother	Target_Child	can I do it with you	no you can do those	6	5	question	declarative	Tommerdahl nan	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	45	Mother	Target_Child	look	no give it me	1	4	declarative	imperative_emphatic	Tommerdahl nan	positive	discourse
+motor	inability	bring		can	can	I	I	30	Target_Child	Mother	I think I can bring it home	no these toys belong to the university so we haf ta	7	11	declarative	trail	Tommerdahl nan	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	come		NONE	NONE	NONE	NONE	14	Mother	Mother	come back	no take it out of your mouth	2	7	imperative_emphatic	imperative_emphatic	Brent Miranda	positive	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	14	Mother	Mother	go get another big one	no let me have kitty 's toy	5	7	imperative_emphatic	imperative_emphatic	Brent Miranda	positive	discourse
+motor	prohibition	spit	n't	do	do	NONE	NONE	15	Mother	Mother	oh do n't spit it out	no no no do n't spit it out	6	8	imperative_emphatic	imperative_emphatic	Brent Dillon	negative	discourse
+motor	prohibition	swallow		NONE	NONE	NONE	NONE	15	Mother	Mother	swallow	no do n't spit out	1	5	declarative	imperative_emphatic	Brent Dillon	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	12	Mother	Mother	look	no do n't bite me	1	5	imperative_emphatic	imperative_emphatic	Brent Alexander	positive	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	13	Mother	Mother	come on	no no do n't go over there	2	7	imperative_emphatic	imperative_emphatic	Brent Alexander	positive	discourse
+motor	prohibition	chew		NONE	NONE	NONE	NONE	13	Mother	Mother	I do n't think chewing on a rock is so good for your teeth sweet	no do n't chew on the rock	15	7	declarative	imperative_emphatic	Brent Alexander	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	14	Mother	Mother	eat your cheese	no do n't spit it out	3	6	imperative_emphatic	imperative_emphatic	Brent Alexander	positive	discourse
+motor	prohibition	throw	n't	do	do	NONE	NONE	12	Mother	Mother	do n't throw	no no do n't throw	3	5	imperative_emphatic	imperative_emphatic	Brent Alexander	negative	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	12	Mother	Mother	eat some food	no no no do n't do it	3	7	imperative_emphatic	imperative_emphatic	Brent Alexander	positive	discourse
+motor	prohibition	do	n't	do	do	NONE	NONE	12	Mother	Mother	no no no do n't do it	no no no do n't do it	7	7	imperative_emphatic	imperative_emphatic	Brent Alexander	negative	discourse
+motor	prohibition	do	n't	do	do	NONE	NONE	12	Mother	Mother	no no no do n't do it	no no no do n't do it	7	7	imperative_emphatic	imperative_emphatic	Brent Alexander	negative	discourse
+motor	prohibition	do	n't	do	do	NONE	NONE	13	Mother	Mother	ah no no no do n't do it	no no no do n't do it	8	7	imperative_emphatic	imperative_emphatic	Brent Alexander	negative	discourse
+motor	prohibition	do	n't	do	do	NONE	NONE	13	Mother	Mother	do n't do it no no no do n't do it	no no no do n't do it	11	7	imperative_emphatic	imperative_emphatic	Brent Alexander	negative	discourse
+motor	prohibition	thank		NONE	NONE	NONE	NONE	13	Mother	Mother	thank you	no do n't turn it on again	2	7	declarative	imperative_emphatic	Brent Jacob_Abernathy	positive	discourse
+motor	prohibition	be		NONE	NONE	NONE	NONE	13	Mother	Mother	yeah is that the dog	no do n't hit Mommy	5	5	question	imperative_emphatic	Brent Jacob_Abernathy	positive	discourse
+motor	prohibition	clean		NONE	NONE	NONE	NONE	12	Mother	Mother	want me clean it up	no let 's not put it over the side	5	9	question	imperative_emphatic	Brent Timothy	positive	discourse
+motor	prohibition	thank		NONE	NONE	NONE	NONE	15	Mother	Mother	thank you	no put it up on the shelf	2	7	declarative	imperative_emphatic	Brent Timothy	positive	discourse
+motor	prohibition	feel		NONE	NONE	NONE	NONE	15	Mother	Mother	feels good on Mommies back	no do it on the floor please	5	7	declarative	imperative_emphatic	Brent Timothy	positive	discourse
+motor	prohibition	want		NONE	NONE	NONE	NONE	14	Mother	Mother	wan na go upstairs	no do n't give that to Dakota	4	7	question	imperative_emphatic	Brent Tabitha	positive	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	12	Mother	Mother	come here crazy baby	no leave it in the box	4	6	imperative_emphatic	imperative_emphatic	Brent Henry	positive	discourse
+motor	prohibition	thank		NONE	NONE	NONE	NONE	12	Mother	Mother	thank you	no do n't get on the table	2	7	declarative	imperative_emphatic	Brent Henry	positive	discourse
+motor	prohibition	fuss	n't	do	do	NONE	NONE	13	Mother	Mother	do n't fuss	no do n't fuss	3	4	imperative_emphatic	imperative_emphatic	Brent Xavier	negative	discourse
+motor	prohibition	slip		NONE	NONE	NONE	NONE	13	Mother	Mother	Maggie you 're about to slip off sweetie+pie	no do n't slip off little one	8	7	declarative	imperative_emphatic	Brent Maggie	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	go		can	can	I	I	29	Target_Child	Father	how can I go to my little house	no John will not go to your little house	8	9	declarative	declarative	Nelson Emily	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	check		can	can	I	I	29	Mother	Target_Child	the book is sleeping can I check him out	no he 's sleeping	9	4	question	declarative	Weist Matt	positive	discourse
+motor	inability	go	n't	ca	can	I	I	53	Mother	Target_Child	I just wanted to tell you though tell me what you think about this I really wan na go to Splash Lagoon so I 'm thinking maybe you guys should n't go because I ca n't go with	no we 're gon ta go	38	6	declarative	declarative	Weist Matt	negative	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	53	Target_Child	Mother	me too let 's do it again	no it 's too loud this is super duper duper loud	7	11	declarative	imperative_emphatic	Weist Matt	positive	discourse
+motor	prohibition	call		NONE	NONE	NONE	NONE	53	Target_Child	Mother	it 's not called Chutes and Ladders it 's called Hoops and Ladders	no it 's not called Hoops and Ladder you silly guy	13	11	declarative	imperative_emphatic	Weist Matt	positive	discourse
+motor	prohibition	buy		NONE	NONE	NONE	NONE	55	Mother	Target_Child	yeah but this is fine because I think I only wan na buy one anyway	no you can buy all I want you to buy all	15	11	declarative	imperative_emphatic	Weist Matt	positive	discourse
+motor	inability	ride		can	can	I	I	34	Investigator	Target_Child	can I ride you dinosaur	no I do n't have a back he has a back	5	11	question	declarative	Weist Benjamin	positive	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	38	Mother	Target_Child	go get your own water bottle please	no I go get one	7	5	declarative	imperative_emphatic	Weist Benjamin	positive	discourse
+motor	prohibition	play		NONE	NONE	NONE	NONE	33	Father	Target_Child	okay you done playing	no I ca n't do this one	4	7	question	imperative_emphatic	Weist Roman	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	41	Father	Target_Child	there you go he 's got duck feet	no he does n't have duck feet	8	7	declarative	imperative_emphatic	Weist Roman	positive	discourse
+motor	prohibition	erase		NONE	NONE	NONE	NONE	41	Father	Target_Child	do you want me to erase the spider	no do n't erase the spider	8	6	question	imperative_emphatic	Weist Roman	positive	discourse
+motor	prohibition	tell		NONE	NONE	NONE	NONE	46	Father	Target_Child	hey can you not use the pointer and tell us where something is	no I want the pointer	13	5	question	imperative_emphatic	Weist Roman	positive	discourse
+motor	prohibition	listen		NONE	NONE	NONE	NONE	50	Father	Target_Child	I want you to listen okay	no I do n't wan na to listen	6	8	question	imperative_emphatic	Weist Roman	positive	discourse
+motor	inability	color		can	can	I	I	51	Father	Target_Child	can I color something on your side	no I give you	7	4	question	declarative	Weist Roman	positive	discourse
+motor	inability	go		can	can	I	I	50	Father	Target_Child	yeah but so so are you spos ta follow this or can I just go like from here and go start here and finish at the end	no no no that 's mine	27	6	question	declarative	Weist Roman	positive	discourse
+motor	prohibition	cry		NONE	NONE	NONE	NONE	52	Mother	Target_Child	shh Roman you do n't need ta cry I was making it even scarier	no do n't make it even scarier	14	7	declarative	imperative_emphatic	Weist Roman	positive	discourse
+motor	inability	sit		can	can	I	I	34	Investigator	Target_Child	can I sit here	no there 's a horse	4	5	question	declarative	Weist Emma	positive	discourse
+motor	prohibition	see		NONE	NONE	NONE	NONE	34	Investigator	Target_Child	see	no do n't go on my horse I 'm too tired	1	11	question	imperative_emphatic	Weist Emma	positive	discourse
+motor	inability	go		can	can	I	I	39	Target_Child	Mother	can I go on your lap	no I 'm going to sit down right now	6	9	question	declarative	Weist Emma	positive	discourse
+motor	inability	ride		can	can	I	I	40	Investigator	Target_Child	well I can I ride in your Clifford car Bert	no it 's Emma 's	10	5	question	declarative	Weist Emma	positive	discourse
+motor	inability	let		can	can	I	I	44	Father	Target_Child	maybe I can let 's see	no but you haf ta put your leg up	6	9	declarative	declarative	Weist Emma	positive	discourse
+motor	prohibition	start		NONE	NONE	NONE	NONE	51	Investigator	Target_Child	starting to get crowded	no give me that	4	4	declarative	imperative_emphatic	Weist Emma	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	51	Investigator	Target_Child	let me see	no she 's not	3	4	declarative	imperative_emphatic	Weist Emma	positive	discourse
+motor	inability	see		can	can	I	I	29	Target_Child	Mother	oh can I see them	no they 're very dirty I wan na put them in the wash when we get home	5	17	question	declarative	Weist Jillian	positive	discourse
+motor	prohibition	break		NONE	NONE	NONE	NONE	33	Target_Child	Mother	and the picture of the birdie has her wing broken	no I think her wing looks great	10	7	declarative	imperative_emphatic	Weist Jillian	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	get		can	can	I	I	31	Target_Child	Target_Child	can I get ready for next thumb when it gets cut	no she is n't reading	11	5	declarative	declarative	Haggerty Helen	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	rock		can	can	I	I	21	Target_Child	Mother	can I rock	no you stay there Laura	3	5	declarative	declarative	Braunwald Laura	positive	discourse
+motor	prohibition	lose		NONE	NONE	NONE	NONE	42	Sister	Target_Child	you 're gon ta lose it for tomorrow too	no I wan na	9	4	declarative	imperative_emphatic	Braunwald Laura	positive	discourse
+motor	inability	put		can	can	I	I	24	Target_Child	Mother	can I put giraffe on my record player	no it 'll break it	8	5	question	declarative	Braunwald Laura	positive	discourse
+motor	inability	say	n't	ca	can	I	I	26	Target_Child	Target_Child	I ca n't say something	no not avocado bean sprouts	5	5	declarative	declarative	Braunwald Laura	negative	discourse
+motor	inability	feed		ca	can	I	I	35	Target_Child	Target_Child	I ca n't even feed her in my tummy anymore because she 's too big	no he 's a boy	15	5	declarative	declarative	Braunwald Laura	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	come		can	can	I	I	47	Adult	Target_Child	can I come too	no no frogs can come	4	5	question	declarative	VanKleeck Matthew	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	do	n't	ca	can	I	I	34	Target_Child	Mother	no I ca n't do it	no you haf ta bring it over here so you can see	6	12	declarative	declarative	Gelman nan	negative	discourse
+motor	prohibition	dance		NONE	NONE	NONE	NONE	32	Mother	Target_Child	do you like to dance	no ah you you	5	4	question	imperative_emphatic	Gelman nan	positive	discourse
+motor	prohibition	dance		NONE	NONE	NONE	NONE	32	Mother	Target_Child	but Firstname do you like to dance	no ah you you	7	4	question	imperative_emphatic	Gelman nan	positive	discourse
+motor	prohibition	drive		NONE	NONE	NONE	NONE	29	Mother	Target_Child	you would like to drive a car	no I put the button	7	5	question	imperative_emphatic	Gelman nan	positive	discourse
+motor	inability	do		can	can	I	I	35	Target_Child	Mother	oh can I do that	no you ca n't swing from that	5	7	question	declarative	Gelman nan	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	33	Mother	Target_Child	we do n't do much of that at our house either do we	no let me turn the page	13	6	question	imperative_emphatic	Gelman nan	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	see		can	can	I	I	30	Target_Child	Mother	can I see it	no you ca n't see the baby	4	7	question	declarative	Morisset Sarah	positive	discourse
+motor	prohibition	lay		NONE	NONE	NONE	NONE	30	Mother	Target_Child	here lay it right here	no I wan na put it back in there	5	9	declarative	imperative_emphatic	Morisset Kevin	positive	discourse
+motor	inability	eat		can	can	I	I	39	Mother	Mother	can I eat	no not yet	3	3	question	declarative	Morisset Adam	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	39	Target_Child	Target_Child	get me toys now	no I	4	2	declarative	imperative_emphatic	Morisset nan	positive	discourse
+motor	inability	get	n't	ca	can	I	I	30	Target_Child	Mother	I ca n't get this off	no we do n't need ta take the lid off	6	10	declarative	declarative	Morisset Jenny	negative	discourse
+motor	inability	write		can	can	I	I	30	Target_Child	Mother	can I write	no you just eat your cracker for now okay	3	9	question	question	Morisset Jenny	positive	discourse
+motor	prohibition	call		NONE	NONE	NONE	NONE	30	Mother	Target_Child	those are called graham+crackers	no that cookie	4	3	declarative	imperative_emphatic	Morisset Jake	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	take	n't	ca	can	I	I	25	Target_Child	Mother	I ca n't take that off	no we ca n't take that off	6	7	declarative	declarative	Suppes Nina	negative	discourse
+motor	inability	brush		can	can	I	I	27	Mother	Target_Child	can I brush your hair with this brush	no that 's not a brush	8	6	question	declarative	Suppes Nina	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	do		can	can	I	I	54	Mother	Target_Child	can I do that	no that 's	4	3	question	trail	Bliss Justin	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	look		NONE	NONE	NONE	NONE	20	Mother	Mother	look at them	no but do n't do n't touch	3	7	imperative_emphatic	imperative_emphatic	NewEngland Jamie	positive	discourse
+motor	prohibition	throw		NONE	NONE	NONE	NONE	14	Mother	Mother	throw mama the ball	no you got it in there	4	6	declarative	imperative_emphatic	NewEngland Liam	positive	discourse
+motor	prohibition	throw		NONE	NONE	NONE	NONE	14	Mother	Mother	throw the ball	no no no danger	3	4	declarative	imperative_emphatic	NewEngland Andrew	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	32	Mother	Target_Child	what else are you gon ta do with them	no I 'm put these away	9	6	declarative	imperative_emphatic	NewEngland Michael	positive	discourse
+motor	prohibition	touch		NONE	NONE	NONE	NONE	14	Investigator	Mother	so I 'll put this out so you can keep him from touching it	no no Zack	14	3	declarative	imperative_emphatic	NewEngland Zachary	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	14	Mother	Mother	you go get the ball	no do n't touch those	5	5	declarative	imperative_emphatic	NewEngland Zachary	positive	discourse
+motor	prohibition	open		NONE	NONE	NONE	NONE	14	Mother	Mother	open it up	no it 's not not for chewing on	3	8	imperative_emphatic	imperative_emphatic	NewEngland David	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	33	Mother	Mother	he 's gon ta eat the parrot	no he 's not	7	4	question	imperative_emphatic	NewEngland David	positive	discourse
+motor	prohibition	draw		NONE	NONE	NONE	NONE	13	Mother	Mother	are you going to draw with it	no you do n't do that	7	6	question	imperative_emphatic	NewEngland Eleanora	positive	discourse
+motor	prohibition	draw		NONE	NONE	NONE	NONE	13	Mother	Mother	are you gon ta draw with it	no you ca n't eat it	7	6	question	imperative_emphatic	NewEngland Eleanora	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	write		can	can	I	I	31	Target_Child	Mother	can I write on it	no you ca n't write on it	5	7	question	declarative	Lara Lara	positive	discourse
+motor	inability	hear		can	can	I	I	31	Mother	Mother	I can hear Amy	no it 's this pocket	4	5	declarative	declarative	Lara Lara	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	get	n't	does	do	NONE	NONE	41	Target_Child	Target_Child	no watch him does n't get these animals	no do n't let him get these animals	8	8	declarative	imperative_emphatic	Belfast Courtney	negative	discourse
+motor	inability	put		can	can	I	I	35	Target_Child	Mother	yep can I put my apron	no you do n't need your apron on	6	8	declarative	declarative	Belfast Rachel	positive	discourse
+motor	inability	see		ca	can	I	I	26	Investigator	Mother	I ca n't ever see him getting into a temper	no he does n't have a	10	6	declarative	self	Belfast David	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	48	Target_Child	Child	now let 's get the choo choo in	no not yet	8	3	declarative	imperative_emphatic	Belfast David	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	50	Child	Child	I 'm going to get another page	no that 's my page	7	5	declarative	imperative_emphatic	Belfast David	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	42	Investigator	Target_Child	a wee present you 're going to get some lunch	no I want a wee present now	10	7	declarative	imperative_emphatic	Belfast Stuart	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	44	Target_Child	Mother	take it up carry it carry it	no it 'll fall	7	4	imperative_emphatic	imperative_emphatic	Belfast Stuart	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	31	Investigator	Target_Child	are you away to Stewart 's now to get your groceries	no I 'm not well	11	5	question	imperative_emphatic	Belfast Barbara	positive	discourse
+motor	prohibition	tell		NONE	NONE	NONE	NONE	31	Mother	Target_Child	tell Cathy all about the ragdolls	no no I want it on	6	6	declarative	imperative_emphatic	Belfast Barbara	positive	discourse
+motor	inability	go		can	can	I	I	48	Target_Child	Mother	Mummy can I go with them	no your Daddy 's gon ta be	6	7	question	declarative	Belfast Conor	positive	discourse
+motor	inability	eat		can	can	I	I	48	Playmate	Target_Child	can I eat your egg	no that 's mine	5	4	question	imperative_emphatic	Belfast Conor	positive	discourse
+motor	inability	see		can	can	I	I	50	Investigator	Target_Child	well I can see them	no it 's just hair	5	5	declarative	declarative	Belfast Conor	positive	discourse
+motor	inability	carry		can	can	I	I	39	Visitor	Mother	I can carry her	no do n't carry her	4	5	imperative_emphatic	imperative_emphatic	Belfast Michelle	positive	discourse
+motor	prohibition	tidy		NONE	NONE	NONE	NONE	47	Investigator	Mother	have you been cleaning and tidying up all morning	no I have not	9	4	question	imperative_emphatic	Belfast Michelle	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	see		can	can	I	I	28	Mother	Mother	can you put that over here so I can see it	no this one	11	3	question	declarative	Bates Steve	positive	discourse
+motor	prohibition	git		NONE	NONE	NONE	NONE	20	Mother	Mother	almost git it	no come on	3	3	imperative_emphatic	imperative_emphatic	Bates Sue	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	20	Target_Child	Mother	do it	no you do it	2	4	imperative_emphatic	imperative_emphatic	Bates Sue	positive	discourse
+motor	inability	show		can	can	I	I	28	Mother	Target_Child	can I show you how	no I want that	5	4	question	declarative	Bates Olivia	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	leave		NONE	NONE	NONE	NONE	24	Father	Father	leave	no do n't push it	1	5	trail	imperative_emphatic	Peters Seth	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	wear		can	can	I	I	25	Target_Child	Mother	Sue I can wear Cromer 's glasses	no you do n't wear them	7	6	declarative	declarative	Brown Eve	positive	discourse
+motor	inability	turn	n't	ca	can	I	I	35	Target_Child	Mother	I ca n't turn dem round	no no do n't spread them all over the floor	6	10	declarative	declarative	Brown Adam	negative	discourse
+motor	inability	reach		can	can	I	I	39	Target_Child	Mother	I can reach with de ceiling	no no do n't stand up with your shoes on the sofa	6	12	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	reach		can	can	I	I	39	Target_Child	Mother	I can reach	no no do n't stand on the phone dear	3	9	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	take		can	can	I	I	39	Target_Child	Mother	can I take de puzzle out	no you ca n't take it out	6	7	question	declarative	Brown Adam	positive	discourse
+motor	inability	spill		can	can	I	I	39	Target_Child	Mother	so I can spill it	no so you ca n't spill it	5	7	question	declarative	Brown Adam	positive	discourse
+motor	inability	keep		can	can	I	I	40	Target_Child	Mother	can I keep them	no they must be David 's	4	6	question	declarative	Brown Adam	positive	discourse
+motor	inability	tell		can	can	I	I	40	Target_Child	Mother	because I can tell time too	no you cannot	6	3	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	put		can	can	I	I	39	Target_Child	Mother	can I put some water in this	no you do n't need water in that	7	8	question	declarative	Brown Adam	positive	discourse
+motor	inability	keep		can	can	I	I	40	Target_Child	Mother	can I keep it	no you ca n't keep this	4	6	question	declarative	Brown Adam	positive	discourse
+motor	inability	throw		can	can	I	I	41	Target_Child	Mother	Daddy said I can throw it	no he said he wanted to find the ball right where he put it	6	14	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	sit		can	can	I	I	47	Target_Child	Mother	can I sit	no no that 's far enough	3	6	question	declarative	Brown Adam	positive	discourse
+motor	inability	make	n't	ca	can	I	I	47	Target_Child	Target_Child	I ca n't make	no my airplane make me mine	4	6	declarative	declarative	Brown Adam	negative	discourse
+motor	inability	keep		can	can	I	I	53	Target_Child	Mother	Ursula can I keep dis	no that 's Robin 's hat	5	6	question	declarative	Brown Adam	positive	discourse
+motor	inability	do	n't	ca	can	I	I	54	Target_Child	Mother	I ca n't do here	no I 'm not going to do it	5	8	declarative	declarative	Brown Adam	negative	discourse
+motor	inability	put		can	can	I	I	54	Target_Child	Mother	can I put something through here	no why do you wan na	6	6	question	question	Brown Adam	positive	discourse
+motor	inability	bring		can	can	I	I	52	Investigator	Target_Child	no but I can bring it back	no but I do n't want you to	7	8	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	open	n't	ca	can	I	I	52	Target_Child	Target_Child	I ca n't open dis	no I can use	5	4	declarative	trail	Brown Adam	negative	discourse
+motor	inability	use		can	can	I	I	52	Target_Child	Target_Child	no I can use	no I do n't want	4	5	trail	trail	Brown Adam	positive	discourse
+motor	inability	do		can	can	I	I	52	Target_Child	Target_Child	it 's can it 's can do anything like I can do	no that 's enough	12	4	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	get		can	can	I	I	58	Target_Child	Target_Child	I can get it down with dis chair	no I 'm getting using dis chair	8	7	declarative	declarative	Brown Adam	positive	discourse
+motor	inability	see	n't	ca	can	I	I	34	Target_Child	Mother	I ca ca n't see her	no no you 'll see her later	6	7	declarative	declarative	Brown Sarah	negative	discourse
+motor	inability	do	n't	ca	can	I	I	36	Target_Child	Mother	I ca n't do it	no it 's hot	5	4	declarative	declarative	Brown Sarah	negative	discourse
+motor	inability	find	n't	ca	can	I	I	40	Target_Child	Mother	and I ca n't find a book	no just the new one	7	5	question	declarative	Brown Sarah	negative	discourse
+motor	inability	put		can	can	I	I	41	Target_Child	Mother	Mommy can I put my record on	no you ca n't turn the record+player on	7	8	question	declarative	Brown Sarah	positive	discourse
+motor	inability	talk		can	can	I	I	42	Target_Child	Mother	can I talk in there	no he had ta go to the North Pole	5	9	question	declarative	Brown Sarah	positive	discourse
+motor	inability	do		can	can	I	I	43	Target_Child	Mother	um I I can do it out here	no we 'll haf ta first	8	6	declarative	declarative	Brown Sarah	positive	discourse
+motor	inability	comb		can	can	I	I	49	Investigator	Target_Child	no can I comb your hair	no mine 's already combed	6	5	question	declarative	Brown Sarah	positive	discourse
+motor	inability	eat		can	can	I	I	49	Target_Child	Mother	Mommy can I eat this water	no that 's not to drink	6	6	question	declarative	Brown Sarah	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	52	Mother	Target_Child	you gon ta do it upside down this time	no of course not	9	4	question	imperative_emphatic	Brown Sarah	positive	discourse
+motor	inability	go	n't	ca	can	I	I	54	Target_Child	Mother	I ca n't go out today	no you have a cold	6	5	declarative	declarative	Brown Sarah	negative	discourse
+motor	inability	scribble		can	can	I	I	54	Target_Child	Mother	Mommy I can scribble on my books	no you do n't scribble on your book	7	8	declarative	declarative	Brown Sarah	positive	discourse
+motor	inability	put		can	can	I	I	57	Investigator	Mother	well I can put it away if you want	no that 's alright	9	4	declarative	declarative	Brown Sarah	positive	discourse
+motor	inability	go	n't	ca	can	I	I	57	Target_Child	Mother	I ca n't go over and stay at Richard and Robin	no you 're not gon ta stay at Richard and Robin	11	11	question	declarative	Brown Sarah	negative	discourse
+motor	inability	wear		can	can	I	I	60	Target_Child	Mother	can I wear it	no you 're not gon ta wear it	4	8	question	declarative	Brown Sarah	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	roll	n't	ca	can	I	I	29	Investigator	Target_Child	because I ca n't roll the ball	no duh throw the ball	7	5	question	declarative	Clark Shem	negative	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	29	Investigator	Target_Child	you want go in the water	no I want tuh go out	6	6	question	imperative_emphatic	Clark Shem	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	31	Investigator	Target_Child	do you wan na get up	no make another cover for uhuh	6	6	question	imperative_emphatic	Clark Shem	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	37	Investigator	Target_Child	you know I 've never seen you do these letters	no no do n't do dem	10	6	declarative	imperative_emphatic	Clark Shem	positive	discourse
+motor	inability	come		can	can	I	I	37	Investigator	Target_Child	can I come in	no dere 's no room	4	5	question	declarative	Clark Shem	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	38	Investigator	Target_Child	hm do you like to get popcorn at the circus	no I like to get um a no I have popcorn but we usually last time I maked some and watch t v and eat dem and sometimes you put em in pots and den dey go pop	10	38	question	imperative_emphatic	Clark Shem	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	see	n't	ca	can	I	I	28	Mother	Mother	I ca n't see	no no you were right	4	5	declarative	declarative	VanHouten Stephen	negative	discourse
+motor	inability	do		can	can	I	I	39	Investigator	Target_Child	what can I do while they 're on the merry+go+round	no she lets her on	10	5	question	declarative	VanHouten Adam	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	eat		can	can	I	I	36	Target_Child	Father	can I eat this cookie	no that 's rocks	5	4	question	declarative	MacWhinney Ross	positive	discourse
+motor	inability	do		can	can	I	I	37	Target_Child	Father	I can do it	no do n't you dare	4	5	declarative	declarative	MacWhinney Ross	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	37	Father	Target_Child	put it right there	no I wan na eat with the lights off	4	9	declarative	imperative_emphatic	MacWhinney Ross	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	eat		can	can	I	I	14	Mother	Mother	you found your toes can I eat your toes	no you ca n't take the paper for a hat	9	10	question	declarative	Providence Ethan	positive	discourse
+motor	inability	see		can	can	I	I	33	Mother	Mother	let 's see if I can see what it says	no it does n't say anything	10	6	declarative	declarative	Providence Ethan	positive	discourse
+motor	prohibition	attach		NONE	NONE	NONE	NONE	35	Target_Child	Mother	attached	no you 're not	1	4	declarative	imperative_emphatic	Providence Ethan	positive	discourse
+motor	inability	do	n't	ca	can	I	I	29	Target_Child	Mother	I ca n't do it	no just turn it	5	4	declarative	declarative	Providence Violet	negative	discourse
+motor	inability	take		can	can	I	I	37	Target_Child	Mother	can I take this off	no no we need it on for a few more minutes	5	11	declarative	declarative	Providence Violet	positive	discourse
+motor	inability	fly		can	can	I	I	44	Mother	Mother	can I fly on your back asked the Whistler hopefully	no said the spring unicorn if we fly the journey will be over too quickly and I wo n't have time to listen to all that music I want you to play	10	32	question	declarative	Providence Violet	positive	discourse
+motor	inability	put		can	can	I	I	27	Mother	Target_Child	thank you can I put it in my cup	no this one in your cup	9	6	question	declarative	Providence Lily	positive	discourse
+motor	inability	play		can	can	I	I	28	Target_Child	Mother	can I play in the sandbox	no we 're not playing in the sandbox in your party dress honey	6	13	question	declarative	Providence Lily	positive	discourse
+motor	inability	make		can	can	I	I	28	Target_Child	Mother	can I make a bridge in here	no honey we 're not playing with the sandbox in your party dress	7	13	question	declarative	Providence Lily	positive	discourse
+motor	inability	see	n't	ca	can	I	I	28	Target_Child	Mother	no I ca n't see it	no I ca n't either	6	5	declarative	declarative	Providence Lily	negative	discourse
+motor	inability	make		can	can	I	I	28	Mother	Target_Child	can I make something for you	no I 'm making something out of clay	6	8	question	declarative	Providence Lily	positive	discourse
+motor	inability	stick		can	can	I	I	28	Target_Child	Mother	can I stick it to the rug	no we haf ta keep the clay off the rug	7	10	question	declarative	Providence Lily	positive	discourse
+motor	inability	see		can	can	I	I	29	Mother	Target_Child	oh I see oh my gosh here can I see Thomas for a second sweetie pie	no I have it	16	4	question	declarative	Providence Lily	positive	discourse
+motor	prohibition	bring		NONE	NONE	NONE	NONE	29	Mother	Target_Child	and then bring it over	no I do n't want to you sit	5	8	declarative	imperative_emphatic	Providence Lily	positive	discourse
+motor	inability	show		can	can	I	I	30	Mother	Target_Child	but I can show you and you can do it yourself	no I want to do it	11	6	declarative	imperative_emphatic	Providence Lily	positive	discourse
+motor	inability	get		can	can	I	I	30	Mother	Target_Child	can I get you something else to eat	no I want a blue one	8	6	question	declarative	Providence Lily	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	31	Mother	Target_Child	you wan na take a nap	no but I wan na read a book	6	8	question	imperative_emphatic	Providence Lily	positive	discourse
+motor	inability	see	n't	ca	can	I	I	33	Mother	Mother	Stella help called Sam I ca n't see did you turn off the lights	no I did n't said Stella see	14	7	declarative	declarative	Providence Lily	negative	discourse
+motor	inability	give		can	can	I	I	34	Mother	Target_Child	well I can give you some of the cherry medicine for your stuffy nose if you want	no I do n't feel well I do n't need my cherry medicine	17	13	declarative	declarative	Providence Lily	positive	discourse
+motor	inability	put		can	can	I	I	45	Target_Child	Mother	can I put it in my nose	no you ca n't put it in your nose silly	7	10	question	imperative_emphatic	Providence Lily	positive	discourse
+motor	prohibition	push		NONE	NONE	NONE	NONE	19	Target_Child	Father	push	no yeah push	1	3	declarative	imperative_emphatic	Providence William	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	26	Mother	Target_Child	I never make you eat food	no my food	6	3	self	imperative_emphatic	Providence William	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	28	Target_Child	Target_Child	I wan na take the backpack off	no my guitar	7	3	declarative	imperative_emphatic	Providence William	positive	discourse
+motor	prohibition	leave		NONE	NONE	NONE	NONE	31	Mother	Target_Child	leave this here well I 'm gon ta clean up a little bit I 'm gon ta put your tools away at least okay	no leave it	24	3	question	imperative_emphatic	Providence William	positive	discourse
+motor	inability	help		can	can	I	I	32	Mother	Target_Child	oh can I help you	no I do it	5	4	question	declarative	Providence William	positive	discourse
+motor	inability	fix		can	can	I	I	32	Father	Target_Child	I can fix it better I think	no that 's okay	7	4	declarative	declarative	Providence William	positive	discourse
+motor	inability	see	n't	ca	can	I	I	37	Mother	Target_Child	I ca n't see you I ca n't do it while you 're hanging on my back	no now I go on your back	17	7	declarative	declarative	Providence William	negative	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	37	Mother	Target_Child	come on	no I want that	2	4	declarative	imperative_emphatic	Providence William	positive	discourse
+motor	inability	open		can	can	I	I	37	Target_Child	Mother	can I open it up	no honey it 's not to be opened up	5	9	question	declarative	Providence William	positive	discourse
+motor	inability	go		can	can	I	I	39	Target_Child	Mother	can I goes out	no no no we 're not gon ta go right now I have n't even taken a shower	4	18	declarative	declarative	Providence William	positive	discourse
+motor	inability	open		can	can	I	I	39	Target_Child	Mother	can I open it up	no honey it 's not to be opened up	5	9	question	declarative	Providence William	positive	discourse
+motor	prohibition	keep		NONE	NONE	NONE	NONE	27	Mother	Mother	no you have to keep it on honey	no no no no do n't pull it	8	8	declarative	imperative_emphatic	Providence Alex	positive	discourse
+motor	inability	make		can	can	I	I	33	Mother	Mother	okay give that one to Mommy Alex I 'll see if I can make it go	no you haf ta drag it drag it backwards like this like this	16	13	declarative	declarative	Providence Alex	positive	discourse
+motor	prohibition	leave		NONE	NONE	NONE	NONE	34	Target_Child	Mother	leave over there	no do n't leave	3	4	declarative	imperative_emphatic	Providence Alex	positive	discourse
+motor	prohibition	smell		NONE	NONE	NONE	NONE	34	Mother	Mother	smell good	no you ca n't eat it	2	6	declarative	imperative_emphatic	Providence Alex	positive	discourse
+motor	inability	read	n't	ca	can	I	I	35	Mother	Target_Child	oh well then I ca n't read it you have got to put this on	no no put this on	15	5	declarative	declarative	Providence Alex	negative	discourse
+motor	prohibition	try		NONE	NONE	NONE	NONE	37	Target_Child	Target_Child	try this	no this one	2	3	declarative	imperative_emphatic	Providence Alex	positive	discourse
+motor	inability	trace		can	can	I	I	39	Mother	Target_Child	can I trace this fish	no I draw an elephant Mommy	5	6	question	declarative	Providence Alex	positive	discourse
+motor	inability	play		can	can	I	I	40	Mother	Target_Child	can I please play with some beans	no I wan na play with the beans	7	8	question	declarative	Providence Alex	positive	discourse
+motor	inability	go		can	can	I	I	41	Mother	Father	aw well you haf ta say something so I can go buy a new one	no you go buy a handle	15	6	declarative	declarative	Providence Alex	positive	discourse
+motor	inability	use		can	can	I	I	41	Target_Child	Target_Child	I can use this hammer	no this one this one	5	5	declarative	declarative	Providence Alex	positive	discourse
+motor	inability	call		can	can	I	I	26	Mother	Target_Child	I haf ta where can I call you back in your office	no you want the frozen banana	12	6	question	declarative	Providence Naima	positive	discourse
+motor	inability	make		can	can	I	I	29	Mother	Target_Child	can I make a suggestion	no I ca n't want	5	5	question	declarative	Providence Naima	positive	discourse
+motor	inability	count		can	can	I	I	29	Mother	Target_Child	can I count them	no I 'm I 'm no I 'm about to put more cards	4	13	question	declarative	Providence Naima	positive	discourse
+motor	inability	draw		can	can	i	i	31	Mother	Target_Child	can you draw two letter i	no she 's gon ta get something that she that she her mama tell her to get	6	17	declarative	declarative	Providence Naima	positive	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	32	Mother	Target_Child	Naima I haf ta go to the basement will you come with me	no not yet	13	3	question	imperative_emphatic	Providence Naima	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	34	Mother	Target_Child	I need to put a little bit on your skin	no I wo n't like no	10	6	declarative	imperative_emphatic	Providence Naima	positive	discourse
+motor	prohibition	say		NONE	NONE	NONE	NONE	34	Target_Child	Mother	you haf ta say no no that 's our cat	no no that 's our cat	10	6	declarative	imperative_emphatic	Providence Naima	positive	discourse
+motor	inability	dance	n't	ca	can	I	I	34	Mother	Target_Child	I ca n't dance in the livingroom with you when I 'm cooking	no I wan na	13	4	declarative	declarative	Providence Naima	negative	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	34	Mother	Target_Child	I 'm going to take that chick away from you	no it 's no	10	4	declarative	imperative_emphatic	Providence Naima	positive	discourse
+motor	prohibition	try		NONE	NONE	NONE	NONE	34	Mother	Target_Child	well you need to try	no I ca n't try either	5	6	declarative	imperative_emphatic	Providence Naima	positive	discourse
+motor	inability	try	n't	ca	can	I	I	34	Target_Child	Target_Child	no I ca n't try either	no I ca n't try either	6	6	imperative_emphatic	declarative	Providence Naima	negative	discourse
+motor	inability	feed		can	can	I	I	35	Mother	Target_Child	okay I guess we better leave here and go somewhere go home so I can feed my toddler	no no we going to restaurant	18	6	declarative	declarative	Providence Naima	positive	discourse
+motor	inability	put		can	can	I	I	37	Mother	Mother	for this no I can put it down	no I was just thinking Mom if I were to do that again	8	13	declarative	trail	Providence Naima	positive	discourse
+motor	inability	do		can	can	I	I	46	Target_Child	Mother	well then when then when you 're not around I can do it	no you ca n't do it when I 'm not around	13	11	declarative	declarative	Providence Naima	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	turn	n't	ca	can	I	I	23	Mother	Mother	I ca n't turn it	no do n't do it that way	5	7	declarative	declarative	Post Lew	negative	discourse
+motor	prohibition	stop		NONE	NONE	NONE	NONE	26	Sibling	Target_Child	stop Sally get down you old doo doo	no leave it alone	8	4	declarative	imperative_emphatic	Post She	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	be		NONE	NONE	NONE	NONE	24	Mother	Target_Child	there you are	no open it	3	3	declarative	imperative_emphatic	NewmanRatner 5266EC	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	24	Mother	Target_Child	oh look I got some corn	no not eating	6	3	declarative	imperative_emphatic	NewmanRatner 4854MP24mos	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	24	Investigator	Mother	um I 'm actually gon ta just do a quick interview with you now	no do n't eat it	14	5	declarative	imperative_emphatic	NewmanRatner 5929LD24	positive	discourse
+motor	prohibition	do	n't	do	do	NONE	NONE	24	Mother	Mother	do n't do it for real	no do n't do it	6	5	declarative	imperative_emphatic	NewmanRatner 6815KG24	negative	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	keep		can	can	I	I	49	Target_Child	Mother	maybe I can keep it	no I think it belongs here	5	6	declarative	declarative	Gleason Andy	positive	discourse
+motor	inability	go		can	can	I	I	50	Target_Child	Mother	can I go touch it	no do n't touch it Hon	5	6	question	declarative	Gleason David	positive	discourse
+motor	inability	pour		can	can	I	I	42	Father	Target_Child	Isadora can I pour it	no I 'm going to why do n't I do it	5	11	question	question	Gleason Isadora	positive	discourse
+motor	inability	buy		can	can	I	I	38	Mother	Target_Child	listen if I come back tomorrow can I buy some more of this coffee	no you wo n't	14	4	question	declarative	Gleason Katie	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	do		NONE	NONE	NONE	NONE	45	Mother	Target_Child	doing it for you	no it 's the end	4	5	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	44	Target_Child	Mother	I 'm gon ta get a sunburn	no that 's the sun	7	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	scream		NONE	NONE	NONE	NONE	47	Mother	Mother	hurry hurry screamed the fuzzy yellow duck it must n't roll into the wood	no it must n't shrieked Mrs Robin it might get lost or broken or something	14	15	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	48	Father	Father	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	45	Mother	Target_Child	get Maria	no do n't get Maria	2	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	buy	n't	do	do	NONE	NONE	50	Adult	Mother	well then it 's gross milk do n't buy it anymore	no it 's skim milk it 's good	11	8	declarative	imperative_emphatic	HSLLD nan	negative	discourse
+motor	inability	talk		can	can	I	I	46	Sister	Mother	mommy I can talk	no not until I after I shut the recorder off	4	10	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	47	Playmate	Mother	can I go with you	no you 're not coming either	5	6	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	46	Target_Child	Father	Ma I did	no that 's the Disney book right there	3	8	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	45	Mother	Target_Child	get Mar	no do n't get Maria	2	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	45	Target_Child	Mother	you haf ta take your food with it	no get some rest	8	4	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	make		can	can	I	I	50	Mother	Mother	let 's see how tall I can make it this time	no that 's not flat	11	5	declarative	declarative	HSLLD nan	positive	discourse
+motor	prohibition	pick		NONE	NONE	NONE	NONE	50	Mother	Target_Child	I 'll come pick you up	no I 'm on the phone	6	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	46	Target_Child	Target_Child	no I do n't want ta do that one	no do n't do that now	9	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	45	Mother	Target_Child	let me think	no I do n't know where the one goes	3	9	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	keep		can	can	I	I	44	Target_Child	Mother	Mama can I keep these toys	no you ca n't keep them	6	6	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	48	Target_Child	Target_Child	put them t together	no put them together	4	4	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	toy		NONE	NONE	NONE	NONE	45	Mother	Target_Child	no no Bro let your brother toy all the all the people out the bus and you gotta to make sure you put them in there and when you put them in there there 's seat belts like you do	no I do it	40	4	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	talk		NONE	NONE	NONE	NONE	48	Mother	Mother	you gon ta talk to me	no no this is for me	6	6	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	drive		NONE	NONE	NONE	NONE	48	Mother	Target_Child	are you gon ta drive like that	no I would never drive like that	7	7	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	53	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	55	Target_Child	Mother	can I go to the moon	no you do n't haf ta you do n't haf ta read after me okay	6	15	trail	question	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	55	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said mistress bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	50	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	53	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said ba said m Mrs Bear	9	10	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	62	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	64	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	53	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said missus bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	find		NONE	NONE	NONE	NONE	53	Mother	Target_Child	mommy will try to find it	no I just wan na go out before it 's late	6	11	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	58	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Missus Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	55	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear it 's bath time anyway you 'd haf ta find a rocket first	9	20	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	54	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	57	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Miss Mrs Bear	9	8	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	57	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	54	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	60	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear it 's bath time	9	11	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	50	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	56	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear it 's bath time anyway you 'd haf ta find a rocket first	9	20	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	53	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	54	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	55	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear it 's bath time	9	11	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	56	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said mother bear it 's bath time	9	11	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	59	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear it 's bath+time	9	10	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	49	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said missus bear it 's bath time	9	11	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	58	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear it 's bath+time anyway you 'd haf ta find a rocket first	9	19	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	61	Mother	Mother	can I go to the moon asked the baby bear	no you ca n't said mistress bear	10	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	57	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said missus bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	61	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't sayed Mrs Bear Miss Miss yeah Mrs Bear	9	12	declarative	declarative	HSLLD nan	positive	discourse
+motor	prohibition	make		NONE	NONE	NONE	NONE	57	Target_Child	Mother	and he 's trying to make a mess	no he 's not trying to make a mess	8	9	imperative_emphatic	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	56	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear it 's bath+time anyway you 'd haf ta find a rocket first	9	19	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	61	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	69	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Missus Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	54	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	60	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Missus Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	57	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	57	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear it 's bath time anyway you 'd you 'd haf ta find a rocket first	9	22	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	60	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said missus bear it 's bath+time	9	10	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	59	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear it 's bath+time anyway you 'd haf ta find a rocket first	9	19	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	59	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Mrs Bear it 's bath+time	9	10	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	57	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	53	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said ba said m Mrs Bear	9	10	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	68	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said missus Bear	9	7	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	66	Mother	Target_Child	took a bath and then what	no first we took a bath and then we got dressed	6	11	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	play		can	can	I	I	61	Target_Child	Mother	now can I play with my junk	no you haf ta tell a story good before you can play	7	12	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	say		NONE	NONE	NONE	NONE	60	Mother	Mother	you want me to say it then	no you say it	7	4	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	65	Mother	Target_Child	are you going to eat it nice	no not two popsicles Sis	7	5	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	play		can	can	I	I	54	Target_Child	Mother	can I play it with you	no you ca n't this is only a catalog Chi	6	10	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	55	Mother	Target_Child	he 's letting you get your own	no I wan na get it up there	7	8	imperative_emphatic	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	get	n't	do	do	NONE	NONE	49	Father	Mother	no no no no no do n't get mad	no you 're not wrong Chi	9	6	imperative_emphatic	imperative_emphatic	HSLLD nan	negative	discourse
+motor	prohibition	claw		NONE	NONE	NONE	NONE	57	Target_Child	Mother	look up and critters clawing at your eyes	no sir	8	2	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	try		can	can	I	I	57	Father	Target_Child	can I try	no I 'll try	3	4	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	54	Target_Child	Father	can I go out Dad	no you better stay in it 's almost time for bed	5	11	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	54	Mother	Target_Child	let 's go	no let me do it myself	3	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	see	n't	ca	can	I	I	50	Target_Child	Mother	I ca n't see nothing	no do n't put it right	5	6	declarative	trail	HSLLD nan	negative	discourse
+motor	prohibition	beat		could	could	NONE	NONE	57	Target_Child	Target_Child	could beat up the bad guy	no that 's a girl	6	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	56	Mother	Target_Child	I know let 's get Dad to wash the dishes	no I I 'll clean them up	10	7	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	serve		NONE	NONE	NONE	NONE	56	Mother	Target_Child	serve up some more of that eyeball soup	no not the eyeball soup again yuck	8	7	imperative_emphatic	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	spo		NONE	NONE	NONE	NONE	58	Mother	Target_Child	is that oh am I spos ta do girls put it up here	no put them on your lap	13	6	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	54	Mother	Target_Child	let 's call each other on the phone	no that 's my phone	8	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	70	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	65	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	hold	n't	ca	can	I	I	65	Target_Child	Mother	I ca n't hold on to their ears	no keep your balance	8	4	declarative	declarative	HSLLD nan	negative	discourse
+motor	inability	go		can	can	I	I	68	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said m Mrs Bear	9	8	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	64	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	63	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	see	n't	ca	can	I	I	69	Target_Child	Mother	I ca n't see his body	no it 's under water	6	5	declarative	declarative	HSLLD nan	negative	discourse
+motor	inability	go		can	can	I	I	65	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	prohibition	read		NONE	NONE	NONE	NONE	65	Mother	Target_Child	you haf ta read the book now	no alright	7	2	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	69	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	64	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	68	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said ma Mrs Bear	9	8	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	70	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	67	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	68	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	69	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	67	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear it 's bath+time anyway you 'll haf ta find a rocket first	9	19	question	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	69	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mrs Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	65	Mother	Mother	can I go to the moon asked Baby Bear	no you ca n't said Mother Bear	9	7	declarative	declarative	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	71	Target_Child	Target_Child	can I go to the moon es as asked Baby Bear	no you ca n't said ma	11	6	declarative	interruption	HSLLD nan	positive	discourse
+motor	prohibition	tell		NONE	NONE	NONE	NONE	68	Mother	Target_Child	tell her about it	no you	4	2	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	watch		NONE	NONE	NONE	NONE	71	Target_Child	Mother	she said you should 've came up and watched it	no she did n't I know her better than that	10	10	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	see		NONE	NONE	NONE	NONE	67	Target_Child	Target_Child	see	no not yet	1	3	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	62	Target_Child	Mother	let 's see	no no no put it there	3	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	try		NONE	NONE	NONE	NONE	67	Mother	Target_Child	now try to put it down on there	no but it turned over	8	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	feel		NONE	NONE	NONE	NONE	66	Mother	Mother	feels like someone 's trying to something that is like a ghost or something there is pushing it away	no put it on me no	19	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	try		NONE	NONE	NONE	NONE	67	Mother	Target_Child	try it with something else see if something else will do that	no do n't do it that	12	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	mess	n't	do	do	NONE	NONE	67	Target_Child	Mother	do n't mess nothing up	no not you	5	3	declarative	imperative_emphatic	HSLLD nan	negative	discourse
+motor	inability	guess	n't	ca	can	I	I	71	Mother	Target_Child	well I ca n't guess that is it a house	no you 'll find out when I 'm done	10	9	question	imperative_emphatic	HSLLD nan	negative	discourse
+motor	prohibition	be		NONE	NONE	NONE	NONE	71	Mother	Target_Child	no tell me what it is	no I 'm not finished	6	5	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	call		NONE	NONE	NONE	NONE	69	Mother	Target_Child	no that 's called Fruity Marshmallows	no not that	6	3	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	put		can	can	I	I	66	Mother	Target_Child	here finish your juice so I can put this in the dish washer	no leave it	13	3	declarative	declarative	HSLLD nan	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	63	Mother	Target_Child	now eat please	no I 'm not	3	4	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	66	Target_Child	Mother	you want me to get it	no thank you	6	3	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	67	Playmate	Target_Child	no your brother he did	no you did	5	3	imperative_emphatic	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	make		can	can	I	I	70	Mother	Target_Child	can I make something too	no I wan na use all blocks	5	7	question	declarative	HSLLD nan	positive	discourse
+motor	inability	try		can	can	I	I	59	Mother	Target_Child	can I just try	no I wan na play with	4	6	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	call		NONE	NONE	NONE	NONE	63	Mother	Target_Child	call up Auntie	no you call up Auntie too	3	6	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	66	Mother	Target_Child	they 're not friendly they 're gon ta take the elephant 's tusks	no they ai n't	13	4	imperative_emphatic	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	keep		can	can	I	I	71	Target_Child	Mother	can I keep the cars	no you ca n't keep them	5	6	question	declarative	HSLLD nan	positive	discourse
+motor	prohibition	want		NONE	NONE	NONE	NONE	69	Mother	Target_Child	wan na call me	no you call me	4	4	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	69	Mother	Target_Child	you 're spos ta eat like a young lady	no I 'm not I 'm eating	9	7	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	64	Target_Child	Target_Child	get ready	no do n't go yet	2	5	question	imperative_emphatic	HSLLD nan	positive	discourse
+motor	prohibition	make		NONE	NONE	NONE	NONE	71	Target_Child	Target_Child	I 'm gon ta make a zoo	no I 'm gon ta make a castle	7	8	declarative	imperative_emphatic	HSLLD nan	positive	discourse
+motor	inability	go		can	can	I	I	55	Mother	Mother	can I go to the moon asked baby bear	no you ca n't said Missus Bear	9	7	declarative	declarative	HSLLD Zachary	positive	discourse
+motor	prohibition	slow		NONE	NONE	NONE	NONE	55	Mother	Target_Child	slow down shouted Donald	no look a bluebird	4	4	declarative	imperative_emphatic	HSLLD Zachary	positive	discourse
+motor	inability	go		can	can	I	I	56	Mother	Mother	can I go go on the moon asked Baby Bear	no you ca n't said Mrs Bear	10	7	declarative	declarative	HSLLD Jon	positive	discourse
+motor	prohibition	shut		NONE	NONE	NONE	NONE	62	Mother	Target_Child	shut it	no do n't I wan na do my a b c	2	11	trail	imperative_emphatic	HSLLD Anne	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	do		can	can	I	I	63	Mother	Target_Child	can I do that	no that 's	4	3	question	trail	Warren Jmarkey	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	inability	go		can	can	I	I	35	Sister	Mother	Mummie I can go by myself	no you 're not old enough	6	6	declarative	declarative	Wells Sheila	positive	discourse
+motor	inability	play		can	can	I	I	27	Sister	Mother	can I play with Jane	no darling you 're not playing with anyone	5	8	question	declarative	Wells Abigail	positive	discourse
+motor	inability	play		can	can	I	I	23	Child	Mother	oh please can I play	no not now Lee lee	5	5	question	declarative	Wells Gavin	positive	discourse
+motor	inability	polish		can	can	I	I	21	Child	Mother	can I polish	no thank you	3	3	question	declarative	Wells Darren	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	cry		NONE	NONE	NONE	NONE	29	Target_Child	Mother	we say cry we say shut up	no we did n't	7	4	imperative_emphatic	imperative_emphatic	Kuczaj Abe	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	29	Father	Target_Child	okay put the elephant back on the car	no he fell down	8	4	declarative	imperative_emphatic	Kuczaj Abe	positive	discourse
+motor	inability	get	n't	ca	can	I	I	31	Target_Child	Mother	I ca n't get ice cream	no you 've had enough	6	5	question	declarative	Kuczaj Abe	negative	discourse
+motor	inability	do		can	can	I	I	33	Mother	Target_Child	I will so that I can do it fast	no do it slow	9	4	declarative	declarative	Kuczaj Abe	positive	discourse
+motor	inability	dance		can	can	I	I	33	Father	Target_Child	can I dance with you	no I dance myself	5	4	question	declarative	Kuczaj Abe	positive	discourse
+motor	inability	dance	n't	ca	can	I	I	33	Father	Target_Child	I ca n't dance with you	no I do n't want you dance with me	6	9	question	declarative	Kuczaj Abe	negative	discourse
+motor	inability	chew		can	can	I	I	33	Father	Target_Child	can I chew you	no no rocken them	4	4	question	declarative	Kuczaj Abe	positive	discourse
+motor	inability	make		can	can	I	I	34	Father	Target_Child	I can make you fly too	no do n't do n't	6	5	declarative	declarative	Kuczaj Abe	positive	discourse
+motor	inability	wash		can	can	I	I	34	Mother	Target_Child	take them off so that I can wash them okay	no I wan na wear them	10	6	question	declarative	Kuczaj Abe	positive	discourse
+motor	inability	lay		can	can	I	I	35	Target_Child	Mother	can I lay this down too	no I think they haf ta be standing up	6	9	question	declarative	Kuczaj Abe	positive	discourse
+motor	prohibition	try		NONE	NONE	NONE	NONE	36	Mother	Target_Child	do you wan na try that	no take that off	6	4	question	imperative_emphatic	Kuczaj Abe	positive	discourse
+motor	inability	wear		can	can	I	I	36	Father	Target_Child	can I wear yours	no you said you have some	4	6	question	declarative	Kuczaj Abe	positive	discourse
+motor	inability	see		can	can	I	I	38	Target_Child	Target_Child	so I can see any more of him	no I do n't see him hey	8	7	declarative	imperative_emphatic	Kuczaj Abe	positive	discourse
+motor	inability	see		can	can	I	I	40	Target_Child	Father	can I see if Sherry wants to come out and play	no she 's gon ta come up here and play with you in a little while okay	11	17	question	question	Kuczaj Abe	positive	discourse
+motor	inability	put		can	can	I	I	40	Target_Child	Mother	can I put it on here	no leave it there	6	4	question	declarative	Kuczaj Abe	positive	discourse
+motor	prohibition	eat		NONE	NONE	NONE	NONE	47	Target_Child	Father	I 'm gon ta eat all you up	no no help	8	3	declarative	imperative_emphatic	Kuczaj Abe	positive	discourse
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+Domain	Function	Head	Negator	Aux	Aux_stem	Subj	Subj_stem	Age	Previous_Role	Role	Previous_Utterance	Utterance	Previous_Sent_len	Sent_len	Previous_Sent_type	Sent_type	Child	Polarity	Level
+motor	prohibition	use		NONE	NONE	NONE	NONE	57	Adult	Target_Child	I know I haf ta use your bath+room	no you you can go to somebody you can you can you can pee in the street	8	17	declarative	imperative_emphatic	Hall Von	positive	discourse
+motor	inability	put	n't	ca	can	I	I	57	Child	Child	no I ca n't put it there	no oh no you do n't you better not mail it	7	11	declarative	declarative	Hall Matthew	negative	discourse
+motor	inability	read	n't	ca	can	I	I	57	Investigator	Target_Child	well I ca n't read your name anymore	no no writing on this commercial	8	6	declarative	declarative	Hall Matthew	negative	discourse
+motor	prohibition	pour		NONE	NONE	NONE	NONE	57	Target_Child	Mother	I wan na pour it	no this is hot	5	4	trail	imperative_emphatic	Hall Matthew	positive	discourse
+motor	prohibition	keep		NONE	NONE	NONE	NONE	57	Target_Child	Child	keep	no my brother was the first one	1	7	trail	imperative_emphatic	Hall Robert	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	57	Target_Child	Child	let 's smash it apart	no do n't bust it	5	5	declarative	imperative_emphatic	Hall Robert	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	57	Mother	Target_Child	you went with the school to do this did n't you	no we went school	11	4	question	imperative_emphatic	Hall Robert	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	57	Father	Target_Child	I want I you I want please take your hands off your food	no dad what I I 'm already full	13	8	declarative	imperative_emphatic	Hall Robert	positive	discourse
+motor	prohibition	pick	n't	do	do	NONE	NONE	57	Mother	Target_Child	do n't pick at it	no there 's meat stuck in there	5	7	declarative	imperative_emphatic	Hall Robert	negative	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	57	Brother	Target_Child	get	no we haf ta get the get a bag	1	9	declarative	imperative_emphatic	Hall Todd	positive	discourse
+motor	prohibition	gimme		NONE	NONE	NONE	NONE	57	Brother	Target_Child	gimme those	no give them to dad no dis is not the jail	2	11	imperative_emphatic	imperative_emphatic	Hall Todd	positive	discourse
+motor	inability	come		can	can	I	I	57	Target_Child	Mother	can I come in	no I 'm pee peeing	4	5	question	declarative	Hall Zoe	positive	discourse
+motor	prohibition	wipe		NONE	NONE	NONE	NONE	57	Teacher	Target_Child	now all of you take a paper towel and wipe this up right now	no I 'm not	14	4	declarative	imperative_emphatic	Hall Chris	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	57	Child	Target_Child	get out of here	no we 're not getting you we 're getting Gabriella	4	10	declarative	imperative_emphatic	Hall Chris	positive	discourse
+motor	prohibition	paint		NONE	NONE	NONE	NONE	57	Teacher	Target_Child	it has paint on it	no we was painting gingerbread	5	5	declarative	imperative_emphatic	Hall Chris	positive	discourse
+motor	inability	get		can	can	I	I	57	Teacher	Target_Child	maybe if you wait until it 's a little later I can get it in there	no too late	16	3	question	question	Hall David	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	57	Child	Child	do do do do	no stop walking on them	4	5	imperative_emphatic	imperative_emphatic	Hall David	positive	discourse
+motor	inability	go		can	can	I	I	57	Brother	Mother	can I go first	no you know Joe has ta go first	4	8	declarative	declarative	Hall Michael	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	57	Child	Child	look when when when I when I was standing up he went like this	no I did not	14	4	declarative	imperative_emphatic	Hall Michael	positive	discourse
+motor	inability	hear		can	can	I	I	57	Target_Child	Mother	can I hear it	no we 're not	4	4	question	trail	Hall Michael	positive	discourse
+motor	inability	climb	n't	ca	can	I	I	57	Target_Child	Mother	climb up there I ca n't	no you ca n't climb up that slide	6	8	declarative	declarative	Hall Kip	negative	discourse
+motor	prohibition	give		NONE	NONE	NONE	NONE	57	Teacher	Child	give me that	no no Michael	3	3	declarative	imperative_emphatic	Hall Trina	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	57	Mother	Mother	but I do n't like my hair to get wet	no sir	10	2	declarative	imperative_emphatic	Hall Trina	positive	discourse
+motor	inability	watch		ca	can	I	I	57	Target_Child	Mother	now I ca n't even watch it	no you 'll haf ta watch it tomorrow	7	8	imperative_emphatic	declarative	Hall Kayode	positive	discourse
+motor	prohibition	pick		NONE	NONE	NONE	NONE	57	Target_Child	Mother	but I do n't I wan na pick a blue card so I could go	no let me let me just see read the instructions and see what it says	15	15	trail	imperative_emphatic	Hall Tony	positive	discourse
+motor	inability	unscrew	n't	ca	can	I	I	57	Target_Child	Father	I ca n't unscrew it	no you do n't really unscrew it	5	7	declarative	declarative	Hall Tony	negative	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	57	Teacher	Child	I 'd like you to come in here and draw something	no I said no	11	4	declarative	imperative_emphatic	Hall Bobby	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	57	Child	Target_Child	I want put this in alright	no open the other closet	6	5	question	imperative_emphatic	Hall Bobby	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	57	Child	Child	I wan na get dat	no I wan na get snowy	5	6	imperative_emphatic	imperative_emphatic	Hall Bobby	positive	discourse
+motor	prohibition	cover		NONE	NONE	NONE	NONE	57	Child	Target_Child	I 'll keep you covered	no I lost it	5	4	declarative	imperative_emphatic	Hall Bobby	positive	discourse
+motor	inability	hold		can	can	I	I	57	Brother	Mother	oh yeah I can hold your stop watch	no no he 's testing	8	5	question	declarative	Hall Bobby	positive	discourse
+motor	inability	hold		can	can	I	I	57	Target_Child	Child	can I can I just hold one	no I 'm holding	7	4	question	declarative	Hall Mia	positive	discourse
+motor	inability	do	n't	ca	can	I	I	57	Sister	Child	no I ca n't do that	no what happened was that I	6	6	declarative	declarative	Hall Mia	negative	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	57	Mother	Target_Child	oh y come on you 're putting me on	no I r I really did	9	6	imperative_emphatic	imperative_emphatic	Hall Tracy	positive	discourse
+motor	inability	come		can	can	I	I	57	Teacher	Target_Child	hey Steve can I come up and help you pick up crayons and we can do some drawing up there	no I do n't wan na do drawing	20	8	question	declarative	Hall Steven	positive	discourse
+motor	inability	play		can	can	I	I	57	Child	Child	can I play with you	no you do n't know how to bay	5	8	question	question	Hall Steven	positive	discourse
+motor	inability	sit		can	can	I	I	57	Child	Target_Child	Debbie can I sit on your lap	no no no I do n't like	7	7	question	trail	Hall Steven	positive	discourse
+motor	inability	open		can	can	I	I	57	Target_Child	Child	I can open mine	no the last time I made orange juice out of it	4	11	declarative	declarative	Hall Steven	positive	discourse
+motor	prohibition	get		NONE	NONE	NONE	NONE	57	Grandmother	Target_Child	I 'm afraid you 're gon ta get hurt playing baseball	no we 're not	11	4	declarative	imperative_emphatic	Hall Steven	positive	discourse
+motor	prohibition	hurt		'll	will	NONE	NONE	57	Grandmother	Target_Child	no I 'm afraid you 'll get hurt with it that	no we wont	11	3	trail	imperative_emphatic	Hall Steven	positive	discourse
+motor	inability	figure		can	can	I	I	57	Target_Child	Mother	let me see if I can figure out where though	no we could n't get parking up town	10	8	declarative	declarative	Hall Steven	positive	discourse
+motor	prohibition	wear		NONE	NONE	NONE	NONE	57	Father	Target_Child	I 'm gon ta wear it when	no you 're not	7	4	trail	imperative_emphatic	Hall Steven	positive	discourse
+motor	inability	hit		can	can	I	I	57	Target_Child	Target_Child	I know I can hit Robbie right	no we no we did it	7	6	question	imperative_emphatic	Hall Steven	positive	discourse
+motor	prohibition	throw		NONE	NONE	NONE	NONE	57	Grandmother	Father	you want me to throw this out	no do n't throw Steven out	7	6	question	imperative_emphatic	Hall Steven	positive	discourse
+motor	prohibition	use		NONE	NONE	NONE	NONE	57	Father	Target_Child	okay use the blues then	no the red	5	3	declarative	imperative_emphatic	Hall Steven	positive	discourse
+motor	prohibition	do		NONE	NONE	NONE	NONE	57	Child	Child	yes he did	no he did n't	3	4	imperative_emphatic	imperative_emphatic	Hall Karen	positive	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	57	Target_Child	Child	I wan na go on the merry go round	no you 're not	9	4	declarative	imperative_emphatic	Hall Karen	positive	discourse
+motor	prohibition	go		NONE	NONE	NONE	NONE	57	Teacher	Target_Child	you wan na go with her with Karen and run around	no Lisa banner 's staying with me	11	7	question	imperative_emphatic	Hall Karen	positive	discourse
+motor	prohibition	give		NONE	NONE	NONE	NONE	54	Child	Target_Child	I 'll get a bigger chair I 'm gon ta to give you uhder chair	no I do n't wan na chair Lisa	15	8	declarative	imperative_emphatic	Hall Samantha	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	54	Child	Child	look it	no no I 'm a sister mother	2	7	imperative_emphatic	imperative_emphatic	Hall Samantha	positive	discourse
+motor	inability	paint		can	can	I	I	54	Target_Child	Mother	hm can I paint your shoes	no it 's still bugs	6	5	question	trail	Hall Samantha	positive	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	54	Mother	Target_Child	come well put Mickey Mouse on	no Ma I do n't wan na watch it	6	9	declarative	imperative_emphatic	Hall Samantha	positive	discourse
+motor	inability	play		can	can	I	I	54	Target_Child	Mother	hey Ma can I play with my ball	no you ca n't play ball in the house	8	9	question	declarative	Hall Samantha	positive	discourse
+motor	inability	put		can	can	I	I	57	Child	Target_Child	can I put this in	no the machine the machine is turned off	5	8	question	declarative	Hall Dexter	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	57	Child	Child	I 'll show you look	no that 's too hard	5	5	declarative	imperative_emphatic	Hall Summer	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	57	Child	Target_Child	let me see	no come on	3	3	question	imperative_emphatic	Hall Summer	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	57	Target_Child	Target_Child	put it in there	no put it in there	4	5	imperative_emphatic	imperative_emphatic	Hall Summer	positive	discourse
+motor	prohibition	put		NONE	NONE	NONE	NONE	57	Child	Child	hey put it here	no put it right there	4	5	declarative	imperative_emphatic	Hall Summer	positive	discourse
+motor	inability	move		can	can	I	I	57	Investigator	Target_Child	okay how about can I move over this side so that you can do some painting here	no I wan na watch dat	17	6	declarative	declarative	Hall Summer	positive	discourse
+motor	prohibition	let		NONE	NONE	NONE	NONE	57	Teacher	Child	let 's see	no but I had another train track	3	7	declarative	imperative_emphatic	Hall Joey	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	57	Mother	Target_Child	and the airplane yeah so anyway there 's Oscar looking up into the sky and boom he walks right smack into	no not Oscar	21	3	declarative	imperative_emphatic	Hall Joey	positive	discourse
+motor	prohibition	look		NONE	NONE	NONE	NONE	57	Child	Child	look look robots	no do n't break it it 's Meike 's	3	9	declarative	imperative_emphatic	Hall Gabriel	positive	discourse
+motor	inability	watch		can	can	I	I	57	Child	Child	I can watch	no we 're all finished	3	5	imperative_emphatic	declarative	Hall Gabriel	positive	discourse
+motor	prohibition	set		NONE	NONE	NONE	NONE	57	Target_Child	Target_Child	ready on your mark get set go	no not daeaet	7	3	declarative	imperative_emphatic	Hall Gabriel	positive	discourse
+motor	prohibition	stay		NONE	NONE	NONE	NONE	57	Target_Child	Target_Child	stay over there next to the next to the cabinet	no not dere dere	10	4	imperative_emphatic	imperative_emphatic	Hall Gabriel	positive	discourse
+motor	prohibition	name		NONE	NONE	NONE	NONE	57	Mother	Target_Child	little girl named Gabriella	no I love to be poop Tod Tovar	4	8	declarative	imperative_emphatic	Hall Gabriel	positive	discourse
+motor	prohibition	insist		NONE	NONE	NONE	NONE	57	Mother	Target_Child	Gabriella I haf ta insist	no I want to do it in the bath+room and with duh paper towel	5	14	declarative	imperative_emphatic	Hall Gabriel	positive	discourse
+motor	inability	say		can	can	I	I	57	Sister	Target_Child	can I say sum m	no no do n't say it in nere	5	8	question	declarative	Hall Brett	positive	discourse
+motor	inability	try		can	can	I	I	57	Sister	Target_Child	Brett can I try	no I got it first	4	5	question	declarative	Hall Brett	positive	discourse
+motor	inability	wait	n't	ca	can	I	i	57	Sister	Mother	mommy I said hey Robin let me go up there and catch them now ca n't wait until I	no do n't catch her	19	5	trail	question	Hall Brett	negative	discourse
+motor	inability	get		can	can	I	I	57	Sister	Mother	mommy I can get that stuff that that 's like dat you put it on and your nails get real long have you heard about that one	no I do n't want you ta put that stuff on	27	11	question	declarative	Hall Brett	positive	discourse
+motor	prohibition	take		NONE	NONE	NONE	NONE	57	Child	Target_Child	I am gon ta take it home	no you ai n't	7	4	declarative	imperative_emphatic	Hall Keisha	positive	discourse
+motor	prohibition	come		NONE	NONE	NONE	NONE	57	Teacher	Child	Gabriel you were already up there come on down	no let me	9	3	declarative	imperative_emphatic	Hall Julia	positive	discourse
+motor	prohibition	happen		NONE	NONE	NONE	NONE	57	Mother	Target_Child	is that what happened	no just read it	4	4	question	imperative_emphatic	Hall Julia	positive	discourse

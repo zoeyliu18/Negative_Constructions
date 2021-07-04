@@ -10,12 +10,12 @@ POSS = ['my', 'mine', 'your', 'yours', 'her', 'hers', 'his', 'their', 'theirs', 
 #### Selected children for investigating individual variation ####
 
 individuals = {'MacWhinney': ['Ross'], 'Davis': ['Rebecca', 'Cameron', 'Georgia', 'Rowan', 'Hannah'], 'Tardif': ['Julia', 'Melissa'], 'Wells': ['Elspeth', 'Gary', 'Gavin', 'Ellen', 'Jason', 'Rosie', 'Benjamin', 'Darren', 'Nancy', 'Penny', 'Debbie'], 'Braunwald': ['Laura'],
-               'Providence': ['William', 'Lily', 'Naima', 'Ethan', 'Alex'], 'Howe': ['Oliver', 'Sally'], 'Bloom': ['Peter'],
-               'Manchester': ['John', 'Carl', 'Liz', 'Warren', 'Joel', 'Gail', 'Dominic', 'Anne'], 'Brown': ['Eve'], 'Nelson': ['Emily'], 'Lara': ['Lara'],
-               'NewmanRatner': ['6510LC', '5196AVI24', '5266EC', '5346GG24mos', '5949DL24mos', '4724LM24mos', '4946RC', '7075MB24mos', '7534EM24mos'],
-               'Peters': ['Seth'], 'Post': ['Tow', 'Lew', 'She'], 'Bates': ['Keith', 'Gloria', 'Amy', 'Mandy', 'Hank'], 'McCune': ['Alice'], 'MPI-EVA-Manchester': ['Eleanor', 'Fraser'],
-               'Sachs': ['Naomi'], 'Suppes': ['Nina'], 'Demetras1': ['Trevor'], 'McCune': ['Alice', 'Jase'], 'Feldman': ['Steven'], 'Weist': ['Roman', 'Jillian'],
-               'Kuczaj': ['Abe'], 'Demetras2': ['Michael', 'Jimmy'], 'Cruttenden': ['Lucy']}
+			   'Providence': ['William', 'Lily', 'Naima', 'Ethan', 'Alex'], 'Howe': ['Oliver', 'Sally'], 'Bloom': ['Peter'],
+			   'Manchester': ['John', 'Carl', 'Liz', 'Warren', 'Joel', 'Gail', 'Dominic', 'Anne'], 'Brown': ['Eve'], 'Nelson': ['Emily'], 'Lara': ['Lara'],
+			   'NewmanRatner': ['6510LC', '5196AVI24', '5266EC', '5346GG24mos', '5949DL24mos', '4724LM24mos', '4946RC', '7075MB24mos', '7534EM24mos'],
+			   'Peters': ['Seth'], 'Post': ['Tow', 'Lew', 'She'], 'Bates': ['Keith', 'Gloria', 'Amy', 'Mandy', 'Hank'], 'McCune': ['Alice'], 'MPI-EVA-Manchester': ['Eleanor', 'Fraser'],
+			   'Sachs': ['Naomi'], 'Suppes': ['Nina'], 'Demetras1': ['Trevor'], 'McCune': ['Alice', 'Jase'], 'Feldman': ['Steven'], 'Weist': ['Roman', 'Jillian'],
+			   'Kuczaj': ['Abe'], 'Demetras2': ['Michael', 'Jimmy'], 'Cruttenden': ['Lucy']}
 
 ### reading in sentences in CoNLL format ###
 
@@ -72,6 +72,76 @@ def has_neg(index, sent):
 
 	return neg_d
 
+
+### get negation and auxiliaries of a verb if there are any ###
+
+def neg_verb(tok, sent):
+
+	aux = 'NONE'
+	aux_stem = 'NONE'
+	aux_idx = ''
+
+	neg = ''
+
+	try:
+		potential = sent[int(tok[0]) - 2]
+
+		if potential[1] in ['not', 'no', "n't"]:
+			neg = potential
+
+			try:
+				aux_tok = sent[int(tok[0]) - 3]
+				if aux_tok[1].lower() in AUX: 
+					aux = aux_tok[1]
+					aux_stem = aux_tok[2]
+					aux_idx = aux_tok[0]
+
+			except:
+				aux = 'NONE'
+
+		elif potential[1] not in ['not', 'no', "n't"] and potential[1].endswith("n't"):
+			neg = ['', "n't"]
+							
+			aux = potential[1][ : -3]
+			aux_stem = potential[1][ : -3]
+			aux_id = potential[0]
+
+	except:
+						
+		try:
+			far = sent[int(tok[0]) - 3] 
+						
+			if far[1] in ['not', 'no', "n't"]:
+				neg = far
+						
+			if far[1].endswith("n't"):
+				neg = far
+
+				aux = far[1][ : -3]
+				aux_stem = aux
+				aux_id = far[0]
+
+		except:
+			try:
+				temp = has_neg(tok[0], sent)
+				if len(temp) != 0:
+					neg = temp[-1]
+
+					try:
+						aux_tok = sent[int(neg[0]) - 2]
+						
+						if aux_tok[1].lower() in AUX: 
+							aux = aux_tok[1]
+							aux_stem = aux_tok[2]
+							aux_idx = aux_tok[0]
+
+					except:
+						aux = 'NONE'
+
+			except:
+				neg = ''
+
+	return neg, aux, aux_stem, aux_idx
 
 ### get descriptive statistics of all children ###
 
@@ -220,13 +290,12 @@ def individual_descriptive(file, name):
 
 	return child_data, parent_data
 
+
 ### emotion: rejection ###
 
 def emotion(file):
 
 	data = []
-
-	c =0
 
 	with io.open(file, encoding = 'utf-8') as f:
 		sent = conll_read_sentence(f)
@@ -256,58 +325,30 @@ def emotion(file):
 
 			for tok in sent:
 
-				if tok[2] in ['like', 'want', 'wan'] and tok[3].startswith('v'): 
+				if tok[2] in ['like', 'want', 'wan'] or tok[1] in ['like', 'liked', 'want', 'wanted', 'wanna', 'wanna']: # and tok[3].startswith('v'): 
 
 					info = ''
 
 					### include cases such as 'I don't like book' ###
 
-					neg = ''
-				
-					try:
-						potential = sent[int(tok[0]) - 2]
-						if potential[2] not in AUX and potential[1] in ['not', 'no', "n't"]:
-							neg = potential
-						if potential[2] in AUX:  ### cannot ###
-							if 'not' in potential[1]:
-								neg = ['', 'not']
-							if 'no' in potential[1]:
-								neg = ['', 'no']
-							if "n't" in potential[1]:
-								neg = ['', "n't"]
-
-					except:
-						try:
-							far = sent[int(tok[0]) - 3] 
-							if far[1] in ['not', 'no', "n't"]:
-								neg = far
-
-						except:
-							try:
-								temp = has_neg(tok[0], sent)
-								if len(temp) != 0:
-									neg = temp[-1]
+					neg, aux, aux_stem, aux_idx = neg_verb(tok, sent)
 
 						### include cases such as 'I like no book' ??? ###
 
-							except:
-								try:
-									d_list = dependents(tok[0], sent)
-									obj = ''
-									obj_neg = ''
-									for d in d_list:
-										if d[7] == 'obj':
-											obj_neg = has_neg(d[0], sent)
-											if len(obj_neg) != 0:
-												neg = obj_neg[-1]
-								except:
-									neg = ''
+						#	except:
+						#		try:
+						#			d_list = dependents(tok[0], sent)
+						#			obj = ''
+						#			obj_neg = ''
+						#			for d in d_list:
+						#				if d[7] == 'obj':
+						#					obj_neg = has_neg(d[0], sent)
+						#					if len(obj_neg) != 0:
+						#						neg = obj_neg[-1]
+						#		except:
+						#			neg = ''
 
 					function = 'rejection'
-
-					aux = 'NONE'
-					aux_stem = 'NONE'
-					aux_idx = ''
 
 					subj = 'NONE'
 					subj_stem = 'NONE'
@@ -319,8 +360,9 @@ def emotion(file):
 						if d[1] in AUX or d[7] == 'aux':
 							aux = d[1]
 							aux_stem = d[2]
-							aux_idx = d[0]				
+							aux_idx = d[0]
 
+					for d in d_list:			
 						if d[7] == 'nsubj':								
 							subj = d[1]
 							subj_stem = d[2]
@@ -333,11 +375,11 @@ def emotion(file):
 						info = ['emotion', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
 
 					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
-						c += 1
+
 						data.append(info)
 
 			sent = conll_read_sentence(f)
-	print(c)
+
 	return data
 
 ### theory of mind: epistemic ###
@@ -375,44 +417,13 @@ def epistemic(file):
 
 			for tok in sent:
 
-				if tok[2] in ['know', 'think', 'remember'] and tok[3].startswith('v'): 
+				if tok[2] in ['know', 'think', 'remember'] or tok[1] in ['know', 'knew', 'think', 'thought', 'remember', 'remembered']: #and tok[3].startswith('v'): 
 
 					info = ''
 
-					neg = ''
-				
-					try:
-						potential = sent[int(tok[0]) - 2]
-						if potential[2] not in AUX and potential[1] in ['not', 'no', "n't"]:
-							neg = potential
-						if potential[2] in AUX:  ### cannot ###
-							if 'not' in potential[1]:
-								neg = ['', 'not']
-							if 'no' in potential[1]:
-								neg = ['', 'no']
-							if "n't" in potential[1]:
-								neg = ['', "n't"]
-
-					except:
-						try:
-							far = sent[int(tok[0]) - 3] 
-							if far[1] in ['not', 'no', "n't"]:
-								neg = far
-
-						except:
-							try:
-								temp = has_neg(tok[0], sent)
-								if len(temp) != 0:
-									neg = temp[-1]
-
-							except:
-								neg = ''
+					neg, aux, aux_stem, aux_idx = neg_verb(tok, sent)
 
 					function = 'epistemic'
-
-					aux = 'NONE'
-					aux_stem = 'NONE'
-					aux_idx = ''
 
 					subj = 'NONE'
 					subj_stem = 'NONE'
@@ -501,7 +512,7 @@ def motor(file):
 
 			for tok in sent:
 
-				if tok[3].startswith('v') and tok[2] not in ['like', 'want', 'know', 'think', 'remember', 'have', 'dunno']:
+				if tok[3].startswith('v') and tok[1] not in ['like', 'liked', 'likes', 'want', 'wanted', 'wants', 'know', 'knew', 'knows', 'think', 'thought', 'thinks', 'remember', 'remembered', 'remembers', 'have', 'has', 'had', 'dunno']:
 
 					info = ''
 
@@ -511,11 +522,7 @@ def motor(file):
 					subj_stem = 'NONE'
 					subj_idx = ''
 
-					aux = 'NONE'
-					aux_stem = 'NONE'
-					aux_idx = ''
-
-					neg = ''
+					neg, aux, aux_stem, aux_idx = neg_verb(tok, sent)
 
 					for d in d_list:
 						if d[7] == 'nsubj':
@@ -528,10 +535,8 @@ def motor(file):
 							aux_stem = d[2]
 							aux_idx = d[0]
 
-						if d[1] in ['no', 'not', "n't"]:
-							neg = d
-
-					if 'imperative' in sent_type and subj == 'NONE':
+				#	if 'imperative' in sent_type and subj == 'NONE':
+					if subj == 'NONE' and sent_type.startswith('imperative'):
 
 						function = 'prohibition'
 					
@@ -550,7 +555,7 @@ def motor(file):
 							if aux_stem == 'can' or neg[1] == 'cannot':
 								info = ['theory of mind', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
 
-						if neg != '' and subj in ['I', 'i']:
+						if neg == '' and subj in ['I', 'i']:
 							info = ['theory of mind', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
 
 					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
@@ -595,7 +600,8 @@ def learning(file):
 
 			for tok in sent:
 
-				if tok[2] in ['be'] and tok[7] == 'cop': # and tok[1] in ['am', 'was', 'is', 'are', 'were']:
+			#	if tok[2] in ['be'] and tok[7] == 'cop': # and tok[1] in ['am', 'was', 'is', 'are', 'were']:
+				if tok[2] in ['be'] or tok[1] in ['am', 'was', 'is', 'are', 'were', "'m", "'s", "re"]:
 
 					info = ''
 
@@ -621,23 +627,21 @@ def learning(file):
 						pred_pos = head[3]
 
 					function = 'labeling'
-			
-					subj = 'NONE'
-					subj_stem = 'NONE'
-					subj_idx = ''
+
+					expletive = ''
 
 					d_list = dependents(tok[0], sent)
 
 					for d in d_list:
 
-						if d[7] == 'nsubj':
-							subj_idx = d[0]
-							subj = d[1]
-							subj_stem = d[2]
-
-					expletive = ''
+						if d[7] == 'expl' and d[1] == 'there':
+							expletive = d					
 
 					head_d = dependents(head[0], sent)
+
+					subj = 'NONE'
+					subj_stem = 'NONE'
+					subj_idx = ''
 
 					for d in head_d:
 
@@ -646,10 +650,15 @@ def learning(file):
 							subj = d[1]
 							subj_stem = d[2]
 
-						if d[7] == 'expl' and d[2] == 'there':
-							expletive = d
+					if neg == '' and subj_idx != '':
+						neg = has_neg(head[0], sent)
 
-					if pred != '' and subj_stem not in ['there', 'There'] and expletive == '':
+						if len(neg) != 0:
+							neg = neg[-1]
+						else: 
+							neg = ''
+
+					if pred != '' and expletive == '':
 
 						if neg != '':
 							info = ['learning', function, head[2], neg[1], pred_pos, pred_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
@@ -663,6 +672,7 @@ def learning(file):
 			sent = conll_read_sentence(f)
 
 	return data
+
 
 ### Perception ###
 
@@ -703,7 +713,7 @@ def perception(file):
 
 			for tok in sent:
 
-				if tok[2] == 'have' and tok[7] != 'aux':
+				if (tok[2] == 'have' or tok[1] in ['have', 'has', 'had']): #and tok[7] != 'aux':
 
 					info = ''
 
@@ -719,6 +729,8 @@ def perception(file):
 					obj_stem = 'NONE'
 					obj_idx = ''
 					obj_pos = ''
+
+					neg, aux, aux_stem, aux_idx = neg_verb(tok, sent)
 
 					d_list = dependents(tok[0], sent)
 
@@ -747,47 +759,48 @@ def perception(file):
 					except:
 						head = tok
 
-					neg = has_neg(tok[0], sent)
-
 					### I don't have ###
 
 					if obj == 'NONE':
 						function = 'possession'
 
-						if len(neg) != 0 and int(neg[-1][0]) < int(tok[0]):
+						if neg != '':
+							if int(neg[0]) < int(tok[0]):
 						
-							info = ['perception', function, tok[2], neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
-													
+								info = ['perception', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+				
 					### I don't have it ###
 
-					if obj != 'NONE' and (obj_pos in ['n', 'n:pt'] or obj_pos.startswith('pro')):
+					if obj != 'NONE': # and (obj_pos in ['n', 'n:pt'] or obj_pos.startswith('pro')):
 						function = 'possession'
 
-						if len(neg) != 0  and int(neg[-1][0]) < int(tok[0]):
+						if neg != '':
+							if int(neg[0]) < int(tok[0]):
+								if speaker_role in ['Target_Child', 'Child']:
+									print(sent)
 						
-							info = ['perception', function, tok[2], neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+								info = ['perception', function, tok[2], neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
 						
 						else:
 							info = ['perception', function, tok[2], '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
 							
 					### I have no book ###
 
-					if len(neg) == 0 and obj != 'NONE' and (obj_pos in ['n', 'n:pt'] or obj_pos.startswith('pro')):
+				#	if len(neg) == 0 and obj != 'NONE': # and (obj_pos in ['n', 'n:pt'] or obj_pos.startswith('pro')):
 
-						obj_neg = has_neg(obj_idx, sent)
+				#		obj_neg = has_neg(obj_idx, sent)
 
-						if len(obj_neg) != 0:
+				#		if len(obj_neg) != 0:
 
-							function = 'possession'
+				#			function = 'possession'
 						
-							info = ['perception', function, tok[2], obj_neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
+				#			info = ['perception', function, tok[2], obj_neg[-1][1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative']
 								
 					if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
 						data.append(info)
 
 			### mine ###
 			### exclude there's mine ###
-
 			
 				if tok[1] in POSS and tok[7] == 'root':
 
@@ -798,12 +811,12 @@ def perception(file):
 
 					for d in d_list:
 
-						if d[7] == 'expl' and d[2] == 'there':
+						if d[7] == 'expl' and d[1] == 'there':
 							expletive = d
 
 					if expletive == 'NONE':
 						try:
-							if sent[int(tok[0]) - 2][2] == 'there':
+							if sent[int(tok[0]) - 2][1] == 'there':
 								expletive = 'there'
 					
 						except:
@@ -824,7 +837,7 @@ def perception(file):
 						else:
 							info = ['perception', function, tok[1], tok[2], '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
 
-						if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age >= 12 and age <= 72:
+						if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
 							data.append(info)
 
 
@@ -860,8 +873,8 @@ def perception(file):
 
 			### there's soup ###
 
-				if tok[2] == 'be':
-				#	print(saying)
+				if tok[2] == 'be' or tok[1] in ['am', 'was', 'is', 'are', 'were', "'m", "'s", "re"]:
+
 					d_list = dependents(tok[0], sent)
 
 					expletive = 'NONE'
@@ -869,7 +882,7 @@ def perception(file):
 
 					for d in d_list:
 				
-						if d[7] == 'expl' and d[2] == 'there':
+						if d[7] == 'expl' and d[1] == 'there':
 							
 							expletive = d 
 				
@@ -877,13 +890,13 @@ def perception(file):
 
 							subj = d
 
-					if expletive != 'NONE' and subj != 'NONE' and (subj[3] in ['n', 'n:pt'] or subj[3].startswith('pro')): # and subj[1] not in POSS:
+					if expletive != 'NONE' and subj != 'NONE': # and (subj[3] in ['n', 'n:pt'] or subj[3].startswith('pro')): # and subj[1] not in POSS:
 
 						info = ''
 
 						function = 'existence'
 
-						neg = has_neg(subj[0], sent)
+						neg = has_neg(subj[0], sent) ### there's no soup ###
 
 						if len(neg) != 0:
 
@@ -894,7 +907,7 @@ def perception(file):
 							info = ['perception', function, tok[1], '', 'there', '', subj[1], subj[2], speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive']
 
 
-						if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age >= 12 and age <= 72:
+						if info not in data and info != '' and speaker_role in ['Mother', 'Father', 'Target_Child', 'Child'] and age != '' and age >= 12 and age <= 72:
 							data.append(info)
 
 			sent = conll_read_sentence(f)
@@ -920,7 +933,6 @@ if __name__ == '__main__':
 	all_domain = {'emotion': emotion, 'motor': motor, 'learning': learning, 'epistemic': epistemic, 'perception': perception}
 
 
-
 	if args.desp:
 	
 		child_descriptive, parent_descriptive = descriptive(args.input)
@@ -940,7 +952,7 @@ if __name__ == '__main__':
 	data = []
 
 	individual_child_descriptive = [['Age','N_speaker', 'N_utterance', 'Child']]
-	individual_parent_descriptive = [['Age','N_speaker', 'N_utterance', 'Child']]
+	individual_parent_descriptive = [['Age','N_speaker', 'N_utterance', 'Parent']]
 
 	all_child_names = {}
 

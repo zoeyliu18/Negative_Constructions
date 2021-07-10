@@ -31,6 +31,230 @@ def conll_read_sentence(file_handle):
 				sent.append(toks)	
 	return None
 
+### get descriptive statistics of age for all children ###
+
+def descriptive(directory):
+
+	child_data = {}
+	parent_data = {}
+
+	age_list = []
+	
+	child_raw = []
+	parent_raw = []
+
+	for file in os.listdir(directory):
+		if file.endswith('.conllu'):
+			with io.open(directory + file, encoding = 'utf-8') as f:
+				sent = conll_read_sentence(f)
+
+				while sent is not None:
+					speaker_info = sent[0][-2].split()
+					corpus_info = sent[0][-1].split()
+
+					if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
+						speaker_name = speaker_info[0]
+						speaker_role = speaker_info[-1]
+
+						child_name = corpus_info[0]
+
+						age = ''
+						
+						try:
+							age = int(float(corpus_info[1]))
+						except:
+							age = ''
+
+						if age != '':
+
+							corpus_name = file.split('.')[0]
+
+							age_list.append(str(age))
+
+							info = [str(age), corpus_name + child_name]
+
+							if speaker_role in ['Target_Child', 'Child']:
+								child_raw.append(info)
+
+							if speaker_role in ['Mother', 'Father']:
+								parent_raw.append(info)
+
+					sent = conll_read_sentence(f)
+
+	age_list = set(age_list)
+
+	for age in age_list:
+	
+		child_c = []
+		child_u = 0
+		parent_c = []
+		parent_u = 0
+
+		for tok in child_raw:
+			if tok[0] == age:
+				if tok[1] not in child_c:
+					child_c.append(tok[1])
+
+				child_u += 1
+
+		for tok in parent_raw:
+			if tok[0] == age:
+				if tok[1] not in parent_c:
+					parent_c.append(tok[1])
+
+				parent_u += 1
+
+		child_data[age] = [len(set(child_c)), child_u]
+		parent_data[age] = [len(set(parent_c)), parent_u]
+
+	return child_data, parent_data
+
+
+### get descriptive statistics of uttrance length for all children ###
+
+def uttrance_len(directory):
+
+	child_data = {}
+	parent_data = {}
+
+	ul_list = []
+	
+	child_raw = []
+	parent_raw = []
+
+	for file in os.listdir(directory):
+		if file.endswith('.conllu'):
+			with io.open(directory + file, encoding = 'utf-8') as f:
+				sent = conll_read_sentence(f)
+
+				while sent is not None:
+					speaker_info = sent[0][-2].split()
+					corpus_info = sent[0][-1].split()
+
+					if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
+						speaker_name = speaker_info[0]
+						speaker_role = speaker_info[-1]
+
+						child_name = corpus_info[0]
+
+						ul = len(sent)
+
+						corpus_name = file.split('.')[0]
+
+						ul_list.append(str(ul))
+
+						info = [str(ul), corpus_name + child_name]
+
+						if speaker_role in ['Target_Child', 'Child']:
+							child_raw.append(info)
+
+						if speaker_role in ['Mother', 'Father']:
+							parent_raw.append(info)
+
+					sent = conll_read_sentence(f)
+
+	ul_list = set(ul_list)
+
+	for ul in ul_list:
+	
+		child_c = []
+		child_u = 0
+		parent_c = []
+		parent_u = 0
+
+		for tok in child_raw:
+			if tok[0] == ul:
+				if tok[1] not in child_c:
+					child_c.append(tok[1])
+
+				child_u += 1
+
+		for tok in parent_raw:
+			if tok[0] == ul:
+				if tok[1] not in parent_c:
+					parent_c.append(tok[1])
+
+				parent_u += 1
+
+		child_data[ul] = [len(set(child_c)), child_u]
+		parent_data[ul] = [len(set(parent_c)), parent_u]
+
+	return child_data, parent_data
+
+
+### get descriptive statistics of individual child ###
+
+def individual_descriptive(file, name):
+
+	child_data = {}
+	parent_data = {}
+
+	age_list = []
+	
+	child_raw = []
+	parent_raw = []
+
+	with io.open(file, encoding = 'utf-8') as f:
+		sent = conll_read_sentence(f)
+
+		while sent is not None:
+			speaker_info = sent[0][-2].split()
+			corpus_info = sent[0][-1].split()
+
+			if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
+				speaker_name = speaker_info[0]
+				speaker_role = speaker_info[-1]
+
+				child_name = corpus_info[0]
+				try:
+					age = int(float(corpus_info[1]))
+				except:
+					age = ''
+
+				if age != '' and child_name == name:
+
+					corpus_name = file.split('.')[0]
+
+					age_list.append(str(age))
+
+					info = [str(age), corpus_name + child_name]
+
+					if speaker_role in ['Target_Child', 'Child']:
+						child_raw.append(info)
+
+					if speaker_role in ['Mother', 'Father']:
+						parent_raw.append(info)
+
+			sent = conll_read_sentence(f)
+
+	age_list = set(age_list)
+
+	for age in age_list:
+	
+		child_c = []
+		child_u = 0
+		parent_c = []
+		parent_u = 0
+
+		for tok in child_raw:
+			if tok[0] == age:
+				if tok[1] not in child_c:
+					child_c.append(tok[1])
+
+				child_u += 1
+
+		for tok in parent_raw:
+			if tok[0] == age:
+				if tok[1] not in parent_c:
+					parent_c.append(tok[1])
+
+				parent_u += 1
+
+		child_data[age] = [len(set(child_c)), child_u]
+		parent_data[age] = [len(set(parent_c)), parent_u]
+
+	return child_data, parent_data
+
 
 ### dependents ###
 
@@ -182,156 +406,6 @@ def context(index, all_sentences):
 	else:
 		return 'Nothing', 'Nothing'
 
-
-### get descriptive statistics of all children ###
-
-def descriptive(directory):
-
-	child_data = {}
-	parent_data = {}
-
-	age_list = []
-	
-	child_raw = []
-	parent_raw = []
-
-	for file in os.listdir(directory):
-		if file.endswith('.conllu'):
-			with io.open(directory + file, encoding = 'utf-8') as f:
-				sent = conll_read_sentence(f)
-
-				while sent is not None:
-					speaker_info = sent[0][-2].split()
-					corpus_info = sent[0][-1].split()
-
-					if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
-						speaker_name = speaker_info[0]
-						speaker_role = speaker_info[-1]
-
-						child_name = corpus_info[0]
-						
-						try:
-							age = int(float(corpus_info[1]))
-						except:
-							age = ''
-
-						if age != '':
-
-							corpus_name = corpus_info[3]
-
-							age_list.append(str(age))
-
-							info = [str(age), corpus_name + child_name]
-
-							if speaker_role in ['Target_Child', 'Child']:
-								child_raw.append(info)
-
-							if speaker_role in ['Mother', 'Father']:
-								parent_raw.append(info)
-
-					sent = conll_read_sentence(f)
-
-	age_list = set(age_list)
-
-	for age in age_list:
-	
-		child_c = []
-		child_u = 0
-		parent_c = []
-		parent_u = 0
-
-		for tok in child_raw:
-			if tok[0] == age:
-				if tok[1] not in child_c:
-					child_c.append(tok[1])
-
-				child_u += 1
-
-		for tok in parent_raw:
-			if tok[0] == age:
-				if tok[1] not in parent_c:
-					parent_c.append(tok[1])
-
-				parent_u += 1
-
-		child_data[age] = [len(set(child_c)), child_u]
-		parent_data[age] = [len(set(parent_c)), parent_u]
-
-	return child_data, parent_data
-
-
-### get descriptive statistics of individual child ###
-
-def individual_descriptive(file, name):
-
-	child_data = {}
-	parent_data = {}
-
-	age_list = []
-	
-	child_raw = []
-	parent_raw = []
-
-	with io.open(file, encoding = 'utf-8') as f:
-		sent = conll_read_sentence(f)
-
-		while sent is not None:
-			speaker_info = sent[0][-2].split()
-			corpus_info = sent[0][-1].split()
-
-			if speaker_info[-1] in ['Mother', 'Father', 'Target_Child', 'Child']:
-				speaker_name = speaker_info[0]
-				speaker_role = speaker_info[-1]
-
-				child_name = corpus_info[0]
-				try:
-					age = int(float(corpus_info[1]))
-				except:
-					age = ''
-
-				if age != '' and child_name == name:
-
-					corpus_name = corpus_info[3]
-
-					age_list.append(str(age))
-
-					info = [str(age), corpus_name + child_name]
-
-					if speaker_role in ['Target_Child', 'Child']:
-						child_raw.append(info)
-
-					if speaker_role in ['Mother', 'Father']:
-						parent_raw.append(info)
-
-			sent = conll_read_sentence(f)
-
-	age_list = set(age_list)
-
-	for age in age_list:
-	
-		child_c = []
-		child_u = 0
-		parent_c = []
-		parent_u = 0
-
-		for tok in child_raw:
-			if tok[0] == age:
-				if tok[1] not in child_c:
-					child_c.append(tok[1])
-
-				child_u += 1
-
-		for tok in parent_raw:
-			if tok[0] == age:
-				if tok[1] not in parent_c:
-					parent_c.append(tok[1])
-
-				parent_u += 1
-
-		child_data[age] = [len(set(child_c)), child_u]
-		parent_data[age] = [len(set(parent_c)), parent_u]
-
-	return child_data, parent_data
 
 ### Get all data from corpus *.conllu file ###
 
@@ -1219,7 +1293,21 @@ if __name__ == '__main__':
 			for k, v in parent_descriptive.items():
 				f.write(str(k) + '\t' + '\t'.join(str(c) for c in v) + '\n')
 
-		print('done describing data')
+		print('done describing age with data ')
+
+		child_ul_descriptive, parent_ul_descriptive = uttrance_len(args.input)
+
+		with io.open('child_ul_descriptive.txt', 'w', encoding = 'utf-8') as f:
+			f.write('Sent_len' + '\t' + 'N_speaker' + '\t' + 'N_utterance' + '\n')
+			for k, v in child_ul_descriptive.items():
+				f.write(str(k) + '\t' + '\t'.join(str(c) for c in v) + '\n')
+
+		with io.open('parent_ul_descriptive.txt', 'w', encoding = 'utf-8') as f:
+			f.write('Sent_len' + '\t' + 'N_speaker' + '\t' + 'N_utterance' + '\n')
+			for k, v in parent_ul_descriptive.items():
+				f.write(str(k) + '\t' + '\t'.join(str(c) for c in v) + '\n')
+
+		print('done describing uttrance length with data ')
 
 	data = []
 

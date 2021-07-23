@@ -3,19 +3,19 @@ title             : "English Negative Constructions and Communicative Functions 
 shorttitle        : "Negation and communicative functions"
 
 author: 
-  - name        : ""
+  - name        : "Zoey Liu"
     affiliation   : "1"
     corresponding : yes    # Define only one corresponding author
     address       : ""
     email         : ""
-  - name          : ""
+  - name          : "Masoud Jasbi"
     affiliation   : "2"
 
 affiliation:
   - id            : "1"
-    institution   : 
+    institution   : "Boston College"
   - id            : "2"
-    institution   : 
+    institution   : "UC Davis"
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
@@ -45,8 +45,6 @@ classoption       : "man"
 output            : papaja::apa6_pdf
 fig_caption: yes
 ---
-
-
 
 ```{r setup, include = FALSE, message=FALSE, warning=FALSE}
 library("papaja")
@@ -111,7 +109,6 @@ Possession & with \textit{have}; or possesive pronouns & \textit{not have the to
 
 # Related Work
 
-
 Starting a century and a half ago, @darwin1872expression thought that negation has roots in the expression of human emotions and desires. He hypothesized the earliest manifestation of negation and affirmation in infants is when they refuse food from parents, by withdrawing their heads laterally, or when they accept the food, by inclining their heads forward. He suggested that head shaking and nodding as common gestures for negation and affirmation pro developed from this early habit. Similarly, many researchers studying early functions of negative morphemes like *no* proposed that children use them to "reject" or "refuse" [@bloom1970language; @pea1978; @choi1988semantic]. For example, when they are asked "do you want juice?", they may say "no", "not want it", or "don't like it". @pea1978 proposed this negation function is the first to emerge in children's early speech.
 
 @bloom1970language argued that the use of negation to expresses "non-existence" emerges before rejection or refusal. For example, when an object that children expect to be present is not present, children may say: "no window", "no fish in the bathroom", or "I do not pro underpants". Two close concepts to non-existence are "disappearance" and "non-occurrence" [@de1979form; @pea1978]. Disappearance refers to situations where an object disappears and children use negation to express it (e.g. "no food. all gone" or "no more noise"). Non-occurrence refers to cases when an expected action or event does not occur as in "not working" or "doggie not barking". Some researchers referred to these cases as "failures" and included examples like "no fit in da box" or "it don't fit" [@choi1988semantic; @cameron2007part]. Non-existence can also be expressed by negation of locative prepositional phrases (e.g. "no in there" or "daddy was not on the phone"). While rejection was hypothesized to interact with human emotions and desires, non-existence (broadly construed to include "disappearance" and "non-occurrence") likely interacts with human perception. @choi1988semantic proposed that children's early linguistic negation is used to express both rejection and non-existence.
@@ -122,11 +119,9 @@ Additionally, @choi1988semantic introduced "prohibition" and suggested that it e
 
 Despite considerable research on early functions of negation, their developmental trajectories in children's productions pro remained unclear. Different studies pro claimed different order of acquisition [@pea1978]. In a recent study, @nordmeyer2018individual looked at the speech of five children in the Providence corpus [@demuth2006word] and found a great deal of individual differences in how early a negative function is attested. This is partly because previous studies pro had to rely on human annotation and identification of functions from corpus data, a time-consuming and difficult process that has limited previous studies to a handful of children and a relatively small sample of their speech.
 
-
 # Experiments
 
 ## Data and preprocessing 
-
 
 For developmental production data of child speech in English, we turned to the CHILDES database [@macwhinney2000childes]\footnote{Code and data are in quarantine at \url{https://github.com/zoeyliu18/Negative_Constructions.}} and focused on children with typical development within the age range of 12 - 72 months. Parents' and children's utterances were extracted via the childes-db [@sanchez2019childes] interface using the programming language R. In order to obtain (morpho)syntactic representations for parents' and children's utterances, we used the dependency grammar framework [@dg]. Part-of-speech (POS) tags for each token within an utterance were automatically derived using Stanza [@qi-etal-2020-stanza], an open-source natural language processing library; dependency relations for all utterances were acquired also in an automatic fashion using DiaParser [@diaparser], a dependency parsing system that has been demonstrated to achieve excellent performance for at least written texts in English.
 
@@ -140,11 +135,9 @@ Parent: *Do you (not) want to go*; Child: *No I like here*
 
 At the discourse level, on the other hand, we aim to analyze utterances where the negative morphemes are discourse response variables instead. To do that and in order to alleviate potential parsing errors, instances starting with any of the negative morphemes that are discourse response variables with a dependency relation *discourse* were included (e.g. (2)). In this case, utterances such as "no no I like it" were selected. Then for each negative utterance identified this way, we extracted its previous utterances in the discourse context based on the utterance order and transcript id provided by childes-db. In particular, for child speech, we included interactions (contextual utterances + current negative utterance) where the contextual utterances were produced by either the parents or the children themselves; and for parent speech, we only included interactions where the contextual utterances were produced by children. Then for every function, we applied the same syntactic features for both negative and positive utterances at the syntactic level to the contextual utterance within each discourse interaction. This means that the contextual utterance does not have to be negative. 
 
-
-
 ## Measures
 
-We took the age of the children as the index of developmental stage\footnote{Utterance length was also applied as another index of developmental stage. For more details....}. Take negative constructions at the syntactic level as an illustration. For each communicative function, we used the following two metrics at each age as measures of the developmental trajectory in child speech.<!--As indexes of the developmental trajectory for negative constructions and their communicative functions in child speech, we measured the following two metrics at each given age of the children.--> The first one is the *ratio* of negative utterances. For instance, the number of utterances produced by children at the age of 30 months (not just all negative constructions at this age) is 81,302 in total. Among these utterances, negative structures that have the function of rejection occur for 391 times; the ratio for this communicative function at 30 months is then calculated as 391 / 81,302 = 0.005.
+We took the age of the children as the index of developmental stage\footnote{Utterance length was also applied as another index of developmental stage. For more details....}. Take negative constructions at the syntactic level as an illustration. For each communicative function, we used the following two metrics at each age as measures of the developmental trajectory in child speech.<!--As indexes of the developmental trajectory for negative constructions and their communicative functions in child speech, we measured the following two metrics at each given age of the children.--> The first one is the *ratio* of negative utterances. For instance, the number of utterances produced by children at the age of 30 months (not just all negative constructions at this age) is 81,302 in total. Among these utterances, negative structures that have the function of rejection occur 391 times; the ratio for this communicative function at 30 months is then calculated as 391 / 81,302 = 0.005.
 
 Given the noisy nature of child production data in general, and the facts that there are different numbers of utterances and children at each age, another measure that we utilized is *moving ratio*, borrowed from the model of moving average in analyses of time series data [@wei2006time]. For a communicative function, the goal of the moving ratio is still to reflect the production of the negative utterances at the given age; meanwhile it takes into account the previous production of all negative constructions of the same function before the specified age. This would allow us to have a more balanced look at individual developmental stage (e.g. age) of a communicative function, in relation to its development patterns thus far. 
 
@@ -155,7 +148,6 @@ At the syntactic level, besides the negative constructions, we also calculated t
 While our focus is child production, we used parents' speech as comparative references. Therefore for every communicative function, the same measures were calculated for parent speech in a similar fashion. Our plots accordingly contrast the ratios / moving ratios of different constructions between children's and parents' production at corresponding ages of the children.
 
 In what follows, we describe in detail the results of each communicative function and their negative constructions. While we computed both ratio and moving ratio for every function, our analyses mainly rely on the latter. 
-
 
 <!--
  c<-sapply(strsplit(a$Utterance, " "), length)
@@ -270,7 +262,6 @@ positive_moving <- function(data, descriptive){
 
 ```
 
-
 ```{r negative_ul_moving_function}
 
 negative_ul_moving <- function(data, descriptive){
@@ -319,7 +310,6 @@ negative_ul_moving <- function(data, descriptive){
 ```
 
 ```{r positive_ul_moving_function}
-
 positive_ul_moving <- function(data, descriptive){
   
   sent_len_list <- as.vector(data$Sent_len)
@@ -389,9 +379,6 @@ mlu <- function(data){
 
 ```
 
-
-
-
 ```{r descriptive, include=FALSE}
 
 child_descriptive <- read.csv('data/child_descriptive.txt', header = T, sep = '\t')
@@ -405,11 +392,9 @@ parent_individual_descriptive <- read.csv('data/individual_parent_descriptive.tx
 
 ```
 
-
 ## Communicative functions of negative constructions and their positive counterparts
 
 ### Rejection
-
 
 ```{r emotiondata, include=FALSE}
 
@@ -794,15 +779,12 @@ names(discourse_emotion_data_plot) <- c('Age', 'Measure', 'Role', 'Total_ratio')
 
 ```
 
-
-
 For the function of rejection, at the sentence level, we examined cases where the lemma of the head verb of the phrase is either *like* or *want*. For negative constructions, the head verb is modified by one of the three negative morphemes, whereas cases including the same head verb but without negation were determined as the positive counterparts. Therefore the positive utterances do not necessarily have large lexical overlap with the negative structures. With negative utterances, other than expressions that the speakers used to describe their own desires with (e.g. (1)) or without (e.g. (2)) an auxiliary verb, we also included cases that express rhetorical inquiries of desires from one interlocutor addressed to another (e.g. (3)), and  instances where the speaker is describing the desires of somebody else (e.g. (4)). This resulted in a total of `r format(sum(subset(emotion_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(emotion_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(emotion_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and a total of `r format(sum(subset(emotion_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(emotion_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(emotion_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
 
 (1) negative: *I no like sea* ; positive: *she likes cheese*
 (2) negative:  *don't wanna go* ; positive: *I want it*
 (3) negative: *don't you wanna try it* ; positive: *I wanna have that*
 (4) negative:  *Sarah doesn't like that either* ; positive: *she likes this one*
-
 
 ```{r emotion, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap='Rejection and its positive counterparts.'}
 
@@ -827,7 +809,6 @@ emotion_data %>%
   guides(linetype = guide_legend(nrow = 2))
 
 ```
-
 
 ```{r emotionul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap='Rejection and its positive counterparts, indexed by utterance length.'}
 
@@ -859,8 +840,6 @@ As shown in Figure 2, children's production of negation as discourse response va
 (5) Parent: *would you like to go*; Child: *no no*
 (7) Child: *I don't like that*; Parent: *no honey you have to try it*
 
-
-
 ```{r emotiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Discourse-level Rejection.',warning=FALSE}
 
 discourse_emotion_data_plot %>% 
@@ -880,9 +859,7 @@ discourse_emotion_data_plot %>%
 
 ```
 
-
 ### Non-existence
-
 
 ```{r perceptiondata, include=FALSE}
 
@@ -1121,7 +1098,6 @@ possession_data_parent <- subset(possession_data, Role == 'Parent')
 
 ```
 
-
 ```{r perceptionuldata, include=FALSE}
 
 child_ul_existence_neg <- subset(child_perception_neg, Function %in% c('existence'))
@@ -1329,7 +1305,6 @@ possession_ul_data_parent <- subset(possession_ul_data, Role == 'Parent')
 
 ```
 
-
 ```{r discourseperceptiondata, include=FALSE}
 
 discourse_perception <-read.csv('data/perception_discourse.txt', header = T, sep = '\t')
@@ -1508,11 +1483,9 @@ For the function of non-existence, we first extracted utterances that have exple
 (5) negative: *there's no (more) water* ; positive: *there are books*
 (6) negative: *there isn't it* ; positive: *there is it*
 
-
 In child speech, the production of negative constructions to express non-existence at the syntactic level is consistently less frequent than their positive counterparts. The moving ratio of negation for this function is gradually increasing from 25 to 36 months (Figure ), which is by contrast later than that for the communicative function of rejection presented in Figure 1. This observation does not seem to align with @bloom1970language, which initially proposed that the development of non-existence is earlier than that of rejection. On the other hand, children's production moving ratios tend to be consistently lower than that for parent speech at the corresponding ages of the children.
 
 Notice that there appears to be fluctuations of moving ratios between the age of 19 and 25 months regarding child production. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore while the number of total utterances increases along the developmental trajectory, the moving ratio for negative utterances actually decreases.
-
 
 ```{r existence, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Non-existence and its positive counterparts.'}
 
@@ -1579,7 +1552,6 @@ discourse_existence_data_plot %>%
 ```
 
 ### Prohibition
-
 
 ```{r motordata, include=FALSE}
 
@@ -1755,8 +1727,6 @@ inability_data_parent <- subset(inability_data, Role =='Parent')
 
 ```
 
-
-
 ```{r motoruldata, include=FALSE}
 
 child_ul_prohibition_neg <- subset(child_motor_neg, Function %in% c('prohibition'))
@@ -1907,7 +1877,6 @@ inability_ul_data_child <- subset(inability_ul_data, Role =='Child')
 inability_ul_data_parent <- subset(inability_ul_data, Role =='Parent')
 
 ```
-
 
 ```{r motordiscoursedata, include=FALSE}
 
@@ -2080,14 +2049,11 @@ names(discourse_inability_data_plot) <- c('Age', 'Measure', 'Role', 'Total_ratio
 
 ```
 
-
 For constructions that articulate the function of prohibition, we focused on cases that are annotated as imperatives from the initial CHILDES annotations. In particular, we selected instances where the head verbs do not take any subjects. Cases without negative morphemes are considered as positive structures. For negative constructions, we chose structures where the negative morphemes are combined with the auxiliary verb *do* (*do*, *does*, *did*) and they together modify the head verbs of the sentences. In order to not overlap with rejection, non-existence, epistemic negation and possession (see below),  our search excluded utterances where the head verb has any of the following lemma forms: *like*, *want*, *know*, *think*, *remember*, *have*. This resulted in a total of `r format(sum(subset(prohibition_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(prohibition_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(prohibition_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and a total of `r format(sum(subset(prohibition_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(prohibition_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(prohibition_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
 
 Based on Figure 3, in both child and parent speech, the production of negative constructions for prohibition at the syntactic level is consistently lower than their positive counterparts. Children are combining negative morphemes for this function more and more regularly between 24-36 months, which is comparable to that of the function of non-existence, but slightly later than that of rejection. In comparison, the production moving ratio in parent speech gradually decreases when the children are within 15 - 36 months; yet child production is still consistently lower than that in parent speech at any age of the children.
 
 (7) negative: *don't blame Charlotte* ; positive: *cook it*
-
-
 
 ```{r prohibition, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Prohibition and its positive counterparts.'}
 
@@ -2154,7 +2120,6 @@ discourse_prohibition_data_plot %>%
 
 ```
 
-
 ### Inability 
 
 For the function of inability, at the syntactic level, we analyzed instances with head verbs that are modified by the auxiliary *can* (*can* and *could*; e.g. ()). Structures in which the head verbs are also modified by negative morphemes are determined as negative while the others are considered positive. Cases without a subject (e.g. "can't play") or where the subject is not *I*  (e.g. "you can't do that") could yield ambiguous readings when not looking at a larger discourse context; they could be a rhetorical question or also express the concept of prohibition. Therefore to potentially avoid less ambiguity, we restricted our analyses only to cases with a subject *I*. This led to `r format(sum(subset(inability_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(inability_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(inability_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and `r format(sum(subset(inability_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` positive utterances (child: `r format(sum(subset(inability_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(inability_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
@@ -2162,8 +2127,6 @@ For the function of inability, at the syntactic level, we analyzed instances wit
 (8) negative: *I can't see* ; positive: *You could do it*
 
 As shown in Figure , the developmental trajectory of inability at the sentence level is similar to that of rejection. Negation is applied more and more regularly between 18-36 months. By contrast, it is different from those of non-existence and prohibition. It seems that the production trajectories of the latter two are both becoming more regular at a later age (25 and 24 months, respectively). Overall the production of negative structures is less frequent than their positive counterparts in both child and parent speech.
-
-
 
 ```{r inability, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Inability and its positive counterparts.'}
 
@@ -2184,7 +2147,6 @@ inability_data %>%
   guides(linetype = guide_legend(nrow = 2))
 
 ```
-
 
 For inability at the discourse level, we analyzed interactions where negation is applied to respond to contextual utterances in which the head verbs take the auxiliary *can* or *could* along with the subject *I*. This yielded a total of `r format(sum(subset(discourse_inability_data,Which=='ratio')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(discourse_inability_data_child,Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_inability_data_parent,Which=='ratio')$Freq), big.mark=",")`).
 
@@ -2210,8 +2172,6 @@ inability_ul_data %>%
 
 ```
 
-
-
 ```{r inabilitydiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Discourse-level Inability.',warning=FALSE}
 
 discourse_inability_data_plot %>% 
@@ -2230,7 +2190,6 @@ discourse_inability_data_plot %>%
   ylab("log(ratio)")
 
 ```
-
 
 ### Labeling
 
@@ -2402,10 +2361,7 @@ learning_ul_data$Measure <- factor(learning_ul_data$Measure, levels = c('negativ
 
 learning_ul_data_child <- subset(learning_ul_data, Role == 'Child')
 learning_ul_data_parent <- subset(learning_ul_data, Role == 'Parent')
-
-
 ```
-
 
 ```{r discourselearningdata, include=FALSE}
 
@@ -2496,7 +2452,6 @@ names(discourse_learning_data_plot) <- c('Age', 'Measure', 'Role', 'Total_ratio'
 
 ```
 
-
 To capture the function of labeling at the sentence level, we concentrated on copula structures in which the predicate is a nominal or an adjectival phrase. Specifically, the nominal predicates exclude possessive pronouns in order to not be confused with cases for the communicative function of possession (see below). Instances where the predicate is modified by negative morphemes are deemed negative, and the others are positive structures. None of the utterances contained expletives (e.g. "there is no book") to distinguish from non-existence. This resulted in a total of `r format(sum(subset(learning_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances (Child: `r format(sum(subset(learning_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; Parent: `r format(sum(subset(learning_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and `r format(sum(subset(learning_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` positive utterances (Child: `r format(sum(subset(learning_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; Parent: `r format(sum(subset(learning_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
 
 (9) negative: *that's not a farmer* ; positive: *this is a book*
@@ -2504,7 +2459,6 @@ To capture the function of labeling at the sentence level, we concentrated on co
 (11) negative: *It's no good* ; positive: *she's pretty*
 
 Based on Figure 5, the developmental pattern for labeling at the sentence level is comparable to rejection; children are increasing their use of the negative morphemes around the age range of of 18-36 months. In both child and parent production, the frequency of positive counterparts is consistently higher than that of the negative structures. Overall, parent's production of negation for labeling is also comparatively higher than that in child's production across the different ages of the children.
-
 
 ```{r learning, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Labeling and its positive counterparts.'}
 
@@ -2569,9 +2523,7 @@ discourse_learning_data_plot %>%
 
 ```
 
-
 ### Epistemic Negation
-
 
 ```{r epistemicdata, include=FALSE}
 
@@ -2801,7 +2753,6 @@ epistemic_data_child <- subset(epistemic_data, Role == 'Child')
 epistemic_data_parent <- subset(epistemic_data, Role == 'Parent')
 
 ```
-
 
 ```{r epistemiculdata, include=FALSE}
 
@@ -3084,7 +3035,6 @@ names(discourse_epistemic_data_plot) <- c('Age', 'Measure', 'Role', 'Total_ratio
 
 ```
 
-
 Previous studies have reported instances where negative morphemes are combined with mental/epistemic state verbs such as *know*, *think*, and *remember* in child speech to express epistemic negation. Here we focused on these three verbs as well. For the sentence level, we analyzed negative utterances that articulate the concept of not knowing (e.g. (12)) or uncertainty (e.g. (13)). The verbs in these cases are modified by the negative morphemes directly or by the combination of negation with auxiliaries. Instances where the speaker asks about or describes the negative epistemic state of another speaker (e.g. (14)) were also selected, leading to `r format(sum(subset(epistemic_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances in total (child: `r format(sum(subset(epistemic_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(epistemic_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`).
 For the positive counterparts, we selected instances with the same head verbs except that these verbs are not modified by negation. This resulted in a total of `r format(sum(subset(epistemic_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` negative utterances in total (child: `r format(sum(subset(epistemic_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(epistemic_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
 
@@ -3093,7 +3043,6 @@ For the positive counterparts, we selected instances with the same head verbs ex
 (14) negative: *don't you remember* / *She doesn't know this*; positive: *She knows about this*
 
 Based on the data analyzed here (Figure ), for epistemic negation at the syntactic level, the production of negative utterances headed by *know* is comparatively the highest, and is  becoming more regular at an earlier age (17-18 months) compared to that of *remember* (~19 months) or *think* (~20 months). Overall the production moving ratio of negative utterances is relatively lower than that of the positive structures. Across the three head verbs, it appears that child's production with *know* and *remember* gradually approaches that in parent production around 34 - 36 months, whereas cases with the head verb *think* tend to be produced less frequently in child speech.
-
 
 ```{r epistemic, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=7, set.cap.width=T, num.cols.cap=1, fig.cap='Epistemic negation and its positive counterparts.'}
 
@@ -3115,7 +3064,6 @@ epistemic_data %>%
 
 ```
 
-
 ```{r epistemicul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=7, set.cap.width=T, num.cols.cap=1, fig.cap='Epistemic negation and its positive counterparts, indexed by utterance length.'}
 
 epistemic_ul_data %>% 
@@ -3136,9 +3084,7 @@ epistemic_ul_data %>%
 
 ```
 
-
 For epistemic negation at the discourse level, we examined interactions in which the contextual utterances take any of the three head verbs, *know*, *remember* and *think*, leading to a total of `r format(sum(subset(discourse_epistemic_data,Which=='ratio')$Freq), big.mark=",")` utterances in total (child: `r format(sum(subset(epistemic_data_child,Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(epistemic_data_parent,Which=='ratio')$Freq), big.mark=",")`). The developmental trajectory of child speech from Figure demonstrates a gradual increase of production moving ratio from 24 to 36 months.
-
 
 ```{r epistemicdiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Discourse-level Epistemic Negation.',warning=FALSE}
 
@@ -3159,9 +3105,7 @@ discourse_epistemic_data_plot %>%
 
 ```
 
-
 ### Possession
-
 
 The last function we explored is possession. At the syntactic level, for negative structures we selected cases where the negative morphemes are combined with auxiliary verbs to modify a head verb with the lemma form *have* and a POS tag of VERB (e.g. (15)). We also included individual noun phrases with possessive pronouns as heads and modified by negative morphemes (e.g. (16)). Cases in which the syntactic head of the negative morphemes is a predicate of a copula verb (e.g. "this is not mine") were excluded to separate them from the function "labeling". The number of negative utterances that were subjected to analysis for this function is `r format(sum(subset(possession_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`  (child: `r format(sum(subset(possession_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(possession_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`). Again the positive counterparts share similar structures except with no negation, leading to a total of `r format(sum(subset(possession_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`  (child: `r format(sum(subset(possession_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(possession_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`). One thing to note here is that for the positive structures with the head verb *have*, we restricted to cases where the verb takes a direct object (with the dependency relation *obj*). This is to avoid potential parsing errors of instances such as *I have*, where the verb could ambiguously be an auxiliary.
 
@@ -3169,7 +3113,6 @@ The last function we explored is possession. At the syntactic level, for negativ
 (16) negative *not mine*; positive: *hers*.
 
 Given Figure 7, at the sentence level, the developmental trajectory for possession in child speech appears to have notable differences depending on what the negative morphemes are modifying. When their syntactic head is *have*, the pattern is comparable to those of "rejection" and "labeling", where children are increasing their combination of negative morphemes from 18 to 36 months. However, the production moving ratio for utterances headed by possessive pronouns seems to be relatively stable across different ages.
-
 
 ```{r possession, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Possession and its positive counterparts.'}
 
@@ -3216,7 +3159,6 @@ For the discourse level, we selected interactions in which the contextual uttera
 () Parent: *I don't have the book*; Child: *no no mommy please read it to me*
 () Parent: *not yours*; Child: *no it's mine mine*
 
-
 ```{r possessiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Discourse-level Possession.',warning=FALSE}
 
 discourse_possession_data_plot %>% 
@@ -3235,8 +3177,6 @@ discourse_possession_data_plot %>%
   ylab("log(ratio)") 
 
 ```
-
-
 
 ### An overall look 
 
@@ -3300,7 +3240,6 @@ pos_together_final <- rbind(child_pos_together, parent_pos_together)
 
 ```
 
-
 ```{r allneg, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='All negative constructions at the syntactic level.', warning=FALSE}
 
 
@@ -3320,7 +3259,6 @@ neg_together_final %>%
 
 ```
 
-
 ```{r allpos, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Positive counpterparts of all negative constructions at the syntactic level.', warning=FALSE}
 
 
@@ -3339,7 +3277,6 @@ pos_together_final %>%
   guides(linetype = guide_legend(nrow = 2)) 
 
 ```
-
 
 ```{r alldiscoursedata, include=FALSE}
 
@@ -3401,13 +3338,11 @@ For future work, we would like to explore several directions. First, to more tho
 
 Lastly, our experiments have concentrated on larger syntactic structures at the utterance level, hence cases where negation is used as discourse markers to respond to previous utterance(s) were excluded. However, these instances also have important semantic and conceptual roles in the communication between children and parents (e.g. parent: *do you want some bread?*; child: *no no no*). Thus inclusions of negative structures at a more comprehensive level would be able to paint a more clear picture about the development of negation.
 
-
 \begingroup
 \setlength{\parindent}{-0.5in}
 \setlength{\leftskip}{0.5in}
 
 \endgroup
-
 
 ```{r intersect, include=FALSE}
 
@@ -3417,5 +3352,3 @@ intersect_all <- function(a,b,...){
 
 
 ```
-
-

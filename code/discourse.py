@@ -137,19 +137,28 @@ def uttrance_len(directory):
 
 						child_name = corpus_info[0]
 
-						ul = len(sent)
+						age = ''
 
-						corpus_name = file.split('.')[0]
+						try:
+							age = int(float(corpus_info[1]))
+						except:
+							age = ''
 
-						ul_list.append(str(ul))
+						if age != '' and age >= 12 and age <= 72:
 
-						info = [str(ul), corpus_name + child_name]
+							ul = len(sent)
 
-						if speaker_role in ['Target_Child', 'Child']:
-							child_raw.append(info)
+							corpus_name = file.split('.')[0]
 
-						if speaker_role in ['Mother', 'Father']:
-							parent_raw.append(info)
+							ul_list.append(str(ul))
+
+							info = [str(ul), corpus_name + child_name]
+
+							if speaker_role in ['Target_Child', 'Child']:
+								child_raw.append(info)
+
+							if speaker_role in ['Mother', 'Father']:
+								parent_raw.append(info)
 
 					sent = conll_read_sentence(f)
 
@@ -1071,8 +1080,8 @@ def perception(index, sent, corpus_name, level, data):
 					if neg != '':
 						if int(neg[0]) < int(tok[0]):						
 							info = ['perception', function, 'have', neg[1], aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']						
-						else:
-							info = ['perception', function, 'have', '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive', 'sentential']
+					else:
+						info = ['perception', function, 'have', '', aux, aux_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive', 'sentential']
 							
 				if info != '':
 					return info
@@ -1087,6 +1096,26 @@ def perception(index, sent, corpus_name, level, data):
 
 				neg = has_neg(tok[0], sent)
 
+				cop = ''
+
+				d_list = dependents(tok[0], sent)
+
+				for d in d_list:
+							
+					if d[7] == 'cop':
+						cop = d
+
+				pre = ''
+
+				try:
+					pre = sent[int(tok[0]) - 2][1]
+					if pre != 'das':
+						pre = ''
+
+				except:
+					pre = ''
+
+			#	if cop == '' and pre == '':
 				if len(neg) != 0:
 					info = ['perception', function, tok[1], neg[-1][1], '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
 				else:
@@ -1202,8 +1231,8 @@ def perception(index, sent, corpus_name, level, data):
 						if neg != '':
 							if int(neg[0]) < int(tok[0]):						
 								info = ['perception', function, 'have', neg[1], aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
-							else:
-								info = ['perception', function, 'have', '', aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'positive', 'discourse']
+						else:
+							info = ['perception', function, 'have', '', aux, aux_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'positive', 'discourse']
 							
 					if info != '':
 						return info
@@ -1217,6 +1246,27 @@ def perception(index, sent, corpus_name, level, data):
 					function = 'possession'
 
 					neg = has_neg(tok[0], previous)
+
+					cop = ''
+
+					d_list = dependents(tok[0], previous)
+
+					for d in d_list:
+							
+						if d[7] == 'cop':
+							cop = d
+
+					pre = ''
+
+					try:
+						pre = sent[int(tok[0]) - 2][1]
+						if pre != 'das':
+							pre = ''
+
+					except:
+						pre = ''
+
+				#	if cop == '' and  pre == '':
 
 					if len(neg) != 0:
 						info = ['perception', function, tok[2], neg[-1][1], '', '', '', '', age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']

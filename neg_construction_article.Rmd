@@ -381,14 +381,15 @@ mlu <- function(data){
 
 ```{r descriptive, include=FALSE}
 
-child_descriptive <- read.csv('data/child_descriptive.txt', header = T, sep = '\t')
-parent_descriptive <- read.csv('data/parent_descriptive.txt', header = T, sep = '\t')
+child_descriptive <- subset(read.csv('data/child_descriptive.txt', header = T, sep = '\t'), Age >= 12 & Age <= 72)
+parent_descriptive <- subset(read.csv('data/parent_descriptive.txt', header = T, sep = '\t'), Age >= 12 & Age <= 72)
 
 child_ul_descriptive <- read.csv('data/child_ul_descriptive.txt', header = T, sep = '\t')
 parent_ul_descriptive <- read.csv('data/parent_ul_descriptive.txt', header = T, sep = '\t')
 
-child_individual_descriptive <- read.csv('data/individual_child_descriptive.txt', header = T, sep = '\t')
-parent_individual_descriptive <- read.csv('data/individual_parent_descriptive.txt', header = T, sep = '\t')
+child_individual_descriptive <- subset(read.csv('data/individual_child_descriptive.txt', header = T, sep = '\t'), Age >= 12 & Age <= 72)
+parent_individual_descriptive <- subset(read.csv('data/individual_parent_descriptive.txt', header = T, sep = '\t'), Age >= 12 & Age <= 72)
+
 
 ```
 

@@ -44,6 +44,16 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -231,58 +241,51 @@ Despite considerable research on early functions of negation, their developmenta
 \hypertarget{data-and-preprocessing}{%
 \subsection{Data and preprocessing}\label{data-and-preprocessing}}
 
-For developmental production data of child speech in English, we turned to the CHILDES database (MacWhinney, 2000)\footnote{Code and data are in quarantine at \url{https://github.com/zoeyliu18/Negative_Constructions.}} and focused on children with typical development within the age range of 12 - 72 months. Parents' and children's utterances were extracted via the childes-db (Sanchez et al., 2019) interface using the programming language R. In order to obtain (morpho)syntactic representations for parents' and children's utterances, we used the dependency grammar framework (Tesnière, 1959). Part-of-speech (POS) tags for each token within an utterance were automatically derived using Stanza (Qi, Zhang, Zhang, Bolton, \& Manning, 2020), an open-source natural language processing library; dependency relations for all utterances were acquired also in an automatic fashion using DiaParser (Attardi, Sartiano, \& Yu, n.d.), a dependency parsing system that has been demonstrated to achieve excellent performance for at least written texts in English.
+For child language data, we turned to the CHILDES database (MacWhinney, 2000)\footnote{Code and data are in quarantine at \url{https://github.com/zoeyliu18/Negative_Constructions.}} and selected English speaking children with typical development within the age range of 12 - 72 months. Parents' and children's utterances were extracted via the childes-db (Sanchez et al., 2019) interface using the programming language R. In order to obtain (morpho)syntactic representations for parents' and children's utterances, we used the dependency grammar framework (Tesnière, 1959). Part-of-speech (POS) tags for each token within an utterance were automatically derived using Stanza (Qi, Zhang, Zhang, Bolton, \& Manning, 2020), an open-source natural language processing library; dependency relations for all utterances were acquired also in an automatic fashion using DiaParser (Attardi, Sartiano, \& Yu, n.d.), a dependency parsing system that has been demonstrated to achieve excellent performance for at least written texts in English.
 
-With our parsed data set, we consider seven communicative functions of negation shown in Table 1 and analyzed negative constructions that convey each of these functions at both the syntactic and discourse level. At the syntactic level (e.g.~(1)), give each communicative function, we characterized the syntactic features of the negative utterances associated with the function, then selected cases based on these features in a rule-based fashion with the help of POS information and syntactic dependencies. In addition, to further investigate the developmental paths of negation within specific constructions (that are not necessarily negative), besides negative utterances, we also examined the production trajectory of positive counterparts to the negative constructions; the positive utterances share the same syntactic features (e.g.~same head verb) with their negative counterparts except with no negative morphemes. Note that the positive constructions evidently do not express the communicative function as their negative counterparts do; our main purpose of including the positive structures is to provide better control and direct contrast for analyses of the negative constructions.
+We focus on seven negative constructions shown in Table 1 that tend to convey the communicative functions of rejection, non-existence, prohibition, inability, labeling, epistemic state, and possession. We test children's knowledge of these constructions at two levels: sentence level and discourse level. Negation is marked in two fundamentally different ways in English and many other languages. First, at sentence level, morphemes such as \emph{no}, \emph{not}, or the reduced form \emph{n't} combine with other lexical items to form a negative sentence. For example in sentence level rejection, \emph{n't} can combine with \emph{want} to form ``\emph{I don't want to go}.'' Second, negative response particles such as \emph{no} can be used anaphorically to negate a previous utterance in discourse. For example in discourse level rejection, when a parent asks ``\emph{Do you want to go?}'' a child can respond with \emph{No!}. Here, the negative discourse particle stands for the proposition ``I don't want to go.'' Children's earliest negative productions are dominated by discourse level negation, presumably because it is shorter and easier to produce when children are limited in their productive capacity. Nevertheless, successful communication with discourse level negation can indicate the children understand the propositions conveyed it.
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\tightlist
-\item
-  Rejection at the syntactic level:
-  negative: \emph{I don't want to go}; positive counterpart: \emph{We want to try}
-\item
-  Rejection at the discourse level:
-  Parent: \emph{Do you (not) want to go}; Child: \emph{No I like here}
-\end{enumerate}
+At the sentence level, we characterized the syntactic features of the negative utterances associated with each communicative function, then classified utterances based on these features in a rule-based fashion with the help of POS information and syntactic dependencies. To decouple the development of the syntactic construction from the development of negation in that construction, we also examined the production of positive counterparts to each negative construction. The positive counterpart of our negative constructions share the same syntactic features (e.g.~same head verb) but they have no negative morphemes. These positive constructions do not express the same communicative function as their negative counterparts. Our main purpose for including the positive counterparts is to factor in the development of the syntactic construction without negation.
 
-At the discourse level, on the other hand, we aim to analyze utterances where the negative morphemes are discourse response variables instead. To do that and in order to alleviate potential parsing errors, instances starting with any of the negative morphemes that are discourse response variables with a dependency relation \emph{discourse} were included (e.g.~(2)). In this case, utterances such as ``no no I like it'' were selected. Then for each negative utterance identified this way, we extracted its previous utterances in the discourse context based on the utterance order and transcript id provided by childes-db. In particular, for child speech, we included interactions (contextual utterances + current negative utterance) where the contextual utterances were produced by either the parents or the children themselves; and for parent speech, we only included interactions where the contextual utterances were produced by children. Then for every function, we applied the same syntactic features for both negative and positive utterances at the syntactic level to the contextual utterance within each discourse interaction. This means that the contextual utterance does not have to be negative.
+At the discourse level, we need to analyze the negative constructions that the discourse particle \emph{No} stands for. To achieve this, we selected utterances that started with negative discourse particles like ``no no I like it.'' These instances were tagged with the dependency relation ``discourse'' by our dependency parser. For each negative utterance identified this way, we extracted the previous utterance (the antecedent) in the discourse context. For child speech, we included interactions (negative utterances + their antecedents) where antecedents were produced by either the parents or the children themselves. For parent speech, we only included interactions where the antecedent was produced by children. We then applied the same analyses we had performed to sentence level constructions to these antecedent utterances. The assumption here is that the negative discourse particles are implicitly negating the content of their discourse antecedents.
 
 \hypertarget{measures}{%
 \subsection{Measures}\label{measures}}
 
-We took the age of the children as the index of developmental stage\footnote{Utterance length was also applied as another index of developmental stage. For more details....}. Take negative constructions at the syntactic level as an illustration. For each communicative function, we used the following two metrics at each age as measures of the developmental trajectory in child speech. The first one is the \emph{ratio} of negative utterances. For instance, the number of utterances produced by children at the age of 30 months (not just all negative constructions at this age) is 81,302 in total. Among these utterances, negative structures that have the function of rejection occur 391 times; the ratio for this communicative function at 30 months is then calculated as 391 / 81,302 = 0.005.
+We took age as a proxy for children's development and divided the 12-72 months range into monthly bins. We used the following two metrics for each age bin and communicative function. First, we defined the ratio \(R_{c,i}\) for construction \(c\) and age bin \(i\) as the number of utterances in construction \(c\) and age bin \(i\) divided by the total number of utterances produced at age bin \(i\). For example at age 30 months, children produced a total of 81,302 utterances, out of which 391 were classified as rejections. Therefore the ratio of rejection at 30 months is 391/81,302 = 0.005.
 
-Given the noisy nature of child production data in general, and the facts that there are different numbers of utterances and children at each age, another measure that we utilized is \emph{moving ratio}, borrowed from the model of moving average in analyses of time series data (Wei, 2006). For a communicative function, the goal of the moving ratio is still to reflect the production of the negative utterances at the given age; meanwhile it takes into account the previous production of all negative constructions of the same function before the specified age. This would allow us to have a more balanced look at individual developmental stage (e.g.~age) of a communicative function, in relation to its development patterns thus far.
+\(R_{c, i} = \frac{\#U_{c,i}}{\#U_{i}}\)
 
-The computation of the moving ratio is as follows. For instance, given that the number of negative utterances that express rejection in child speech is 391 at the age of 30 months, we: (1) count the total number of negative constructions with the same function produced by children \emph{at and before} 30 months old (2,166); (2) compute the total number of utterances (721,748) within the same age range; (3) divide the number of (1) by that of (2) (2,166 / 721,748 = 0.003).
+Second, we borrowed the measure of ``moving (cumulative) ratio'' from the analysis of time series data (Wei, 2006). We defined the cumulative ratio \(MR_{c,i}\) for a construction \(c\) at age bin \(i\), as the sum of the number of utterances produced with construction \(c\) from the first age bin to age bin \(i\), divided by the sum of all utterances produced between the first age bin and age bin \(i\). For example up to age 30 months, children in our corpus produced 721,748 total utterances, out of which 2,166 were instances of rejection. Therefore, the cumulative ratio of rejection at age 30 months is 2,166/721,748 = 0.003. The cumulative ratio has the advantage that at each age bin, it takes into account the productions in previous age bins. Assuming that children accumulate linguistic knowledge throughout their development, this measure provides a more realistic and stable measure of children's productive capacity at each age.
 
-At the syntactic level, besides the negative constructions, we also calculated the two measures above for their positive counterparts, and extended the measures to discourse interactions at the discourse level.
+\(CR_{c, i} = \frac{\#U_{c,1-t}}{\#U_{1-t}}\)
 
-While our focus is child production, we used parents' speech as comparative references. Therefore for every communicative function, the same measures were calculated for parent speech in a similar fashion. Our plots accordingly contrast the ratios / moving ratios of different constructions between children's and parents' production at corresponding ages of the children.
+The two ratios mentioned above were calculated for negative constructions and their positive counterparts at sentence and discourse levels for children as well as parents. In this study we use parents' speech as a benchmark for children's development. Therefore, our figures show children's productions side by side the production of parents at the corresponding age of children. In what follows, we describe in detail the results for each communicative function and its associated negative construction.
 
-In what follows, we describe in detail the results of each communicative function and their negative constructions. While we computed both ratio and moving ratio for every function, our analyses mainly rely on the latter.
-
-\hypertarget{communicative-functions-of-negative-constructions-and-their-positive-counterparts}{%
-\subsection{Communicative functions of negative constructions and their positive counterparts}\label{communicative-functions-of-negative-constructions-and-their-positive-counterparts}}
+\hypertarget{negative-constructions}{%
+\subsection{Negative Constructions}\label{negative-constructions}}
 
 \hypertarget{rejection}{%
 \subsubsection{Rejection}\label{rejection}}
 
-For the function of rejection, at the sentence level, we examined cases where the lemma of the head verb of the phrase is either \emph{like} or \emph{want}. For negative constructions, the head verb is modified by one of the three negative morphemes, whereas cases including the same head verb but without negation were determined as the positive counterparts. Therefore the positive utterances do not necessarily have large lexical overlap with the negative structures. With negative utterances, other than expressions that the speakers used to describe their own desires with (e.g.~(1)) or without (e.g.~(2)) an auxiliary verb, we also included cases that express rhetorical inquiries of desires from one interlocutor addressed to another (e.g.~(3)), and instances where the speaker is describing the desires of somebody else (e.g.~(4)). This resulted in a total of 20,641 negative utterances (child: 9,398; parent: 11,243), and a total of 180,881 negative utterances (child: 63,427; parent: 117,454).
+For instances of ``rejection'' and positive counterparts, we selected utterances in which the lemma of the head verb of the phrase is either \emph{like} or \emph{want}. For negative instances, the head verb is modified by one of the three negative morphemes \emph{no}, \emph{not} or \emph{n't}, whereas cases including the same head verb but without negation were classified as positive. Table \ref{tab:rejection} shows examples of negative utterances including those in which the speakers describe their own desires with or without an auxiliary verb (e.g.~1 and 2), as well as cases that express rhetorical inquiries of desires from one interlocutor to another (e.g.~3), and instances where the speaker is describing the desires of somebody else (e.g.~4). We classified a total of 20,641 negative utterances (child: 9,398; parent: 11,243), and a total of 180,881 negative utterances (child: 63,427; parent: 117,454).
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\tightlist
-\item
-  negative: \emph{I no like sea} ; positive: \emph{she likes cheese}
-\item
-  negative: \emph{don't wanna go} ; positive: \emph{I want it}
-\item
-  negative: \emph{don't you wanna try it} ; positive: \emph{I wanna have that}
-\item
-  negative: \emph{Sarah doesn't like that either} ; positive: \emph{she likes this one}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:rejection} Examples of sentence level rejection (negative) and positive counterparts in children's speech}\tabularnewline
+\toprule
+Rejection (Negative) & Positive Counterpart \\
+\midrule
+\endfirsthead
+\toprule
+Rejection (Negative) & Positive Counterpart \\
+\midrule
+\endhead
+\emph{I no like sea} & \emph{she likes cheese} \\
+\emph{don't wanna go} & \emph{I want it} \\
+\emph{don't you wanna try it} & \emph{I wanna have that} \\
+\emph{Sarah doesn't like that either} & \emph{she likes this one} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -293,32 +296,25 @@ For the function of rejection, at the sentence level, we examined cases where th
 \caption{Rejection and its positive counterparts.}\label{fig:emotion}
 \end{figure}
 
-\begin{figure}[H]
+Starting with our analysis at the sentence level, Figure \ref{fig:emotion} shows the ratios and cumulative ratios of parents' and children's instances of rejection and positive counterparts on a logarithmic scale (y-axis) with age along the x-axis. Overall, we see a similar pattern of production for rejection whether the head verb is \emph{want} or \emph{like}. Comparing the cumulative ratios between parents and children, children's production of rejection gradually increases between the ages of 18 and 30 months. After about 30 months of age, children's production of these constructions stays at a relatively constant rate and close to parent levels. In all age bins, the production ratio for negative utterances is lower than that for their positive counterparts.
 
-{\centering \includegraphics{neg_construction_article_files/figure-latex/emotionul-1} 
+On the discourse level, we investigated discourse interactions (antecedent + negative utterance) in which the antecedent had one of the head verbs \emph{like} or \emph{want}, yet the head verb did not have to be modified by negative morphemes. Table \ref{tab:disreject} shows a few examples. We found a total of 1,957 such utterances (child: 994; parent: 963). As shown in Figure 2, children's production of negation as discourse response variables increases regularly from the age of 24 - 36 months\footnote{For each communicative function, at the discourse level we also examined cases of different subtypes (e.g. different head verbs) separately; though due to data sparsity issues, we collapsed these instances for our final analyses}. Overall negative morphemes are applied at the discourse level more frequently in child speech compared to parent speech.
 
-}
-
-\caption{Rejection and its positive counterparts, indexed by utterance length.}\label{fig:emotionul}
-\end{figure}
-
-As presented in Figure 1, at the sentence level the overall pattern for children's usage of negative morphemes for rejection is comparable regardless of the particular head verb. Comparing child and parent speech, it seems that children's production of rejection is gradually increasing between the age of 18 to 36 months. And the production moving ratio in child speech appears to be more comparable to that of parent speech after 28-30 months. Across the age range the production ratio for negative utterances is consistently lower than that for their positive counterparts.
-
-On the discourse level, we investigated discourse interactions (contextual utterance + current negative utterance) in which the contextual utterances have a head verb of \emph{like} or \emph{want}, yet the head verb does not have to be modified by negative morphemes (e.g.~). This resulted in a total of 1,957 utterances (child: 994; parent: 963).
-
-As shown in Figure 2, children's production of negation as discourse response variables increases regularly from the age of 24 - 36 months\footnote{For each communicative function, at the discourse level we also examined cases of different subtypes (e.g. different head verbs) separately; though due to data sparsity issues, we collapsed these instances for final analyses}. Overall negative morphemes are applied at the discourse level more frequently in child speech compared to that in parent speech.
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{5}
-\tightlist
-\item
-  Parent: \emph{I want you to try it}; Child: \emph{no no no}
-\item
-  Parent: \emph{would you like to go}; Child: \emph{no no}
-\item
-  Child: \emph{I don't like that}; Parent: \emph{no honey you have to try it}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:disreject} Example antecdents and discourse level rejections in parents' and children's productions}\tabularnewline
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endfirsthead
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endhead
+Parent: \emph{I want you to try it} & Child: \emph{no no no} \\
+Parent: \emph{would you like to go} & Child: \emph{no no} \\
+Child: \emph{I don't like that} & Parent: \emph{no honey you have to try it} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -326,27 +322,30 @@ As shown in Figure 2, children's production of negation as discourse response va
 
 }
 
-\caption{Discourse-level Rejection.}\label{fig:emotiondiscourse}
+\caption{Ratios and cumulative ratios for the production of rejection at the discourse level for children between 1 to 6 years of age, and their parents.}\label{fig:emotiondiscourse}
 \end{figure}
 
 \hypertarget{non-existence}{%
 \subsubsection{Non-existence}\label{non-existence}}
 
-For the function of non-existence, we first extracted utterances that have expletives marked by \emph{there} in which the predicate is a nominal phrase (headed by either nouns or pronouns). Cases where the predicate is modified by negation were considered negative utterances, and the rest were analyzed as positive constructions. This led to a total of 1,987 negative utterances (child: 498; parent: 1,489), and a total of 35,390 positive utterances (child: 8,398; parent: 26,992).
+For this function we searched for the English existential construction and extracted utterances that had \emph{there}-expletives, followed by a copula, and a noun phrase (phrases headed by either nouns or pronouns). We classified utterances where the predicate was modified by negation as negative, and the rest as positive. This led to a total of 1,983 negative utterances (child: 498; parent: 1,485), and a total of 35,287 positive utterances (child: 8,385; parent: 26,902).
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{4}
-\tightlist
-\item
-  negative: \emph{there's no (more) water} ; positive: \emph{there are books}
-\item
-  negative: \emph{there isn't it} ; positive: \emph{there is it}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:nonexist} Examples of positive and negative existenial constructions in children's speech at the sentence level}\tabularnewline
+\toprule
+Non-existence (Negative) & Existentials (Positive) \\
+\midrule
+\endfirsthead
+\toprule
+Non-existence (Negative) & Existentials (Positive) \\
+\midrule
+\endhead
+\emph{there's no (more) water} & \emph{there are books} \\
+\emph{there isn't it} & \emph{there is it} \\
+\bottomrule
+\end{longtable}
 
-In child speech, the production of negative constructions to express non-existence at the syntactic level is consistently less frequent than their positive counterparts. The moving ratio of negation for this function is gradually increasing from 25 to 36 months (Figure ), which is by contrast later than that for the communicative function of rejection presented in Figure 1. This observation does not seem to align with Bloom (1970), which initially proposed that the development of non-existence is earlier than that of rejection. On the other hand, children's production moving ratios tend to be consistently lower than that for parent speech at the corresponding ages of the children.
-
-Notice that there appears to be fluctuations of moving ratios between the age of 19 and 25 months regarding child production. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore while the number of total utterances increases along the developmental trajectory, the moving ratio for negative utterances actually decreases.
+At the sentence level, children produced negative constructions to express non-existence less frequently than the positive counterparts. As Figure \ref{fig:existence} shows, the cumulative ratio for the production of non-existence increases from 18 to 36 months. Around and after 36 months of age, children's productions reaches a stable cumulative ratio close to that of adults. Notice that there appears to be fluctuations of cumulative ratios between the age of 19 and 25 months in child production. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore while the number of total utterances increases along the developmental trajectory, the cumulative ratio for negative utterances actually decreases.
 
 \begin{figure}[H]
 
@@ -357,19 +356,21 @@ Notice that there appears to be fluctuations of moving ratios between the age of
 \caption{Non-existence and its positive counterparts.}\label{fig:existence}
 \end{figure}
 
-\begin{figure}[H]
+For non-existence at the discourse level, we applied similar selection criteria and extracted negative utterances with existential constructions in their antecedents (Table \ref{tab:disexist}). This led to a total of 220 utterances (child: 91; parent: 129). As Figure \ref{fig:exstencediscourse} shows, we could find an increase in children's responses with \emph{no} to parents' existential utterances between the ages of 18 and 36 months. After 36 months, despite the fact that ratios show considerable fluctuations, the cumulative ratios of parents and children seem stable and similar. Therefore with non-existence, both sentence level and discourse level analyses point to substantial development in the age rage of 18-36 months.
 
-{\centering \includegraphics{neg_construction_article_files/figure-latex/existenceul-1} 
-
-}
-
-\caption{Non-existence and its positive counterparts, indexed by utterance length.}\label{fig:existenceul}
-\end{figure}
-
-For non-existence at the discourse level, we applied similar utterance selection criteria and extracted interactions where the contextual utterance is an expletive structure (e.g.~). This led to a total of 221 utterances (child: 91; parent: 130).
-Given Figure , the developmental pattern for this communicative function at the discourse level bares similarities to that at the syntactic level. The production of negation as discourse response variables also increases regularly from 24 to 36 months, meanwhile gradually approaching the moving ratio of parent speech around 34-36 months.
-
-() Parent: \emph{Is there a bunny}; Child: \emph{no no bunny}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:disexist} Example antecedents existentials and discourse level negation in parents' and children's productions}\tabularnewline
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endfirsthead
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endhead
+Parent: \emph{Is there a bunny} & Child: \emph{no no bunny} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -383,17 +384,23 @@ Given Figure , the developmental pattern for this communicative function at the 
 \hypertarget{prohibition}{%
 \subsubsection{Prohibition}\label{prohibition}}
 
-For constructions that articulate the function of prohibition, we focused on cases that are annotated as imperatives from the initial CHILDES annotations. In particular, we selected instances where the head verbs do not take any subjects. Cases without negative morphemes are considered as positive structures. For negative constructions, we chose structures where the negative morphemes are combined with the auxiliary verb \emph{do} (\emph{do}, \emph{does}, \emph{did}) and they together modify the head verbs of the sentences. In order to not overlap with rejection, non-existence, epistemic negation and possession (see below), our search excluded utterances where the head verb has any of the following lemma forms: \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, \emph{have}. This resulted in a total of 1,069 negative utterances (child: 309; parent: 760), and a total of 25,542 negative utterances (child: 8,659; parent: 16,883).
+For constructions that typically convey prohibition, we extracted utterances that were annotated as imperatives in CHILDES. In particular, we selected instances where the head verbs do not take any subjects. As before, cases without any negative morphemes are considered as positive. For negative constructions, we chose structures where the negative morphemes are combined with the auxiliary verb \emph{do} (\emph{do}, \emph{does}, \emph{did}) and they together modify the head verbs of the sentences. In order to not have overlap with rejection, non-existence, epistemic negation and possession (see below), our search excluded utterances where the head verb had any of the following lemma forms: \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, \emph{have}. This resulted in a total of 1,069 negative utterances (child: 309; parent: 760), and a total of 25,542 negative utterances (child: 8,659; parent: 16,883).
 
-Based on Figure 3, in both child and parent speech, the production of negative constructions for prohibition at the syntactic level is consistently lower than their positive counterparts. Children are combining negative morphemes for this function more and more regularly between 24-36 months, which is comparable to that of the function of non-existence, but slightly later than that of rejection. In comparison, the production moving ratio in parent speech gradually decreases when the children are within 15 - 36 months; yet child production is still consistently lower than that in parent speech at any age of the children.
+Figure \ref{fig:prohibition} shows the ratios and cumulative ratios of prohibitions and their positive counterparts in parents' and children's speech at the sentence level. In both child and parent speech, negative constructions for prohibition are consistently produced less frequently than their positive counterparts. Children produce prohibitions (negative imperatives) more and more often between 24 and 36 months. In comparison, the cumulative ratio in parent speech gradually decreases at the beginning when children between 12 - 36 months. Yet overall, child production is remains consistently lower than parent production of prohibition. This might be due to the social nature of parent-child interactions, in which it is more likely for parents to explicitly command and direct children's actions than the other way round.
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{6}
-\tightlist
-\item
-  negative: \emph{don't blame Charlotte} ; positive: \emph{cook it}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:prohibit} Examples of positive and negative imperatives in children's speech at the sentence level}\tabularnewline
+\toprule
+Prohibition (Negative) & Imperatives (Positive) \\
+\midrule
+\endfirsthead
+\toprule
+Prohibition (Negative) & Imperatives (Positive) \\
+\midrule
+\endhead
+\emph{don't blame Charlotte} & \emph{cook it} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -404,20 +411,21 @@ Based on Figure 3, in both child and parent speech, the production of negative c
 \caption{Prohibition and its positive counterparts.}\label{fig:prohibition}
 \end{figure}
 
-\begin{figure}[H]
+At the discourse level, we selected \emph{No}-utterances with antecedents that were subjectless imperatives headed by a verb, excluding the following lemma forms: \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, nor \emph{have}. This resulted in a total of 238 utterances (child: 8,968; parent: 17,643). As shown in Figure \ref{fig:prohibitiondiscourse}, children's usage of negation as a response particle to express prohibition is comparable to their productions at the sentence level. Their negative productions increases within the age range of 24 to 36 months, and parent production decreases when the children are between 12 to 36 months.
 
-{\centering \includegraphics{neg_construction_article_files/figure-latex/prohibitionul-1} 
-
-}
-
-\caption{Prohibition and its positive counterparts, indexed by utterance length.}\label{fig:prohibitionul}
-\end{figure}
-
-When it comes to the discourse level, we took discourse interactions where the contextual utterances are also subjectless imperatives headed by a verb, of which the lemma form is not \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, nor \emph{have}. This resulted in a total of 238 utterances (child: 8,968; parent: 17,643).
-
-As shown in Figure , children's usage of negation as response variables to express prohibition is comparable to that at the sentence level: the production in child speech increases within the age range of 24 to 36 months. and parent production decreases when the children are between 15 to 36 months.
-
-() Parent: \emph{put away your toys}; Child: \emph{no mommy I like these}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:disprohib} Example antecedents imperatives and discourse level negation in parents' and children's productions}\tabularnewline
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endfirsthead
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endhead
+Parent: \emph{put away your toys} & Child: \emph{no mommy I like these} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -431,17 +439,23 @@ As shown in Figure , children's usage of negation as response variables to expre
 \hypertarget{inability}{%
 \subsubsection{Inability}\label{inability}}
 
-For the function of inability, at the syntactic level, we analyzed instances with head verbs that are modified by the auxiliary \emph{can} (\emph{can} and \emph{could}; e.g.~()). Structures in which the head verbs are also modified by negative morphemes are determined as negative while the others are considered positive. Cases without a subject (e.g.~``can't play'') or where the subject is not \emph{I} (e.g.~``you can't do that'') could yield ambiguous readings when not looking at a larger discourse context; they could be a rhetorical question or also express the concept of prohibition. Therefore to potentially avoid less ambiguity, we restricted our analyses only to cases with a subject \emph{I}. This led to 7,115 negative utterances (child: 3,917; parent: 3,198), and 14,433 positive utterances (child: 7,589; parent: 6,844).
+For the function of inability, we analyzed instances with head verbs that are modified by the modal auxiliaries \emph{can} and \emph{could}. If the head verb was also modified by a negative morpheme, we classified it as negative. Otherwise, we considered it positive. Cases without a subject (e.g.~``can't play'') or with subjects that were not first person singular (e.g.~``you can't do that,'' ``this can't go in the box'') were excluded. This is because such cases often yield readings other than ``(in)ability.'' Depending on the larger context, they could be deontic (e.g.~``you are not allowed to do that'') or epistemic (e.g.~``it is not possible for it to go in the box''). To avoid this ambiguity and focus more on constructions that convey an individual's ability, we restricted our analyses only to cases with the first person singular subject \emph{I}. This led to 7,115 negative utterances (child: 3,917; parent: 3,198), and 14,433 positive utterances (child: 7,589; parent: 6,844). Table \ref{tab:inab} shows a few example of the cases we considered.
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{7}
-\tightlist
-\item
-  negative: \emph{I can't see} ; positive: \emph{You could do it}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:inab} Examples of constructions that convey ability and inability in children's speech at the sentence level}\tabularnewline
+\toprule
+Inability (Negative) & Ability (Positive) \\
+\midrule
+\endfirsthead
+\toprule
+Inability (Negative) & Ability (Positive) \\
+\midrule
+\endhead
+\emph{I can't see} & \emph{You could do it} \\
+\bottomrule
+\end{longtable}
 
-As shown in Figure , the developmental trajectory of inability at the sentence level is similar to that of rejection. Negation is applied more and more regularly between 18-36 months. By contrast, it is different from those of non-existence and prohibition. It seems that the production trajectories of the latter two are both becoming more regular at a later age (25 and 24 months, respectively). Overall the production of negative structures is less frequent than their positive counterparts in both child and parent speech.
+Figure \ref{fig:inability} shows ratios and cumulative ratios of parents and children's productions of inability constructions as defined above. Similar to previous constructions, positive instances are generally more frequent than negative ones. Children produce inability negation more and more frequently between 18-36 months. After 36 months, their productions are stable and close to parent ratios.
 
 \begin{figure}[H]
 
@@ -449,21 +463,10 @@ As shown in Figure , the developmental trajectory of inability at the sentence l
 
 }
 
-\caption{Inability and its positive counterparts.}\label{fig:inability}
+\caption{Ratios and Cumulative Ratios for parents and children's productions of the inability construction and its positive counterpart.}\label{fig:inability}
 \end{figure}
 
-For inability at the discourse level, we analyzed interactions where negation is applied to respond to contextual utterances in which the head verbs take the auxiliary \emph{can} or \emph{could} along with the subject \emph{I}. This yielded a total of 313 negative utterances (child: 11,506; parent: 10,042).
-
-Looking at Figure , children's production of inability at the discourse level gradually increases from 24 to 36 months. By contrast parents' production decreases from the age of 15 to 36 months, which is similar to parent production of prohibition at the discourse level.
-
-\begin{figure}[H]
-
-{\centering \includegraphics{neg_construction_article_files/figure-latex/inabilityul-1} 
-
-}
-
-\caption{Inability and its positive counterparts, indexed by utterance length.}\label{fig:inabilityul}
-\end{figure}
+At the discourse level, we selected utterances with the negative particle \emph{no} in response to antecedents that had a similar structure to the inability construction defined above. This yielded a total of 313 negative utterances (child: 11,506; parent: 10,042). Figure \ref{fig:inabilitydiscourse} shows the ratios and the moving ratios for parents' and children's production of discourse level inability construction. Considering cumulative ratios, children's productions gradually increase from 24 to 36 months and stabalizes after 36 months at a similar rate to that of parent's.
 
 \begin{figure}[H]
 
@@ -477,21 +480,25 @@ Looking at Figure , children's production of inability at the discourse level gr
 \hypertarget{labeling}{%
 \subsubsection{Labeling}\label{labeling}}
 
-To capture the function of labeling at the sentence level, we concentrated on copula structures in which the predicate is a nominal or an adjectival phrase. Specifically, the nominal predicates exclude possessive pronouns in order to not be confused with cases for the communicative function of possession (see below). Instances where the predicate is modified by negative morphemes are deemed negative, and the others are positive structures. None of the utterances contained expletives (e.g.~``there is no book'') to distinguish from non-existence. This resulted in a total of 36,410 negative utterances (Child: 6,193; Parent: 30,217), and 484,679 positive utterances (Child: 121,107; Parent: 363,572).
+To capture the function of labeling at the sentence level, we concentrated on copula structures in which the predicate is a nominal or an adjectival phrase. Specifically, the nominal predicates exclude possessive pronouns in order to not overlap with the communicative function of possession (see below). We considered instances where the predicate is modified by negative morphemes as negative, and others as positive. To also avoid overlap with cases of non-existence, none of the utterances contained expletives (e.g.~``there is no book''). This resulted in a total of 36,410 negative utterances (Child: 6,193; Parent: 30,217), and 484,679 positive utterances (Child: 121,107; Parent: 363,572).
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{8}
-\tightlist
-\item
-  negative: \emph{that's not a farmer} ; positive: \emph{this is a book}
-\item
-  negative: \emph{I'm not a heavy baby Mum} ; positive: \emph{it's a nice bowl}
-\item
-  negative: \emph{It's no good} ; positive: \emph{she's pretty}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:label} Examples of the labeling construction in children's speech at the sentence level}\tabularnewline
+\toprule
+Labeling (Negative) & Labeling (Positive) \\
+\midrule
+\endfirsthead
+\toprule
+Labeling (Negative) & Labeling (Positive) \\
+\midrule
+\endhead
+\emph{that's not a farmer} & \emph{this is a book} \\
+\emph{I'm not a heavy baby Mum} & \emph{it's a nice bowl} \\
+\emph{It's no good} & \emph{she's pretty} \\
+\bottomrule
+\end{longtable}
 
-Based on Figure 5, the developmental pattern for labeling at the sentence level is comparable to rejection; children are increasing their use of the negative morphemes around the age range of of 18-36 months. In both child and parent production, the frequency of positive counterparts is consistently higher than that of the negative structures. Overall, parent's production of negation for labeling is also comparatively higher than that in child's production across the different ages of the children.
+Figure \ref{fig:learning} shows ratios and cumulative ratios for parent's and children's production of the labeling construction at the sentence level. In both parents and children, the frequency of positive counterparts is consistently higher than that of negative labeling instances. Children's productions of negative labeling increased between 18-36 months, and remained stable and close to the parent ratios after 36 months.
 
 \begin{figure}[H]
 
@@ -499,21 +506,24 @@ Based on Figure 5, the developmental pattern for labeling at the sentence level 
 
 }
 
-\caption{Labeling and its positive counterparts.}\label{fig:learning}
+\caption{Ratios and cumulative ratios for instances of (negative) labeling and its positive counterparts in parents' and children's speech.}\label{fig:learning}
 \end{figure}
 
-\begin{figure}[H]
+At the discourse level, we selected antecedent utterances with copula structures that combined with a nominal or an adjectival predicate. Table \ref{tab:dislabel} shows a few examples. We found 4,079 utterances (Child: 2,234; Parent: 1,845). Figure \ref{fig:learningdiscourse} shows the log ratios and cumulative ratios for labeling instances at the discourse level. Children used negation to respond to labeling utterances more frequently between 18 to 30 months. After 30 months, children's productions of negative labeling continues to increase but remains close to parents' level more generally.
 
-{\centering \includegraphics{neg_construction_article_files/figure-latex/learningul-1} 
-
-}
-
-\caption{Labeling and its positive counterparts, indexed by utterance length.}\label{fig:learningul}
-\end{figure}
-
-On the discourse level, we examined interactions where the contextual utterances are copula structures with a nominal or an adjectival predicate. This resulted in 4,079 utterances (Child: 2,234; Parent: 1,845). Based on patterns from Figure , it seems that children more regularly use negation as response variables to express labeling between 18 to 36 months; child's production frequency gradually approaches that in parent speech around the age of 30 - 32 months.
-
-() Child: \emph{that's the one}; Parent: \emph{no it's the green one}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:dislabel} Example antecedent labeling and discourse level negation in parents' and children's productions}\tabularnewline
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endfirsthead
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endhead
+Child: \emph{that's the one} & Parent: \emph{no it's the green one} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -521,28 +531,33 @@ On the discourse level, we examined interactions where the contextual utterances
 
 }
 
-\caption{Discourse-level Labeling.}\label{fig:learningdiscourse}
+\caption{Log ratios and cumulative ratios of discourse level labeling instances in parents' and children's productions.}\label{fig:learningdiscourse}
 \end{figure}
 
 \hypertarget{epistemic-negation}{%
 \subsubsection{Epistemic Negation}\label{epistemic-negation}}
 
-Previous studies have reported instances where negative morphemes are combined with mental/epistemic state verbs such as \emph{know}, \emph{think}, and \emph{remember} in child speech to express epistemic negation. Here we focused on these three verbs as well. For the sentence level, we analyzed negative utterances that articulate the concept of not knowing (e.g.~(12)) or uncertainty (e.g.~(13)). The verbs in these cases are modified by the negative morphemes directly or by the combination of negation with auxiliaries. Instances where the speaker asks about or describes the negative epistemic state of another speaker (e.g.~(14)) were also selected, leading to 31,696 negative utterances in total (child: 9,852; parent: 21,844).
-For the positive counterparts, we selected instances with the same head verbs except that these verbs are not modified by negation. This resulted in a total of 95,679 negative utterances in total (child: 16,322; parent: 79,357).
+Previous studies have reported instances in which children combined negative morphemes with mental state verbs such as \emph{know}, \emph{think}, and \emph{remember} to express ``epistemic negation'' (Choi, 1988). For defining epistemic constructions we also focused on these three verbs. For sentence level epistemic negation, we analyzed negative utterances where these verbs were modified by negative morphemes, possibly after combining with an auxiliary verb like \emph{do}. Table \ref{tab:epistem} shows a few examples. Instances where the speaker asked about or describes the negative epistemic state of another speaker were also included, leading to 31,696 negative utterances in total (child: 9,852; parent: 21,844). For the positive counterparts, we selected instances with the same head verbs except that these verbs were not modified by negation. This resulted in a total of 95,679 negative utterances (child: 16,322; parent: 79,357).
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{11}
-\tightlist
-\item
-  negative: \emph{I not know} / \emph{I didn't remember}; positive: \emph{I knows}
-\item
-  negative: \emph{I don't think so}; positive: \emph{I think this one is good}
-\item
-  negative: \emph{don't you remember} / \emph{She doesn't know this}; positive: \emph{She knows about this}
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:epistem} Examples of the epistemic construction in children's speech at the sentence level}\tabularnewline
+\toprule
+Epistemic (Negative) & Epistemic (Positive) \\
+\midrule
+\endfirsthead
+\toprule
+Epistemic (Negative) & Epistemic (Positive) \\
+\midrule
+\endhead
+\emph{I not know} & \emph{I knows} \\
+\emph{I didn't remember} & \\
+\emph{I don't think so} & \emph{I think this one is good} \\
+\emph{don't you remember} & \\
+\emph{She doesn't know this} & \emph{She knows about this} \\
+\bottomrule
+\end{longtable}
 
-Based on the data analyzed here (Figure ), for epistemic negation at the syntactic level, the production of negative utterances headed by \emph{know} is comparatively the highest, and is becoming more regular at an earlier age (17-18 months) compared to that of \emph{remember} (\textasciitilde19 months) or \emph{think} (\textasciitilde20 months). Overall the production moving ratio of negative utterances is relatively lower than that of the positive structures. Across the three head verbs, it appears that child's production with \emph{know} and \emph{remember} gradually approaches that in parent production around 34 - 36 months, whereas cases with the head verb \emph{think} tend to be produced less frequently in child speech.
+Figure \ref{fig:epistemic} shows log ratios and cumulative ratios of the epistemic construction as defined above in parents' and children's speech at the sentence level. Overall, positive epistemic utterances were more frequent than negative epistemic utterances, with the possible exception of \emph{know} for children. The production of negative utterances headed by \emph{know} was comparatively the highest among children, and became more frequent at an earlier age (17-18 months) compared to that of \emph{remember} (\textasciitilde19 months) or \emph{think} (\textasciitilde20 months). Across the three head verbs, children's productions with \emph{know} and \emph{remember} gradually approaches that of parents' around 30 - 36 months, whereas cases with the head verb \emph{think} tend to be produced less frequently by children.
 
 \begin{figure}[H]
 
@@ -550,19 +565,10 @@ Based on the data analyzed here (Figure ), for epistemic negation at the syntact
 
 }
 
-\caption{Epistemic negation and its positive counterparts.}\label{fig:epistemic}
+\caption{Log ratios and cumulative ratios of negative and positive epistemic utterances in parents' and children's speech.}\label{fig:epistemic}
 \end{figure}
 
-\begin{figure}[H]
-
-{\centering \includegraphics{neg_construction_article_files/figure-latex/epistemicul-1} 
-
-}
-
-\caption{Epistemic negation and its positive counterparts, indexed by utterance length.}\label{fig:epistemicul}
-\end{figure}
-
-For epistemic negation at the discourse level, we examined interactions in which the contextual utterances take any of the three head verbs, \emph{know}, \emph{remember} and \emph{think}, leading to a total of 985 utterances in total (child: 26,174; parent: 101,201). The developmental trajectory of child speech from Figure demonstrates a gradual increase of production moving ratio from 24 to 36 months.
+For epistemic negation at the discourse level, we examined interactions in which the antecedent utterances took any of the three head verbs \emph{know}, \emph{remember} and \emph{think}, leading to a total of 985 utterances (child: 26,174; parent: 101,201). Figure \ref{fig:epistemicdiscourse} shows log ratios and cumulative ratios for epistemic negation at the discourse level. Children's productions increase rapidly between 24-36 months and after 36 months, they produce this construction close to parent levels.
 
 \begin{figure}[H]
 
@@ -570,25 +576,30 @@ For epistemic negation at the discourse level, we examined interactions in which
 
 }
 
-\caption{Discourse-level Epistemic Negation.}\label{fig:epistemicdiscourse}
+\caption{Log ratios and cumulative ratios for discourse level Epistemic negation in parents' and children's speech.}\label{fig:epistemicdiscourse}
 \end{figure}
 
 \hypertarget{possession}{%
 \subsubsection{Possession}\label{possession}}
 
-The last function we explored is possession. At the syntactic level, for negative structures we selected cases where the negative morphemes are combined with auxiliary verbs to modify a head verb with the lemma form \emph{have} and a POS tag of VERB (e.g.~(15)). We also included individual noun phrases with possessive pronouns as heads and modified by negative morphemes (e.g.~(16)). Cases in which the syntactic head of the negative morphemes is a predicate of a copula verb (e.g.~``this is not mine'') were excluded to separate them from the function ``labeling.'' The number of negative utterances that were subjected to analysis for this function is 9,025 (child: 2,852; parent: 6,173). Again the positive counterparts share similar structures except with no negation, leading to a total of 8,230 (child: 6,062; parent: 2,168). One thing to note here is that for the positive structures with the head verb \emph{have}, we restricted to cases where the verb takes a direct object (with the dependency relation \emph{obj}). This is to avoid potential parsing errors of instances such as \emph{I have}, where the verb could ambiguously be an auxiliary.
+The last function we explored was ``possession.'' At the syntactic level, for negative structures we selected cases where negative morphemes were combined with auxiliary verbs to modify a head verb with the lemma form \emph{have} and a POS tag of VERB. We also included individual noun phrases with possessive pronouns as heads and modified by negative morphemes. Table \ref{tab:possess} shows a few examples. Cases in which the syntactic head of the negative morphemes is a predicate of a copula verb (e.g.~``this is not mine'') were excluded to separate them from the function ``labeling.'' The number of negative utterances that were subjected to analysis for this function is 8,892 (child: 2,830; parent: 6,062). Again the positive counterparts share similar structures except with no negation, leading to a total of 86,665 (child: 27,730; parent: 58,935). One thing to note here is that for the positive structures with the head verb \emph{have}, we restricted to cases where the verb takes a direct object (with the dependency relation \emph{obj}). This is to avoid potential parsing errors of instances such as \emph{I have}, where the verb could ambiguously be an auxiliary.
 
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\setcounter{enumi}{14}
-\tightlist
-\item
-  negative: \emph{I don't have it}; positive: \emph{you have that}
-\item
-  negative \emph{not mine}; positive: \emph{hers}.
-\end{enumerate}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:possess} Examples of negative and positive possession in children and parents' speech at the sentence level}\tabularnewline
+\toprule
+Posession (Negative) & Posession (Positive) \\
+\midrule
+\endfirsthead
+\toprule
+Posession (Negative) & Posession (Positive) \\
+\midrule
+\endhead
+\emph{I don't have it} & \emph{you have that} \\
+\emph{not mine} & \emph{hers} \\
+\bottomrule
+\end{longtable}
 
-Given Figure 7, at the sentence level, the developmental trajectory for possession in child speech appears to have notable differences depending on what the negative morphemes are modifying. When their syntactic head is \emph{have}, the pattern is comparable to those of ``rejection'' and ``labeling,'' where children are increasing their combination of negative morphemes from 18 to 36 months. However, the production moving ratio for utterances headed by possessive pronouns seems to be relatively stable across different ages.
+Figure \ref{fig:possession} shows log ratios and cumulative ratios of the negative and positive possession construction at the sentence level. The production trajectory for possession in child speech appears to have notable differences depending on what the negative morpheme modifies. With \emph{have} as the syntactic head, children increase their productions between 18-36 months, and stay close to parent levels of production after 36 months. However, for utterances headed by possessive pronouns, productions increase rapidly between 18-24 months and stays close to parent levels as early as 24 months of age.
 
 \begin{figure}[H]
 
@@ -596,22 +607,25 @@ Given Figure 7, at the sentence level, the developmental trajectory for possessi
 
 }
 
-\caption{Possession and its positive counterparts.}\label{fig:possession}
+\caption{Log ratios and cumulative ratios of the construction `possession` in parents' and children's speech.}\label{fig:possession}
 \end{figure}
 
-\begin{figure}[H]
+At the discourse level, we selected antecedents to discourse level negative utterances (e.g.~\emph{no!}) which themselves had structures similar to both the negative and positive constructions at the syntactic level. Table \ref{tab:dispossess} provides a few examples and Figure \ref{fig:possessiondiscourse} shows log ratios and cumulative ratios of such utterances in parents' and children's speech. Overall, the production pattern for discourse level possession suggests that children produce such utterances frequently and at parents' level after 30 or 36 months of age.
 
-{\centering \includegraphics{neg_construction_article_files/figure-latex/possessionul-1} 
-
-}
-
-\caption{Possession and its positive counterparts, indexed by utterance length.}\label{fig:possessionul}
-\end{figure}
-
-For the discourse level, we selected interactions in which the contextual utterances have similar structural features to both the negative and the positive constructions at the syntactic leve.
-
-() Parent: \emph{I don't have the book}; Child: \emph{no no mommy please read it to me}
-() Parent: \emph{not yours}; Child: \emph{no it's mine mine}
+\begin{longtable}[]{@{}ll@{}}
+\caption{\label{tab:dispossess} Example antecedents with the possession construction and discourse level negation in parents' and children's productions}\tabularnewline
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endfirsthead
+\toprule
+Antecedent & Utterance \\
+\midrule
+\endhead
+Child: \emph{I don't have the book} & Parent: \emph{no no mommy please read it to me} \\
+Parent: \emph{not yours} & Child: \emph{no it's mine mine} \\
+\bottomrule
+\end{longtable}
 
 \begin{figure}[H]
 
@@ -619,11 +633,11 @@ For the discourse level, we selected interactions in which the contextual uttera
 
 }
 
-\caption{Discourse-level Possession.}\label{fig:possessiondiscourse}
+\caption{Log ratios and cumulative ratios of the possession construction at the discourse level in parents' and children's speech.}\label{fig:possessiondiscourse}
 \end{figure}
 
-\hypertarget{an-overall-look}{%
-\subsubsection{An overall look}\label{an-overall-look}}
+\hypertarget{discussion}{%
+\subsubsection{Discussion}\label{discussion}}
 
 \begin{figure}[H]
 
@@ -631,7 +645,7 @@ For the discourse level, we selected interactions in which the contextual uttera
 
 }
 
-\caption{All negative constructions at the syntactic level.}\label{fig:allneg}
+\caption{Log cumulative ratios for all negative constructions at the syntactic level.}\label{fig:allneg}
 \end{figure}
 
 \begin{figure}[H]
@@ -640,7 +654,7 @@ For the discourse level, we selected interactions in which the contextual uttera
 
 }
 
-\caption{Positive counpterparts of all negative constructions at the syntactic level.}\label{fig:allpos}
+\caption{Log cumulative ratios for the positive counpterparts to all negative constructions at the syntactic level.}\label{fig:allpos}
 \end{figure}
 
 \begin{figure}[H]
@@ -649,11 +663,11 @@ For the discourse level, we selected interactions in which the contextual uttera
 
 }
 
-\caption{All functions at the discourse level.}\label{fig:alldiscourse}
+\caption{Cumulative ratios for all negative constructions at the discourse level.}\label{fig:alldiscourse}
 \end{figure}
 
-\hypertarget{discussion}{%
-\section{Discussion}\label{discussion}}
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
 
 Using automatic annotations of large-scale corpora of child-parent interactions, we presented production trajectories for seven negative constructions that tend to express rejection, non-existence, prohibition, inability, labeling, epistemic states, and possession (Table 1). The results suggest that the production of almost all these negative constructions (except for prohibition) emerges and gradually increases within the 18-36 months age range (Figure 8). Their production frequencies remain stable and regular after 36 months and relatively close to parents' levels of production. It is important to note that similar to prior studies, our conclusions are limited to negation in children's production. Systematic experiments testing children's comprehension of negative utterances with different communicative functions are necessary to better understand the origins and developmental trajectory of negation.
 

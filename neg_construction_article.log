@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  9 AUG 2021 12:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  19 AUG 2021 16:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -568,7 +568,8 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count308
 \l__pdf_internal_box=\box59
-) (./neg_construction_article.aux)
+)
+No file neg_construction_article.aux.
 \openout1 = `neg_construction_article.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
@@ -742,264 +743,389 @@ File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 
 ] [2] [3]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-09.
+05.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [4] [5] [6] [7] [8]
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[4]
+Underfull \vbox (badness 4954) has occurred while \output is active []
+
+[5]
+
+LaTeX Warning: Reference `tab:bloom' on page 6 undefined on input line 209.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 1 on input line 227.
+
+[6]
+
+LaTeX Warning: Reference `tab:choi' on page 7 undefined on input line 233.
+
+
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
-[9]
+[7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[8]
+Overfull \hbox (7.38843pt too wide) in paragraph at lines 285--285
+[]|\T1/lmr/m/n/12 (-20) Nordmeyer 
+ []
+
+[9] [10]
+
+LaTeX Warning: Reference `tab:summary' on page 11 undefined on input line 289.
+
+[11]
+
+LaTeX Warning: Reference `tab:summary' on page 12 undefined on input line 300.
+
+[12]
+
+LaTeX Warning: Reference `tab:constructions' on page 13 undefined on input line
+ 316.
+
+[13]
 \openout3 = `neg_construction_article.ttt'.
 
 (neg_construction_article.ttt)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 302.
+(Font)              <10> on input line 346.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 302.
+(Font)              <7> on input line 346.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 302.
-[10]
+(Font)              <5> on input line 346.
+[14]
 Underfull \vbox (badness 4752) has occurred while \output is active []
 
-[11] [12] [13]
-<neg_construction_article_files/figure-latex/emotion-1.pdf, id=98, 495.8525pt x
- 269.005pt>
+[15] [16]
+
+LaTeX Warning: Reference `tab:rejection' on page 17 undefined on input line 373
+.
+
+[17]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 4 on input line 390.
+
+<neg_construction_article_files/figure-latex/emotion-1.pdf, id=115, 495.8525pt 
+x 269.005pt>
 File: neg_construction_article_files/figure-latex/emotion-1.pdf Graphic file (t
 ype pdf)
 <use neg_construction_article_files/figure-latex/emotion-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/emotion-1.
-pdf  used on input line 350.
+pdf  used on input line 394.
 (pdftex.def)             Requested size: 469.75583pt x 254.84729pt.
-[14 <./neg_construction_article_files/figure-latex/emotion-1.pdf>]
-<neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf, id=114, 49
+
+LaTeX Warning: Reference `fig:emotion' on page 18 undefined on input line 401.
+
+[18 <./neg_construction_article_files/figure-latex/emotion-1.pdf>]
+
+LaTeX Warning: Reference `tab:disreject' on page 19 undefined on input line 403
+.
+
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 5 on input line 419.
+
+<neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf, id=129, 49
 5.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf Graphi
 c file (type pdf)
 <use neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/emotiondis
-course-1.pdf  used on input line 379.
+course-1.pdf  used on input line 423.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[15] [16 <./neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf>
-]
-<neg_construction_article_files/figure-latex/existence-1.pdf, id=138, 495.8525p
+[19]
+
+LaTeX Warning: Reference `fig:existence' on page 20 undefined on input line 450
+.
+
+[20 <./neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/existence-1.pdf, id=153, 495.8525p
 t x 196.735pt>
 File: neg_construction_article_files/figure-latex/existence-1.pdf Graphic file 
 (type pdf)
 <use neg_construction_article_files/figure-latex/existence-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/existence-
-1.pdf  used on input line 410.
+1.pdf  used on input line 454.
 (pdftex.def)             Requested size: 469.75583pt x 186.38083pt.
 
-LaTeX Warning: Reference `fig:exstencediscourse' on page 17 undefined on input 
-line 417.
+LaTeX Warning: Reference `tab:disexist' on page 21 undefined on input line 461.
 
-[17 <./neg_construction_article_files/figure-latex/existence-1.pdf>]
-<neg_construction_article_files/figure-latex/existencediscourse-1.pdf, id=153, 
+
+
+LaTeX Warning: Reference `fig:exstencediscourse' on page 21 undefined on input 
+line 461.
+
+[21 <./neg_construction_article_files/figure-latex/existence-1.pdf>]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 7 on input line 475.
+
+<neg_construction_article_files/figure-latex/existencediscourse-1.pdf, id=167, 
 495.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/existencediscourse-1.pdf Grap
 hic file (type pdf)
 <use neg_construction_article_files/figure-latex/existencediscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/existenced
-iscourse-1.pdf  used on input line 435.
+iscourse-1.pdf  used on input line 479.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
-[18 <./neg_construction_article_files/figure-latex/existencediscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/prohibition-1.pdf, id=169, 495.852
+
+LaTeX Warning: Reference `fig:prohibition' on page 22 undefined on input line 4
+91.
+
+[22 <./neg_construction_article_files/figure-latex/existencediscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/prohibition-1.pdf, id=182, 495.852
 5pt x 196.735pt>
 File: neg_construction_article_files/figure-latex/prohibition-1.pdf Graphic fil
 e (type pdf)
 <use neg_construction_article_files/figure-latex/prohibition-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/prohibitio
-n-1.pdf  used on input line 465.
+n-1.pdf  used on input line 509.
 (pdftex.def)             Requested size: 469.75583pt x 186.38083pt.
-[19 <./neg_construction_article_files/figure-latex/prohibition-1.pdf>]
-<neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf, id=185
+
+LaTeX Warning: Reference `fig:prohibitiondiscourse' on page 23 undefined on inp
+ut line 516.
+
+[23 <./neg_construction_article_files/figure-latex/prohibition-1.pdf>]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 9 on input line 530.
+
+<neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf, id=196
 , 495.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf Gr
 aphic file (type pdf)
 <use neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/prohibitio
-ndiscourse-1.pdf  used on input line 490.
+ndiscourse-1.pdf  used on input line 534.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
-[20 <./neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/inability-1.pdf, id=203, 495.8525p
+
+LaTeX Warning: Reference `tab:inab' on page 24 undefined on input line 544.
+
+[24 <./neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf>]
+
+LaTeX Warning: Reference `fig:inability' on page 25 undefined on input line 560
+.
+
+<neg_construction_article_files/figure-latex/inability-1.pdf, id=212, 495.8525p
 t x 196.735pt>
 File: neg_construction_article_files/figure-latex/inability-1.pdf Graphic file 
 (type pdf)
 <use neg_construction_article_files/figure-latex/inability-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/inability-
-1.pdf  used on input line 520.
+1.pdf  used on input line 564.
 (pdftex.def)             Requested size: 469.75583pt x 186.38083pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[21]
-<neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf, id=211, 
+[25]
+
+LaTeX Warning: Reference `fig:inabilitydiscourse' on page 26 undefined on input
+ line 571.
+
+<neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf, id=219, 
 495.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf Grap
 hic file (type pdf)
 <use neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/inabilityd
-iscourse-1.pdf  used on input line 531.
+iscourse-1.pdf  used on input line 575.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
-[22 <./neg_construction_article_files/figure-latex/inability-1.pdf> <./neg_cons
-truction_article_files/figure-latex/inabilitydiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/learning-1.pdf, id=233, 495.8525pt
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[26 <./neg_construction_article_files/figure-latex/inability-1.pdf>]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 11 on input line 601.
+
+
+LaTeX Warning: Reference `fig:learning' on page 27 undefined on input line 603.
+
+
+[27 <./neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/learning-1.pdf, id=247, 495.8525pt
  x 196.735pt>
 File: neg_construction_article_files/figure-latex/learning-1.pdf Graphic file (
 type pdf)
 <use neg_construction_article_files/figure-latex/learning-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/learning-1
-.pdf  used on input line 563.
+.pdf  used on input line 607.
 (pdftex.def)             Requested size: 469.75583pt x 186.38083pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `tab:dislabel' on page 28 undefined on input line 614.
 
-[23]
-<neg_construction_article_files/figure-latex/learningdiscourse-1.pdf, id=243, 4
+
+
+LaTeX Warning: Reference `fig:learningdiscourse' on page 28 undefined on input 
+line 614.
+
+[28 <./neg_construction_article_files/figure-latex/learning-1.pdf>]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 12 on input line 628.
+
+<neg_construction_article_files/figure-latex/learningdiscourse-1.pdf, id=261, 4
 95.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/learningdiscourse-1.pdf Graph
 ic file (type pdf)
 <use neg_construction_article_files/figure-latex/learningdiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/learningdi
-scourse-1.pdf  used on input line 588.
+scourse-1.pdf  used on input line 632.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Reference `tab:epistem' on page 29 undefined on input line 642.
 
-[24 <./neg_construction_article_files/figure-latex/learning-1.pdf>] [25 <./neg_
-construction_article_files/figure-latex/learningdiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/epistemic-1.pdf, id=274, 495.8525p
+[29 <./neg_construction_article_files/figure-latex/learningdiscourse-1.pdf>]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 13 on input line 660.
+
+
+LaTeX Warning: Reference `fig:epistemic' on page 30 undefined on input line 662
+.
+
+<neg_construction_article_files/figure-latex/epistemic-1.pdf, id=276, 495.8525p
 t x 485.815pt>
 File: neg_construction_article_files/figure-latex/epistemic-1.pdf Graphic file 
 (type pdf)
 <use neg_construction_article_files/figure-latex/epistemic-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/epistemic-
-1.pdf  used on input line 622.
+1.pdf  used on input line 666.
 (pdftex.def)             Requested size: 469.75583pt x 460.24661pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[26] [27 <./neg_construction_article_files/figure-latex/epistemic-1.pdf>]
-<neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf, id=294, 
+[30]
+
+LaTeX Warning: Reference `fig:epistemicdiscourse' on page 31 undefined on input
+ line 673.
+
+[31 <./neg_construction_article_files/figure-latex/epistemic-1.pdf>]
+<neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf, id=296, 
 495.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf Grap
 hic file (type pdf)
 <use neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/epistemicd
-iscourse-1.pdf  used on input line 633.
+iscourse-1.pdf  used on input line 677.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
-[28 <./neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/possession-1.pdf, id=311, 495.8525
+
+LaTeX Warning: Reference `tab:possess' on page 32 undefined on input line 687.
+
+[32 <./neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf>]
+
+LaTeX Warning: Reference `fig:possession' on page 33 undefined on input line 70
+4.
+
+<neg_construction_article_files/figure-latex/possession-1.pdf, id=312, 495.8525
 pt x 341.275pt>
 File: neg_construction_article_files/figure-latex/possession-1.pdf Graphic file
  (type pdf)
 <use neg_construction_article_files/figure-latex/possession-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/possession
--1.pdf  used on input line 664.
+-1.pdf  used on input line 708.
 (pdftex.def)             Requested size: 469.75583pt x 323.31372pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[29] [30 <./neg_construction_article_files/figure-latex/possession-1.pdf>]
-<neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf, id=332,
+[33]
+
+LaTeX Warning: Reference `tab:dispossess' on page 34 undefined on input line 71
+5.
+
+
+LaTeX Warning: Reference `fig:possessiondiscourse' on page 34 undefined on inpu
+t line 715.
+
+[34 <./neg_construction_article_files/figure-latex/possession-1.pdf>]
+
+Package longtable Warning: Column widths have changed
+(longtable)                in table 15 on input line 730.
+
+<neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf, id=330,
  495.8525pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf Gra
 phic file (type pdf)
 <use neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/possession
-discourse-1.pdf  used on input line 690.
+discourse-1.pdf  used on input line 734.
 (pdftex.def)             Requested size: 469.75583pt x 187.33177pt.
-<neg_construction_article_files/figure-latex/allneg-1.pdf, id=334, 495.8525pt x
+
+LaTeX Warning: Reference `fig:allneg' on page 35 undefined on input line 744.
+
+[35 <./neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/allneg-1.pdf, id=345, 495.8525pt x
  341.275pt>
 File: neg_construction_article_files/figure-latex/allneg-1.pdf Graphic file (ty
 pe pdf)
 <use neg_construction_article_files/figure-latex/allneg-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/allneg-1.p
-df  used on input line 704.
+df  used on input line 748.
 (pdftex.def)             Requested size: 469.75583pt x 323.31372pt.
+
+LaTeX Warning: Reference `fig:allpos' on page 36 undefined on input line 755.
+
+
+LaTeX Warning: Reference `fig:allneg' on page 36 undefined on input line 755.
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[31 <./neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/allpos-1.pdf, id=350, 495.8525pt x
+[36 <./neg_construction_article_files/figure-latex/allneg-1.pdf>]
+<neg_construction_article_files/figure-latex/allpos-1.pdf, id=358, 495.8525pt x
  341.275pt>
 File: neg_construction_article_files/figure-latex/allpos-1.pdf Graphic file (ty
 pe pdf)
 <use neg_construction_article_files/figure-latex/allpos-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/allpos-1.p
-df  used on input line 713.
+df  used on input line 759.
 (pdftex.def)             Requested size: 469.75583pt x 323.31372pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[32 <./neg_construction_article_files/figure-latex/allneg-1.pdf>]
-<neg_construction_article_files/figure-latex/alldiscourse-1.pdf, id=362, 495.85
+[37]
+
+LaTeX Warning: Reference `fig:alldiscourse' on page 38 undefined on input line 
+766.
+
+[38 <./neg_construction_article_files/figure-latex/allpos-1.pdf>]
+<neg_construction_article_files/figure-latex/alldiscourse-1.pdf, id=376, 495.85
 25pt x 341.275pt>
 File: neg_construction_article_files/figure-latex/alldiscourse-1.pdf Graphic fi
 le (type pdf)
 <use neg_construction_article_files/figure-latex/alldiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/alldiscour
-se-1.pdf  used on input line 722.
+se-1.pdf  used on input line 770.
 (pdftex.def)             Requested size: 469.75583pt x 323.31372pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[33 <./neg_construction_article_files/figure-latex/allpos-1.pdf>] [34 <./neg_co
-nstruction_article_files/figure-latex/alldiscourse-1.pdf>] [35] [36] AED endflo
-at: Processing end Figures and Tables [37] (./neg_construction_article.ttt
+[39 <./neg_construction_article_files/figure-latex/alldiscourse-1.pdf>] [40] [4
+1] [42] AED endfloat: Processing end Figures and Tables [43] (./neg_constructio
+n_article.ttt
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 4.
-
-Overfull \hbox (232.86313pt too wide) in paragraph at lines 4--17
- [][] 
- []
-
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 794.
-[38
-
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 794.
-(./neg_construction_article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 794.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 794.
-
-LaTeX Warning: There were undefined references.
-
- ) 
+Runaway argument?
+{there|-expletive & \textit {there is no soup} & \textit {there are b\ETC.
+! File ended while scanning use of \textit .
+<inserted text> 
+                \par 
+l.853 \end{document}
+                     
 Here is how much of TeX's memory you used:
- 17359 strings out of 480608
- 264116 string characters out of 5903631
- 574479 words of memory out of 5000000
- 32647 multiletter control sequences out of 15000+600000
- 632440 words of font info for 157 fonts, out of 8000000 for 9000
+ 17340 strings out of 480608
+ 263755 string characters out of 5903631
+ 568833 words of memory out of 5000000
+ 32630 multiletter control sequences out of 15000+600000
+ 632053 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,11n,51p,2263b,545s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
-texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/20
-20/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2020/texmf-dist/
-fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/
-dvips/lm/lm-ts1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/l
-mbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmbx12.pfb>
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/loca
-l/texlive/2020/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
-ype1/public/lm/lmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public
-/lm/lmr6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr7.pfb
-></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local
-/texlive/2020/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/local/texlive/2
-020/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2020/texmf-
-dist/fonts/type1/public/lm/lmss8.pfb></usr/local/texlive/2020/texmf-dist/fonts/
-type1/public/lm/lmsy6.pfb>
-Output written on neg_construction_article.pdf (38 pages, 729074 bytes).
-PDF statistics:
- 556 PDF objects out of 1000 (max. 8388607)
- 446 compressed objects within 5 object streams
- 121 named destinations out of 1000 (max. 500000)
- 16590 words of extra memory for PDF output out of 17280 (max. 10000000)
+ 49i,11n,51p,2263b,546s stack positions out of 5000i,500n,10000p,200000b,80000s
 
+!  ==> Fatal error occurred, no output PDF file produced!

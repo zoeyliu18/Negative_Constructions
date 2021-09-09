@@ -75,16 +75,37 @@ library(tidyr)
 
 <!--
 + new analysis: focusing on 12-24 months range and plot proportions of each category in half-a-month age bins
-+ Some plots don't have correct cumulative ratios yet, for example the first point starts below the first age bin ratio which should not be the case?
+
+add a combined plot
+
+done
+
 + What justifies log transformation of the frequency data? Would our conclusions hold without it?
+
+no logging it; but for visualization, we can log it; change the facets from parent and child to negative and positive
+
 + Can we fit a curve (e.g. exponential approach curve) that uses the data from age>24 months to guess where each construction originates between 12-24 months?
+
+exponential approach curve; leave for later
+
++ what does literature call *no*, discourse marker; 
+
 + Discourse level negation does not make sense with prohibitions:
     - Prohibitions -- Parent: Eat your food! Child: No! (= I won't eat my food NOT Don't eat your food!)
+    
+    argue through it
+    
 + How much lexical diversity is there in each construction? For example with epistemic negation, are children just saying "don't know" or are they saying different combinations of negation and "know". Maybe this can only focus on the 12-24 age bin
-+ Good to have at least 8 corpus example for each function (4 for sentence level and 4 for discourse level)
-+ "This is not mine" is currently counted as labeling in this draft but I think we decided to count them as possession in the future
-+ Figure 17 is confusing because the epistemic category is dropped and suddenly the graph legend changes completely so hard to track again which color was what category
+
+did for rejection and "i don't know"
+
++ "this is my book" should be possession; modify the script
+
+done
+
 + we should probably use red for negative and green for positive
+
+done
 -->
 
 # Introduction
@@ -126,7 +147,7 @@ Unlike Darwin, @mcneill1968 proposed a five-stage account for the conceptual dev
 |no children|no bear book|no ready|
 |no it won't fit|no go outside|no tire|
 |Kathryn no like celery|no dirty soap|no dirty|
-Table: (\#tab:bloom) Examples of non-existence, rejection, and denial negation in the speech of Eric, Kathryn, and Gia from @bloom1970language
+Table: (\#tab:bloom) Examples of non-existence, rejection, and denial negation in the speech of Eric, Kathryn, and Gia from @bloom1970language.
 
 \textcolor{blue}{ZL: "for about 90 minutes"; everyday?}
 
@@ -179,9 +200,9 @@ Third, previous research shows that defining and detecting the communicative fun
 
 # Current Study
 
-We build on previous research and address the methodological issues discussed in previous section in two ways. First, in this study we use large corpora of parent-child interactions, aggregating speech samples from X children between the ages of 1-6 years (12-72 months). If the lack of consensus in previous research was mainly due to the small number of children studied, increasing this number should address the issue. Aggregating speech samples across children would also provide denser samples at each time interval and reduce the possibility of accidental gaps in a supposed stage. The reasoning behind this approach is that despite individual variation, if there are major developmental stages in children's production of negation that hold on average across children, these stages should be detectable in such large aggregate corpus of child speech. 
+We build on previous research and address the methodological issues discussed in previous section in two ways. First, in this study we use large corpora of parent-child interactions, aggregating speech samples from 792 children between the ages of 1-6 years (12-72 months). If the lack of consensus in previous research was mainly due to the small number of children studied, increasing this number should address the issue. Aggregating speech samples across children would also provide denser samples at each time interval and reduce the possibility of accidental gaps in a supposed stage. The reasoning behind this approach is that despite individual variation, if there are major developmental stages in children's production of negation that hold on average across children, these stages should be detectable in such large aggregated corpora of child speech. 
 
-Second, in this study we shift the focus from detecting and classifying negative communicative functions such as rejection to detecting and classifying negative constructions that typically communicate them. Here by negative constructions, we refer to syntactic constructions modified by any one of the three negative morphemes in English: *no*, *not*, *n't*. Table \@ref(tab:constructions) summarizes the constructions and communicative functions used in this study. 
+Second, in this study we shift the focus from detecting and classifying negative communicative functions such as rejection to detecting and classifying negative syntactic constructions that typically communicate them. Here by negative syntactic constructions, we refer to constructions modified by any one of the three negative morphemes in English: *no*, *not*, *n't*. Table \@ref(tab:constructions) summarizes the constructions and communicative functions used in this study. 
 
 This approach has several advantages. To begin with, negative constructions are more concrete and easier to define and classify. This way we can avoid inconsistent definitions and criteria for classification across different studies. For example, utterances that combine negation with the main verb *want* (e.g. "*I don't want that*") constitute a construction that typically conveys rejection. In addition, due to their concrete definitions, constructions can be detected and classified automatically in large corpora. While it is difficult to manually annotate for examples of rejection across thousands of utterances, it is relatively easier to automatically detect utterances containing the verb *want* modified by negative morphemes. <!--that use the "NEG + *want*" construction.--> This approach is similar in spirit to that of @choi1988semantic who manually annotated for both communicative functions and their common linguistic forms (Table \@ref(tab:summary)). 
 
@@ -191,7 +212,9 @@ This approach has several advantages. To begin with, negative constructions are 
 
 \textcolor{blue}{(3) I'm a little hesitant to call it "response particle"; there's debate over whether particle is a thing; I'd be leaning towards "discourse response marker"}
 
-One downside of focusing on negative constructions is that it may systematically underestimate children's knowledge of negation. Due to early limited productive capacities, children produce shorter forms before longer ones. Therefore, they can convey a communicative function like rejection using a simple *no* before they can produce the full construction "*I don't want that*". Focusing on children's production of explicit constructions, we will probably estimate an upper bound on when children can convey a communicative function. To make up for this, besides investigating negative constructions at the sentence level, we also investigate children and parents' use of *no* as a response particle at the discourse level. Negative discourse particles like *no* can be used in isolation to negate the content of a previous utterance. For example, if a mother asks "do you want some milk?" and the child responds with "no", the negative particle anaphorically targets the proposition "I want some milk" and negates it: "I don't want milk". By using negative discourse particles like *no*, children can convey complex negative content without actually producing them in words. This approach is useful early in their development when they have limited productive capacities. In our analyses, we also look at children and parents' use of negative discourse particles. More specifically, we examine the constructions in the immediate previous utterance in the discourse that are negated by these particles. The analyses of these constructions in the preceding utterance can capture communicative functions that the response particle *no* conveys before children are capable of producing their full syntactic forms. 
+One downside of focusing on negative constructions is that it may systematically underestimate children's knowledge of negation. Due to early limited productive capacities, children produce shorter forms before longer ones. Therefore, they can convey a communicative function like rejection using a simple *no* before they can produce the full construction "*I don't want that*". Focusing on children's production of explicit constructions, we will probably estimate an upper bound on when children can convey a communicative function. 
+
+To make up for this, besides investigating negative constructions at the sentence level, we also investigate children and parents' use of *no* as a response particle at the discourse level. Negative discourse particles like *no* can be used in isolation to negate the content of a previous utterance. For example, if a mother asks "do you want some milk?" and the child responds with "no", the negative particle anaphorically targets the proposition "I want some milk" and negates it: "I don't want milk". By using negative discourse particles like *no*, children can convey complex content of negation without actually producing them using many words. This approach is particularly useful in the earlier developmental stages of children's production capacities. In our analyses of negative discourse particles, we examine the constructions in the immediate previous utterance in the discourse that are negated by these particles. The analyses of these constructions in the preceding utterance can capture communicative functions that the response particle *no* conveys before children are capable of producing their full syntactic forms. 
 
 
 \begin{table*}[h]
@@ -212,7 +235,7 @@ Possession & *have*/possesive pronouns & *not have the toy*; *not mine*  \\
 \end{tabular}
 \caption{English negative communicative functions and constructions used in this study.}
 \end{table*}
-Table: (\#tab:constructions) Negative constructions used in this study that typically convey communicative functions studied in previous functional accounts of negation development
+Table: (\#tab:constructions) Negative constructions used in this study that typically convey communicative functions studied in previous functional accounts of negation development.
    
 
 ## Data and preprocessing 
@@ -225,13 +248,20 @@ For child speech data in English, we turned to the CHILDES database [@macwhinney
 
 \textcolor{blue}{(3) I like the last sentence of the following paragrah; Perhaps we could move it to the end of the last paragrah in the previous section; and maybe add the word "possibly", since it's not completely sure children understand them.}
 
+\textcolor{blue}{(4) Double check Table format.}
+
+\textcolor{blue}{(5) Double check capitalization consistencies of examples and their formats.}
+
+\textcolor{blue}{(6) Because of my R version (I think) the table of seven functions is not showing up on my end.}
+
+\textcolor{blue}{(7) The next paragraph feels similar to the previous section; perhaps it would be better to introduce the two levels up-front when discussing the benefits of our approach. I haven't changed anything yet in case there's disagreement.}
+
 We focus on seven negative constructions shown in Table 1 that tend to convey the communicative functions of rejection, non-existence, prohibition, inability, labeling, epistemic state, and possession. We test children's production of these constructions at two levels: sentence level and discourse level. Negation is marked in two fundamentally different ways in English and many other languages. First, at sentence level, morphemes such as *no*, *not*, or the reduced form *n't* combine with other lexical items to form a negative sentence. For example in sentence level rejection, *n't* can combine with *want* to form "*I don't want to go*". Second, negative response particles such as *no* can be used anaphorically to negate a previous utterance in discourse. For example in discourse level rejection, when a parent asks "*Do you want to go?*", a child can respond with *No!*. Here, the negative discourse particle stands for the proposition "I don't want to go". Children's earliest negative productions are dominated by discourse level negation, presumably because it is shorter and easier to produce when children are limited in their productive capacity. Nevertheless, successful communication with discourse level negation can indicate the children understand the propositions conveyed it.
 
-At the sentence level, we characterized the syntactic features of the negative utterances associated with each communicative function, then classified utterances based on these features in a rule-based fashion with the help of POS information and syntactic dependencies. To decouple the development of the syntactic construction from the development of negation in that construction, we also examined the production of positive counterparts to each negative construction. The positive counterpart of our negative constructions share the same syntactic features (e.g. same head verb) but they have no negative morphemes. These positive constructions do not express the same communicative function as their negative counterparts. Our main purpose for including the positive counterparts is to factor in the development of the syntactic construction without negation.
+At the sentence level, we characterized the syntactic features of the negative utterances associated with each communicative function, then classified utterances based on these features in a rule-based fashion with the help of POS information and syntactic dependencies. To decouple the development of the syntactic construction from the development of negation in that construction, we also examined the production of positive counterparts to each negative construction. The positive counterpart of our negative constructions share the same syntactic features (e.g. same head verb) but they have no negative morphemes ("I know" for "I don't know"). These positive constructions do not express the same communicative function as their negative counterparts. Our main purpose for including the positive counterparts is to factor in the development of the syntactic construction without negation.
 
-\textcolor{blue}{ZL: cases like *no no no*}
 
-At the discourse level, we need to analyze the negative constructions that the discourse particle *no* stands for. To achieve this, we selected utterances that started with negative discourse particles like "no no I like it". These instances were tagged with the dependency relation "discourse" by our dependency parser. For each negative utterance identified this way, we extracted the previous utterance (the antecedent) in the discourse context. For child speech, we included interactions (negative utterances + their antecedents) where antecedents were produced by either the parents or the children themselves. For parent speech, we only included interactions where the antecedent was produced by children. We then applied the same analyses performed to sentence level constructions to these antecedent utterances. The assumption here is that the negative discourse particles are implicitly negating the content of their discourse antecedents.  
+At the discourse level, we need to analyze the negative constructions that the discourse particle *no* stands for. To achieve this, we selected utterances that started with negative discourse particles like "no no I like it", where the dependency relation of these discourse particles is "discourse" by the dependency parser; we also included cases with just one or duplications of the discourse particles ("no no no"). For each negative utterance identified this way, we extracted the previous utterance (the antecedent) in the discourse context. For child speech, we included interactions (negative utterances + their antecedents) where antecedents were produced by either the parents or the children themselves. For parent speech, we only included interactions where the antecedent was produced by children. We then applied the same analyses performed to sentence level constructions to these antecedent utterances. The assumption here is that the negative discourse particles are implicitly negating the content of their discourse antecedents.  
 
 \textcolor{blue}{(1) changed "moving ratio" to "cumulative ratio"}
 
@@ -252,7 +282,7 @@ Second, we borrowed the measure of "cumulative (moving) ratio" from the analysis
 $CR_{c, i} = \frac{\sum_{n=1}^{i} \#U_{c,n}}{\sum_{n=1}^{i} \#U_{n}}$
 
 
-The two ratios mentioned above were calculated for negative constructions and their positive counterparts at sentence and discourse levels for children as well as parents. In this study we use parents' speech as a benchmark for children's development. Therefore, our figures show children's productions side by side the production of parents at the corresponding age of children. In what follows, we describe in detail the results for each communicative function and its associated negative constructions.
+The two ratios mentioned above were calculated for negative constructions and their positive counterparts at the sentence and discourse levels for children as well as parents. With that being said, for the sake of presentations, our figures focus on the results of cumulative ratios. In addition, in this study we use parents' speech as a benchmark for children's development. Therefore, the subfigures within each figure contrast children's production to that of parents at the corresponding age of the children. In what follows, we describe in detail the results for each communicative function and its associated negative constructions.
 
 ```{r function}
 
@@ -659,6 +689,8 @@ emotion_data$Measure <- factor(emotion_data$Measure, levels = c('negative constr
 emotion_data_child <- subset(emotion_data, Role == 'Child')
 emotion_data_parent <- subset(emotion_data, Role == 'Parent')
 
+emotion_data$Production <- paste(emotion_data$Role, emotion_data$Measure, sep= " ")
+
 ```
 
 ```{r emotionuldata, include=FALSE}
@@ -873,6 +905,7 @@ discourse_emotion_data <- rbind(discourse_child_emotion_neg, discourse_parent_em
 
 discourse_emotion_data$Measure <- factor(discourse_emotion_data$Measure, levels = c('negative construction ratio', 'negative construction cumulative ratio', 'positive construction ratio', 'positive construction cumulative ratio'))
 
+
 discourse_emotion_data_child <- subset(discourse_emotion_data, Role == 'Child')
 discourse_emotion_data_parent <- subset(discourse_emotion_data, Role == 'Parent')
 
@@ -882,7 +915,7 @@ names(discourse_emotion_data_plot) <- c('Age', 'Measure', 'Role', 'Total_ratio')
 
 ```
 
-For instances of "rejection" and positive counterparts, we selected utterances in which the lemma of the head verb of the phrase is either *like* or *want*. For negative instances, the head verb is modified by one of the three negative morphemes *no*, *not* or *n't*, whereas cases including the same head verb but without negation were classified as positive. Table \@ref(tab:rejection) shows examples of negative utterances including those in which the speakers describe their own desires with or without an auxiliary verb (e.g. 1 and 2), as well as cases that express rhetorical inquiries of desires from one interlocutor to another (e.g. 3), and instances where the speaker is describing the desires of somebody else (e.g. 4). We classified a total of `r format(sum(subset(emotion_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(emotion_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(emotion_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and a total of `r format(sum(subset(emotion_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(emotion_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(emotion_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).  
+For instances of "rejection" and positive counterparts, we selected utterances in which the lemma of the head verb of the phrase is either *like* or *want*. For negative instances, the head verb is modified by one of the three negative morphemes *no*, *not* or *n't*, whereas cases including the same head verb but without negation were classified as positive. Table \@ref(tab:rejection) shows examples of negative utterances including those in which the speakers describe their own desires with or without an auxiliary verb, cases that express rhetorical inquiries of desires from one interlocutor to another, and instances where the speaker is describing the desires of somebody else (e.g. 4). We classified a total of `r format(sum(subset(emotion_data,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(emotion_data_child,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(emotion_data_parent,Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and a total of `r format(sum(subset(emotion_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` positive utterances (child: `r format(sum(subset(emotion_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(emotion_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).  
 
 |Rejection (Negative)|Positive Counterpart|
 |---------------------|----------------------|
@@ -895,15 +928,34 @@ Table: (\#tab:rejection) Examples of sentence-level rejection (negative) and pos
 
 ```{r emotion, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of rejection at the sentence level for children between 12 to 72 months of age, and their parents.'}
 
+subset(emotion_data, Which=='cumulative ratio')  %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) + 
+  facet_wrap(Head ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
+  theme_classic() + 
+  theme(text = element_text(size=12, family="Times")) + 
+  theme(legend.position="top") +
+  xlab("child age (months)") + 
+  ylab("production ratio") + 
+  guides(color = guide_legend(nrow = 2))
+
+```
+
+<!--
 emotion_data %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) + #"peru", 
 #  geom_line(linetype = c('dotted', 'solid')) +
-#  geom_line(aes(color = Polarity, linetype = 'dotted', size = 1)) + 
+#  geom_line(aes(color = Polarity, linetype = 'dotted', size = 1.5)) + 
   facet_grid(Head ~ Role) +
 #  facet_grid(vars(Head)) +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
@@ -914,32 +966,30 @@ emotion_data %>%
   ylab("production ratio") + 
 #  ylim(-9.5, -2.5) +
   guides(linetype = guide_legend(nrow = 2))
+-->
 
-```
-
+<!--  
 ```{r emotionbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of rejection at the sentence level for children between 12 to 24 months of age, and their parents'}
 
-subset(emotion_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) + #"peru", 
-#  geom_line(linetype = c('dotted', 'solid')) +
-#  geom_line(aes(color = Polarity, linetype = 'dotted', size = 1)) + 
-  facet_grid(Head ~ Role) +
-#  facet_grid(vars(Head)) +
-  scale_x_continuous(breaks=seq(0, 24, 1)) +
+subset(emotion_data, Which=='cumulative ratio' & Age<=24)  %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) + 
+  facet_wrap(Head ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
-  
+-->
+
 <!--
 ```{r emotionul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap='Rejection and its positive counterparts, indexed by utterance length.'}
 
@@ -947,7 +997,7 @@ emotion_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
   facet_grid(Head ~ Role) +
@@ -962,9 +1012,9 @@ emotion_ul_data %>%
 ```
 -->
 
-Starting with our analysis at the sentence level, Figure \@ref(fig:emotion) shows the ratios and cumulative ratios of parents' and children's instances of rejection and positive counterparts on a logarithmic scale (y-axis) with age along the x-axis. Overall, we see a similar pattern of production for rejection whether the head verb is *want* or *like*. Comparing the cumulative ratios between parents and children, children's production of rejection gradually increases between the ages of 18 and 30 months. After about 30 months of age, children's production of these constructions stays at a relatively constant rate and close to parent levels. In all age bins, the production ratio for negative utterances is lower than that for their positive counterparts.
+Starting with our analysis at the sentence level, Figure \@ref(fig:emotion) shows the ratios and cumulative ratios of parents' and children's instances of rejection and positive counterparts (y-axis) with age along the x-axis. Overall, we see a similar pattern of production for rejection whether the head verb is *want* or *like* in child speech. In children's production of rejection, when the utterances are headed by *like*, the proportion of cases that contain the phrase "don't like" approximates 69.94%; whereas the proportion of instances with the phrase "don't want" is around 50.39% when the utterances are headed by *want*. Comparing the cumulative ratios between parents and children, children's production of rejection gradually increases between the ages of 18 and 36 months. After about 36 months of age, children's production of these constructions stays at a relatively constant rate and close to parent levels. In all age bins, the production ratio for negative utterances is lower than that for their positive counterparts.
 
-On the discourse level, we investigated discourse interactions (antecedent + negative utterance) in which the antecedent had one of the head verbs *like* or *want*, yet the head verb did not have to be modified by negative morphemes. Table \@ref(tab:disreject) shows a few examples. We found a total of `r format(sum(subset(discourse_emotion_data,Which=='ratio')$Freq), big.mark=",")` such utterances (child: `r format(sum(subset(discourse_emotion_data_child,Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_emotion_data_parent,Which=='ratio')$Freq), big.mark=",")`). As shown in Figure 2, children's production of negation as discourse response variables increases regularly from the age of 24 - 36 months\footnote{For each communicative function, at the discourse level we also examined cases of different subtypes (e.g. different head verbs) separately; though due to data sparsity issues, we collapsed these instances for our final analyses}. Overall negative morphemes are applied at the discourse level more frequently in child speech compared to parent speech.
+On the discourse level, we investigated discourse interactions (antecedent + negative utterance) in which the antecedent has one of the head verbs *like* or *want*, yet the head verb does not have to be modified by negative morphemes (Table \@ref(tab:disreject)). We found a total of `r format(sum(subset(discourse_emotion_data,Which=='ratio')$Freq), big.mark=",")` such utterances (child: `r format(sum(subset(discourse_emotion_data_child,Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_emotion_data_parent,Which=='ratio')$Freq), big.mark=",")`). As shown in Figure 2, children's production of negation as discourse response variables increases regularly from the age of 24 - 36 months\footnote{For each communicative function, at the discourse level we also examined cases of different subtypes (e.g. different head verbs) separately; though due to data sparsity issues, we collapsed these instances for our final analyses}. Overall negative morphemes are applied at the discourse level more frequently in child speech compared to parent speech.
 
 |Antecedent|Utterance|
 |------------|------------|
@@ -981,7 +1031,7 @@ discourse_emotion_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', "dotted")) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) + 
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -994,13 +1044,14 @@ discourse_emotion_data_plot %>%
 
 ```
 
+<!--  
 ```{r emotiondiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of rejection at the discourse level for children between 12 to 24 months of age, and their parents.',warning=FALSE}
 
 subset(discourse_emotion_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', "dotted")) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) + 
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -1012,7 +1063,8 @@ subset(discourse_emotion_data_plot, Age<=24) %>%
   ylab("production ratio")
 
 ```
-  
+-->
+
 ### Non-existence
 
 ```{r perceptiondata, include=FALSE}
@@ -1237,6 +1289,8 @@ parent_possession_pro_pos <- positive_cumulative(parent_possession_pro_pos, pare
 perception_data <- rbind(child_existence_neg, child_existence_pos, parent_existence_neg, parent_existence_pos, child_possession_have_neg, child_possession_have_pos, parent_possession_have_neg, parent_possession_have_pos, child_possession_pro_neg, child_possession_pro_pos, parent_possession_pro_neg, parent_possession_pro_pos)
 
 perception_data$Measure <- factor(perception_data$Measure, levels = c('negative construction ratio', 'negative construction cumulative ratio', 'positive construction ratio', 'positive construction cumulative ratio'))
+
+perception_data$Production <- paste(perception_data$Role, perception_data$Measure, sep = " ")
 
 perception_data_child <- subset(perception_data, Role == 'Child')
 perception_data_parent <- subset(perception_data, Role == 'Parent')
@@ -1632,7 +1686,7 @@ names(discourse_possession_data_plot) <- c('Age', 'Measure', 'Role', 'Total_rati
 
 ```
 
-For this function we searched for the English existential construction and extracted utterances that had *there*-expletives, followed by a copula, and a noun phrase (phrases headed by either nouns or pronouns). We classified utterances where the predicate was modified by negation as negative, and the rest as positive. This led to a total of `r format(sum(subset(existence_data, Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances  (child: `r format(sum(subset(existence_data_child, Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(existence_data_parent, Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and a total of `r format(sum(subset(existence_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` positive utterances (child: `r format(sum(subset(existence_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(existence_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
+For function of non-existence we searched for the English expletive construction and extracted utterances that had *there*-expletives, followed by a copula, and a noun phrase (phrases headed by either nouns or pronouns). We classified utterances where the predicate was modified by negation as negative, and the rest as positive. This led to a total of `r format(sum(subset(existence_data, Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")` negative utterances  (child: `r format(sum(subset(existence_data_child, Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`; parent: `r format(sum(subset(existence_data_parent, Which=='ratio' & Polarity == 'negative')$Freq), big.mark=",")`), and a total of `r format(sum(subset(existence_data,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")` positive utterances (child: `r format(sum(subset(existence_data_child,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`; parent: `r format(sum(subset(existence_data_parent,Which=='ratio' & Polarity == 'positive')$Freq), big.mark=",")`).
 
 |Non-existence (Negative)| Existentials (Positive)|
 |----------------|----------------|
@@ -1640,47 +1694,49 @@ For this function we searched for the English existential construction and extra
 |*there isn't it* | *there is it*|
 Table: (\#tab:nonexist) Examples of sentence-level non-existence (negative) and positive counterparts in children's speech.
 
-At the sentence level, children produced negative constructions to express non-existence less frequently than the positive counterparts. As Figure \@ref(fig:existence) shows, the cumulative ratio for the production of non-existence increases from 18 to 36 months. Around and after 36 months of age, children's productions reaches a stable cumulative ratio close to that of adults. Notice that there appears to be fluctuations of cumulative ratios between the age of 19 and 25 months in child production. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore while the number of total utterances increases along the developmental trajectory, the cumulative ratio for negative utterances actually decreases.
+At the sentence level, children produced negative constructions to express non-existence less frequently than the positive counterparts. As Figure \@ref(fig:existence) shows, the cumulative ratio for the production of non-existence increases from 18 to 36 months. Around and after 36 months of age, children's productions reaches a stable cumulative ratio. <!--close to that of adults.--> Notice that there appears to be fluctuations of cumulative ratios between the age of 19 and 25 months in child production. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore while the number of total utterances increases along the developmental trajectory, the cumulative ratio for negative utterances actually decreases.
 
 ```{r existence, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of non-existence at the sentence level for children between 12 to 72 months of age, and their parents.'}
 
-existence_data %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) + 
-  facet_grid( ~ Role) +
+subset(existence_data, Which=='cumulative ratio') %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) + 
+  facet_wrap( ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
 
+<!--
 ```{r existencebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of non-existence at the sentence level for children between 12 to 24 months of age, and their parents.'}
 
-subset(existence_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) + 
-  facet_grid( ~ Role) +
-  scale_x_continuous(breaks=seq(0, 24, 1)) +
+subset(existence_data, Which=='cumulative ratio' & Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) + 
+  facet_wrap( ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
+-->
 
 <!--
 ```{r existenceul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Non-existence and its positive counterparts, indexed by utterance length.'}
@@ -1689,7 +1745,7 @@ existence_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) + 
   facet_grid( ~ Role) +
@@ -1704,7 +1760,7 @@ existence_ul_data %>%
 ```
 -->
 
-For non-existence at the discourse level, we applied similar selection criteria and extracted negative utterances with existential constructions in their antecedents (Table \@ref(tab:disexist)). This led to a total of `r format(sum(subset(discourse_existence_data, Which=='ratio')$Freq), big.mark=",")` utterances  (child: `r format(sum(subset(discourse_existence_data_child, Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_existence_data_parent, Which=='ratio')$Freq), big.mark=",")`). As Figure \@ref(fig:exstencediscourse) shows, we could find an increase in children's responses with *no* to parents' existential utterances between the ages of 18 and 36 months. After 36 months, despite the fact that ratios show considerable fluctuations, the cumulative ratios of parents and children seem stable and similar. Therefore with non-existence, both sentence level and discourse level analyses point to substantial development in the age rage of 18-36 months.
+For non-existence at the discourse level, we applied similar selection criteria and extracted negative utterances with existential constructions in their antecedents (Table \@ref(tab:disexist)). This led to a total of `r format(sum(subset(discourse_existence_data, Which=='ratio')$Freq), big.mark=",")` utterances  (child: `r format(sum(subset(discourse_existence_data_child, Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_existence_data_parent, Which=='ratio')$Freq), big.mark=",")`). As Figure \@ref(fig:existencediscourse) shows, we could find an increase in children's responses with *no* to parents' existential utterances between the ages of 18 and 36 months. After 36 months, despite the fact that ratios show considerable fluctuations, the cumulative ratios of parents and children seem stable and similar. Therefore with non-existence, both sentence level and discourse level analyses point to substantial development in the age rage of 18-36 months.
 
 |Antecedent|Utterance|
 |------------|------------|
@@ -1718,7 +1774,7 @@ discourse_existence_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) + 
   facet_grid( ~ Role) +
@@ -1731,13 +1787,14 @@ discourse_existence_data_plot %>%
 
 ```
 
+<!--
 ```{r existencediscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of non-existence at the discourse level for children between 12 to 24 months of age, and their parents.',warning=FALSE}
 
 subset(discourse_existence_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) + 
   facet_grid( ~ Role) +
@@ -1749,6 +1806,7 @@ subset(discourse_existence_data_plot, Age<=24) %>%
   ylab("production ratio") 
 
 ```
+-->
 
 ### Prohibition
 
@@ -1911,6 +1969,7 @@ motor_data <- rbind(child_prohibition_neg, child_prohibition_pos, parent_prohibi
 
 motor_data$Measure <- factor(motor_data$Measure, levels = c('negative construction ratio', 'negative construction cumulative ratio', 'positive construction ratio', 'positive construction cumulative ratio'))
 
+motor_data$Production <- paste(motor_data$Role, motor_data$Measure, sep = " ")
 
 motor_data_child <- subset(motor_data, Role == 'Child')
 motor_data_parent <- subset(motor_data, Role == 'Parent')
@@ -2260,43 +2319,45 @@ Table: (\#tab:prohibit) Examples of sentence-level prohibition (negative) and po
 
 ```{r prohibition, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of prohibition at the sentence level for children between 12 to 72 months of age, and their parents.'}
 
-prohibition_data %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid( ~ Role) +
+subset(prohibition_data, Which=='cumulative ratio') %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid( ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
 
+<!--
 ```{r prohibitionbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of prohibition at the sentence level for children between 12 to 24 months of age, and their parents.'}
 
-subset(prohibition_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid( ~ Role) +
-  scale_x_continuous(breaks=seq(0, 24, 1)) +
+subset(prohibition_data, Which=='cumulative ratio' & Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid( ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
+-->
 
 <!--
 ```{r prohibitionul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Prohibition and its positive counterparts, indexed by utterance length.'}
@@ -2305,7 +2366,7 @@ prohibition_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
   facet_grid( ~ Role) +
@@ -2325,7 +2386,7 @@ At the discourse level, we selected *No*-utterances with antecedents that were s
 |Antecedent|Utterance|
 |------------|------------|
 |Parent: *put away your toys*|Child: *no mommy I like these*|
-Table: (\#tab:disprohib) Example antecedents imperatives and discourse level negation in parents' and children's productions 
+Table: (\#tab:disprohib) Example antecedents imperatives and discourse level negation in parents' and children's productions.
 
 ```{r prohibitiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of prohibition at the discourse level for children between 12 to 72 months of age, and their parents.',warning=FALSE}
 
@@ -2333,7 +2394,7 @@ discourse_prohibition_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) + 
   facet_grid( ~ Role) +
@@ -2346,13 +2407,14 @@ discourse_prohibition_data_plot %>%
 
 ```
 
+<!--
 ```{r prohibitiondiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of prohibition at the discourse level for children between 12 to 24 months of age, and their parents.',warning=FALSE}
 
 subset(discourse_prohibition_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) + 
   facet_grid( ~ Role) +
@@ -2364,6 +2426,7 @@ subset(discourse_prohibition_data_plot, Age<=24) %>%
   ylab("production ratio") 
 
 ```
+-->
 
 ### Inability 
 
@@ -2379,44 +2442,45 @@ Figure \@ref(fig:inability) shows ratios and cumulative ratios of parents and ch
 
 ```{r inability, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of inability at the sentence level for children between 12 to 72 months of age, and their parents."}
 
-inability_data %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid( ~ Role) +
+subset(inability_data, Which=='cumulative ratio') %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid( ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
 
-
+<!--
 ```{r inabilitybegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of inability at the sentence level for children between 12 to 24 months of age, and their parents."}
 
-subset(inability_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid( ~ Role) +
-  scale_x_continuous(breaks=seq(0, 24, 1)) +
+subset(inability_data, Which=='cumulative ratio' & Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid( ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
+-->
 
 At the discourse level, we selected utterances with the negative particle *no* in response to antecedents that had a similar structure to the inability construction defined above. This yielded a total of `r format(sum(subset(discourse_inability_data,Which=='ratio')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(discourse_inability_data_child,Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_inability_data_parent,Which=='ratio')$Freq), big.mark=",")`). Figure \@ref(fig:inabilitydiscourse) shows the ratios and the cumulative ratios for parents' and children's production of discourse level inability construction. Considering cumulative ratios, children's productions gradually increase from 24 to 36 months and stabalizes after 36 months at a similar rate to that of parent's. <!-- these plots are really noisy! Maybe we should relax the exclusion criteria? What if we include questions -->
 
@@ -2427,7 +2491,7 @@ inability_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
   facet_grid( ~ Role) +
@@ -2448,7 +2512,7 @@ discourse_inability_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) + 
   facet_grid( ~ Role) +
@@ -2461,15 +2525,14 @@ discourse_inability_data_plot %>%
 
 ```
 
-
-
+<!--
 ```{r inabilitydiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Ratios and cumulative ratios for the production of inability at the discourse level for children between 12 to 24 months of age, and their parents.',warning=FALSE}
 
 subset(discourse_inability_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) + 
   facet_grid( ~ Role) +
@@ -2481,7 +2544,7 @@ subset(discourse_inability_data_plot, Age<=24) %>%
   ylab("production ratio")
 
 ```
-
+-->
 
 ### Labeling
 
@@ -2572,6 +2635,8 @@ parent_learning_pos <- positive_cumulative(parent_learning_pos, parent_descripti
 learning_data <- rbind(child_learning_neg, child_learning_pos, parent_learning_neg, parent_learning_pos)
 
 learning_data$Measure <- factor(learning_data$Measure, levels = c('negative construction ratio', 'negative construction cumulative ratio', 'positive construction ratio', 'positive construction cumulative ratio'))
+
+learning_data$Production <- paste(learning_data$Role, learning_data$Measure, sep = " ")
 
 learning_data_child <- subset(learning_data, Role == 'Child')
 learning_data_parent <- subset(learning_data, Role == 'Parent')
@@ -2764,44 +2829,46 @@ Figure \@ref(fig:learning) shows ratios and cumulative ratios for parent's and c
 
 ```{r learning, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of (negative) labeling at the sentence level for children between 12 to 72 months of age, and their parents."}
 
-learning_data %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid( ~ Role) +
+subset(learning_data, Which=='cumulative ratio') %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid( ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
+
 
 ```
 
-
+<!--
 ```{r learningbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of (negative) labeling at the sentence level for children between 12 to 24 months of age, and their parents."}
 
-subset(learning_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid( ~ Role) +
-  scale_x_continuous(breaks=seq(0, 24, 1)) +
+subset(learning_data, Which=='cumulative ratio' & Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid( ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
+-->
 
 <!--
 ```{r learningul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Labeling and its positive counterparts, indexed by utterance length.'}
@@ -2810,7 +2877,7 @@ learning_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
   facet_grid( ~ Role) +
@@ -2841,7 +2908,7 @@ discourse_learning_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -2854,13 +2921,14 @@ discourse_learning_data_plot %>%
 
 ```
 
+<!--
 ```{r learningdiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of (negative) labeling at the discourse level for children between 12 to 24 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_learning_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -2872,6 +2940,7 @@ subset(discourse_learning_data_plot, Age<=24) %>%
   ylab("production ratio") 
 
 ```
+-->
 
 ### Epistemic Negation
 
@@ -3098,6 +3167,8 @@ parent_think_pos <- positive_cumulative(parent_think_pos, parent_descriptive)
 epistemic_data <- rbind(child_know_neg, child_know_pos, parent_know_neg, parent_know_pos, child_remember_neg, child_remember_pos, parent_remember_neg, parent_remember_pos, child_think_neg, child_think_pos, parent_think_neg, parent_think_pos)
 
 epistemic_data$Measure <- factor(epistemic_data$Measure, levels = c('negative construction ratio', 'negative construction cumulative ratio', 'positive construction ratio', 'positive construction cumulative ratio'))
+
+epistemic_data$Production <- paste(epistemic_data$Role, epistemic_data$Measure, sep = " ")
 
 epistemic_data_child <- subset(epistemic_data, Role == 'Child')
 epistemic_data_parent <- subset(epistemic_data, Role == 'Parent')
@@ -3395,48 +3466,49 @@ Previous studies have reported instances in which children combined negative mor
 |*She doesn't know this*|*She knows about this*|
 Table: (\#tab:epistem) Examples of sentence-level epistemic negation and positive counterparts in children's speech.
 
-Figure \@ref(fig:epistemic) shows log ratios and cumulative ratios of the epistemic construction as defined above in parents' and children's speech at the sentence level. Overall, positive epistemic utterances were more frequent than negative epistemic utterances, with the possible exception of *know* for children. The production of negative utterances headed by *know* was comparatively the highest among children, and became more frequent at an earlier age (17-18 months) compared to that of *remember* (~19 months) or *think* (~20 months). Across the three head verbs, children's productions with *know* and *remember* gradually approaches that of parents' around 30 - 36 months, whereas cases with the head verb *think* tend to be produced less frequently by children.
+Figure \@ref(fig:epistemic) shows log ratios and cumulative ratios of the epistemic construction as defined above in parents' and children's speech at the sentence level. Overall, positive epistemic utterances were more frequent than negative epistemic utterances, with the possible exception of *know* for children. The production of negative utterances headed by *know* was comparatively the highest among children (where around 92.50% of the utterances contain the phrase "don't know"), and became more frequent at an earlier age (17-18 months; during this period about 71.42% of the utterances have the phrase "don't know") compared to that of *remember* (~19 months) or *think* (~20 months). Across the three head verbs, children's productions with *know* and *remember* gradually approaches that of parents' around 30 - 36 months, whereas cases with the head verb *think* tend to be produced less frequently by children.
 
 ```{r epistemic, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=7, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of epistemic negation at the sentence level for children between 12 to 72 months of age, and their parents."}
 
-epistemic_data %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid(Head ~ Role) +
+subset(epistemic_data, Which=='cumulative ratio') %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid(Head ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
 
-
+<!--
 ```{r epistemicbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=7, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of epistemic negation at the sentence level for children between 12 to 24 months of age, and their parents."}
 
-subset(epistemic_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid(Head ~ Role) +
-  scale_x_continuous(breaks=seq(0, 24, 1)) +
+subset(epistemic_data, Which=='cumulative ratio' & Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid(Head ~ Polarity, scales = "free_y") +
+  scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
+-->
 
 <!--
 ```{r epistemicul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=7, set.cap.width=T, num.cols.cap=1, fig.cap='Epistemic negation and its positive counterparts, indexed by utterance length.'}
@@ -3445,7 +3517,7 @@ epistemic_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
   facet_grid(Head ~ Role) +
@@ -3476,7 +3548,7 @@ discourse_epistemic_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -3489,14 +3561,14 @@ discourse_epistemic_data_plot %>%
 
 ```
 
-
+<!--
 ```{r epistemicdiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of epistemic negation at the discourse level for children between 12 to 24 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_epistemic_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(16, 3)) +
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -3508,7 +3580,7 @@ subset(discourse_epistemic_data_plot, Age<=24) %>%
   ylab("production ratio") 
 
 ```
-
+-->
 
 ### Possession
 
@@ -3526,44 +3598,45 @@ Figure \@ref(fig:possession) shows log ratios and cumulative ratios of the negat
 
 ```{r possession, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of possession at the sentence level for children between 12 to 72 months of age, and their parents."}
 
-possession_data %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid(Head ~ Role) +
+subset(possession_data, Which=='cumulative ratio') %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid(Head ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
 
-
+<!--
 ```{r possessionbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of possession at the sentence level for children between 12 to 24 months of age, and their parents."}
 
-subset(possession_data, Age<=24) %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
-  geom_line(aes(linetype=Measure), alpha = 1) +
-  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
-  scale_shape_manual(values = c(3, 16, 3, 16)) +
-  scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
-  facet_grid(Head ~ Role) +
+subset(possession_data, Which=='cumulative ratio' & Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  geom_line(aes(linetype=Production), alpha = 1) +
+#  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
+  geom_point(aes(color = Production, shape = Production), size = 1.5) +
+#  scale_shape_manual(values = c(3, 16, 3, 16)) +
+  scale_color_manual(values = c("darkred", "darkgreen", "steelblue",  "mediumpurple4")) +
+  facet_grid(Head ~ Polarity, scales = "free_y") +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
   ylab("production ratio") + 
-  guides(linetype = guide_legend(nrow = 2))
+  guides(color = guide_legend(nrow = 2))
 
 ```
+-->
 
 <!--
 ```{r possessionul, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Possession and its positive counterparts, indexed by utterance length.'}
@@ -3572,7 +3645,7 @@ possession_ul_data %>%
   ggplot(aes(as.numeric(as.character(Sent_len)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16, 3, 16)) +
   scale_color_manual(values = c("darkgrey", "steelblue", "bisque2", "mediumpurple4")) +
   facet_grid(Head ~ Role) +
@@ -3603,7 +3676,7 @@ discourse_possession_data_plot %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16)) +
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -3616,13 +3689,14 @@ discourse_possession_data_plot %>%
 
 ```
 
+<!--
 ```{r possessiondiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Ratios and cumulative ratios for the production of possession at the discourse level for children between 12 to 24 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_possession_data_plot, Age<=24) %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Measure, color = Measure)) +
   geom_line(aes(linetype=Measure), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
-  geom_point(aes(color = Measure, shape = Measure), size = 1) +
+  geom_point(aes(color = Measure, shape = Measure), size = 1.5) +
   scale_shape_manual(values = c(3, 16)) +
   scale_color_manual(values = c("darkgreen", "grey")) +
   facet_grid( ~ Role) +
@@ -3634,6 +3708,7 @@ subset(discourse_possession_data_plot, Age<=24) %>%
   ylab("production ratio") 
 
 ```
+-->
 
 ### Discussion 
 
@@ -3706,9 +3781,27 @@ neg_together_final %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
   geom_line(aes(linetype=Function), alpha = 1) +
   scale_color_brewer(palette = "Dark2") +
-  geom_point(aes(color = Function, shape = Function), size = 1) +
-  facet_grid( ~ Role) +
+  geom_point(aes(color = Function, shape = Function), size = 1.5) +
+  facet_wrap( ~ Role, scales = 'free_y') +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
+  theme_classic() + 
+  theme(text = element_text(size=12, family="Times")) + 
+  theme(legend.position="top") +
+  xlab("child age (months)") + 
+  ylab("production ratio") + 
+  guides(linetype = guide_legend(nrow = 2)) 
+
+```
+
+```{r allnegbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Log cumulative ratios for all negative constructions at the syntactic level for children between 12 to 24 months of age, and their parents.', warning=FALSE}
+
+subset(neg_together_final, Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
+  geom_line(aes(linetype=Function), alpha = 1) +
+  scale_color_brewer(palette = "Dark2") +
+  geom_point(aes(color = Function, shape = Function), size = 1.5) +
+  facet_wrap( ~ Role, scales = 'free_y') +
+  scale_x_continuous(breaks=seq(0, 24, 1)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
@@ -3722,14 +3815,32 @@ Figure \@ref(fig:allpos) shows the log cumulative ratios of all positive counter
 
 ```{r allpos, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Log cumulative ratios for the positive counpterparts to all negative constructions at the syntactic level.', warning=FALSE}
 
-
 pos_together_final %>% 
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
   geom_line(aes(linetype=Function), alpha = 1) +
   scale_color_brewer(palette = "Dark2") +
-  geom_point(aes(color = Function, shape = Function), size = 1) +
-  facet_grid( ~ Role) +
+  geom_point(aes(color = Function, shape = Function), size = 1.5) +
+  facet_wrap( ~ Role, scales = 'free_y') +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
+  theme_classic() + 
+  theme(text = element_text(size=12, family="Times")) + 
+  theme(legend.position="top") +
+  xlab("child age (months)") + 
+  ylab("production ratio") + 
+  guides(linetype = guide_legend(nrow = 2)) 
+
+```
+
+
+```{r allposbegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Log cumulative ratios for the positive counpterparts to all negative constructions at the syntactic level for children between 12 to 24 months of age, and their parents..', warning=FALSE}
+
+subset(pos_together_final, Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
+  geom_line(aes(linetype=Function), alpha = 1) +
+  scale_color_brewer(palette = "Dark2") +
+  geom_point(aes(color = Function, shape = Function), size = 1.5) +
+  facet_wrap( ~ Role, scales = 'free_y') +
+  scale_x_continuous(breaks=seq(0, 24, 1)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
@@ -3742,7 +3853,7 @@ pos_together_final %>%
 ```{r alldiscoursedata, include=FALSE}
 
 discourse_all <- rbind(discourse_emotion_data, discourse_epistemic_data, discourse_prohibition_data, discourse_inability_data, discourse_learning_data, discourse_existence_data, discourse_possession_data)
-discourse_together <- subset(discourse_all, Which == 'cumulative ratio')
+discourse_together <- subset(discourse_all, Which == 'cumulative ratio'&Polarity=='negative')
 discourse_child_all <- subset(discourse_together, Role %in% c('Target_Child', 'Child'))
 discourse_parent_all <- subset(discourse_together, Role %in% c('Parent'))
 
@@ -3781,9 +3892,27 @@ discourse_together_final %>%
   ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
   geom_line(aes(linetype=Function), alpha = 1) +
   scale_color_brewer(palette = "Dark2") +
-  geom_point(aes(color = Function, shape = Function), size = 1) +
-  facet_grid( ~ Role) +
+  geom_point(aes(color = Function, shape = Function), size = 1.5) +
+  facet_wrap( ~ Role, scales = 'free_y') +
   scale_x_continuous(breaks=seq(0, 72, 6)) +
+  theme_classic() + 
+  theme(text = element_text(size=12, family="Times")) + 
+  theme(legend.position="top") +
+  xlab("child age (months)") + 
+  ylab("production ratio") + 
+  guides(linetype = guide_legend(nrow = 2)) 
+
+```
+
+```{r alldiscoursebegin, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap='Cumulative ratios for all negative constructions at the discourse level for children between 12 to 24 months of age, and their parents.', warning=FALSE}
+
+subset(discourse_together_final, Age<=24) %>% 
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
+  geom_line(aes(linetype=Function), alpha = 1) +
+  scale_color_brewer(palette = "Dark2") +
+  geom_point(aes(color = Function, shape = Function), size = 1.5) +
+  facet_grid( ~ Role) +
+  scale_x_continuous(breaks=seq(0, 24, 1)) +
   theme_classic() + 
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +

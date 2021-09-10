@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 SEP 2021 14:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  9 SEP 2021 19:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -921,230 +921,230 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [12]
 
-Package hyperref Warning: Suppressing empty link on input line 318.
+Package hyperref Warning: Suppressing empty link on input line 324.
 
-[13]
+[13] [14]
 \openout3 = `neg_construction_article.ttt'.
 
-(neg_construction_article.ttt) [14]
+(neg_construction_article.ttt)
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 354.
+(Font)              <10> on input line 362.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 354.
+(Font)              <7> on input line 362.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 354.
-[15] [16] [17] [18]
-<neg_construction_article_files/figure-latex/emotion-1.pdf, id=122, 505.89pt x 
+(Font)              <5> on input line 362.
+[15] [16] [17] [18] [19]
+<neg_construction_article_files/figure-latex/emotion-1.pdf, id=127, 505.89pt x 
 269.005pt>
 File: neg_construction_article_files/figure-latex/emotion-1.pdf Graphic file (t
 ype pdf)
 <use neg_construction_article_files/figure-latex/emotion-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/emotion-1.
-pdf  used on input line 418.
+pdf  used on input line 434.
 (pdftex.def)             Requested size: 469.76265pt x 249.79442pt.
-[19 <./neg_construction_article_files/figure-latex/emotion-1.pdf>] [20]
-<neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf, id=146, 50
+[20 <./neg_construction_article_files/figure-latex/emotion-1.pdf>]
+<neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf, id=143, 50
 0.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf Graphi
 c file (type pdf)
 <use neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/emotiondis
-course-1.pdf  used on input line 448.
+course-1.pdf  used on input line 464.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
-[21 <./neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/existence-1.pdf, id=163, 505.89pt 
+[21]
+Underfull \vbox (badness 1629) has occurred while \output is active []
+
+[22 <./neg_construction_article_files/figure-latex/emotiondiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/existence-1.pdf, id=167, 505.89pt 
 x 196.735pt>
 File: neg_construction_article_files/figure-latex/existence-1.pdf Graphic file 
 (type pdf)
 <use neg_construction_article_files/figure-latex/existence-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/existence-
-1.pdf  used on input line 479.
+1.pdf  used on input line 495.
 (pdftex.def)             Requested size: 469.76265pt x 182.68546pt.
-
-LaTeX Warning: Reference `fig:exstencediscourse' on page 22 undefined on input 
-line 486.
-
-[22 <./neg_construction_article_files/figure-latex/existence-1.pdf>]
-<neg_construction_article_files/figure-latex/existencediscourse-1.pdf, id=177, 
+[23 <./neg_construction_article_files/figure-latex/existence-1.pdf>]
+<neg_construction_article_files/figure-latex/existencediscourse-1.pdf, id=184, 
 500.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/existencediscourse-1.pdf Grap
 hic file (type pdf)
 <use neg_construction_article_files/figure-latex/existencediscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/existenced
-iscourse-1.pdf  used on input line 505.
+iscourse-1.pdf  used on input line 521.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
-[23 <./neg_construction_article_files/figure-latex/existencediscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/prohibition-1.pdf, id=193, 505.89p
+[24 <./neg_construction_article_files/figure-latex/existencediscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/prohibition-1.pdf, id=199, 505.89p
 t x 196.735pt>
 File: neg_construction_article_files/figure-latex/prohibition-1.pdf Graphic fil
 e (type pdf)
 <use neg_construction_article_files/figure-latex/prohibition-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/prohibitio
-n-1.pdf  used on input line 536.
+n-1.pdf  used on input line 552.
 (pdftex.def)             Requested size: 469.76265pt x 182.68546pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[24]
-<neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf, id=202
+[25]
+<neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf, id=208
 , 500.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf Gr
 aphic file (type pdf)
 <use neg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/prohibitio
-ndiscourse-1.pdf  used on input line 561.
+ndiscourse-1.pdf  used on input line 577.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[25 <./neg_construction_article_files/figure-latex/prohibition-1.pdf>] [26 <./n
+[26 <./neg_construction_article_files/figure-latex/prohibition-1.pdf>] [27 <./n
 eg_construction_article_files/figure-latex/prohibitiondiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/inability-1.pdf, id=233, 505.89pt 
+<neg_construction_article_files/figure-latex/inability-1.pdf, id=238, 505.89pt 
 x 196.735pt>
 File: neg_construction_article_files/figure-latex/inability-1.pdf Graphic file 
 (type pdf)
 <use neg_construction_article_files/figure-latex/inability-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/inability-
-1.pdf  used on input line 592.
+1.pdf  used on input line 608.
 (pdftex.def)             Requested size: 469.76265pt x 182.68546pt.
-[27 <./neg_construction_article_files/figure-latex/inability-1.pdf>]
-<neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf, id=248, 
+[28 <./neg_construction_article_files/figure-latex/inability-1.pdf>]
+<neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf, id=253, 
 500.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf Grap
 hic file (type pdf)
 <use neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/inabilityd
-iscourse-1.pdf  used on input line 603.
+iscourse-1.pdf  used on input line 619.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
-[28 <./neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/learning-1.pdf, id=264, 505.89pt x
+[29 <./neg_construction_article_files/figure-latex/inabilitydiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/learning-1.pdf, id=269, 505.89pt x
  196.735pt>
 File: neg_construction_article_files/figure-latex/learning-1.pdf Graphic file (
 type pdf)
 <use neg_construction_article_files/figure-latex/learning-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/learning-1
-.pdf  used on input line 636.
+.pdf  used on input line 652.
 (pdftex.def)             Requested size: 469.76265pt x 182.68546pt.
-[29 <./neg_construction_article_files/figure-latex/learning-1.pdf>]
-<neg_construction_article_files/figure-latex/learningdiscourse-1.pdf, id=281, 5
+[30 <./neg_construction_article_files/figure-latex/learning-1.pdf>]
+<neg_construction_article_files/figure-latex/learningdiscourse-1.pdf, id=285, 5
 00.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/learningdiscourse-1.pdf Graph
 ic file (type pdf)
 <use neg_construction_article_files/figure-latex/learningdiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/learningdi
-scourse-1.pdf  used on input line 664.
+scourse-1.pdf  used on input line 680.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
-[30 <./neg_construction_article_files/figure-latex/learningdiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/epistemic-1.pdf, id=298, 500.87125
+[31 <./neg_construction_article_files/figure-latex/learningdiscourse-1.pdf>] [3
+2]
+<neg_construction_article_files/figure-latex/epistemic-1.pdf, id=311, 500.87125
 pt x 485.815pt>
 File: neg_construction_article_files/figure-latex/epistemic-1.pdf Graphic file 
 (type pdf)
 <use neg_construction_article_files/figure-latex/epistemic-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/epistemic-
-1.pdf  used on input line 697.
+1.pdf  used on input line 713.
 (pdftex.def)             Requested size: 469.77962pt x 455.658pt.
-[31]
-Underfull \vbox (badness 1496) has occurred while \output is active []
-
-[32 <./neg_construction_article_files/figure-latex/epistemic-1.pdf>]
-<neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf, id=320, 
+[33 <./neg_construction_article_files/figure-latex/epistemic-1.pdf>]
+<neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf, id=324, 
 500.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf Grap
 hic file (type pdf)
 <use neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/epistemicd
-iscourse-1.pdf  used on input line 725.
+iscourse-1.pdf  used on input line 741.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
-[33 <./neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/possession-1.pdf, id=337, 500.8712
-5pt x 341.275pt>
+[34 <./neg_construction_article_files/figure-latex/epistemicdiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/possession-1.pdf, id=341, 505.89pt
+ x 341.275pt>
 File: neg_construction_article_files/figure-latex/possession-1.pdf Graphic file
  (type pdf)
 <use neg_construction_article_files/figure-latex/possession-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/possession
--1.pdf  used on input line 758.
-(pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
+-1.pdf  used on input line 774.
+(pdftex.def)             Requested size: 469.76265pt x 316.90337pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[34] [35 <./neg_construction_article_files/figure-latex/possession-1.pdf>]
-<neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf, id=358,
+[35] [36 <./neg_construction_article_files/figure-latex/possession-1.pdf>]
+<neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf, id=363,
  500.87125pt x 197.73875pt>
 File: neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf Gra
 phic file (type pdf)
 <use neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/possession
-discourse-1.pdf  used on input line 786.
+discourse-1.pdf  used on input line 802.
 (pdftex.def)             Requested size: 469.77962pt x 185.4641pt.
-[36 <./neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf>]
-<neg_construction_article_files/figure-latex/allneg-1.pdf, id=374, 500.87125pt 
+
+LaTeX Warning: Reference `allnegbegin' on page 37 undefined on input line 812.
+
+[37 <./neg_construction_article_files/figure-latex/possessiondiscourse-1.pdf>]
+<neg_construction_article_files/figure-latex/allneg-1.pdf, id=380, 500.87125pt 
 x 341.275pt>
 File: neg_construction_article_files/figure-latex/allneg-1.pdf Graphic file (ty
 pe pdf)
 <use neg_construction_article_files/figure-latex/allneg-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/allneg-1.p
-df  used on input line 800.
+df  used on input line 816.
 (pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[37]
-<neg_construction_article_files/figure-latex/allnegbegin-1.pdf, id=380, 500.871
+[38]
+<neg_construction_article_files/figure-latex/allnegbegin-1.pdf, id=385, 500.871
 25pt x 341.275pt>
 File: neg_construction_article_files/figure-latex/allnegbegin-1.pdf Graphic fil
 e (type pdf)
 <use neg_construction_article_files/figure-latex/allnegbegin-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/allnegbegi
-n-1.pdf  used on input line 809.
+n-1.pdf  used on input line 825.
 (pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[38 <./neg_construction_article_files/figure-latex/allneg-1.pdf>] [39 <./neg_co
+[39 <./neg_construction_article_files/figure-latex/allneg-1.pdf>] [40 <./neg_co
 nstruction_article_files/figure-latex/allnegbegin-1.pdf>]
-<neg_construction_article_files/figure-latex/allpos-1.pdf, id=407, 500.87125pt 
+<neg_construction_article_files/figure-latex/allpos-1.pdf, id=412, 500.87125pt 
 x 341.275pt>
 File: neg_construction_article_files/figure-latex/allpos-1.pdf Graphic file (ty
 pe pdf)
 <use neg_construction_article_files/figure-latex/allpos-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/allpos-1.p
-df  used on input line 820.
+df  used on input line 836.
 (pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
-<neg_construction_article_files/figure-latex/allposbegin-1.pdf, id=408, 500.871
+<neg_construction_article_files/figure-latex/allposbegin-1.pdf, id=413, 500.871
 25pt x 341.275pt>
 File: neg_construction_article_files/figure-latex/allposbegin-1.pdf Graphic fil
 e (type pdf)
 <use neg_construction_article_files/figure-latex/allposbegin-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/allposbegi
-n-1.pdf  used on input line 829.
+n-1.pdf  used on input line 845.
 (pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[40 <./neg_construction_article_files/figure-latex/allpos-1.pdf>] [41 <./neg_co
+[41 <./neg_construction_article_files/figure-latex/allpos-1.pdf>] [42 <./neg_co
 nstruction_article_files/figure-latex/allposbegin-1.pdf>]
-<neg_construction_article_files/figure-latex/alldiscourse-1.pdf, id=435, 500.87
+<neg_construction_article_files/figure-latex/alldiscourse-1.pdf, id=440, 500.87
 125pt x 341.275pt>
 File: neg_construction_article_files/figure-latex/alldiscourse-1.pdf Graphic fi
 le (type pdf)
 <use neg_construction_article_files/figure-latex/alldiscourse-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/alldiscour
-se-1.pdf  used on input line 840.
+se-1.pdf  used on input line 856.
 (pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
-<neg_construction_article_files/figure-latex/alldiscoursebegin-1.pdf, id=436, 5
+<neg_construction_article_files/figure-latex/alldiscoursebegin-1.pdf, id=441, 5
 00.87125pt x 341.275pt>
 File: neg_construction_article_files/figure-latex/alldiscoursebegin-1.pdf Graph
 ic file (type pdf)
 <use neg_construction_article_files/figure-latex/alldiscoursebegin-1.pdf>
 Package pdftex.def Info: neg_construction_article_files/figure-latex/alldiscour
-sebegin-1.pdf  used on input line 849.
+sebegin-1.pdf  used on input line 865.
 (pdftex.def)             Requested size: 469.77962pt x 320.09032pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[42 <./neg_construction_article_files/figure-latex/alldiscourse-1.pdf>] [43 <./
-neg_construction_article_files/figure-latex/alldiscoursebegin-1.pdf>] [44] [45]
-[46] AED endfloat: Processing end Figures and Tables [47] (./neg_construction_a
+[43 <./neg_construction_article_files/figure-latex/alldiscourse-1.pdf>] [44 <./
+neg_construction_article_files/figure-latex/alldiscoursebegin-1.pdf>] [45] [46]
+[47] AED endfloat: Processing end Figures and Tables [48] (./neg_construction_a
 rticle.ttt
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 4.
@@ -1154,15 +1154,15 @@ Overfull \hbox (53.60228pt too wide) in paragraph at lines 4--17
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 932.
-[48
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 948.
+[49
 
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 932.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 948.
 (./neg_construction_article.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 932.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 932.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 948.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 948.
 
 LaTeX Warning: There were undefined references.
 
@@ -1171,13 +1171,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17070 strings out of 492649
- 256628 string characters out of 6129622
- 387550 words of memory out of 5000000
+ 17069 strings out of 492649
+ 256599 string characters out of 6129622
+ 387539 words of memory out of 5000000
  20367 multiletter control sequences out of 15000+600000
- 100241 words of font info for 147 fonts, out of 8000000 for 9000
+ 100066 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,11n,47p,2263b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,11n,47p,2263b,549s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2018/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2018/t
 exmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2018/texmf-dist/
@@ -1194,10 +1194,10 @@ fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/loc
 al/texlive/2018/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2018/texmf-
 dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on neg_construction_article.pdf (48 pages, 649301 bytes).
+Output written on neg_construction_article.pdf (49 pages, 615068 bytes).
 PDF statistics:
- 632 PDF objects out of 1000 (max. 8388607)
- 503 compressed objects within 6 object streams
- 137 named destinations out of 1000 (max. 500000)
+ 638 PDF objects out of 1000 (max. 8388607)
+ 508 compressed objects within 6 object streams
+ 138 named destinations out of 1000 (max. 500000)
  14557 words of extra memory for PDF output out of 17280 (max. 10000000)
 

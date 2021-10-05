@@ -1,18 +1,18 @@
 \begin{table*}[h]
 \small
 \centering
-\begin{tabular}{rrrr}
-  \hline
- \textbf{Function} & \textbf{Negative morpheme combines with} & \textbf{Negative Examples} & \textbf{Positive Counterpars} \\
-  \hline
-Rejection & \textit{like}/\textit{want} & \textit{I not like it}; \textit{not want it}  & \textit{I like that}; \textit{You want this} \\
-Non-existence & \textit{there|-expletive & \textit{there is no soup} & \textit{there are books} \\
-Prohibition & imperative subjectless \textit{do} & \textit{do not spill milk} & \textit{eat it} \\
-Inability & \textit{can} & \textit{I cannot zip it} & \textit{She can try} \\
-Labeling & NP/ADJ predicates & \textit{that's not a crocodile}; \textit{it's no interesting} & \textit{that's a table}; \textit{it's cool} \\
-Epistemic & \textit{know}/\textit{think}/\textit{remember}  & \textit{I not know/think/remember} & \textit{He knows/thinks/remembers that} \\
-Possession & \textit{have}/possesive pronouns & \textit{not have the toy}; \textit{not mine} & \textit{have the water}; \textit{theirs} \\
-   \hline
+\begin{tabular}{rrr}
+\hline
+\textbf{Function} & \textbf{Negative morpheme combines with} & \textbf{Negative Examples} \\
+\hline
+Rejection & *like*/*want* & *I not like it*; *not want it* \\
+Non-existence & *there*-expletive & *there is no soup*  \\
+Prohibition & imperative subjectless *do* & *do not spill milk* \\
+Inability & *can* & *I cannot zip it*  \\
+Labeling (Denial) & nominal/adjectival predicates & *that's not a crocodile*; *it's no interesting  \\
+Epistemic & *know*/*think*/*remember*  & *I not know/think/remember*  \\
+Possession & *have*/possesive pronouns & *not have the toy*; *not mine*  \\
+\hline
 \end{tabular}
 \caption{English negative communicative functions and constructions used in this study.}
 \end{table*}

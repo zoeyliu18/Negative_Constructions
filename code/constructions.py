@@ -383,7 +383,13 @@ def context(index, all_sentences):
 	current = all_sentences[index]
 	previous = ''
 
-	if current[0][1] in ['no', 'not', "n't"] and current[0][7] == 'discourse':
+	current_saying = []
+	for tok in current:
+		current_saying.append(tok[1].lower())
+
+	current_saying = list(set(current_saying))
+
+	if (current[0][1] in ['no', 'not', "n't"] and current[0][7] == 'discourse') or (len(current_saying) == 1 and current_saying[0] == 'no'):
 		child_info = current[0][-1].split()
 		target_child_name = child_info[0]
 		target_child_id = child_info[-2]
@@ -875,7 +881,7 @@ def learning(index, sent, corpus_name, level, data):
 				pred_stem = ''
 				pred_pos = ''
 
-				if head != '' and head[3] in ['NOUN', 'PROPN', 'PRON', 'ADJ'] and head[1] not in POSS:
+				if head != '' and head[3] in ['NOUN', 'PROPN', 'PRON', 'ADJ'] and head[1] not in POSS: #### POS tags excluded cases such as "That's not mine"
 					pred = head[1]
 					pred_stem = head[2]
 					pred_pos = head[3]

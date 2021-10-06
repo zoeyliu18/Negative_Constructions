@@ -893,7 +893,7 @@ def learning(index, sent, corpus_name, level, data):
 				for d in d_list:
 
 					if d[7] == 'expl' and d[1] == 'there':
-						expletive = d					
+						expletive = d
 
 				head_d = dependents(head[0], sent)
 
@@ -901,12 +901,17 @@ def learning(index, sent, corpus_name, level, data):
 				subj_stem = 'NONE'
 				subj_idx = ''
 
+				possessive = ''
+
 				for d in head_d:
 
 					if d[7] == 'nsubj':
 						subj_idx = d[0]
 						subj = d[1]
 						subj_stem = d[2]
+
+					if d[7] == 'nmod:poss':
+						possessive = d
 
 				if neg == '' and subj_idx != '':
 					neg = has_neg(head[0], sent)
@@ -916,7 +921,7 @@ def learning(index, sent, corpus_name, level, data):
 					else: 
 						neg = ''
 
-				if pred != '' and expletive == '':
+				if pred != '' and expletive == '' and possessive == '':
 
 					if neg != '':
 						info = ['learning', function, head[2], neg[1], pred_pos, pred_stem, subj, subj_stem, speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
@@ -968,12 +973,17 @@ def learning(index, sent, corpus_name, level, data):
 					subj_stem = 'NONE'
 					subj_idx = ''
 
+					possessive = ''
+
 					for d in head_d:
 
 						if d[7] == 'nsubj':
 							subj_idx = d[0]
 							subj = d[1]
 							subj_stem = d[2]
+
+						if d[7] == 'nmod:poss':
+							possessive = d
 
 					if neg == '' and subj_idx != '':
 						neg = has_neg(head[0], previous)
@@ -983,7 +993,7 @@ def learning(index, sent, corpus_name, level, data):
 						else: 
 							neg = ''
 
-					if pred != '' and expletive == '':
+					if pred != '' and expletive == '' and possessive == '':
 
 						if neg != '':
 							info = ['learning', function, head[2], neg[1], pred_pos, pred_stem, subj, subj_stem, age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
@@ -1092,6 +1102,32 @@ def perception(index, sent, corpus_name, level, data):
 				if info != '':
 					return info
 
+			### my book ###
+
+			if tok[1] not in POSS and tok[7] == 'root':
+
+				info = ''
+
+				function = 'possession'
+
+				neg = has_neg(tok[0], sent)
+
+				possessive = ''
+
+				d_list = dependents(tok[0], sent)
+
+				for d in d_list:
+					if d[7] == 'nmod:poss':
+						possessive = d
+
+				if len(neg) != 0:
+					info = ['perception', function, tok[1], neg[-1][1], '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
+				else:
+					info = ['perception', function, tok[1], '', '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive', 'sentential']
+
+				if info != '':
+					return info
+
 			### mine ###
 			
 			if tok[1] in POSS and tok[7] == 'root':
@@ -1106,8 +1142,7 @@ def perception(index, sent, corpus_name, level, data):
 
 				d_list = dependents(tok[0], sent)
 
-				for d in d_list:
-							
+				for d in d_list:							
 					if d[7] == 'cop':
 						cop = d
 
@@ -1121,7 +1156,6 @@ def perception(index, sent, corpus_name, level, data):
 				except:
 					pre = ''
 
-			#	if cop == '' and pre == '':
 				if len(neg) != 0:
 					info = ['perception', function, tok[1], neg[-1][1], '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
 				else:
@@ -1243,6 +1277,32 @@ def perception(index, sent, corpus_name, level, data):
 					if info != '':
 						return info
 
+				### my book ###
+
+				if tok[1] not in POSS and tok[7] == 'root':
+
+					info = ''
+
+					function = 'possession'
+
+					neg = has_neg(tok[0], previous)
+
+					possessive = ''
+
+					d_list = dependents(tok[0], previous)
+
+					for d in d_list:
+						if d[7] == 'nmod:poss':
+							possessive = d
+
+					if len(neg) != 0:
+						info = ['perception', function, tok[1], neg[-1][1], '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'negative', 'sentential']
+					else:
+						info = ['perception', function, tok[1], '', '', '', '', '', speaker_role, saying, age, len(sent), sent_type, corpus_name + ' ' + child_name, 'positive', 'sentential']
+
+					if info != '':
+						return info
+
 				### mine ###
 			
 				if tok[1] in POSS and tok[7] == 'root':
@@ -1271,8 +1331,6 @@ def perception(index, sent, corpus_name, level, data):
 
 					except:
 						pre = ''
-
-				#	if cop == '' and  pre == '':
 
 					if len(neg) != 0:
 						info = ['perception', function, tok[2], neg[-1][1], '', '', '', '', age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']

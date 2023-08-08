@@ -3,19 +3,21 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  english,
   man,floatsintext]{apa6}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -34,16 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={The Development of English Negative Constructions and Communicative Functions in Early Child Language},
-  pdfauthor={Zoey Liu1 \& Masoud Jasbi2},
-  pdflang={en-EN},
-  pdfkeywords={negation; syntactic construction; communicative function; data-driven; child language development.},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -80,6 +72,38 @@
   \let\oldsubparagraph\subparagraph
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
 % Manuscript styling
 \usepackage{upgreek}
 \captionsetup{font=singlespacing,justification=justified}
@@ -110,6 +134,20 @@
 % \setlength{\parindent}{0.5in}
 % \setlength{\parskip}{0pt plus 0pt minus 0pt}
 
+% Overwrite redefinition of paragraph and subparagraph by the default LaTeX template
+% See https://github.com/crsh/papaja/issues/292
+\makeatletter
+\renewcommand{\paragraph}{\@startsection{paragraph}{4}{\parindent}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries\itshape\typesectitle}}
+
+\renewcommand{\subparagraph}[1]{\@startsection{subparagraph}{5}{1em}%
+  {0\baselineskip \@plus 0.2ex \@minus 0.2ex}%
+  {-\z@\relax}%
+  {\normalfont\normalsize\itshape\hspace{\parindent}{#1}\textit{\addperi}}{\relax}}
+\makeatother
+
 % \usepackage{etoolbox}
 \makeatletter
 \patchcmd{\HyOrg@maketitle}
@@ -121,51 +159,41 @@
   {\section*{\protect\normalfont{\@title}}}
   {}{\typeout{Failed to patch title.}}
 \makeatother
-\shorttitle{Children's Negative Constructions and Communicative Functions}
+
+\usepackage{xpatch}
+\makeatletter
+\xapptocmd\appendix
+  {\xapptocmd\section
+    {\addcontentsline{toc}{section}{\appendixname\ifoneappendix\else~\theappendix\fi\\: #1}}
+    {}{\InnerPatchFailed}%
+  }
+{}{\PatchFailed}
 \keywords{negation; syntactic construction; communicative function; data-driven; child language development.
 \newline\indent Word count: X}
 \usepackage{lineno}
 
 \linenumbers
 \usepackage{csquotes}
-\ifxetex
-  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-\else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
-\fi
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={The Development of English Negative Constructions and Communicative Functions in Early Child Language},
+  pdfauthor={Zoey Liu1 \& Masoud Jasbi2},
+  pdflang={en-EN},
+  pdfkeywords={negation; syntactic construction; communicative function; data-driven; child language development.},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{The Development of English Negative Constructions and Communicative Functions in Early Child Language}
 \author{Zoey Liu\textsuperscript{1} \& Masoud Jasbi\textsuperscript{2}}
 \date{}
 
+
+\shorttitle{Children's Negative Constructions and Communicative Functions}
 
 \authornote{
 
@@ -179,8 +207,8 @@ Correspondence concerning this article should be addressed to Zoey Liu, . E-mail
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} Boston College\\\textsuperscript{2} Uinversity of California, Davis}
 
-\abstract{
-How does the abstract concept of linguistic negation develop in early child language? Prior research has suggested that the concept of negation develops from more concrete communicative functions such as rejection, prohibition, or non-existence, with each function emerging in different stages. The evidence for the emergence of these functions in separate stages is mixed, however, leaving the possibility that negation is an abstract concept that can serve multiple specific functions since the beginning, and that the development of the different functions start more or less simutanouesly depending on early communicative environment. Leveraging automatic annotations of large-scale child speech corpora in English, we examine the production trajectores of seven negative constructions that tend to convey communicative functions previously discussed in the literature. The results demonstrate the emergence and gradual increase of these constructions in child speech within the age range of 18-36 months at both sentence and discourse level. Production mostly becomes stable, regular, and comparable to parents' levels after this age range. These findings suggest that different communicative functions of negation share comparable production trajectory and do not clearly follow a fixed developmental order. Alternatively, it is possible that these functions emerge so early and quickly that even though they might develop in different stages, it is not detectable from the available corpus data.
+\abstract{%
+How does linguistic negation develop in early child language? Prior research has suggested that abstract and context-general negation develops from more concrete and context-specific communicative functions such as rejection, prohibition, or non-existence in fixed and ordered stages. The evidence for the emergence of these functions in stages is mixed, however, leaving the possibility that negation starts as an abstract concept that can serve multiple specific functions from the beginning, and that the development of the different functions start more or less simutanouesly depending on the early communicative environment. Leveraging automatic annotations of large-scale child speech corpora in English and growth-curve modeling, we examine children's production of seven negative constructions that tend to convey communicative functions previously discussed in the literature. We also investigate children's discourse-level negative responses (saying \emph{no}) to parents' utterances with the same constructions as a proxy for childrne's comprehension. We do not find strong evidence for a fixed and ordred stage-hypothesis of negation development. Instead, the results of our growth-curve modeling suggest that for both measures of comprehension and production, children's ability to negate different constructions emerges around 18-22 months of age. Our results complement and confirm recent findings in experiental studies on children's comprehension of negation.
 }
 
 
@@ -191,73 +219,93 @@ How does the abstract concept of linguistic negation develop in early child lang
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Negation is a basic human concept and foundational to many areas of human thought including logic and mathematics (Haspelmath, 1997; Jespersen, 1917). An important feature of linguistic negation is that it has an abstract meaning and serves different communicative functions in different contexts. In English, for example, a coffee shop can use \emph{not} to divide the menu into ``coffee'' and ``not coffee'' sections, with ``not coffee'' bringing together diverse items such as tea and hot chocolate. The coffee shop can use \emph{no} in a sign like ``no mask, no entry'' to regulate customer behavior, and an employee could say ``I don't like Mondays'' to express their dislike for coming back to work on Mondays. Despite its abstract meaning, a word like \emph{no} is among the early words produced by children. Therefore, a fundamental question in cognitive development and language acquisition is how negation emerges and develops in the human mind. Is early development of negation in child language specific to a few communicative functions? Or does negation emerge as an abstract and multi-functional concept from the beginning?
+Negation is a basic human concept and foundational to many areas of human thought including logic and mathematics. It is also present in all attested human languages (Horn, 1989; Jespersen, 1917). An important feature of linguistic negation is that it has an abstract meaning and serves different communicative functions in different contexts. In English, for example, a coffee shop can use \emph{not} to divide the menu into ``coffee'' and ``not coffee'' sections, with ``not coffee'' forming a category with diverse items such as tea and hot chocolate. The coffee shop can also use \emph{no} in a sign like ``no mask, no entry'' to direct customer behavior, and a customer could say ``I don't want milk'' to reject an offer of milk in their coffee. Despite its abstract meaning, a word like \emph{no} is among the early words produced by children. Therefore, a fundamental question in cognitive development and language acquisition is how negation emerges and develops in the human mind. Is early development of negation in child language limited to specific contexts with specific communicative functions? Or does negation emerge as an abstract and multi-functional concept from the beginning?
 
-Previous literature has proposed that abstract negation develops from less abstract communicative functions in a fixed order (Bloom, 1970; Choi, 1988; McNeill \& McNeill, 1968; Pea, 1978). In other words, different functions of negation have been argued to have separate \emph{stages} of acquisition. For instance, Darwin (1872) hypothesized that headshake as a sign for negation (in some culture) develops from infants' habit to refuse or reject food from parents by withdrawing their heads. Similarly, Pea (1978) proposed that at first, children use \emph{no} to convey ``rejection.'' In a second stage, they conceptualize and express non-existence of objects (e.g., ``no water {[}in the cup{]}''), and finally in the third stage, negation reaches an abstract status that can deny truth of statements (e.g., ``that is not a cow''). For Pea (1978), this order reflected a natural progression in the conceptual space: from the more primitive domain of internal desires to the more complex domain of external existence, and finally abstract truth.
+Previous literature has proposed that abstract negation develops from less abstract communicative functions in a fixed order (Bloom, 1970; Choi, 1988; McNeill \& McNeill, 1968; Pea, 1978). In other words, different functions of negation have been argued to have separate \emph{stages} of acquisition. For instance, Darwin (1872) hypothesized that headshake as a sign for negation (in some cultures) develops from infants' habit to refuse or reject food from parents by withdrawing their heads. Similarly, Pea (1978) proposed that at first, children use \emph{no} to convey ``rejection''. In a second stage, they conceptualize and express non-existence of objects (e.g., ``no water {[}in the cup{]}''), and finally in the third stage, negation reaches an abstract status that can deny truth of statements (e.g., ``that is not a cow''). For Pea (1978), this order reflected a natural progression in the conceptual space: from the more primitive domain of internal desires to the more complex domain of external existence, and finally the abstract domain of truth. Over the past fifty years, many studies have proposed different communicative functions and their stages of development (Bloom, 1970; Choi, 1988; McNeill \& McNeill, 1968). However, there has been no consensus regarding the exact stages and their order. Alternatively, some researchers have proposed that logical concepts such as negation, conjunction, and disjunction are innate and abstract from the start (Crain, 2012). The task of the child is to map the relevant morphemes in their native language to these abstract concepts. Once they achieve this task, negation can function across linguistic contexts already acquired by the child.
 
-As we will discuss in the next section, as fruitful as prior work is, their theoretical and empirical landscape is not always so clean. Therefore while negation does serve multiple communicative functions, there has been no consensus reached regarding two respects:
-
-\begin{enumerate}
-\def\labelenumi{(\arabic{enumi})}
-\item
-  Does negation develop from different communicative functions in fixed ordered stages?
-\item
-  If so, what is the developmental order of these functions?
-\end{enumerate}
-
-In this study, we take up the aforementioned two questions with a data-driven approach. Leveraging child-speech corpora in English, we investigate the developmental patterns of seven communicative functions of negation that have gained much attention in prior research. On the basis that children's early linguistic production reflects developmental stages, our results suggest that negation starts as an abstract concept that can be used to perform multiple communicative functions from the beginning, depending on the demands of early linguistic interactions. The overall developmental trajectory of each function is similar to each other in terms of when the production of the function emerges, the age range where substantial development is observed, the estimated maximum capacity of production, and the point at which production starts to become stable. These findings do not seem to provide clear evidence for what has been widely speculated in the literature, which posits that the developmental paths of separate communicative functions of negation are noticeably different. In what follows, we review previous studies on children's production of negation, then move on to details of our own experiments.
+In this study, we use a relatively large collection of child-directed speech and child language in English to investigate the development of seven negative constructions that typicaly convey seven communicative functions. For each negative construction, we both look at children's negative responses (saying \emph{no}) to parent utterances with that construction, as well as children's own productions of these constructions. We take children's negative responses as a proxy for their comprehension of negation, and their production of negative constructions as a proxy for their productive capacity for negation. We use growth curves to model the development of each construction and compare the onset age and the age at which children show maximum rate of growth in their comprehension and production of negation.
 
 \hypertarget{previous-studies}{%
 \section{Previous Studies}\label{previous-studies}}
 
-Darwin (1872, Chapter 11) explained the emergence of linguistic negation using the function it plays in early communication. He hypothesized that nodding and shaking are the earliest expressions of affirmation and negation respectively and argued:
+Darwin (1872, Chapter 11) explained the emergence of linguistic negation using the function it plays in early communication. He hypothesized that nodding and shaking are the earliest expressions of affirmation and negation respectively: ``With infants, the first act of denial consists in refusing food; and I repeatedly noticed with my own infants, that they did so by withdrawing their heads laterally from the breast, or from anything offered them in a spoon \ldots{} {[}moreover{]} \ldots{} when the voice is exerted with closed teeth or lips, it produces the sound of the letter \emph{n} or \emph{m}. Hence we may account for the use of the particle \emph{ne} to signify negation, \ldots{}''. In later research, this communicative function of negation was referred to as ``rejection'' or ``refusal'' (Bloom, 1970; Choi, 1988; Pea, 1978).
 
-With infants, the first act of denial consists in refusing food; and I repeatedly noticed with my own infants, that they did so by withdrawing their heads laterally from the breast, or from anything offered them in a spoon \ldots{} {[}moreover{]} \ldots{} when the voice is exerted with closed teeth or lips, it produces the sound of the letter \emph{n} or \emph{m}. Hence we may account for the use of the particle \emph{ne} to signify negation, \ldots{}
-
-In later research, this communicative function of negation was referred to as ``rejection'' or ``refusal'' (Bloom, 1970; Choi, 1988; Pea, 1978).
-
-Unlike Darwin, McNeill and McNeill (1968)'s developmental account did not start with rejection, but rather with expressing external states (non-existence of objects). They studied the development of three Japanese negative morphemes (\emph{nai}, \emph{iya}, \emph{iiya}) in the speech of a 27-month-old Japanese speaking girl called Izanami. According to McNeill and McNeill (1968), in Japanese, \emph{nai} expresses falsity of statements (e.g., ``\emph{no} {[}that's \emph{not} an apple{]}), \emph{iya} expresses desires (e.g.,''\emph{no} {[}I don't want an apple{]}``), and \emph{iiya} expresses contrast (e.g., \emph{no} {[}I didn't have an apple. I had a pear{]}). Therefore their appearance in the speech of a child reflects the developmental stages for the respective communicative functions. They reported that in the first stage, Izanami used a simple negation like \emph{nai} to express non-existence of events and objects. They also mentioned the early use of \emph{shira-nai} (''I don't know``) but did not incorporate it into their developmental account. In the second stage, Izanami used negation to mark incorrectness of statements, e.g., saying''false``. Such use of negation was labeled as''denials" in later research. In stage three, negation was also used to express disapproval or rejection - like saying ``I don't want that.'' In the fourth stage, Izanami used negation to express contrasts - as if to say ``not this but something else.'' According to McNeill and McNeill (1968), these stages took about five months.
+Unlike Darwin, McNeill and McNeill (1968)'s developmental account did not start with rejection, but rather with expressing external states (non-existence of objects). They studied the development of three Japanese negative morphemes (\emph{nai}, \emph{iya}, \emph{iiya}) in the speech of a 27-month-old Japanese speaking girl called Izanami. According to McNeill and McNeill (1968), in Japanese, \emph{nai} expresses falsity of statements (e.g., ``\emph{no} {[}that's \emph{not} an apple{]}), \emph{iya} expresses desires (e.g.,''\emph{no} {[}I don't want an apple{]}``), and \emph{iiya} expresses contrast (e.g., \emph{no} {[}I didn't have an apple. I had a pear{]}). Therefore their appearance in the speech of a child reflects the developmental stages for the respective communicative functions. They reported that in the first stage, Izanami used a simple negation like \emph{nai} to express non-existence of events and objects. They also mentioned the early use of \emph{shira-nai} (''I don't know'') but did not incorporate it into their developmental account. In the second stage, Izanami used negation to mark incorrectness of statements, e.g., saying ``false''. Such use of negation was labeled as ``denials'' in later research. In stage three, negation was also used to express disapproval or rejection - like saying ``I don't want that''. In the fourth stage, Izanami used negation to express contrasts - as if to say ``not this but something else''. Finally in the last stage, Izanami had an abstract and multi-functional concept of negation. According to McNeill and McNeill (1968), these stages took about five months and started with expressing external states (non-existence of objects) before internal desires (rejection).
 
 Bloom (1970) considered three communicative functions for early negation: non-existence, rejection, and denial. She studied three children, two from 19 months and another from 21 months of age. She argued that in all three children, negation was produced in the following order: non-existence, rejection, and denial. Table \ref{tab:bloom} provides a few examples for each category. Many of these examples do not immediately stand out as instances of their category. This is partly because many early examples in child production are fairly short with underspecified syntactic structures, leading their interpretations to be heavily reliant on the context. It is therefore hard to assess the intention behind the use of negation in such cases.
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.4110}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2877}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3014}}@{}}
 \caption{\label{tab:bloom} Examples of non-existence, rejection, and denial negation in the speech of Eric, Kathryn, and Gia from Bloom (1970).}\tabularnewline
-\toprule
-Non-existence & Rejection & Denial \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Non-existence
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rejection
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Denial
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Non-existence & Rejection & Denial \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Non-existence
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Rejection
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Denial
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \textbf{\emph{no}} \emph{more choochoo train} & \textbf{\emph{no}} \emph{train} & \textbf{\emph{no}} \emph{Daddy hungry} \\
 \textbf{\emph{no}} \emph{more noise} & \textbf{\emph{no}} \emph{want this} & \textbf{\emph{no}} \emph{more birdie} \\
 \textbf{\emph{no}} \emph{children} & \textbf{\emph{no}} \emph{bear book} & \textbf{\emph{no}} \emph{ready} \\
 \textbf{\emph{no}} \emph{it won't fit} & \textbf{\emph{no}} \emph{go outside} & \textbf{\emph{no}} \emph{tire} \\
 \emph{Kathryn} \textbf{\emph{no}} \emph{like celery} & \textbf{\emph{no}} \emph{dirty soap} & \textbf{\emph{no}} \emph{dirty} \\
-\bottomrule
 \end{longtable}
 
 Pea (1978) studied six children between the ages of 8-24 months. Children were recorded in their homes for about 90 minutes every month. All utterances that convey a negative meaning (e.g., containing \emph{no}, \emph{not}, \emph{all gone}, \emph{gone}, \emph{away}, \emph{stop}) and gestures (e.g., headshakes and headnods) were annotated and analyzed. Pea (1978) reported that children first started by using negation to express internal states (rejection), then external states (non-existence), and finally they used negation to connect language and the external world, (e.g., truth-functional negation or denials). This was in direct contradiction to McNeill and McNeill (1968) who proposed that children start with expressing external states before internal states.
 
-de Villiers and de Villiers (1979) examined the communicative functions of negation in the speech of Adam (27-31 months), Eve (18-22 months), and their own child Nicholas (23-29 months). The first two children were recorded for an hour every two or three weeks (Brown, 1973). They annotated children's examples of negation for six communicative functions: non-existence, disappearance, non-occurrence, cessation, rejection, and denial. Disappearance referred to cases where an object became hidden and cessation referred to the use of negation when a movement or action stopped (e.g., ``no walk'' when a toy stopped walking). They found rejections and denials to be the most frequent (and most reliable-to-annotate) functions of negation, both present in the earliest samples of children's speech.
+de Villiers and de Villiers (1979) examined the communicative functions of negation in the speech of Adam (27-31 months), Eve (18-22 months), and their own child Nicholas (23-29 months). The first two children were recorded for an hour every two or three weeks (Brown, 1973). They annotated children's examples of negation for six communicative functions: non-existence, disappearance, non-occurrence, cessation, rejection, and denial. Disappearance referred to cases where an object became hidden and cessation referred to the use of negation when a movement or action stopped (e.g., ``no walk'' when a toy stopped walking). They found rejections and denials to be the most frequent (and most reliable-to-annotate) functions of negation, both present in the earliest samples of children's speech. The authors emphasized that there are considerable individual differences that mirror parent usage and child-directed speech rather than specific fixed stages of development.
 
-Choi (1988) looked at the speech of 11 children (2 English, 4 Korean and 5 French speaking) between 19 to 40 months of age. She reported 9 communicative functions for children's negation shown in Table \ref{tab:choi}. She matched communicative functions with linguistic constructions that commonly convey them and proposed that these constructions and functions developed in three phases. First, children used ``\emph{no}'' alone to express the four functions of non-existence, prohibition, rejection, and failure. In the second phase, \emph{no} was used to express denial, inability, and epistemic negation. New constructions such as ``not+Noun Phrase'' (e.g., ``not a bee''), \emph{can't} (e.g.~``I can't put back''), and ``I don't know'' also emerged to express these functions. New constructions were also used to distinguish the functions in the previous phase such as rejection (e.g.~``I don't want to''). In the third phase, normative negation and inferential negation emerged in children's speech with modal auxiliaries like \emph{can't}. Negative forms for prohibition also appeared with the structure ``don't+Verb.''
+Choi (1988) looked at the speech of 11 children (2 English, 4 Korean and 5 French speaking) between 19 to 40 months of age. She reported 9 communicative functions for children's negation shown in Table \ref{tab:choi}. She matched communicative functions with linguistic constructions that commonly convey them and proposed that these constructions and functions developed in three phases. First, children used ``\emph{no}'' alone to express the four functions of non-existence, prohibition, rejection, and failure. In the second phase, \emph{no} was used to express denial, inability, and epistemic negation. New constructions such as ``not+Noun Phrase'' (e.g., ``not a bee''), \emph{can't} (e.g.~``I can't put back''), and ``I don't know'' also emerged to express these functions. New constructions were also used to distinguish the functions in the previous phase such as rejection (e.g.~``I don't want to''). In the third phase, normative negation and inferential negation emerged in children's speech with modal auxiliaries like \emph{can't}. Negative forms for prohibition also appeared with the structure ``don't+Verb''.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.28}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.34}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.14}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.24}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2361}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1944}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3750}}@{}}
 \caption{\label{tab:choi} Examples of communicative functions and their forms in Choi (1988).}\tabularnewline
-\toprule
-Function & Definition & Constructions & Example \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Function
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Constructions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Function & Definition & Constructions & Example \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Function
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Definition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Constructions
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Non-existence & expressing absence of entities & \emph{no}+V & ``\emph{no more}'' (after emptying a bag) \\
 Failure & expressing absence of an event & \emph{it won't} & ``\emph{not work}'' (puzzle piece not fitting) \\
 Prohibition & negating actions of others & \emph{don't} + V & \\
@@ -267,90 +315,114 @@ Inability & expressing physical inability & & ``\emph{can't!}'' (taking two lego
 Epistemic & lack of knowledge & \emph{I don't know} & ``\emph{I don't know}'' (in response to ``what color is this?'') \\
 Normative & expressing expected norms & \emph{(you) can't} & ``\emph{Him can't go on a boat}'' \\
 Inferential & child's inference about the listener & AUX + \emph{not} & ``\emph{I not broken this}'' (seeing a broken crayon) \\
-\bottomrule
 \end{longtable}
 
-Cameron-Faulkner, Lieven, and Theakston (2007) recorded an English speaking child for an hour five times a week between the ages of 27 to 39 months. They classified his negative utterances into seven communicative functions by using categories from Choi (1988) and leaving out normative and inferential negation. They found examples of all seven functions in Brian's early speech. Starting at 27 months, single-word discourse-level \emph{no} was used to convey most functions but gradually other forms using \emph{not}, \emph{don't}, \emph{can't}, or \emph{won't} emerged and replaced \emph{no} in usage. For instance with inability and prohibition, Brian mostly used \emph{no} and \emph{not} at 27 months but switched to \emph{can't} to express inability, and \emph{don't} to express prohibition at 39 months. Cameron-Faulkner, Lieven, and Theakston (2007) argued that at 27 months, Brian had a broad conceptualization of negation and likely represented it as a ``unitary category in conceptual space.''
+Cameron-Faulkner, Lieven, and Theakston (2007) recorded an English speaking child for an hour five times a week between the ages of 27 to 39 months. They classified his negative utterances into seven communicative functions by using categories from Choi (1988) and leaving out normative and inferential negation. They found examples of all seven functions in Brian's early speech. Starting at 27 months, single-word discourse-level \emph{no} was used to convey most functions but gradually other forms using \emph{not}, \emph{don't}, \emph{can't}, or \emph{won't} emerged and replaced \emph{no} in usage. For instance with inability and prohibition, Brian mostly used \emph{no} and \emph{not} at 27 months but switched to \emph{can't} to express inability, and \emph{don't} to express prohibition at 39 months. Cameron-Faulkner et al. (2007) argued that at 27 months, Brian had a broad conceptualization of negation and likely represented it as a ``unitary category in conceptual space''.
 
 In a recent study, Nordmeyer and Frank (2018) looked at twice-a-month recordings of five children between the 12-36 months of age (1-3 years) in the Providence corpus (Demuth, Culbertson, \& Alter, 2006) and classified children's negative utterances into seven functional categories: disappearance, prohibition, self-prohibition, refusal (rejection), failure, denial, and unfulfilled expectations. Self-prohibition referred to cases where children addressed a prohibition to themselves (e.g.~saying \emph{no} to themselves when reaching for a forbidden object) and unfulfilled expectations referred to instances that expressed surprise when an object was not in an expected place, similar to some cases of non-existence in previous research. They found that refusal (rejections) and denial were the most common functions in children's production and that children varied with respect to which function was produced first. In line with de Villiers and de Villiers (1979), they concluded that the developmental trajectory of different communicative functions of negation may not be as consistent across individuals as some previous research had suggested.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.22}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.12}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.16}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.51}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1644}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1644}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1644}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5068}}@{}}
 \caption{\label{tab:summary} Summary of previous studies on the development of negation's communicative functions; ``variable'' indicates the developmental order of different functions claimed by the study is not fixed.}\tabularnewline
-\toprule
-Study & Number of Children & Age Range (Months) & Proposed Functional Stages \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Study
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Number of Children
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age Range (Months)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Proposed Functional Stages
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Study & Number of Children & Age Range (Months) & Proposed Functional Stages \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Study
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Number of Children
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Age Range (Months)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Proposed Functional Stages
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 McNeill and McNeill (1968) & 1 & 27-32 & non-existence \textgreater{} denial (non-contrastive) \textgreater{} rejection \textgreater{} denial (contrastive) \\
 Bloom (1970) & 3 & 19-28 & non-existence \textgreater{} rejection \textgreater{} denial \\
 Pea (1978) & 6 & 8-24 & rejection \textgreater{} non-existence \textgreater{} denial \\
 de Villiers and de Villiers (1979) & 3 & 18-31 & rejection, denial (variable) \\
 Choi (1988) & 11 & 19-40 & non-existence, prohibition, rejection, failure \textgreater{} denial, inability, epistemic \textgreater{} normative, inferential \\
-Cameron-Faulkner, Lieven, and Theakston (2007) & 1 & 27-39 & non-existence, failure, prohibition, rejection, denial, inability, epistemic \\
+Cameron-Faulkner et al. (2007) & 1 & 27-39 & non-existence, failure, prohibition, rejection, denial, inability, epistemic \\
 Nordmeyer and Frank (2018) & 5 & 12-36 & denial, rejection, prohibition, failure, disappearance (variable) \\
-\bottomrule
 \end{longtable}
 
-Table \ref{tab:summary} provides a summary of previous research on the communicative functions of negation in children's speech. As the summary shows, there is currently no consensus on which functional categories should be included or in which order they are produced. Here we are going to discuss three possible reasons for this lack of consensus. First, de Villiers and de Villiers (1979) and Nordmeyer and Frank (2018) have emphasized that there is considerable variability among children and their parents in their use of negation. Given that previous studies have typically considered only a few children (3-4 on average), they could have reached conclusions that are true of their sample but not of the population of (native) English-speaking children.
+Table \ref{tab:summary} provides a summary of previous research on the communicative functions of negation in children's speech. As the summary shows, there is currently no consensus on which functional categories should be included or in which order they are produced. Here we are going to discuss three possible reasons for this lack of consensus. First, de Villiers and de Villiers (1979) and Nordmeyer and Frank (2018) have emphasized that there is considerable variability among children and their parents in their use of negation. Given that previous studies have typically considered only a few children (3-4 on average), they could have reached conclusions that are true of their sample but not of the population of English-speaking children.
 
-Second, previous studies have used monthly or fortnightly recordings of children's speech for about 60-90 minutes per recording session. Given that children produce many hours of speech daily, such sparse sampling might have created accidental gaps for certain communicative functions and consequently made it as if functions appear in ordered stages. The only study with relatively dense recording is Cameron-Faulkner, Lieven, and Theakston (2007) which reports the presence of all communicative functions in the child's speech from early on. However, the recordings for their study start at a later age (27 months) than many other studies.
+Second, previous studies have used monthly or fortnightly recordings of children's speech for about 60-90 minutes per recording session. Given that children produce many hours of speech daily, such sparse sampling might have created accidental gaps for certain communicative functions and consequently made it as if functions appear in ordered stages. The only study with relatively dense recording is Cameron-Faulkner et al. (2007) which reports the presence of all communicative functions in the child's speech from early on. However, the recordings for their study start at a later age (27 months) than many other studies.
 
-Third, prior research shows that defining and detecting the communicative functions of negation is not a trivial task. Different studies have sometimes used different basic categories and different definitions or criteria for classifying negative utterances. Therefore, what counts as an instance of rejection or non-existence may vary among studies and contribute to the reported variability. Most importantly, annotations focus on many utterances with underspecified syntactic structures such as ``no car'' or ``no more,'' which are highly ambiguous and can count as an instance of different communicative functions. Does ``no car'' mean ``there is no car here'' (non-existence) or ``I don't want a toy car'' (rejection)? Researchers often have to rely on the context but the context is not fully represented in many child language corpora used for annotations. More importantly, this approach is not scalable to larger numbers of children and bigger corpora since manual annotations take considerable amount of time, energy, and training. In the next section, we discuss how the current study addresses these three issues.
+Third, prior research shows that defining and detecting the communicative functions of negation is not a trivial task. Different studies have sometimes used different basic categories and different definitions or criteria for classifying negative utterances. Therefore, what counts as an instance of rejection or non-existence may vary among studies and contribute to the reported variability. Most importantly, annotations focus on many utterances with underspecified syntactic structures such as ``no car'' or ``no more'', which are highly ambiguous and can count as an instance of different communicative functions. Does ``no car'' mean ``there is no car here'' (non-existence) or ``I don't want a toy car'' (rejection)? Researchers often have to rely on the context but the context is not fully represented in many child language corpora used for annotations. More importantly, this approach is not scalable to larger numbers of children and bigger corpora since manual annotations take considerable amount of time, energy, and training. In the next section, we discuss how the current study addresses these three issues.
 
 \hypertarget{current-study}{%
 \section{Current Study}\label{current-study}}
 
-We build on previous research and address the methodological issues discussed in the previous section in two ways. First, in this study we use large corpora of parent-child interactions, aggregating speech samples from 693 children between the ages of 1-6 years (12-72 months). If the lack of consensus in previous research was mainly due to the small number of children, increasing this number should address the issue. Aggregating speech samples across children would also provide denser samples at each time interval and reduce the possibility of accidental gaps in age intervals. The reasoning behind this approach is that despite individual variation, if there are major developmental stages, they should be detectable in large aggregate corpora of child speech.
+This study builds on previous research in four ways. First, it uses large corpora of parent-child interactions, aggregating speech samples from 693 children between the ages of 1-6 years (12-72 months). If the lack of consensus in previous research was mainly due to the small number of children or speech samples, increasing these numbers should address the issue. Aggregating speech samples across children would also provide denser samples at each age interval and reduce the possibility of accidental gaps. The reasoning behind this approach is that despite individual variation, if there are general developmental stages, they should be detectable in large aggregate corpora of children's speech.
 
-Second, in this study we shift the focus from detecting and classifying negative communicative functions such as rejection to detecting and classifying negative constructions that typically communicate them. This approach is similar in spirit to that of Choi (1988) who manually annotated for both communicative functions and their common linguistic constructions (Table \ref{tab:summary}). Here by negative constructions, we refer to syntactic constructions modified by any one of the three negative morphemes in English: \emph{no}, \emph{not}, \emph{n't}. Table \ref{tab:constructions} summarizes the constructions and communicative functions used in this study. This approach has several advantages. To begin with, negative constructions are more concrete and thus easier to define. For example, utterances that combine negation with the main verb \emph{want} (e.g., ``I don't want that'') constitute a construction that typically conveys rejection. In addition, because of their concrete definitions, negative constructions can be detected and classified automatically in large corpora following lexical and syntactic heuritics. For instance, rather than manually annotating sentences that express rejection, it is relatively easier to automate the process by searching for utterances containing the verb \emph{want} modified by negative morphemes.
-
-Note that the aforementioned approach attends to negative constructions at the sentence level that would convey the communicative functions of interest directly. One downside of including just the sentence level is that it may systematically underestimate children's production of these functions using negation. The reasons are twofold. First, due to early limited developmental capacity, children produce shorter forms before longer ones (e.g.~mean length of utterance has been used predominantly as an index of syntactic development at least in the earlier stage (Brown, 1973)). Therefore, they can express a communicative function like rejection when they use a simple \emph{no} as a response to the question ``do you want an apple?'' before they can produce the full construction ``I don't want that.'' Additionally, when being asked ``do you not want some snacks,'' a question where the head verb is already modified by the negative morpheme \emph{not}, children might still respond with \emph{no}, as in ``no I don't want snacks.'' In these instances, \emph{no} serves as a response particle which is used in isolation to anaphorically negate the content of the previous utterance. In other words, these negative discourse particles let children express different functions without actually producing them in more complex syntactic structures, especially when they have limited production capacity at the beginning of the developmental trajectory.
-
-In addition, examiniations of production at the sentence level possibly falls short when trying to ``estimate'' children's knowledge of negation more broadly (e.g.~comprehension). Imagine a scenario where the parent says ``don't put your toys on the floor'' and the child says ``no mommy.'' The parent's utterance consists of a negative construction that conveys the communicative function of prohibition, whereas the child indicates their understanding of this function via a negative response particle. While our focus here is the production trajectory, we consider that it would be ideal to include or at least discuss cases as such when possible, in order to gain better understanding of the development of negation in child speech more generaly.
-
-With the reasoning described above, besides investigating negative constructions at the sentence level, we also examined children and parents' use of \emph{no} as a response particle at the discourse level.
+Second, in this study we adopted Choi (1988)'s approach and instead of classifying negative communicative functions, we classifed negative constructions that typically communicate negative communicative functions (Table \ref{tab:summary}). Here by negative constructions, we refer to syntactic constructions modified by any one of the three negative morphemes in English: \emph{no}, \emph{not}, \emph{n't}. Table \ref{tab:constructions} summarizes the constructions and communicative functions used in this study. This approach has a few advantages. First, negative constructions are more concrete and thus easier to define. For example, utterances that combine negation with the main verb \emph{want} (e.g., ``I don't want that'') constitute a construction that typically conveys rejection. Second, because of their concrete definitions, negative constructions can be detected and classified automatically in large corpora following lexical and syntactic heuristics. For instance, rather than manually annotating sentences that express rejection, it is relatively easier to automate the process by searching for utterances containing the verb \emph{want} modified by negative morphemes.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.22}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.56}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.22}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.2639}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.5139}}@{}}
 \caption{\label{tab:constructions} Negative constructions used in this study that typically convey communicative functions studied in previous functional accounts of negation development.}\tabularnewline
-\toprule
-Function & Negative morpheme combines with & Examples (negative) \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Function
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Negative morpheme combines with
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Examples (negative)
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Function & Negative morpheme combines with & Examples (negative) \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Function
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Negative morpheme combines with
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Examples (negative)
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Rejection & \emph{like}/\emph{want} & \emph{I} \textbf{\emph{not}} \emph{like it}; \textbf{\emph{not}} \emph{want it} \\
 Non-existence & \emph{there}-expletive & \emph{there is} \textbf{\emph{no}} \emph{soup} \\
 Prohibition & imperative subjectless \emph{do} & \emph{do} \textbf{\emph{not}} \emph{spill milk} \\
-Inability & \emph{can} & \emph{I can}****not*** \emph{zip it} \\
+Inability & \emph{can} & \emph{I can} \textbf{\emph{not}} \emph{zip it} \\
 Labeling (Denial) & nominal/adjectival predicates & \emph{that's} \textbf{\emph{not}} \emph{a crocodile}; \emph{it's} \textbf{\emph{no}} \emph{interesting} \\
 Epistemic & \emph{know}/\emph{think}/\emph{remember} & \emph{I} \textbf{\emph{not}} \emph{know/think/remember} \\
 Possession & \emph{have}/possesive pronouns & \textbf{\emph{not}} \emph{have the toy}; \textbf{\emph{not}} \emph{mine} \\
-\bottomrule
 \end{longtable}
 
-\hypertarget{data-and-preprocessing}{%
-\subsection{Data and preprocessing}\label{data-and-preprocessing}}
+Third, focusing on children's productions runs the risk of underestimating their linguistic competence. Children produce shorter constructions and utterances before longer ones and typically develop the comprehension of those constructions before they can produce them (Clark, 2009). For example, children may be able to understand rejection and communicate it with a simple \emph{no} in response to a question like ``do you want an apple?'', before they can produce the full construction ``I don't want an apple''. In other words, the child may understand the meaning of the question as well as the meaning of \emph{no} and how it anaphorically negates the content of the previous utterance but due to production limitations not be able to produce the full sentence. In this study, we look at children's anaphoric negation with \emph{no} in response to parents positive constructions, as well as their productions of the corresponding negative constructions. We call the first ``discourse-level negation'' and the second ``sentence-level negation''. We take children's discourse-level negation as an approximation of their comprehension for negation and their sentence-level negation as an approximation for their production.
 
-For child speech corpora in English, we turned to the CHILDES database (MacWhinney, 2000)\footnote{Code and data are in quarantine at \url{https://thegoodplace.com}} and selected data of English speaking children with typical development within the age range of 12-72 months. Parents' and children's utterances were extracted via the childes-db (Sanchez et al., 2019) interface using the programming language R. In order to obtain (morpho)syntactic representations for parents' and children's utterances, we used the dependency grammar framework (Tesnière, 1959). Part-of-speech (POS) tags for each token within an utterance were automatically derived with Stanza (Qi, Zhang, Zhang, Bolton, \& Manning, 2020), an open-source natural language processing library; dependency relations for all utterances were acquired also in an automatic fashion using DiaParser (Attardi, Sartiano, \& Yu, n.d.), a dependency parsing system that has been demonstrated to achieve excellent performance for at least written texts in English.
+Fourth, we use growth curves to model the development of negative constructions in children's speech. We also estimate the age at which children reach maximum growth in their comprehension and production of different communicative functions of negation. For both proxy measures of comprehension and production, we check to see if the estimated age ranges support the hypothesis that negation develops in stages. We also ask whether developmental stages mirror each other in comprehension and production, or whether we find different stages and patterns of development for comprehension vs.~production.
 
-At the sentence level, we characterized the syntactic features of the negative utterances associated with each communicative function (Table \ref{tab:constructions}), then classified utterances based on these features in a rule-based fashion with the help of POS information and syntactic dependencies. To decouple the development of the syntactic construction from the development of negation in that construction, we also examined the production of positive counterparts to each negative construction. The positive counterparts of our negative constructions share the same syntactic features (e.g., same head verb) but they have no negative morphemes (``I know'' for ``I don't know''). Although these positive constructions do not express the same communicative function as their negative counterparts, our main purpose for including them is to factor in the development of the syntactic construction without negation as references.
+\hypertarget{methods}{%
+\subsection{Methods}\label{methods}}
 
-At the discourse level, we need to analyze the negative constructions that the discourse particle \emph{no} stands for (or respond to in cases like prohibition, as discussed in the previous section). To achieve this, we selected utterances that started with negative discourse particles like ``no no I like it,'' where the dependency relation of these discourse particles is ``discourse'' by the dependency parser. We also included cases with just one or duplications of the discourse particles (``no no no''). For each negative utterance identified this way, we extracted the previous utterance (the antecedent) in the discourse context. For child speech, we included interactions (antecedent + utterance with negative discourse particle) where antecedents were produced by either the parents or the children themselves. For parent speech, we only included interactions where the antecedent was produced by children. We then applied the same analyses performed to sentence level constructions to these antecedent utterances. The assumption is that the negative discourse particles are (mostly) implicitly negating the content of their discourse antecedents. Therefore the antecedent utterances here could follow structures of both the negative constructions or their positive counterparts. This means that for each coummunicative function, the antecedents analyzed at the discourse level constitute a subset of those analyzed at the sentence level. With that being said, we are not exactly re-investigating the negative constructions at the sentence level, but rather take this as one way to examine what the response particles are capturing.
+We used the CHILDES database (MacWhinney, 2000)\footnote{Code and data are in quarantine at \url{https://thegoodplace.com}} and selected data of English speaking children with typical development within the age range of 12-72 months. Parents' and children's utterances were extracted via the childes-db (Sanchez et al., 2019) interface using the programming language R. In order to obtain (morpho)syntactic representations for parents' and children's utterances, we used the dependency grammar framework (Tesnière, 1959). Part-of-speech (POS) tags for each token within an utterance were automatically derived with Stanza (Qi, Zhang, Zhang, Bolton, \& Manning, 2020), an open-source natural language processing library; dependency relations for all utterances were acquired also in an automatic fashion using DiaParser (Attardi, Sartiano, \& Yu, n.d.), a dependency parsing system that has been demonstrated to achieve excellent performance for at least written texts in English.
 
-\hypertarget{measures}{%
-\subsection{Measures}\label{measures}}
+At the sentence level, we characterized the syntactic features of the negative utterances associated with each communicative function (Table \ref{tab:constructions}), then classified utterances based on these features in a rule-based fashion with the help of POS information and syntactic dependencies. To decouple the development of the syntactic construction from the development of negation in that construction, we also examined the production of positive counterparts to each negative construction. The positive counterparts of our negative constructions share the same syntactic features (e.g., same head verb) but they have no negative morphemes (e.g.~``I know'' for ``I don't know''). Although these positive constructions do not express the same communicative function as their negative counterparts, our main purpose for including them is to factor in the development of the syntactic construction without negation as a reference.
+
+At the discourse level, we analyze the negative constructions that the discourse particle \emph{no} stands for (or responds to in cases like prohibition, as discussed in the previous section). To achieve this, we selected utterances that started with negative discourse particles like ``no no I like it'' and the dependency parser had tagged their dependency relation as ``discourse''. We also included cases with repetitions of the discourse particle (``no no no''). For each negative utterance identified this way, we extracted the previous utterance (the antecedent) in the discourse context. For child speech, we included antecedents produced by either the parents or the children themselves. For parent speech, we only included interactions where the antecedent was produced by children. We then applied the same analyses performed on sentence level constructions to these antecedent utterances. The assumption is that the negative discourse particle \emph{no} is implicitly negating the content of the discourse antecedent.
 
 We took age as a proxy for children's developmental stage and divided the 12-72 months range into monthly bins. We used the following two metrics to measure the production level of every communicative function at each age bin. First, we defined the ratio \(f_{c,t}\) for construction \(c\) and age bin \(t\) as the number of utterances in construction \(c\) and age bin \(t\) divided by the total number of utterances produced at age bin \(t\). For example, at age 30 months, children produced a total of 81,302 utterances, out of which 391 were classified as rejections. Therefore the ratio of rejection at 30 months is 391/81,302 = 0.005.
 
@@ -360,31 +432,12 @@ Second, we borrowed the measure of ``cumulative (moving) ratio'' from the analys
 
 \(F_{c, t} = \frac{\sum_{i=1}^{t} n_{c,i}}{\sum_{i=1}^{t} n_{i}}\)
 
-The two ratios mentioned above were calculated for negative constructions (and their positive counterparts) at the sentence and discourse levels for children as well as parents. With that being said, for the sake of presentations, our figures focus on the results of cumulative ratios. In addition, in this study we use parents' speech as a benchmark for children's development. Therefore, the subfigures within each figure contrast children's production to that of parents' at the corresponding age of the children.
-
-\hypertarget{growth-curve-analysis}{%
-\subsection{Growth curve analysis}\label{growth-curve-analysis}}
-
-Besides the descriptive measures described above, in order to add more statistical rigor to our characterization as well as comparison of the overall production trajectories of different negative constructions, we adopted growth curve analysis (Kemper, Rice, \& Chen, 1995). In particular, based on the observations for every negative construction in child speech derived from corpora (see Results), we adopted Bayesian logistic growth curve to model children's \emph{cumulative} production, \(F_{c,t}\), at a given monthly age bin \(t\).
-
-\(F_{c, t} = \zeta + \frac{\delta - \zeta}{1 + exp(\gamma(t - \alpha))}\)
-
-This logistic growth function consists of four parameters, where \(\zeta\) indicates the lower bound of production (minimum production for the construction investigated in child speech), \(\delta\) denotes the asymptote level of development (maximum cumulative production ratio that could be reached), \(\gamma\) estimates the maximum production growth rate, and \(\alpha\) reflects the age at which one-half of the development is achieved. The function draws a pattern where the beginning of the development is slow, followed by rapid growth to one-half of the development, then followed by a slow phrase of growth until the asymptote level is reached.
-
-In our implementation, we used the statistical package \(brms\). We set \(\zeta\) to have a value of zero; in other words, we did not attempt to make any assumption regarding the minimum capacity of children's production, and whether certain negative constructions would be produced after all. The prior for both \(\delta\) and \(\gamma\) followed a beta distribution, whereas the prior for \(\alpha\) followed a normal distribution with a mean of 42 (given that the age range of interest here is between 12 to 72 months) and a standard deviation of 1.
-
-\(\delta\) \(\sim\) \(Beta(2, 2)\)
-
-\(\gamma\) \(\sim\) \(Beta(2, 2)\)
-
-\(\alpha\) \(\sim\) \(N(42, 1)\)
-
-Due to the fact that the production data extracted via our corpus methods is not enough to capture the developmental paths of individual children, the logistic curves were fit at the population level for each communicative function. The assumption here is that individual differences on average in terms of the production of each function at both syntactic and discourse level are small. Specifically, for each communicative function in child speech, we applied one logistic curve to the negative constructions, one to their positive counterparts, and one to the discourse antecedents. Each model ran 4 chains with 5000 iterations in each chain, with the first 500 iterations as burn-in samples; 95\% credible intervals for each parameter were derived from their respective posterior distribution.
+The two ratios mentioned above were calculated for negative constructions (and their positive counterparts) at the sentence and discourse levels for children as well as parents. For the sake of presentations, our figures focus on the results of cumulative ratios. In addition, in this study we use parents' speech as a benchmark for children's development. Therefore, the subfigures within each figure contrast children's production to that of parents' at the corresponding age of the children.
 
 \hypertarget{results}{%
 \subsection{Results}\label{results}}
 
-In this section, we describe the results for each communicative function and its associated negative constructions.
+In this section, we first present the results for each communicative function and its associated negative constructions separately, before aggregating and presenting them together. We start with rejections.
 
 \hypertarget{rejection}{%
 \subsubsection{Rejection}\label{rejection}}
@@ -393,19 +446,20 @@ For instances of ``rejection'' and their positive counterparts, we selected utte
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:rejection} Examples of sentence-level rejections and their positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Rejection (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Rejection (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \emph{I} \textbf{\emph{no}} \emph{like sea} & \emph{she likes cheese} \\
-\emph{do}\textbf{\emph{n't}} \emph{wanna go} & \emph{I want it} \\
-\emph{do}\textbf{\emph{n't}} \emph{you wanna try it} & \emph{I wanna have that} \\
-\emph{Sarah does}\textbf{\emph{n't}} \emph{like that either} & \emph{she likes this one} \\
-\bottomrule
+\emph{do\textbf{n't}} \emph{wanna go} & \emph{I want it} \\
+\emph{do\textbf{n't}} \emph{you wanna try it} & \emph{I wanna have that} \\
+\emph{Sarah does\textbf{n't}} \emph{like that either} & \emph{she likes this one} \\
 \end{longtable}
 
 \begin{figure}[H]
@@ -417,25 +471,36 @@ Rejection (Negative) & Positive counterpart \\
 \caption{Cumulative ratios for the production of rejection at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios.}\label{fig:emotion}
 \end{figure}
 
-Starting with our analysis at the sentence level, Figure \ref{fig:emotion} shows the cumulative ratios of parents' and children's instances of rejections and their positive counterparts (y-axis) with age along the x-axis. Overall, we see a similar pattern of production for rejection whether the head verb is \emph{want} or \emph{like} in child speech. Comparing the cumulative ratios between parents and children, children's production of rejection gradually increases between the ages of 18 and 36 months. After about 36 months of age, children's production of these constructions starts to become relatively constant and close to parent levels. In all age bins, the production ratio for negative utterances was lower than that for their positive counterparts.
+Starting with our analysis at the sentence level, Figure \ref{fig:emotion} shows the cumulative ratios of parents' and children's instances of rejections and their positive counterparts (y-axis) with age along the x-axis. Overall, we see a similar pattern of production for rejection whether the head verb is \emph{want} or \emph{like} in child speech. Children's production of rejection gradually increases between the ages of 18 and 36 months. After about 36 months of age, children's production of these constructions starts to become relatively constant and close to parent levels. In all age bins, the production ratio for negative utterances was lower than that for their positive counterparts.
 
 At the discourse level, we investigated discourse interactions (antecedent + utterance with negative discourse particle) in which the antecedent has one of the head verbs \emph{like} or \emph{want}, yet the head verb does not have to be modified by negative morphemes (Table \ref{tab:disreject}). We found a total of 11,021 such utterances (child: 7,903; parent: 3,118). As shown in Figure 2, children's production of \emph{no} to convey rejection increases regularly from the age of 18 - 36 months.\footnote{For each communicative function, at the discourse level we also examined cases of different subtypes (e.g., different head verbs) separately; though due to data sparsity issues, we collapsed these instances for our final analyses.} Overall, discourse-level rejection is produced more frequently in child speech compared to parent speech.
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4306}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5694}}@{}}
 \caption{\label{tab:disreject} Examples of discourse-level rejections in children's and parents' speech.}\tabularnewline
-\toprule
-Antecedent & Utterance \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antecedent
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Utterance
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Antecedent & Utterance \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antecedent
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Utterance
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \emph{I want you to try it} & Child: \textbf{\emph{no no no}} \\
 Parent: \emph{would you like to go} & Child: \textbf{\emph{no no}} \\
-Child: \emph{I do}\textbf{\emph{n't}} \emph{like that} & Parent: \textbf{\emph{no}} \emph{honey you have to try it} \\
+Child: \emph{I do\textbf{n't}} \emph{like that} & Parent: \textbf{\emph{no}} \emph{honey you have to try it} \\
 Child: \emph{I want it} & Parent: \textbf{\emph{no}} \emph{this is not for you} \\
-\bottomrule
 \end{longtable}
 
 \begin{figure}[H]
@@ -454,19 +519,20 @@ For the function of non-existence, we searched for the English expletive constru
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:nonexist} Examples of sentence-level non-existence and positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Non-existence (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Non-existence (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \emph{there's} \textbf{\emph{no}} \emph{(more) water} & \emph{there are books} \\
-\emph{there is}\textbf{\emph{n't}} \emph{it} & \emph{there is it} \\
+\emph{there is} \textbf{n't} \emph{it} & \emph{there is it} \\
 \emph{there's} \textbf{\emph{no}} \emph{more cheese} & \emph{there is the toy} \\
 \emph{there is} \textbf{\emph{no}} \emph{food} & \emph{there is an apple} \\
-\bottomrule
 \end{longtable}
 
 At the sentence level, children produce negative constructions to express non-existence less frequently than they do for the positive counterparts. As presented in Figure \ref{fig:existence}, the cumulative ratio for the production of non-existence increases mostly from 18 to 36 months. Then around and after 36 months of age, children's production gradually reaches a stable ratio but stays below parents' level. Notice that there appears to be slight fluctuations of cumulative ratios between the age of 19 and 25 months in child speech. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore as the number of total utterances increases along the developmental trajectory, the cumulative ratio for non-existence utterances actually decreases in this brief period.
@@ -480,23 +546,24 @@ At the sentence level, children produce negative constructions to express non-ex
 \caption{Cumulative ratios for the production of non-existence at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios.}\label{fig:existence}
 \end{figure}
 
-For non-existence at the discourse level, we applied similar selection criteria and extracted utterances (negative and positive) with existential constructions in their antecedents (Table \ref{tab:disexist}). This led to a total of 1,202 utterances (child: 828; parent: 374). As Figure \ref{fig:existencediscourse} shows, there is an increase in children's responses with \emph{no} to parents' existential utterances between the ages of 18 and 36 months. After 36 months, despite the fact that ratios show fluctuations, the cumulative ratios of children's production seem stable and similar. Therefore with non-existence, both sentence-level and discourse-level analyses point to substantial development in the age rage of 18-36 months.
+For non-existence at the discourse level, we applied similar selection criteria and extracted utterances (negative and positive) with existential constructions in their antecedents (Table \ref{tab:disexist}). This led to a total of 1,202 utterances (child: 828; parent: 374). As Figure \ref{fig:existencediscourse} shows, there is an increase in children's responses with \emph{no} to parents' existential utterances between the ages of 18 and 36 months. After 36 months, despite the fact that ratios show fluctuations, the cumulative ratios of children's production seem stable and similar. Therefore with non-existence, both sentence-level and discourse level analyses point to substantial development in the age rage of 18-36 months.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:disexist} Examples of discourse-level non-existence in children's and parents' speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Antecedent & Utterance \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Antecedent & Utterance \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \emph{is there a bunny} & Child: \textbf{\emph{no no}} \emph{bunny} \\
 Parent: \emph{is there a table} & Child: \textbf{\emph{no no}} \\
 Child: \emph{there is my ball} & Parent: \textbf{\emph{no}} \emph{that's not yours} \\
 Child: \emph{is there lunch bag} & Parent: \textbf{\emph{no}} \emph{not yet sweety} \\
-\bottomrule
 \end{longtable}
 
 \begin{figure}[H]
@@ -517,19 +584,20 @@ Figure \ref{fig:prohibition} demonstrates the cumulative ratios of prohibition a
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:prohibit} Examples of sentence-level prohibition and positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Prohibition (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Prohibition (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
-\emph{do}\textbf{\emph{n't}} \emph{blame Charlotte} & \emph{cook it} \\
-\emph{do}\textbf{\emph{n't}} \emph{do that} & \emph{try this} \\
+\bottomrule\noalign{}
+\endlastfoot
+\emph{do} \textbf{n't} \emph{blame Charlotte} & \emph{cook it} \\
+\emph{do} \textbf{n't} \emph{do that} & \emph{try this} \\
 \emph{do} \textbf{\emph{not}} \emph{touch that} & \emph{drink your water} \\
 \emph{do} \textbf{\emph{not}} \emph{break it} & \emph{come here} \\
-\bottomrule
 \end{longtable}
 
 \begin{figure}[H]
@@ -541,24 +609,34 @@ Prohibition (Negative) & Positive counterpart \\
 \caption{Cumulative ratios for the production of prohibition at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios.}\label{fig:prohibition}
 \end{figure}
 
-At the discourse level, we selected utterances where \emph{no} serves as a discourse response particle to antecedents that were subjectless imperatives headed by a verb. Again we excluded cases where the head verbs have any of the following lemmas: \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, and \emph{have}. We would like to point out that in these instances, children's (and parents') production of \emph{no} is not necessarily negating the content of the antecedent prohibition. Instead we simply included these cases as lens to probing children's negative responses to imperatives, and also to be consistent with our analyses of the negative constructions of other communicative functions. Our search resulted in a total of 107 utterances (child: 65; parent: 42).
-As shown in Figure \ref{fig:prohibitiondiscourse}, both children's and parents' usage of negation as a response particle to imperatives gradually decreases before 36 months, then stays relatively stable after. Nevertheless, given the extremely small sample size here, these observations are not conclusive.
+At the discourse level, we selected utterances where \emph{no} serves as a discourse response particle to antecedents that were subjectless imperatives headed by a verb. Again we excluded cases where the head verbs have any of the following lemmas: \emph{like}, \emph{want}, \emph{know}, \emph{think}, \emph{remember}, and \emph{have}. We would like to point out that in these instances, children's (and parents') production of \emph{no} is not necessarily negating the content of the antecedent prohibition. Instead we simply included these cases as way of probing children's negative responses to imperatives, and also to be consistent with our analyses of the negative constructions of other communicative functions. Our search resulted in a total of 107 utterances (child: 65; parent: 42). As shown in Figure \ref{fig:prohibitiondiscourse}, both children's and parents' usage of negation as a response particle to imperatives gradually decreases before 36 months, then stays relatively stable after. Nevertheless, given the extremely small sample size here, these observations are not conclusive.
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4861}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5139}}@{}}
 \caption{\label{tab:disprohib} Examples of discourse-level prohibition in children's and parents' speech.}\tabularnewline
-\toprule
-Antecedent & Utterance \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antecedent
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Utterance
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Antecedent & Utterance \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antecedent
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Utterance
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \emph{put away your toys} & Child: \textbf{\emph{no}} \emph{mommy I like these} \\
-Parent: \emph{do}\textbf{\emph{n't}} \emph{put it there} & Child: \textbf{\emph{no}} \emph{I really want to} \\
+Parent: \emph{do\textbf{n't}} \emph{put it there} & Child: \textbf{\emph{no}} \emph{I really want to} \\
 Child: \emph{give it to me} & Parent: \textbf{\emph{no}} \emph{not right now} \\
 Child: \emph{try it} & Parent: \textbf{\emph{no no}} \emph{please} \\
-\bottomrule
 \end{longtable}
 
 \begin{figure}[H]
@@ -577,19 +655,20 @@ For the function of inability, we analyzed instances with head verbs that are mo
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:inab} Examples of sentence-level inability and positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Inability (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Inability (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
-\emph{I ca}\textbf{\emph{n't}} \emph{see} & \emph{I could do it} \\
-\emph{I ca}\textbf{\emph{n't}} \emph{go} & \emph{I could help it} \\
+\bottomrule\noalign{}
+\endlastfoot
+\emph{I ca\textbf{n't}} \emph{see} & \emph{I could do it} \\
+\emph{I ca\textbf{n't}} \emph{go} & \emph{I could help it} \\
 \emph{I can} \textbf{\emph{not}} & \emph{I can try} \\
 \emph{I can} \textbf{\emph{not}} \emph{do it} & \emph{I can put it back} \\
-\bottomrule
 \end{longtable}
 
 Figure \ref{fig:inability} shows cumulative ratios of parents' and children's production of constructions that convey (in)ability. Similar to previous constructions, positive instances are generally more frequent than negative ones. Children produce inability more and more frequently between 18-36 months. After 36 months, their production is gradually becoming stable and higher than parents' production level.
@@ -604,23 +683,24 @@ Figure \ref{fig:inability} shows cumulative ratios of parents' and children's pr
 \end{figure}
 
 \begin{longtable}[]{@{}ll@{}}
-\caption{\label{tab:disinability} Examples of discourse-level inability in children's and parents' speech.}\tabularnewline
-\toprule
+\caption{\label{tab:disinability} Examples of discourse level inability in children's and parents' speech.}\tabularnewline
+\toprule\noalign{}
 Antecedent & Utterance \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Antecedent & Utterance \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \emph{I can do it for you} & Child: \textbf{\emph{no no}} \\
-Parent: \emph{I ca}\textbf{\emph{n't}} \emph{see} & Child: \textbf{\emph{no}} \emph{try again} \\
+Parent: \emph{I ca\textbf{n't}} \emph{see} & Child: \textbf{\emph{no}} \emph{try again} \\
 Child: \emph{I can pour this} & Parent: \textbf{\emph{no no}} \emph{please} \\
-Child: \emph{I ca}\textbf{\emph{n't}} \emph{finish} & Parent: \textbf{\emph{no}} \emph{you have to} \\
-\bottomrule
+Child: \emph{I ca\textbf{n't}} \emph{finish} & Parent: \textbf{\emph{no}} \emph{you have to} \\
 \end{longtable}
 
-At the discourse level, we chose utterances with the negative particle \emph{no} in response to antecedents that had a similar structure to the inability construction defined at the sentence level. In these interatctions, \emph{no} is not exactly negating the content of the antecedents neither; however, similarly to our motivation for analyzing prohibition at the discourse level, we included these instances to investigate children's (and parents') negative response to (in)ability more broadly. This yielded a total of 1,275 negative utterances (child: 621; parent: 654). Figure \ref{fig:inabilitydiscourse} presents the cumulative ratios for parents' and children's production of discourse-level inability. It appears that children's production gradually increases from 24 to 36 months and stabalizes after 36 months at a similar rate to that of parent's.
+At the discourse level, we chose utterances with the negative particle \emph{no} in response to antecedents that had a similar structure to the inability construction defined at the sentence level. In these interactions, \emph{no} is not always negating the content of the antecedents exactly. However, similar to our motivation for analyzing prohibition at the discourse level, we included these instances to investigate children's (and parents') negative responses to (in)ability more broadly. This yielded a total of 1,275 negative utterances (child: 621; parent: 654). Figure \ref{fig:inabilitydiscourse} presents the cumulative ratios for parents' and children's production of discourse-level inability. Children's production gradually increases from 24 to 36 months and stabilizes after 36 months at a similar rate to that of parent's. Children may be producing instances of inability more than parents because due to their developmental limitations they have more reason to express inability, and perhaps seek help.
 
 \begin{figure}[H]
 
@@ -638,22 +718,23 @@ To capture the function of labeling at the sentence level, we concentrated on co
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:label} Examples of sentence-level labeling (negative) and positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Labeling (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Labeling (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \emph{that's not a farmer} & \emph{this is a book} \\
 \emph{this is not the book} & \emph{this is nice} \\
 \emph{I'm not a heavy baby Mum} & \emph{it's a nice bowl} \\
 \emph{It's no good} & \emph{she's pretty} \\
-\bottomrule
 \end{longtable}
 
-Figure \ref{fig:learning} shows cumulative ratios for parent's and children's production of the labeling construction at the sentence level. In both parent and children speech, the frequency of positive counterparts is consistently higher than that of negative labeling instances. Children's production of negative labeling increases between 18-36 months, and remains stable after then; though the production ratios remained lower than those of parents' production.
+Figure \ref{fig:learning} shows cumulative ratios for parent's and children's production of the labeling construction at the sentence level. In both parent and children speech, the frequency of positive counterparts is consistently higher than that of negative labeling instances. Children's production of negative labeling increases between 18-36 months, and remains stable after then; though the production ratios remained lower than those of parents'.
 
 \begin{figure}[H]
 
@@ -664,23 +745,24 @@ Figure \ref{fig:learning} shows cumulative ratios for parent's and children's pr
 \caption{Cumulative ratios for the production of (negative) labeling at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios.}\label{fig:learning}
 \end{figure}
 
-At the discourse level, we selected antecedent utterances with copula structures that combined with a nominal or an adjectival predicate (\ref{tab:dislabel}). In total we found 18,037 utterances (Child: 12,501; Parent: 5,536). The cumulative ratios for labeling instances at the discourse level are illustrated in Figure \ref{fig:learningdiscourse}. There is an increase in children use of \emph{no} to negate labeling between 18 to 36 months. After 36 months, however, the production stays at a stable rate above parents level.
+At the discourse level, we selected antecedent utterances with copula structures that combined with a nominal or an adjectival predicate (\ref{tab:dislabel}). In total we found 18,037 utterances (Child: 12,501; Parent: 5,536). The cumulative ratios for labeling instances at the discourse level are illustrated in Figure \ref{fig:learningdiscourse}. There is an increase in children's use of \emph{no} to negate labeling between 18 to 36 months. After 36 months, however, the production stays at a stable rate above parents level.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:dislabel} Examples of discourse-level labeling (negative) in children's and parents' speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Antecedent & Utterance \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Antecedent & Utterance \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \emph{is this one good} & Child: \textbf{\emph{no}} \emph{it's not} \\
 Parent: \emph{are you a captain} & Child: \textbf{\emph{no}} \emph{I'm not} \\
 Child: \emph{that's the one} & Parent: \textbf{\emph{no}} \emph{it's the green one} \\
 Child: \emph{this is the key} & Parent: \textbf{\emph{no no}} \\
-\bottomrule
 \end{longtable}
 
 \begin{figure}[H]
@@ -699,22 +781,23 @@ Previous studies have reported instances in which children combined negative mor
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:epistem} Examples of sentence-level epistemic negation and positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Epistemic (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Epistemic (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 \emph{I} \textbf{\emph{not}} \emph{know} & \emph{I know} \\
-\emph{I did}\textbf{\emph{n't}} \emph{remember} & \emph{she remembers} \\
-\emph{I do}\textbf{\emph{n't}} \emph{think so} & \emph{he thinks this one is good} \\
-\emph{She does}\textbf{\emph{n't}} \emph{know this} & \emph{She knows about this} \\
-\bottomrule
+\emph{I did\textbf{n't}} \emph{remember} & \emph{she remembers} \\
+\emph{I do\textbf{n't}} \emph{think so} & \emph{he thinks this one is good} \\
+\emph{She does\textbf{n't}} \emph{know this} & \emph{She knows about this} \\
 \end{longtable}
 
-Figure \ref{fig:epistemic} shows the cumulative ratios of the epistemic construction as defined above in parents' and children's speech at the sentence level. Across the three head verbs, children's production increases substantially from 18 to 36 months then gradually becomes stable yet still lower than parents' production level afterwards. The number of epistemic instances headed by \emph{know} is overall higher than the number of cases headed by either \emph{remember} or \emph{think}, an observation that is consistent in both negative constructions and positive counterparts. With that being said, the majority of negative constructions headed by \emph{know} are idiomatic expressions such as ``I don't know'' (51.66\%) or ``don't know'' (13.73\%). Positive epistemic utterances are in general more frequent than negative ones, with the exception of \emph{know} in child speech.
+Figure \ref{fig:epistemic} shows the cumulative ratios of the epistemic construction as defined above in parents' and children's speech at the sentence level. Across the three head verbs, children's production increases substantially from 18 to 36 months then gradually becomes stable yet still lower than parents' production level afterwards. The number of epistemic instances headed by \emph{know} is overall higher than the number of cases headed by either \emph{remember} or \emph{think}, an observation that is consistent in both negative constructions and positive counterparts. However, the majority of negative constructions headed by \emph{know} are idiomatic expressions such as ``I don't know'' (51.66\%) or ``don't know'' (13.73\%). Positive epistemic utterances are in general more frequent than negative ones, with the exception of \emph{know} in child speech.
 
 \begin{figure}[H]
 
@@ -727,21 +810,32 @@ Figure \ref{fig:epistemic} shows the cumulative ratios of the epistemic construc
 
 For epistemic negation at the discourse level, we examined interactions in which the antecedent utterances took any of the three head verbs: \emph{know}, \emph{remember} and \emph{think}, leading to a total of 5,695 utterances (child: 4,303; parent: 1,392). As shown in Figure \ref{fig:epistemicdiscourse}, children's production of \emph{no} to negate antecedent epistemic utterances increases rapidly between 18-36 months and is in general higher than the production ratio of parents'.
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4583}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5417}}@{}}
 \caption{\label{tab:epistem} Examples of discourse-level epistemic negation in children's and parents' speech.}\tabularnewline
-\toprule
-Epistemic (Negative) & Positive counterpart \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Epistemic (Negative)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Positive counterpart
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Epistemic (Negative) & Positive counterpart \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Epistemic (Negative)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Positive counterpart
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \emph{do you know} & Child: \textbf{\emph{no}} \\
-Parent: \emph{do you remember} & \textbf{\emph{no}} \emph{I do}\textbf{\emph{n't}} remember it* \\
+Parent: \emph{do you remember} & \textbf{\emph{no}} \emph{I do\textbf{n't}} \emph{remember it} \\
 Child: \emph{does she think so} & Parent: \textbf{\emph{no}} \textbf{\emph{not}} \emph{really} \\
-Child: \emph{do they know it's today} & \textbf{\emph{no}} \emph{I do}\textbf{\emph{n't}} \emph{think so honey} \\
-\bottomrule
+Child: \emph{do they know it's today} & \textbf{\emph{no}} \emph{I do\textbf{n't}} \emph{think so honey} \\
 \end{longtable}
 
 \begin{figure}[H]
@@ -756,23 +850,24 @@ Child: \emph{do they know it's today} & \textbf{\emph{no}} \emph{I do}\textbf{\e
 \hypertarget{possession}{%
 \subsubsection{Possession}\label{possession}}
 
-The last function we explored was possession. At the sentence level, for negative structures we selected cases where negative morphemes were combined with auxiliary verbs to modify head verbs with the lemma form \emph{have}, and the POS tag of these head verbs is all ``VERB.'' We also included cases of which the syntactic head is a nominal predicate; the nominal predicate can either be a possessive pronoun (e.g., ``yours'') or a noun phrase with a possessive modifier (e.g., ``her book''). Table \ref{tab:possess} presents several examples. The number of negative utterances subjected to analysis for this function is 8,892 (child: 2,830; parent: 6,062). Again the positive counterparts share similar structures except without negation, leading to a total of 86,665 utterances (child: 27,730; parent: 58,935). One thing to note here is that for the positive structures with the head verb \emph{have}, we restricted our search to instances where the head verb takes a direct object (with the dependency relation \emph{obj}). This is to avoid potential parsing errors of utterances such as \emph{I have}, where the verb could ambiguously be an auxiliary.
+The last function we explored was possession. At the sentence level, for negative structures we selected cases where negative morphemes were combined with auxiliary verbs to modify head verbs with the lemma form \emph{have}, and the POS tag of these head verbs is all ``VERB''. We also included cases of which the syntactic head is a nominal predicate; the nominal predicate can either be a possessive pronoun (e.g., ``yours'') or a noun phrase with a possessive modifier (e.g., ``her book''). Table \ref{tab:possess} presents several examples. The number of negative utterances subjected to analysis for this function is 8,892 (child: 2,830; parent: 6,062). Again the positive counterparts share similar structures except without negation, leading to a total of 86,665 utterances (child: 27,730; parent: 58,935). One thing to note here is that for the positive structures with the head verb \emph{have}, we restricted our search to instances where the head verb takes a direct object (with the dependency relation \emph{obj}). This is to avoid potential parsing errors of utterances such as \emph{I have}, where the verb could be an auxiliary.
 
 \begin{longtable}[]{@{}ll@{}}
 \caption{\label{tab:possess} Examples of sentence-level possession (negative) and positive counterparts in children's speech.}\tabularnewline
-\toprule
+\toprule\noalign{}
 Posession (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endfirsthead
-\toprule
+\toprule\noalign{}
 Posession (Negative) & Positive counterpart \\
-\midrule
+\midrule\noalign{}
 \endhead
-\emph{I do}\textbf{\emph{n't}} \emph{have it} & \emph{you have that} \\
-\emph{you do}\textbf{\emph{n't}} \emph{have my toy car} & \emph{she has it} \\
+\bottomrule\noalign{}
+\endlastfoot
+\emph{I do\textbf{n't}} \emph{have it} & \emph{you have that} \\
+\emph{you do\textbf{n't}} \emph{have my toy car} & \emph{she has it} \\
 \textbf{\emph{not}} \emph{mine} & \emph{this is hers} \\
 \textbf{\emph{not}} \emph{yours either} & \emph{mine mine mine} \\
-\bottomrule
 \end{longtable}
 
 Figure \ref{fig:possession} presents cumulative ratios of possession construction at the sentence level. Regardless of whether the utterances are negative or positive, the production trajectory in child speech appears to have notable differences depending on the syntactic head. When the instances are headed by \emph{have}, children increase their production between 18-36 months, a pattern that is present in both negative and positive constructions; yet children's production ratio consistently stays below parents' level across the developmental path. For utterances headed by possessive pronouns, on the other hand, children's production increases rapidly between 18-24 months and stays above parents' production level as early as 24 months of age.
@@ -788,21 +883,32 @@ Figure \ref{fig:possession} presents cumulative ratios of possession constructio
 
 For discourse-level possessives, we selected antecedents of the negative response particle \emph{no} which themselves had structures similar to the negative and positive constructions of possession at the sentence level (Table \ref{tab:dispossess}). Based on Figure \ref{fig:possessiondiscourse}, the overall patterns indicate that children's production of possession at the discourse level increases gradually within the age range of 18 to 36 months; and their production ratio is mostly higher than that of parents.
 
-\begin{longtable}[]{@{}ll@{}}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5526}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4474}}@{}}
 \caption{\label{tab:dispossess} Examples of discourse-level possession (negative) in children's and parents' speech.}\tabularnewline
-\toprule
-Antecedent & Utterance \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antecedent
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Utterance
+\end{minipage} \\
+\midrule\noalign{}
 \endfirsthead
-\toprule
-Antecedent & Utterance \\
-\midrule
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antecedent
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Utterance
+\end{minipage} \\
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 Parent: \textbf{\emph{not}} \emph{yours} & Child: \textbf{\emph{no}} \emph{it's mine mine} \\
 Parent: \emph{do you still have that picture} & Child: \textbf{\emph{no}} \\
 Child: \textbf{\emph{not}} \emph{hers} & Parent: \textbf{\emph{no no}} \\
-Child: \emph{mommy has it} & Parent: \textbf{\emph{no}} \emph{I do}\textbf{\emph{n't}} \\
-\bottomrule
+Child: \emph{mommy has it} & Parent: \textbf{\emph{no}} \emph{I do\textbf{n't}} \\
 \end{longtable}
 
 \begin{figure}[H]
@@ -814,13 +920,12 @@ Child: \emph{mommy has it} & Parent: \textbf{\emph{no}} \emph{I do}\textbf{\emph
 \caption{Cumulative ratios for the production of possession at the discourse level for children between 12 to 72 months of age, and their parents.}\label{fig:possessiondiscourse}
 \end{figure}
 
-\hypertarget{analysis-and-discussion}{%
-\subsubsection{Analysis and Discussion}\label{analysis-and-discussion}}
+\hypertarget{all-constructions}{%
+\subsubsection{All Constructions}\label{all-constructions}}
 
-In Figure \ref{fig:allneg}, we present the cumulative ratios of all our negative constructions at the sentence level for children (left panel) and parents (right panel).
-It seems that parents produce most negative constructions at relatively constant rates across most of the age bins. Notable exceptions are labeling, epistemic, and prohibitions between 12-36 months. Parents seem to increase their production of labeling and epistemic constructions in this period and their production becomes more stable after 36 months. This obervation aligns with labeling and epistemic negation in child speech, which suggests that the production patterns in child speech for these two functions may be more influenced by interactions with parents, and vice versa as children grow to be more conversant and interactive. On the other hand, prohibition starts as one of the most frequent constructions at 12-18 months of age and ends up as the least frequently used construction after around 30 months. One obvious reason for this trend may be that when children are younger, parents guide their actions through imperatives and commands much more frequently than later in the child's life.
+In Figure \ref{fig:allneg}, we present the cumulative ratios of all our negative constructions at the sentence level for children (left panel) and parents (right panel). Parents produce most negative constructions at relatively constant rates across most of the age bins. Notable exceptions are labeling, epistemic, and prohibitions between 12-36 months. Parents increase their production of labeling and epistemic constructions in this period and their productions become more stable after 36 months. This obervation aligns with labeling and epistemic negation in child speech, which suggests that the production patterns in child speech for these two functions may be more influenced by interactions with parents, and vice versa as children grow to be more conversant and interactive. On the other hand, prohibition starts as one of the most frequent constructions at 12-18 months of age and ends up as the least frequently used construction after around 30 months. One reason for this trend may be that when children are younger, they need more guidance on their actions and parents provide such guidance with imperatives and commands, often in the form of prohibiting children from particular actions. As children grow older, verbal prohibitions become less necessary.
 
-By comparison, children start producing most constructions in the 12-18 age range. Two functions, non-existence and prohibition, seem to emerge at later ages than others. With non-existence, even though there are examples between 18-24 months, the cumulative production ratios are fluctuating and discontinuous, instead of demonstrating a slow and steady increase as seen in most of the other functions. As described in previous sections, the data for non-existence before 25 months based on our corpus search is relatively sparse; it is possible that with more examples a clearer pattern may arise. With prohibition, we see a relatively smooth pattern. Children begin to produce them more regularly between 24-30 months and its rate of production stays below parents' levels. One explanation for this pattern is that parent-child interactions do not provide many contexts for children to prohibit parents. Overall by 36 months of age, children's production of most constructions starts to become stable.
+Children start producing most of the constructions in the 12-18 age range. Two functions, non-existence and prohibition, seem to emerge at later ages than others. With non-existence, even though there are examples between 18-24 months, the cumulative production ratios are fluctuating and discontinuous, instead of demonstrating a slow and steady increase as seen in most of the other functions. As described in previous sections, the data for non-existence before 25 months based on our corpus search is relatively sparse; it is possible that with larger corpora a clearer pattern may arise. With prohibition, we see a relatively smooth pattern. Children begin to produce them more regularly between 24-30 months and its rate of production stays below parents' levels. One explanation for this pattern is that parent-child interactions do not provide many contexts for children to prohibit parents. Overall by 36 months of age, children's production of most constructions starts to become stable.
 
 \begin{figure}[H]
 
@@ -831,6 +936,10 @@ By comparison, children start producing most constructions in the 12-18 age rang
 \caption{Cumulative ratios for all negative constructions at the sentence level.}\label{fig:allneg}
 \end{figure}
 
+Figure \ref{fig:allpos} shows the cumulative ratios of all positive counterparts to our negative constructions at the sentence level for children (left panel) and parents (right panel). The production of the positive instances in parent speech for almost all constructions is stable. Notable exceptions are labeling and positive counterparts to prohibitions (positive imperatives) between 12-30 months. Similar to negative instances of labeling, positive instances increase in frequency between 12-30 months but remain constant after. Positive prohibitions are produced much more frequently between 12-36 months, but their production decreases later. This pattern mirrors what we see in Figure \ref{fig:allneg} with (negative) prohibitions, that the usage of imperatives in interactions potentially becomes less necessary as children grow older.
+
+Children start producing all positive counterparts to our negative constructions between the age range of 12-18 months. By 36 months, almost all positive constructions are being produced at a relatively constant rate close to parents' levels. Another noteworthy pattern is the relative high frequency of positive counterparts to prohibitions in the 12-24 months age period. In contrast to the production of (negative) prohibitions, positive imperatives are produced with high frequency even before 24 months of age. In other words, even though children do not frequently prohibit parents, they seem to be frequently ordering or commanding parents to do things for them; a finding that would not surprise many parents or caregivers!
+
 \begin{figure}[H]
 
 {\centering \includegraphics{neg_construction_article_files/figure-latex/allpos-1} 
@@ -840,46 +949,7 @@ By comparison, children start producing most constructions in the 12-18 age rang
 \caption{Cumulative ratios for the positive counpterparts to all negative constructions at the sentence level.}\label{fig:allpos}
 \end{figure}
 
-On the other hand, figure \ref{fig:allpos} shows the cumulative ratios of all positive counterparts to our negative constructions at the sentence level for children (left panel) and parents (right panel). The production of the positive instances in parent speech for almost all constructions is stable. Notable exceptions are labeling and positive counterparts to prohibitions (positive imperatives) between 12-30 months. Similar to negative instances of labeling, positive instances increase in frequency between 12-30 months but remain constant after. Positive prohibitions are produced much more frequently between 12-36 months, but their production decreases later. This pattern mirrors what we see in Figure \ref{fig:allneg} with (negative) prohibitions, that the usage of imperatives in interactions potentially becomes less necessary as children grow older.
-
-Compared to parent speech, children start producing all positive counterparts to our negative constructions between the age range of 12-18 months. By 36 months, almost all positive constructions are being produced at a relatively constant rate close to parents' levels. Another noteworthy pattern is the relative high frequency of positive counterparts to prohibitions in the 12-24 months age period. In contrast to the production of (negative) prohibitions, positive imperatives are produced with high frequency even before 24 months of age. In other words, even though children do not frequently prohibit parents, they seem to be frequently ordering or commanding parents to do things for them; a conclusion that may not surprise many parents or caregivers.
-
-Summarzing children's production patterns at the sentence level, it appears that regardless of whether the utterance is negative or positive, there is considerable similarity in terms of the developmental trajectories across the different communicative functions. Though there are discrepancies for cases of prohibition, overall the development of most negative constructions and their positive counterparts emerges between 12-18 months; their production increases substantially from 18 to 36 months, then starts to become stable (increase very slowly) after 36 months of age.
-
-The fact that the developmental path for each function is comparable is additionally evident from results of the Bayesian logistic growth curve modeling, shown in Table \ref{tab:growthsyntax}. Minus the precise numerical values, the production of the negative utterances for all communicative function is estimated to reach a similar asymtotic level, without statistically significant differences between each other. The maximum growth rate as well as the age at which one-half of production is achieved are also comparable across functions, despite of whether the construction is negative.
-
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.13}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.11}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.24}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.21}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.05}}@{}}
-\caption{\label{tab:growthsyntax} Results for Bayesian logistic growth curve modeling in child speech at the sentence level; 95\% credibal intervals for each parameter were derived from their own postierior distribution.}\tabularnewline
-\toprule
-Function & Polarity & Asymptotic level & Growth rate & Age of 1/2 growth & \(R^2\) \\
-\midrule
-\endfirsthead
-\toprule
-Function & Polarity & Asymptotic level & Growth rate & Age of 1/2 growth & \(R^2\) \\
-\midrule
-\endhead
-Rejection & Negative & 0.11 (0.01, 0.30) & 0.50 (0.09, 0.91) & 41.94 (40.03, 43.87) & 0.50 \\
-& Positive & 0.07 (0.01, 0.20) & 0.50 (0.09, 0.91) & 41.96 (40.02, 43.90) & 0.50 \\
-Non-existence & Negative & 0.28 (0.04, 0.71) & 0.50 (0.10, 0.90) & 41.94 (40.01, 43.86) & 0.50 \\
-& Positive & 0.17 (0.02, 0.47) & 0.50 (0.09, 0.90) & 41.94 (40.00, 43.89) & 0.50 \\
-Prohibition & Negative & 0.31 (0.04, 0.74) & 0.50 (0.10, 0.90) & 41.92 (39.99, 43.86) & 0.50 \\
-& Positive & 0.15 (0.02, 0.42) & 0.50 (0.09, 0.90) & 41.94 (40.07, 43.89) & 0.50 \\
-Inability & Negative & 0.21 (0.03, 0.57) & 0.50 (0.10, 0.90) & 41.93 (39.99, 43.85) & 0.50 \\
-& Positive & 0.17 (0.02, 0.48) & 0.50 (0.08, 0.91) & 41.94 (40.03, 43.87) & 0.50 \\
-Labeling (Denial) & Negative & 0.19 (0.02, 0.53) & 0.50 (0.09, 0.90) & 41.95 (39.98, 43.91) & 0.50 \\
-& Positive & 0.09 (0.01, 0.24) & 0.50 (0.09, 0.91) & 41.95 (39.92, 43.97) & 0.50 \\
-Epistemic & Negative & 0.10 (0.01, 0.29) & 0.50 (0.09, 0.90) & 41.93 (39.99, 43.88) & 0.50 \\
-& Positive & 0.08 (0.01, 0.22) & 0.50 (0.09, 0.91) & 41.93 (39.95, 43.87) & 0.50 \\
-Possession & Negative & 0.14 (0.02, 0.38) & 0.50 (0.09, 0.91) & 41.92 (39.95, 43.93) & 0.50 \\
-& Positive & 0.09 (0.01, 0.23) & 0.50 (0.09, 0.91) & 41.93 (40.00, 43.86) & 0.50 \\
-\bottomrule
-\end{longtable}
+Summarizing children's production patterns at the sentence level, whether the utterance is negative or positive, there are considerable similarities in terms of the developmental trajectories across the different communicative functions. Though there are discrepancies for cases of prohibition, overall the development of most negative constructions and their positive counterparts emerges between 12-18 months; their production increases substantially from 18 to 36 months, then starts to become stable (increase very slowly) after 36 months of age.
 
 Finally, Figure \ref{fig:alldiscourse} illustrates the cumulative ratios of all negative responses at the discourse level. Observations for parents' speech on the right again demonstrates a relatively constant rate of production after 36 months. Before 36 months, however, most constructions show a gradual increase with the exception of prohibition. Parents start with more frequent ``\emph{no!}''-responses to imperatives produced by children, but the frequency of these negative responses drops to a relatively low and stable level after children are 36 months of age; this pattern again corresponds to parents' production of subjectless imperatives in Figure \ref{fig:allneg} and Figure \ref{fig:allpos}.
 
@@ -894,111 +964,194 @@ Finally, Figure \ref{fig:alldiscourse} illustrates the cumulative ratios of all 
 
 Looking at children's negative responses on the left panel, we see that production begins for most functions around 18 months of age and by 36 months children are also producing negative responses at a relatively constant rate; these patterns draw similarity to those at the sentence level. The comparability of the developmental trajectories for different communicative functions at the discourse level shown in Figure \ref{fig:alldiscourse} is strengthened further with the logistic growth curves. As demonstrated in Table \ref{tab:growthdiscourse}, the asymptotic levels across functions are estimated to be similar to each other; same holds for the maximum growth rate and the age of one-half production growth. Furthermore, the results of the growth curve models at the discourse level are also comparable to those at the sentence level presented in Table \ref{tab:growthsyntax}, indicating overall similar production patterns between the two levels.
 
-\begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.18}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.24}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.26}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.06}}@{}}
-\caption{\label{tab:growthdiscourse} Results for Bayesian logistic growth curve modeling in child speech at the discourse level; 95\% credibal intervals for each parameter were derived from their own postierior distribution.}\tabularnewline
-\toprule
-Function & Asymptotic level & Growth rate & Age of 1/2 growth & \(R^2\) \\
-\midrule
-\endfirsthead
-\toprule
-Function & Asymptotic level & Growth rate & Age of 1/2 growth & \(R^2\) \\
-\midrule
-\endhead
-Rejection & 0.17 (0.02, 0.45) & 0.50 (0.09, 0.90) & 41.95 (39.99, 43.88) & 0.50 \\
-Non-existence & 0.22 (0.03, 0.58) & 0.50 (0.09, 0.90) & 41.95 (39.99, 43.91) & 0.50 \\
-Prohibition & 0.23 (0.03, 0.59) & 0.50 (0.09, 0.90) & 41.94 (39.94, 43.88) & 0.50 \\
-Inability & 0.25 (0.03, 0.66) & 0.50 (0.10, 0.90) & 41.93 (39.92, 43.90) & 0.50 \\
-Labeling (Denial) & 0.15 (0.02, 0.42) & 0.50 (0.09, 0.90) & 41.96 (39.99, 43.92) & 0.50 \\
-Epistemic & 0.19 (0.02, 0.51) & 0.50 (0.09, 0.91) & 41.94 (39.99, 43.85) & 0.50 \\
-Possession & 0.25 (0.03, 0.65) & 0.50 (0.09, 0.91) & 41.94 (39.96, 43.86) & 0.50 \\
-\bottomrule
-\end{longtable}
+\hypertarget{statistical-modeling}{%
+\subsection{Statistical Modeling}\label{statistical-modeling}}
+
+In order to model the overall production trajectories of different negative constructions, we adopted developmental growth curve analysis (Kemper, Rice, \& Chen, 1995; Van Veen, Evers-Vermeul, Sanders, \& Van den Bergh, 2009). In particular, we used Gompertz curves (Boedeker, 2021; Gompertz, 1825; Panik, 2014) to model the cumulative ratio \(R_{c,t}\) for a construction \(c\) at a monthly age bin \(t\) using three parameters: the upper asymptote \(a\), the growth rate \(b\), and the inflection point \(i\) (\(e\) is Euler's number):
+
+\(R_{c, t} = a \times e^{-e^{(-b \times (t - i))}}\)
+
+The basic assumptions behind this model are the following: First, there is an overall proportion or probability of children producing a particular construction in childhood. Second, this proportion or ratio is not constant across their development. It starts at zero (children don't produce the construction) and increases until it reaches the overall proportion (i.e.~upper threshold) at a certain age. Third, this growth from no production to the upper threshold is non-linear. The ratio increases rapidly at first until it reaches peak growth of \(b\) at time interval \(i\), then the growth slows down until the ratio for that construction reaches the stable maximum threshold estimated by the upper asymptote \(a\). The rapid growth period and the slowdown period before and after the inflection point \(i\) can be asymmetrical.
+
+We used the statistical package \(brms\) to implement our Gompertz growth curve analysis. We fit separate growth curves to each negative and positive construction. We used uniform priors with appropriate bounds for the three parameters of our Gompertz models. Since we did not have enough data to capture the developmental paths of individual children, the logistic curves did not have random effects and were fit at the population level for each communicative function. Each model ran 4 chains with 4000 iterations each and 2000 of them as warm-up. 95\% credible intervals for each parameter were derived from their respective posterior distribution.
+
+\(a\) \(\sim\) \(Uniform(0, 10)\)
+
+\(b\) \(\sim\) \(Uniform(0, 3)\)
+
+\(i\) \(\sim\) \(Uniform(12, 72)\)
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/sentencePredictionPlot-1} 
+
+}
+
+\caption{Predicted Gompertz growth curves for sentence-level negative constructions. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances.}\label{fig:sentencePredictionPlot}
+\end{figure}
+
+First we look at the predictions of our models for sentence-level negation, which reflect children's productive capacities. Figure \ref{fig:sentencePredictionPlot} presents the predicted growth curves for the seven sentence-level negative constructions in children's speech. While the curves differ substantially in their asymptote (the upper threshold for the production), they seem to have similar onset of production around 20 months of age or slightly earlier. Prohibitions do not show a proper curve likely due to the limited amount of available data. Figure \ref{fig:valencePredictionPlot} compares the positive (green) and negative (red) growth curves for the same constructions. The negative curves always have lower asymptotes compared to the positive curves, which means positive constructions constitute larger proportions of children's speech compared to their negative counterparts. More importantly, the onsets for the negative curves are always at or after the positive curves. This suggests that on average, children produce negative constructions at or after they learn to produce their positive counterparts.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/valencePredictionPlot-1} 
+
+}
+
+\caption{Predicted Gompertz growth curves for sentence-level positive (green) vs. negative (red) constructions. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances.}\label{fig:valencePredictionPlot}
+\end{figure}
+
+Figure \ref{fig:negativePositiveInflectionPlot} shows model estimates for the inflection points for sentence-level positive and negative growth curves. The inflection point is the age at which children's production ratio for a construction has reached maximum growth and starts to slow down. The inflection points for most positive constructions are earlier than their negative counterpart. The two exceptions are epistemic and inability constructions, which have very frequent negative usage early on. The inflection points for most negative constructions fall between 26 and 32 months of age. This is the age range where many experimental studies report successful comprehension of negation in a wide range of tasks using different constructions (Austin, Theakston, Lieven, \& Tomasello, 2014; De Villiers \& Flusberg, 1975; Feiman, Mody, Sanborn, \& Carey, 2017; Hummer, Wimmer, \& Antes, 1993; Reuter, Feiman, \& Snedeker, 2018). It is also the age range for many production studies that report the presence of different communicative functions discussed in our literature review earlier.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/negativePositiveInflectionPlot-1} 
+
+}
+
+\caption{Estimates with 95 percent credible intervals for inflection points of the Gompertz growth curves for sentence-level positive (green) and negative constructions. The x-axis is age in months, and the y-axis represents seven negative constructions.}\label{fig:negativePositiveInflectionPlot}
+\end{figure}
+
+Next we consider the predictions of our models for discourse-level negation, which likely reflects their comprehension capacities. Figure \ref{fig:discoursePredictionPlot} shows the predicted growth curves for children's discourse level negation. Similar to sentence-level growth curves, we see different asymptotes for each construction, suggesting that different constructions are used and negated at different proportions. However, similar to what we saw with sentence-level negation, these constructions seem to start recieving discourse level negative responses around 20 months of age and in some cases slightly earlier. The curve for the rejection construction leaves this possibility open that rejections are negated at the discourse level much earlier than the other constructions. However, we need much more data in the early age range of 12-30 months to be able to assess this hypothesis with more confidence.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/discoursePredictionPlot-1} 
+
+}
+
+\caption{Predicted Gompertz growth curves for discourse-level negative constructions. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances.}\label{fig:discoursePredictionPlot}
+\end{figure}
+
+Figure \ref{fig:sentenceDiscoursePredictionPlot} compares the growth curves for discourse-level negative responses to each construction with the growth curves for the sentence-level production of that construction. The sentence-level curves show higher asymptotes than sentence-level curves across all constructions. Almost all constructions show similar onset of production around 20-months or slightly earlier. For episetmic and inability constructions, the sentence level productions seem to appear slightly earlier than discourse level productions. For rejections, on the other hand, discourse-level prodution of negation seems to start slightly earlier. However, for more accurate estimates we need denser corpora in the 12-30 months age range.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/sentenceDiscoursePredictionPlot-1} 
+
+}
+
+\caption{Predicted Gompertz growth curves for children's sentence-level (green) vs discourse-level (red) negation. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances.}\label{fig:sentenceDiscoursePredictionPlot}
+\end{figure}
+
+Finally, Figure \ref{fig:sentenceDiscourseInflectionPlot} shows the model estimates for the inflection points of the discourse-level (red) and sentence-level (green) negative growth curves. Overall, discourse-level curves reach their maximum growth earlier than sentence-level curves. For most discourse-level curves, the inflection point is around 24 months of age. Prohibition and non-existence constructions show more uncertain estimates likely due to the limited amount of data available across age bins.
+
+\begin{figure}[H]
+
+{\centering \includegraphics{neg_construction_article_files/figure-latex/sentenceDiscourseInflectionPlot-1} 
+
+}
+
+\caption{Estimates with 95 percent credible intervals for inflection points of the Gompertz growth curves for discourse-level positive (red) and sentence-level (green) constructions. The x-axis is age in months, and the y-axis represents seven negative constructions.}\label{fig:sentenceDiscourseInflectionPlot}
+\end{figure}
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-Using automatic annotations of large-scale corpora of child-parent interactions, we presented production trajectories for seven negative constructions that tend to express rejection, non-existence, prohibition, inability, labeling, epistemic states, and possession (Table 1). The results suggest that the production of almost all these negative constructions (except for prohibition) emerges before or around 18 months, and gradually increases within the 18-36 months age range. Their production frequencies slowly become stable and regular after 36 months and relatively comparable to parents' levels of production. These observations hold at both the sentence level (Figure \ref{fig:allneg} and Figure \ref{fig:allpos}) and the discourse level (Figure \ref{fig:alldiscourse}). Our growth curve analyses demonstrate further the similarity in the developmental path of the negative constructions for each of the functions, in particular with regards to their estimated asymtote level, maximum growth rate, and the age of one-half production growth. These findings suggest that negation possibly starts as a multi-functional concept; in other words, it develops from several communicative functions more or less at the same time. By contrast, our results do not provide clean-cut evidence for previous claims that the different functions of negation emerge and develop at different stages.
+Natural language negation is abstract and context-general. It can be applied to a wide verity of concepts to communicate negation in many specific and potentially novel contexts. There are two overarching hypotheses regarding the development of this ability in children. First, some researchers have suggested that it is the result of abstraction over concrete communicative contexts and that it develops in fixed and logically defined stages. For example, it is hypothesized that children start with negating their internal desires before external observations or facts. The data to support stage-wise hypotheses of negation development come from children's linguistic productions, especially the specific age at which they produce general purpose discourse negation (e.g.~\emph{no}) as well as specific negative constructions that carry those context-specific communicative functions. However, there has been no consensus among researchers with respect to the exact timing or the order of these stages. Some researchers, on the other hand, have suggested that there may be no fixed order across children and that children's comprehension and production of negation may vary depending on their early environment (de Villiers \& de Villiers, 1979; Nordmeyer \& Frank, 2018). Second, some researchers have suggested that negation emerges as an abstract and context-general concept from the start. In the strongest version of this hypothesis, abstract logical concepts such as negation, conjunction, and disjunction are innate (Crain, 2012; Crain \& Khlentzos, 2008). Under this hypothesis, all children need to do is to map the concept of negation to the morphemes that conventionally mark them in their native languages. Once this is done they can use the full combinatorial capacity of abstract context-general negation.
 
-For future work, we would like to explore several directions. First, to more thoroughly examine and potentially model the developmental trajectories of negation in child production, certain production-specific factors (e.g., length of utterance, ease of pronunciation) should be taken into account as well in order to paint a more clear picture about the development of negation. Additionally, to avoid as much ambiguity resulted from the automatic parser as possible, we tried to be restrictive when identifying the negative constructions of interest in our study. This means that the structures analyzed here do not include all constructions modified by the three negative morphemes in English, such as instances where the syntactic head is a noun phrase that does not fall under the category of possession (e.g., ``not table''). It would be worthwile for future studies to take upon these cases in order to investigate more broadly what lexical items negative morphemes co-occur with, and how the lexical diversity of these structures change along the developmental trajectory.
+In this study, we used the largest available collection of English child language corpora to examine the production trajectories of seven negative constructions that tend to convey communicative functions previously discussed in the literature. We used growth curves to model the emergence and development of these constructions in children's linguistic productions between one and six years of age. As a proxy for their comprehension, we also conducted the same analyses with parents' constructions that children responded to with discourse level negation (\emph{no}). Overall, we did not find strong evidence for ordered stage-wise development of negative communicative functions. Both sentence-level and discourse-level negation as proxies for production and comprehension of negation found that almost all communicative functions have their onset around the 18-22 months window. The comparison of negative and positive curves showed that for some constructions, the production of the negative construction emerges after the positive counterpart. In other cases they emerge around the same time.
 
-It is important to note that similar to prior studies, our conclusions are limited to negation in children's production. Systematic experiments testing children's comprehension of negative utterances with different communicative functions are necessary to better understand the origins and developmental trajectory of negation.
+While our results do not support a fixed-order stage-wise development of negation from concrete communicative functions, they leave open three possibilities. First, our results are compatible with the possibility that negation emerges as an abstract (possibly innate) concept available to the child from early on (Crain, 2012; Crain \& Khlentzos, 2008). According to this account, the main learning task of the child is mapping the right linguistic units to to the available logical concept of negation. Second, the possibility that there are stages in the development of abstract negation from concrete communicative functions, but there is great variation in children's developmental pathways and there is no set of fixed stages across children (de Villiers \& de Villiers, 1979; Nordmeyer \& Frank, 2018). Unfortunately, we do not have enough longitudinal data to assess individual level stages of negation development at this point. Third, it is also possible that negation is abstracted away from concrete communicative functions in fixed-order stages but very quickly and in the much narrower window of 18-22 months. Testing this hypothesis requires intensive data collection in this time period, both testing children's comprehension and production. This is what we plan to pursue in future research.
 
-A different hypothesis is that from the start, negation is an abstract concept that can serve different communicative functions. The main task of the learner is to break the speech stream, detect negative morphemes like \emph{no}, \emph{not}, or \emph{nt'}, and map them to this abstract meaning. She should then learn to use them appropriately in composition with other words to convey the right communicative function in context. There is either no substantial conceptual development for a logical concept such as negation, or this development is complete by the time the process of form-meaning mapping starts. This account predicts that conceptualy speaking, different communicative functions should be learnable and expressable early on and around the same time. Any delays in the comprehension or production of negative constructions and functions must be due to lack of experience with that construction or limitations in children's productive capacity. Therefore, it is possible for communicative functions of negation to not be comprehended or produced in fixed and ordered stages. Children may vary considerably on what constructions or functions they comprehend or produce earlier.
-
-There are a few theoretical and methodological caveats, however. Studies that hypothesize stages in the development of negation almost exclusively study children's productions. Our methods of data collection and analysis may also affect our ability to provide data for or against these hypotheses.
-
-Nevertheless, there seems to be some consensus among researchers that the crucial period for the development of negation is the period between 18 and 30 months of age. Some researchers suggest that by 36 months, children have an abstract concept of negation that is used to convey a variety of communicative functions (Cameron-Faulkner, Lieven, \& Theakston, 2007; McNeill \& McNeill, 1968; Pea, 1978).
-
-Fourth, previous studies have almost exclusively focused on children's production of negation. A tacit assumption is that children's linguistic production provides a straightforward window into their conceptual development. However, children's linguistic comprehension may differ substantially from their production, and these in turn may differ from their conceptual representations. \ldots{} Therefore, developmental patterns
-
-\begingroup
-\setlength{\parindent}{-0.5in}
-\setlength{\leftskip}{0.5in}
-
-\endgroup
+The emergence of negation around 20 months and reaching maximum growth around 26 months is consistent with prior experimental and observational studies. Carvalho, Crimon, Barrault, Trueswell, and Christophe (2021) tested 18- and 24- month old children in an experimental paradigm that tested the role of negation in early word learning. They presented novel labels for novel objects and actions to 18-month-old children, then tested their looking times on negative sentences that were either true or false given the presented visual stimuli. They also presented novel labels for objects to 24-month-olds using positive or negative statements (e.g.~``It's a bamoule!'' vs.~``It's not a bamoule!''). They found that both groups were capable of using negation to understand the intended objects in such labeling constructions. Some other studies have also confirmed children's successful comprehension of negation around 27 months or slightly older (Austin et al., 2014; De Villiers \& Flusberg, 1975; Feiman et al., 2017; Hummer et al., 1993; Reuter et al., 2018). In this study, and using different methods than prior literature, namely automatic detection and classification of negative constructions in children's speech and growth curve modeling, we provided further evidence that the 18-22 months window is where we expect various uses of negation to emerge in both comprehension and production. We believe that future research in this age range can help us tease apart the theoretical possibilities discussed above and converge on a unified account for the development of negation in child language.
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\hypertarget{ref-diaparser}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-diaparser}{}}%
 Attardi, G., Sartiano, D., \& Yu, Z. (n.d.). DiaParser attentive dependency parser. \emph{Submitted for Publication}.
 
-\leavevmode\hypertarget{ref-bloom1970language}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-austin2014young}{}}%
+Austin, K., Theakston, A., Lieven, E., \& Tomasello, M. (2014). Young children's understanding of denial. \emph{Developmental Psychology}, \emph{50}(8), 2061.
+
+\leavevmode\vadjust pre{\hypertarget{ref-bloom1970language}{}}%
 Bloom, L. M. (1970). \emph{Language development: Form and function in emerging grammars} (PhD thesis). Columbia University.
 
-\leavevmode\hypertarget{ref-Brown1973}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-boedeker2021nonlinear}{}}%
+Boedeker, P. (2021). Nonlinear mixed-effects growth models: A tutorial using'saemix'in r. \emph{Methodology}, \emph{17}(4), 250--270.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Brown1973}{}}%
 Brown, R. (1973). \emph{A first language, the early stages}. Cambrdige, Mass: Harvard University Press.
 
-\leavevmode\hypertarget{ref-cameron2007part}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-cameron2007part}{}}%
 Cameron-Faulkner, T., Lieven, E., \& Theakston, A. (2007). What part of no do children not understand? A usage-based account of multiword negation. \emph{Journal of Child Language}, \emph{34}(2), 251.
 
-\leavevmode\hypertarget{ref-choi1988semantic}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-deCarvalho2021}{}}%
+Carvalho, A. de, Crimon, C., Barrault, A., Trueswell, J., \& Christophe, A. (2021). {``Look! It is not a bamoule!''}: 18-and 24-month-olds can use negative sentences to constrain their interpretation of novel word meanings. \emph{Developmental Science}, \emph{24}(4), e13085.
+
+\leavevmode\vadjust pre{\hypertarget{ref-choi1988semantic}{}}%
 Choi, S. (1988). The semantic development of negation: A cross-linguistic longitudinal study. \emph{Journal of Child Language}, \emph{15}(3), 517--531.
 
-\leavevmode\hypertarget{ref-darwin1872expression}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-clark2009first}{}}%
+Clark, E. V. (2009). \emph{First language acquisition}. Cambridge University Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-crain2012emergence}{}}%
+Crain, S. (2012). \emph{The emergence of meaning}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-Crain_2008}{}}%
+Crain, S., \& Khlentzos, D. (2008). Is logic innate? \emph{Biolinguistics}, \emph{2}(1), 024--056. \url{https://doi.org/10.5964/bioling.8619}
+
+\leavevmode\vadjust pre{\hypertarget{ref-darwin1872expression}{}}%
 Darwin, C. (1872). \emph{The expression of the emotions in man and animals}. John Murray.
 
-\leavevmode\hypertarget{ref-de1979form}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-de1975some}{}}%
+De Villiers, J. G., \& Flusberg, H. B. T. (1975). Some facts one simply cannot deny. \emph{Journal of Child Language}, \emph{2}(2), 279--286.
+
+\leavevmode\vadjust pre{\hypertarget{ref-de1979form}{}}%
 de Villiers, P. A., \& de Villiers, J. G. (1979). Form and function in the development of sentence negation. \emph{Papers and Reports on Child Language Development}, \emph{17}, 57--64.
 
-\leavevmode\hypertarget{ref-demuth2006word}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-demuth2006word}{}}%
 Demuth, K., Culbertson, J., \& Alter, J. (2006). Word-minimality, epenthesis and coda licensing in the early acquisition of {E}nglish. \emph{Language and Speech}, \emph{49}(2), 137--173.
 
-\leavevmode\hypertarget{ref-haspelmath1997indefinite}{}%
-Haspelmath, M. (1997). \emph{Indefinite pronouns}. Oxford University Press.
+\leavevmode\vadjust pre{\hypertarget{ref-feiman2017you}{}}%
+Feiman, R., Mody, S., Sanborn, S., \& Carey, S. (2017). What do you mean, no? Toddlers' comprehension of logical {``no''} and {``not.''} \emph{Language Learning and Development}, \emph{13}(4), 430--450.
 
-\leavevmode\hypertarget{ref-jespersen1917negation}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-gompertz1825}{}}%
+Gompertz, B. (1825). On the nature of the function expressive of the law of human mortality, and on a new mode of determining the value of life contingencies. In a letter to francis baily, esq. FRS \&c. \emph{Philosophical Transactions of the Royal Society of London}, (115), 513--583.
+
+\leavevmode\vadjust pre{\hypertarget{ref-horn1989natural}{}}%
+Horn, L. R. (1989). \emph{A natural history of negation}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-hummer1993origins}{}}%
+Hummer, P., Wimmer, H., \& Antes, G. (1993). On the origins of denial negation. \emph{Journal of Child Language}, \emph{20}(3), 607--618.
+
+\leavevmode\vadjust pre{\hypertarget{ref-jespersen1917negation}{}}%
 Jespersen, O. (1917). \emph{Negation in english and other languages} (Vol. 1). AF H{ø}st.
 
-\leavevmode\hypertarget{ref-kemper1995complexity}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-kemper1995complexity}{}}%
 Kemper, S., Rice, K., \& Chen, Y.-J. (1995). Complexity metrics and growth curves for measuring grammatical development from five to ten. \emph{First Language}, \emph{15}(44), 151--166.
 
-\leavevmode\hypertarget{ref-macwhinney2000childes}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-macwhinney2000childes}{}}%
 MacWhinney, B. (2000). \emph{The CHILDES project: Tools for analyzing talk. Transcription format and programs} (Vol. 1). Psychology Press.
 
-\leavevmode\hypertarget{ref-mcneill1968}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-mcneill1968}{}}%
 McNeill, D., \& McNeill, N. (1968). What does a child mean when he says "no"? In E. M. Zale (Ed.), \emph{Studies of child language development} (pp. 51--62).
 
-\leavevmode\hypertarget{ref-nordmeyer2018individual}{}%
-Nordmeyer, A., \& Frank, M. C. (2018). Individual variation in children's early production of negation. In \emph{Proceedings of the 40th annual meeting of the cognitive science society} (pp. 2167--2172).
+\leavevmode\vadjust pre{\hypertarget{ref-nordmeyer2018individual}{}}%
+Nordmeyer, A., \& Frank, M. C. (2018). Individual variation in children's early production of negation. \emph{Proceedings of the 40th Annual Meeting of the Cognitive Science Society}, 2167--2172.
 
-\leavevmode\hypertarget{ref-pea1978}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-panik2014growth}{}}%
+Panik, M. J. (2014). \emph{Growth curve modeling: Theory and applications}. John Wiley \& Sons.
+
+\leavevmode\vadjust pre{\hypertarget{ref-pea1978}{}}%
 Pea, R. (1978). \emph{The development of negation in early child language} (PhD thesis). University of Oxford.
 
-\leavevmode\hypertarget{ref-qi-etal-2020-stanza}{}%
-Qi, P., Zhang, Y., Zhang, Y., Bolton, J., \& Manning, C. D. (2020). {S}tanza: A python natural language processing toolkit for many human languages. In \emph{Proceedings of the 58th annual meeting of the association for computational linguistics: System demonstrations} (pp. 101--108). Online: Association for Computational Linguistics. \url{https://doi.org/10.18653/v1/2020.acl-demos.14}
+\leavevmode\vadjust pre{\hypertarget{ref-qi-etal-2020-stanza}{}}%
+Qi, P., Zhang, Y., Zhang, Y., Bolton, J., \& Manning, C. D. (2020). {S}tanza: A python natural language processing toolkit for many human languages. \emph{Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics: System Demonstrations}, 101--108. Online: Association for Computational Linguistics. \url{https://doi.org/10.18653/v1/2020.acl-demos.14}
 
-\leavevmode\hypertarget{ref-sanchez2019childes}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-reuter2018getting}{}}%
+Reuter, T., Feiman, R., \& Snedeker, J. (2018). Getting to no: Pragmatic and semantic factors in two-and three-year-olds' understanding of negation. \emph{Child Development}, \emph{89}(4), e364--e381.
+
+\leavevmode\vadjust pre{\hypertarget{ref-sanchez2019childes}{}}%
 Sanchez, A., Meylan, S. C., Braginsky, M., MacDonald, K. E., Yurovsky, D., \& Frank, M. C. (2019). Childes-db: A flexible and reproducible interface to the child language data exchange system. \emph{Behavior Research Methods}, \emph{51}(4), 1928--1941.
 
-\leavevmode\hypertarget{ref-dg}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-dg}{}}%
 Tesnière, L. (1959). \emph{{É}l{é}ments de syntaxe structurale}. Paris: Klincksieck.
 
-\leavevmode\hypertarget{ref-wei2006time}{}%
+\leavevmode\vadjust pre{\hypertarget{ref-van2009parental}{}}%
+Van Veen, R., Evers-Vermeul, J., Sanders, T., \& Van den Bergh, H. (2009). Parental input and connective acquisition: A growth curve analysis. \emph{First Language}, \emph{29}(3), 266--288.
+
+\leavevmode\vadjust pre{\hypertarget{ref-wei2006time}{}}%
 Wei, W. W. (2006). Time series analysis. In \emph{The oxford handbook of quantitative methods in psychology: Vol. 2}.
 
 \end{CSLReferences}

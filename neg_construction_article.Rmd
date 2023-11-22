@@ -2595,7 +2595,6 @@ discourse_together_final %>%
   guides(linetype = guide_legend(nrow = 2))
 ```
 
-Looking at children's negative responses on the left panel, we see that production begins for most functions around 18 months of age and by 36 months children are also producing negative responses at a relatively constant rate; these patterns draw similarity to those at the sentence level. <!--or even higher than parents' production levels. Compared to the sentence level, the most frequent communicative functions expressed by these discourse interactions are still rejection, epistemic, and labeling.--> The comparability of the developmental trajectories for different communicative functions at the discourse level shown in Figure \@ref(fig:alldiscourse) is strengthened further with the logistic growth curves. As demonstrated in Table \@ref(tab:growthdiscourse), the asymptotic levels across functions are estimated to be similar to each other; same holds for the maximum growth rate and the age of one-half production growth. Furthermore, the results of the growth curve models at the discourse level are also comparable to those at the sentence level presented in Table \@ref(tab:growthsyntax), indicating overall similar production patterns between the two levels.
 
 ## Statistical Modeling
 

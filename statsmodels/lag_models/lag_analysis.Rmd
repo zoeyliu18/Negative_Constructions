@@ -1,0 +1,679 @@
+---
+title: "Lag Analysis"
+author: "Masoud Jasbi"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Statistical Modeling (lag)
+
+In order to model the overall production trajectories of different negative constructions, we adopted developmental growth curve analysis [@kemper1995complexity; @van2009parental]. In particular, we used Gompertz curves [@gompertz1825; @panik2014growth; @boedeker2021nonlinear] to model the cumulative ratio $R_{c,t}$ for a construction $c$ at a monthly age bin $t$ using three parameters: the upper asymptote $a$, the maximal growth rate $r$, and the lag time $\lambda$ ($e$ is Euler's number): 
+
+$R_{c, t} = a \times e^{- e^{\dfrac{r \times e}{a} \times (\lambda - t) + 1)}}$
+
+The basic assumptions behind this model are the following: First, there is an overall proportion or probability of children producing a particular construction in childhood. Second, this proportion or ratio is not constant across their development. It starts at zero (children don't produce the construction) and increases until it cumulatively reaches the overall proportion (i.e. upper asymptote) at a certain age. Third, this growth from no production to the upper threshold is non-linear. The ratio increases rapidly at first until it reaches maximum growth rate of $r$. The start of the growth period can be delayed by some "lag time" measured by $\lambda$. This parameter measures the start of growth in production and it is the main parameter we are interested in for our negative constructions. The growth slows down after it reaches its maximum value $r$ and reaches the stable maximum threshold estimated by the upper asymptote $a$. The rapid growth period and the slowdown period before and after the inflection point can be asymmetrical.  
+
+We used the statistical package $brms$ to implement our Gompertz growth curve analysis. We fit separate growth curves to each negative and positive construction. We used uniform priors with appropriate bounds for the three parameters of our Gompertz models. For the asymptote we kept the values between 0 and 10 because we did not observe relative frequencies above 10 (per Mille) for any construction. For the growth rates we kept the values between 0 and 3 given that growth rate will always be positive and we did not expect values more extreme than 3. And finally for the lag time (delay in production) we kept the values between 12 and 72 given that this is children's age range in this study. Since we did not have enough data to capture the developmental paths of individual children, the logistic curves did not have random effects and were fit at the population level for each communicative function. Each model ran 4 chains with 4000 iterations each and 2000 of them as warm-up. 95% credible intervals for each parameter were derived from their respective posterior distribution.
+
+$a$ $\sim$ $Uniform(0, 10)$
+
+$r$ $\sim$ $Uniform(0, 3)$
+
+$\lambda$ $\sim$ $Uniform(12, 72)$
+
+```{r NegConstructionCurveModels, include=FALSE}
+neg_together_final_model <-
+  neg_together_final %>% 
+  filter(Role=="Child") %>%
+  mutate(ppt=Total_ratio*1000)
+
+neg_together_final_model$Age <- as.numeric(neg_together_final_model$Age)
+
+epistemic_model_data <- neg_together_final_model %>% filter(Function=="Epistemic")
+
+epistemic_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = epistemic_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/epistemic_neg_nonlinear",
+  iter = 4000)
+
+inability_model_data <- neg_together_final_model %>% filter(Function=="Inability")
+
+inability_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = inability_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/inability_neg_nonlinear",
+  iter = 4000)
+
+labeling_model_data <- neg_together_final_model %>% filter(Function=="Labeling")
+
+labeling_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = labeling_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/labeling_neg_nonlinear",
+  iter = 4000)
+
+nonexist_model_data <- neg_together_final_model %>% filter(Function=="Non-existence")
+
+nonexist_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = nonexist_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/nonexist_neg_nonlinear",
+  iter = 4000)
+
+possession_model_data <- neg_together_final_model %>% filter(Function=="Possession")
+
+possession_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = possession_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/possession_neg_nonlinear",
+  iter = 4000)
+
+prohibition_model_data <- neg_together_final_model %>% filter(Function=="Prohibition")
+
+prohibition_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = prohibition_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/prohibition_neg_nonlinear",
+  control = list(adapt_delta = 0.99),
+  iter = 6000)
+
+rejection_model_data <- neg_together_final_model %>% filter(Function=="Rejection")
+
+rejection_neg_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = rejection_model_data,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/rejection_neg_nonlinear",
+  iter = 4000)
+```
+
+```{r PosConstructionCurveModels, include=FALSE}
+pos_together_final_model <-
+  pos_together_final %>% 
+  filter(Role=="Child") %>%
+  mutate(ppt=Total_ratio*1000)
+
+pos_together_final_model$Age <- as.numeric(pos_together_final_model$Age)
+
+epistemic_model_posdata <- pos_together_final_model %>% filter(Function=="Epistemic")
+
+epistemic_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = epistemic_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/epistemic_pos_nonlinear",
+  iter = 4000)
+
+inability_model_posdata <- pos_together_final_model %>% filter(Function=="Inability")
+
+inability_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = inability_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/inability_pos_nonlinear",
+  iter = 4000)
+
+labeling_model_posdata <- pos_together_final_model %>% filter(Function=="Labeling")
+
+labeling_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = labeling_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/labeling_pos_nonlinear",
+  iter = 4000)
+
+nonexist_model_posdata <- pos_together_final_model %>% filter(Function=="Non-existence")
+
+nonexist_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = nonexist_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/nonexist_pos_nonlinear",
+  iter = 4000)
+
+possession_model_posdata <- pos_together_final_model %>% filter(Function=="Possession")
+
+possession_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = possession_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/possession_pos_nonlinear",
+  iter = 4000)
+
+prohibition_model_posdata <- pos_together_final_model %>% filter(Function=="Prohibition")
+
+prohibition_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = prohibition_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/prohibition_pos_nonlinear",
+  control = list(adapt_delta = 0.99),
+  iter = 6000)
+
+rejection_model_posdata <- pos_together_final_model %>% filter(Function=="Rejection")
+
+rejection_pos_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = rejection_model_posdata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/rejection_pos_nonlinear",
+  iter = 4000)
+```
+
+```{r DiscourseCurveModels, include=FALSE}
+discourse_together_final <-
+  discourse_together_final %>% 
+  filter(Role=="Child") %>%
+  mutate(ppt=Total_ratio*1000)
+
+discourse_together_final$Age <- as.numeric(discourse_together_final$Age)
+
+epistemic_model_discoursedata <- discourse_together_final %>% filter(Function=="Epistemic")
+
+#convergence issues
+epistemic_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = epistemic_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/epistemic_dis_nonlinear",
+  control = list(adapt_delta = 0.99),
+  iter = 8000)
+
+inability_model_discoursedata <- discourse_together_final %>% filter(Function=="Inability")
+
+inability_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = inability_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/inability_dis_nonlinear",
+  iter = 4000)
+
+labeling_model_discoursedata <- discourse_together_final %>% filter(Function=="Labeling")
+
+#convergence issues
+labeling_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = labeling_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/labeling_dis_nonlinear",
+  control = list(adapt_delta = 0.99),
+  iter = 8000)
+
+nonexist_model_discoursedata <- discourse_together_final %>% filter(Function=="Non-existence")
+
+#convergence issues
+nonexist_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = nonexist_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/nonexist_dis_nonlinear",
+  control = list(adapt_delta = 0.99),
+  iter = 10000)
+
+possession_model_discoursedata <- discourse_together_final %>% filter(Function=="Possession")
+
+possession_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = possession_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/possession_dis_nonlinear",
+  iter = 4000)
+
+prohibition_model_discoursedata <- discourse_together_final %>% filter(Function=="Prohibition")
+
+#convergence issues
+prohibition_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = prohibition_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/prohibition_dis_nonlinear",
+  iter = 4000)
+
+rejection_model_discoursedata <- discourse_together_final %>% filter(Function=="Rejection")
+
+#convergence issues
+rejection_dis_nonlinear <- brm(
+  bf(ppt  ~ upperAsymptote * exp(-exp(((growthRate*exp(1))/upperAsymptote)*(lag-Age)+1)),
+     upperAsymptote ~ 1,
+     growthRate ~ 1,
+     lag ~ 1,
+     nl = TRUE),
+  data = rejection_model_discoursedata,
+  prior = c(
+    prior(uniform(0, 10), nlpar = "upperAsymptote", lb = 0, ub = 10),
+    prior(uniform(0, 3), nlpar = "growthRate", lb = 0, ub = 3),
+    prior(uniform(12, 72), nlpar = "lag", lb = 12, ub = 72)
+  ),
+  file = "statsmodels/rejection_dis_nonlinear",
+  control = list(adapt_delta = 0.99),
+  iter = 8000)
+```
+
+```{r sentencePredictions, include=FALSE, eval=FALSE}
+# Negative Sentence Predictions
+rejection_neg_predictions <- as.data.frame(ggpredict(rejection_neg_nonlinear))
+rejection_neg_predictions$construction <- "rejection"
+rejection_neg_predictions$valence <- "negative"
+rejection_neg_predictions$level <- "sentence"
+
+labeling_neg_predictions <- as.data.frame(ggpredict(labeling_neg_nonlinear))
+labeling_neg_predictions$construction <- "labeling"
+labeling_neg_predictions$valence <- "negative"
+labeling_neg_predictions$level <- "sentence"
+
+nonexist_neg_predictions <- as.data.frame(ggpredict(nonexist_neg_nonlinear))
+nonexist_neg_predictions$construction <- "nonexistence"
+nonexist_neg_predictions$valence <- "negative"
+nonexist_neg_predictions$level <- "sentence"
+
+inability_neg_predictions <- as.data.frame(ggpredict(inability_neg_nonlinear))
+inability_neg_predictions$construction <- "inability"
+inability_neg_predictions$valence <- "negative"
+inability_neg_predictions$level <- "sentence"
+
+possession_neg_predictions <- as.data.frame(ggpredict(possession_neg_nonlinear))
+possession_neg_predictions$construction <- "possession"
+possession_neg_predictions$valence <- "negative"
+possession_neg_predictions$level <- "sentence"
+
+epistemic_neg_predictions <- as.data.frame(ggpredict(epistemic_neg_nonlinear))
+epistemic_neg_predictions$construction <- "epistemic"
+epistemic_neg_predictions$valence <- "negative"
+epistemic_neg_predictions$level <- "sentence"
+
+prohibition_neg_predictions <- as.data.frame(ggpredict(prohibition_neg_nonlinear))
+prohibition_neg_predictions$construction <- "prohibition"
+prohibition_neg_predictions$valence <- "negative"
+prohibition_neg_predictions$level <- "sentence"
+
+#Positive Sentence Predictions:
+
+rejection_pos_predictions <- as.data.frame(ggpredict(rejection_pos_nonlinear))
+rejection_pos_predictions$construction <- "rejection"
+rejection_pos_predictions$valence <- "positive"
+rejection_pos_predictions$level <- "sentence"
+
+labeling_pos_predictions <- as.data.frame(ggpredict(labeling_pos_nonlinear))
+labeling_pos_predictions$construction <- "labeling"
+labeling_pos_predictions$valence <- "positive"
+labeling_pos_predictions$level <- "sentence"
+
+nonexist_pos_predictions <- as.data.frame(ggpredict(nonexist_pos_nonlinear))
+nonexist_pos_predictions$construction <- "nonexistence"
+nonexist_pos_predictions$valence <- "positive"
+nonexist_pos_predictions$level <- "sentence"
+
+inability_pos_predictions <- as.data.frame(ggpredict(inability_pos_nonlinear))
+inability_pos_predictions$construction <- "inability"
+inability_pos_predictions$valence <- "positive"
+inability_pos_predictions$level <- "sentence"
+
+possession_pos_predictions <- as.data.frame(ggpredict(possession_pos_nonlinear))
+possession_pos_predictions$construction <- "possession"
+possession_pos_predictions$valence <- "positive"
+possession_pos_predictions$level <- "sentence"
+
+epistemic_pos_predictions <- as.data.frame(ggpredict(epistemic_pos_nonlinear))
+epistemic_pos_predictions$construction <- "epistemic"
+epistemic_pos_predictions$valence <- "positive"
+epistemic_pos_predictions$level <- "sentence"
+
+prohibition_pos_predictions <- as.data.frame(ggpredict(prohibition_pos_nonlinear))
+prohibition_pos_predictions$construction <- "prohibition"
+prohibition_pos_predictions$valence <- "positive"
+prohibition_pos_predictions$level <- "sentence"
+
+# Negative Discourse Predictions
+
+rejection_dis_predictions <- as.data.frame(ggpredict(rejection_dis_nonlinear))
+rejection_dis_predictions$construction <- "rejection"
+rejection_dis_predictions$valence <- "negative"
+rejection_dis_predictions$level <- "discourse"
+
+labeling_dis_predictions <- as.data.frame(ggpredict(labeling_dis_nonlinear))
+labeling_dis_predictions$construction <- "labeling"
+labeling_dis_predictions$valence <- "negative"
+labeling_dis_predictions$level <- "discourse"
+
+nonexist_dis_predictions <- as.data.frame(ggpredict(nonexist_dis_nonlinear))
+nonexist_dis_predictions$construction <- "nonexistence"
+nonexist_dis_predictions$valence <- "negative"
+nonexist_dis_predictions$level <- "discourse"
+
+inability_dis_predictions <- as.data.frame(ggpredict(inability_dis_nonlinear))
+inability_dis_predictions$construction <- "inability"
+inability_dis_predictions$valence <- "negative"
+inability_dis_predictions$level <- "discourse"
+
+possession_dis_predictions <- as.data.frame(ggpredict(possession_dis_nonlinear))
+possession_dis_predictions$construction <- "possession"
+possession_dis_predictions$valence <- "negative"
+possession_dis_predictions$level <- "discourse"
+
+epistemic_dis_predictions <- as.data.frame(ggpredict(epistemic_dis_nonlinear))
+epistemic_dis_predictions$construction <- "epistemic"
+epistemic_dis_predictions$valence <- "negative"
+epistemic_dis_predictions$level <- "discourse"
+
+prohibition_dis_predictions <- as.data.frame(ggpredict(prohibition_dis_nonlinear))
+prohibition_dis_predictions$construction <- "prohibition"
+prohibition_dis_predictions$valence <- "negative"
+prohibition_dis_predictions$level <- "discourse"
+
+predictions <- rbind(rejection_neg_predictions,
+                              labeling_neg_predictions,
+                              nonexist_neg_predictions,
+                              inability_neg_predictions,
+                              possession_neg_predictions,
+                              epistemic_neg_predictions,
+                              prohibition_neg_predictions,
+                              rejection_pos_predictions,
+                              labeling_pos_predictions,
+                              nonexist_pos_predictions,
+                              inability_pos_predictions,
+                              possession_pos_predictions,
+                              epistemic_pos_predictions,
+                              prohibition_pos_predictions,
+                              rejection_dis_predictions,
+                              labeling_dis_predictions,
+                              nonexist_dis_predictions,
+                              inability_dis_predictions,
+                              possession_dis_predictions,
+                              epistemic_dis_predictions,
+                              prohibition_dis_predictions
+                              )
+
+saveRDS(predictions, "statsmodels/predictions")
+```
+
+```{r sentencePredictionPlot, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Predicted Gompertz growth curves for sentence-level negative constructions. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances."}
+predictions <- readRDS("statsmodels/predictions")
+
+predictions %>%
+  filter(valence=="negative", level=="sentence") %>%
+  ggplot(aes(Age.x, Age.predicted, color=construction)) +
+  geom_line(aes(color=construction)) +
+  geom_label_repel(aes(label=construction), data=filter(predictions, Age.x == 60, level=="sentence", valence=="negative")) +
+  geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, fill = construction), alpha=0.3, linetype=0) +
+  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  theme_linedraw() + theme(legend.position="none")
+```
+
+First we look at the predictions of our models for sentence-level negation, which reflect children's productive capacities. Figure \@ref(fig:sentencePredictionPlot) presents the predicted growth curves for the seven sentence-level negative constructions in children's speech. While the curves differ substantially in their asymptote (the upper threshold for the production), they seem to have similar onset of production around 20 months of age or slightly earlier. Prohibitions do not show a proper curve likely due to the limited amount of available data. Figure \@ref(fig:valencePredictionPlot) compares the positive (green) and negative (red) growth curves for the same constructions. The negative curves always have lower asymptotes compared to the positive curves, which means positive constructions constitute larger proportions of children's speech compared to their negative counterparts. More importantly, the onsets for the negative curves are always at or after the positive curves. This suggests that on average, children produce negative constructions at or after they learn to produce their positive counterparts.
+
+```{r valencePredictionPlot, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=8, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap="Predicted Gompertz growth curves for sentence-level positive (green) vs. negative (red) constructions. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances."}
+predictions %>%
+    filter(level=="sentence") %>%
+  ggplot(aes(Age.x, Age.predicted, color=valence)) +
+  geom_line(aes(color=valence)) +
+  geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, color=valence), alpha=0.3, linetype=0) +
+  facet_wrap(.~construction) +
+  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  theme_linedraw()
+```
+
+Figure \@ref(fig:negativePositiveInflectionPlot) shows model estimates for the inflection points for sentence-level positive and negative growth curves. The inflection point is the age at which children's production ratio for a construction has reached maximum growth and starts to slow down. The inflection points for most positive constructions are earlier than their negative counterpart. The two exceptions are epistemic and inability constructions, which have very frequent negative usage early on. The inflection points for most negative constructions fall between 26 and 32 months of age. This is the age range where many experimental studies report successful comprehension of negation in a wide range of tasks using different constructions [@feiman2017you; @austin2014young; @de1975some; @hummer1993origins; @reuter2018getting]. It is also the age range for many production studies that report the presence of different communicative functions discussed in our literature review earlier.
+
+```{r aoaEstimatesPos, include=FALSE}
+aoa_estimates_pos <- data.frame(
+  functions = c("rejection", "possession", "labeling", "inability", "epistemic", "nonexistence", "prohibition"),
+  mean = c(fixef(rejection_pos_nonlinear)[3,1], fixef(possession_pos_nonlinear)[3,1], fixef(labeling_pos_nonlinear)[3,1], fixef(inability_pos_nonlinear)[3,1], epistemic = fixef(epistemic_pos_nonlinear)[3,1], nonexistence = fixef(nonexist_pos_nonlinear)[3,1], prohibition = fixef(prohibition_pos_nonlinear)[3,1]),
+  lower = c(fixef(rejection_pos_nonlinear)[3,3], fixef(possession_pos_nonlinear)[3,3], fixef(labeling_pos_nonlinear)[3,3], fixef(inability_pos_nonlinear)[3,3], epistemic = fixef(epistemic_pos_nonlinear)[3,3], nonexistence = fixef(nonexist_pos_nonlinear)[3,3], prohibition = fixef(prohibition_pos_nonlinear)[3,3]),
+    upper = c(fixef(rejection_pos_nonlinear)[3,4], fixef(possession_pos_nonlinear)[3,4], fixef(labeling_pos_nonlinear)[3,4], fixef(inability_pos_nonlinear)[3,4], epistemic = fixef(epistemic_pos_nonlinear)[3,4], nonexistence = fixef(nonexist_pos_nonlinear)[3,4], prohibition = fixef(prohibition_pos_nonlinear)[3,4]),
+  type = c(rep("discourse", 7))
+)
+
+aoa_estimates_pos$valence <- "positive"
+```
+
+```{r aoaEstimatesNeg, include=FALSE}
+aoa_estimates_neg <- data.frame(
+  functions = c("rejection", "possession", "labeling", "inability", "epistemic", "nonexistence", "prohibition"),
+  mean = c(fixef(rejection_neg_nonlinear)[3,1], fixef(possession_neg_nonlinear)[3,1], fixef(labeling_neg_nonlinear)[3,1], fixef(inability_neg_nonlinear)[3,1], epistemic = fixef(epistemic_neg_nonlinear)[3,1], nonexistence = fixef(nonexist_neg_nonlinear)[3,1], prohibition = fixef(prohibition_neg_nonlinear)[3,1]),
+  lower = c(fixef(rejection_neg_nonlinear)[3,3], fixef(possession_neg_nonlinear)[3,3], fixef(labeling_neg_nonlinear)[3,3], fixef(inability_neg_nonlinear)[3,3], epistemic = fixef(epistemic_neg_nonlinear)[3,3], nonexistence = fixef(nonexist_neg_nonlinear)[3,3], prohibition = fixef(prohibition_neg_nonlinear)[3,3]),
+    upper = c(fixef(rejection_neg_nonlinear)[3,4], fixef(possession_neg_nonlinear)[3,4], fixef(labeling_neg_nonlinear)[3,4], fixef(inability_neg_nonlinear)[3,4], epistemic = fixef(epistemic_neg_nonlinear)[3,4], nonexistence = fixef(nonexist_neg_nonlinear)[3,4], prohibition = fixef(prohibition_neg_nonlinear)[3,4]),
+  type = c(rep("sentence", 7))
+)
+
+aoa_estimates_neg$valence <- "negative"
+```
+
+```{r negativePositiveInflectionPlot, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=4, fig.cap="Estimates with 95 percent credible intervals for inflection points of the Gompertz growth curves for sentence-level positive (green) and negative constructions. The x-axis is age in months, and the y-axis represents seven negative constructions."}
+aoa_estimates <- rbind(aoa_estimates_neg, aoa_estimates_pos)
+
+aoa_estimates$functions <- factor(aoa_estimates$functions, levels=c("rejection", "inability", "possession", "epistemic", "labeling", "nonexistence",  "prohibition"))
+
+aoa_estimates %>%
+  ggplot(aes(mean, functions, color=valence)) +
+  geom_point(position=position_dodge(0.4)) +
+  geom_linerange(aes(xmin=lower, xmax=upper), position=position_dodge(0.4)) +
+  scale_x_continuous(breaks = seq(12, 72, by = 2)) +
+  theme_bw()
+```
+
+```{r discoursePredictionPlot, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap="Predicted Gompertz growth curves for discourse-level negative constructions. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances."}
+predictions %>%  
+  filter(level=="discourse") %>%
+  ggplot(aes(Age.x, Age.predicted, color=construction)) +
+  geom_line(aes(color=construction)) +
+  geom_label_repel(aes(label=construction), data=filter(predictions, level=="discourse", Age.x == 60)) +
+  geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, fill = construction), 
+              alpha=0.3, 
+              linetype=0) +
+  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  theme_linedraw() + theme(legend.position="none")
+```
+
+```{r sentenceDiscoursePredictionPlot, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=8, fig.height=4, set.cap.width=T, fig.cap="Predicted Gompertz growth curves for children's sentence-level (green) vs discourse-level (red) negation. The x-axis is age in months, and the y-axis represents cumulative production ratio per thousand utterances."}
+predictions %>%
+    filter(valence=="negative") %>%
+  ggplot(aes(Age.x, Age.predicted, color=valence)) +
+  geom_line(aes(color=level)) +
+  geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, color=level), alpha=0.3, linetype=0) +
+  facet_wrap(.~construction) +
+  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  theme_linedraw()
+```
+
+
+```{r inflectionDiscourseEstimates, include=FALSE}
+aoa_dis_estimates <- data.frame(
+  functions = c("rejection", "possession", "labeling", "inability", "epistemic", "nonexistence", "prohibition"),
+  mean = c(fixef(rejection_dis_nonlinear)[3,1], fixef(possession_dis_nonlinear)[3,1], fixef(labeling_dis_nonlinear)[3,1], fixef(inability_dis_nonlinear)[3,1], epistemic = fixef(epistemic_dis_nonlinear)[3,1], nonexistence = fixef(nonexist_dis_nonlinear)[3,1], prohibition = fixef(prohibition_dis_nonlinear)[3,1]),
+  lower = c(fixef(rejection_dis_nonlinear)[3,3], fixef(possession_dis_nonlinear)[3,3], fixef(labeling_dis_nonlinear)[3,3], fixef(inability_dis_nonlinear)[3,3], epistemic = fixef(epistemic_dis_nonlinear)[3,3], nonexistence = fixef(nonexist_dis_nonlinear)[3,3], prohibition = fixef(prohibition_dis_nonlinear)[3,3]),
+    upper = c(fixef(rejection_dis_nonlinear)[3,4], fixef(possession_dis_nonlinear)[3,4], fixef(labeling_dis_nonlinear)[3,4], fixef(inability_dis_nonlinear)[3,4], epistemic = fixef(epistemic_dis_nonlinear)[3,4], nonexistence = fixef(nonexist_dis_nonlinear)[3,4], prohibition = fixef(prohibition_dis_nonlinear)[3,4]),
+    type = c(rep("discourse", 7))
+)
+```
+
+```{r sentenceDiscourseInflection, include=FALSE}
+aoa_all <- rbind(select(aoa_estimates_neg, -valence), aoa_dis_estimates)
+
+aoa_all$functions <- factor(aoa_estimates$functions, levels=c("rejection", "inability", "possession", "epistemic", "labeling", "nonexistence",  "prohibition"))
+```
+
+```{r sentenceDiscourseInflectionPlot, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6, fig.height=4, fig.cap="Estimates with 95 percent credible intervals for inflection points of the Gompertz growth curves for discourse-level (red) and sentence-level (green) negative constructions. The x-axis is age in months, and the y-axis represents seven negative constructions."}
+aoa_all %>%
+  ggplot(aes(mean, functions, color=type)) +
+  geom_point(position=position_dodge(0.4)) +
+  geom_linerange(aes(xmin=lower, xmax=upper), position=position_dodge(0.4)) +
+  scale_x_continuous(breaks = seq(12, 72, by = 2)) +
+  theme_bw() +
+  xlab("child age (months)") + 
+  ylab("")
+```
+
+
+

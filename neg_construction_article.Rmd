@@ -707,10 +707,10 @@ For instances of rejection and their positive counterparts, we selected utteranc
 
 : (#tab:rejection) Examples of sentence-level rejections and their positive counterparts in children's speech.
 
-```{r emotion, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of rejection at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
+```{r emotion, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=4, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of rejection at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
 
 subset(emotion_data, Which=='cumulative ratio')  %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -722,7 +722,7 @@ subset(emotion_data, Which=='cumulative ratio')  %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -741,10 +741,10 @@ At the discourse level, we investigated discourse interactions (antecedent + utt
 
 : (#tab:disreject) Examples of discourse-level rejections in children's and parents' speech.
 
-```{r emotiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=2.8, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of rejection at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r emotiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of rejection at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_emotion_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -756,7 +756,7 @@ subset(discourse_emotion_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -1187,10 +1187,10 @@ For the function of non-existence, we searched for the English expletive constru
 
 At the sentence level, children produce negative constructions to express non-existence less frequently than they do for the positive counterparts. As presented in Figure \@ref(fig:existence), the cumulative ratio for the production of non-existence increases mostly from 18 to 36 months. Then around and after 36 months of age, children's production gradually reaches a stable ratio but stays below parents' level. Notice that there appears to be slight fluctuations of cumulative ratios between the age of 19 and 25 months in child speech. A closer inspection of the data reveals that within that age range, the frequency of negative utterances at most ages is either one or zero. Therefore as the number of total utterances increases along the developmental trajectory, the cumulative ratio for non-existence utterances actually decreases in this brief period.
 
-```{r existence, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of non-existence at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
+```{r existence, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3.6, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of non-existence at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
 
 subset(existence_data, Which=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -1202,7 +1202,7 @@ subset(existence_data, Which=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -1219,10 +1219,10 @@ For non-existence at the discourse level, we applied similar selection criteria 
 
 : (#tab:disexist) Examples of discourse-level non-existence in children's and parents' speech.
 
-```{r existencediscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=2.8, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of non-existence at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r existencediscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of non-existence at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_existence_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -1233,7 +1233,7 @@ subset(discourse_existence_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -1598,10 +1598,10 @@ Figure \@ref(fig:prohibition) demonstrates the cumulative ratios of prohibition 
 
 : (#tab:prohibit) Examples of sentence-level prohibition and positive counterparts in children's speech.
 
-```{r prohibition, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap='Cumulative ratios for the production of prohibition at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios.'}
+```{r prohibition, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3.6, set.cap.width=T, num.cols.cap=1, fig.cap='Cumulative production ratios (per thousand utterances) for the production of prohibition at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios.'}
 
 subset(prohibition_data, Which=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -1613,7 +1613,7 @@ subset(prohibition_data, Which=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -1630,10 +1630,10 @@ At the discourse level, we selected utterances where *no* serves as a discourse 
 
 : (#tab:disprohib) Examples of discourse-level prohibition in children's and parents' speech.
 
-```{r prohibitiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=2.8, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of prohibition at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r prohibitiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand uttereances) for the production of prohibition at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_prohibition_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -1645,7 +1645,7 @@ subset(discourse_prohibition_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -1664,10 +1664,10 @@ For the function of inability, we analyzed instances with head verbs that are mo
 
 Figure \@ref(fig:inability) shows cumulative ratios of parents' and children's production of constructions that convey (in)ability. Similar to previous constructions, positive instances are generally more frequent than negative ones. Children produce inability more and more frequently between 18-36 months. After 36 months, their production is gradually becoming stable and higher than parents' production level.
 
-```{r inability, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of inability at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
+```{r inability, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3.6, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of inability at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
 
 subset(inability_data, Which=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -1679,7 +1679,7 @@ subset(inability_data, Which=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -1696,10 +1696,10 @@ subset(inability_data, Which=='cumulative ratio') %>%
 
 At the discourse level, we chose utterances with the negative particle *no* in response to antecedents that had a similar structure to the inability construction defined at the sentence level. In these interactions, *no* is not always negating the content of the antecedents exactly. However, similar to our motivation for analyzing prohibition at the discourse level, we included these instances to investigate children's (and parents') negative responses to (in)ability more broadly. This yielded a total of `r format(sum(subset(discourse_inability_data,Which=='ratio')$Freq), big.mark=",")` negative utterances (child: `r format(sum(subset(discourse_inability_data_child,Which=='ratio')$Freq), big.mark=",")`; parent: `r format(sum(subset(discourse_inability_data_parent,Which=='ratio')$Freq), big.mark=",")`). Figure \@ref(fig:inabilitydiscourse) presents the cumulative ratios for parents' and children's production of discourse-level inability. Children's production gradually increases from 24 to 36 months and stabilizes after 36 months at a similar rate to that of parent's. Children may be producing instances of inability more than parents because due to their developmental limitations they have more reason to express inability, and perhaps seek help.
 
-```{r inabilitydiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of inability at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r inabilitydiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of inability at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_inability_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -1711,7 +1711,7 @@ subset(discourse_inability_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -1915,10 +1915,10 @@ To capture the function of labeling at the sentence level, we concentrated on co
 
 Figure \@ref(fig:learning) shows cumulative ratios for parent's and children's production of the labeling construction at the sentence level. In both parent and children speech, the frequency of positive counterparts is consistently higher than that of negative labeling instances. Children's production of negative labeling increases between 18-36 months, and remains stable after then; though the production ratios remained lower than those of parents'.
 
-```{r learning, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of (negative) labeling at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
+```{r learning, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=3.6, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of (negative) labeling at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
 
 subset(learning_data, Which=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -1930,7 +1930,7 @@ subset(learning_data, Which=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -1948,10 +1948,10 @@ At the discourse level, we selected antecedent utterances with copula structures
 
 : (#tab:dislabel) Examples of discourse-level labeling (negative) in children's and parents' speech.
 
-```{r learningdiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of (negative) labeling at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r learningdiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of (negative) labeling at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_learning_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -1963,7 +1963,7 @@ subset(discourse_learning_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -2301,10 +2301,10 @@ Previous studies have reported instances in which children combined negative mor
 
 Figure \@ref(fig:epistemic) shows the cumulative ratios of the epistemic construction as defined above in parents' and children's speech at the sentence level. Across the three head verbs, children's production increases substantially from 18 to 36 months then gradually becomes stable yet still lower than parents' production level afterwards. The number of epistemic instances headed by *know* is overall higher than the number of cases headed by either *remember* or *think*, an observation that is consistent in both negative constructions and positive counterparts. However, the majority of negative constructions headed by *know* are idiomatic expressions such as "I don't know" (51.66%) or "don't know" (13.73%). Positive epistemic utterances are in general more frequent than negative ones, with the exception of *know* in child speech. 
 
-```{r epistemic, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=8, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of epistemic negation at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
+```{r epistemic, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=8, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of epistemic negation at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
 
 subset(epistemic_data, Which=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -2316,7 +2316,7 @@ subset(epistemic_data, Which=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -2333,10 +2333,10 @@ For epistemic negation at the discourse level, we examined interactions in which
 
 : (#tab:epistem) Examples of discourse-level epistemic negation in children's and parents' speech.
 
-```{r epistemicdiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of epistemic negation at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r epistemicdiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of epistemic negation at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_epistemic_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -2348,7 +2348,7 @@ subset(discourse_epistemic_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -2367,10 +2367,10 @@ The last function we explored was possession. At the sentence level, for negativ
 
 Figure \@ref(fig:possession) presents cumulative ratios of possession construction at the sentence level. Regardless of whether the utterances are negative or positive, the production trajectory in child speech appears to have notable differences depending on the syntactic head. When the instances are headed by *have*, children increase their production between 18-36 months, a pattern that is present in both negative and positive constructions; yet children's production ratio consistently stays below parents' level across the developmental path. For utterances headed by possessive pronouns, on the other hand, children's production increases rapidly between 18-24 months and stays above parents' production level as early as 24 months of age.
 
-```{r possession, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of possession at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
+```{r possession, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=6.5, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of possession at the sentence level for children between 12 to 72 months of age, and their parents. The y-axes are scaled differently for the panels to accommodate differences in production ratios."}
 
 subset(possession_data, Which=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Production, color = Production)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Production, color = Production)) +
   geom_line(aes(linetype=Production), alpha = 1) +
 #  scale_linetype_manual(values=c("dotted", 'solid', 'dotted', 'solid')) +
   geom_point(aes(color = Production, shape = Production), size = 1.5) +
@@ -2382,7 +2382,7 @@ subset(possession_data, Which=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(color = guide_legend(nrow = 2)) + 
   theme(legend.title = element_blank())
 
@@ -2399,10 +2399,10 @@ For discourse-level possessives, we selected antecedents of the negative respons
 
 : (#tab:dispossess) Examples of discourse-level possession (negative) in children's and parents' speech.
 
-```{r possessiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the production of possession at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
+```{r possessiondiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=3.2, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the production of possession at the discourse level for children between 12 to 72 months of age, and their parents.",warning=FALSE}
 
 subset(discourse_possession_data_plot, Measure=='cumulative ratio') %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Role, color = Role)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Role, color = Role)) +
   geom_line(aes(linetype=Role), alpha = 1) +
   scale_linetype_manual(values=c('solid', 'dotted')) +
   geom_point(aes(color = Role, shape = Role), size = 1.5) +
@@ -2414,7 +2414,7 @@ subset(discourse_possession_data_plot, Measure=='cumulative ratio') %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio")
+  ylab("cumulative production ratio (per thousand)")
 
 ```
 
@@ -2480,10 +2480,10 @@ for (i in 1:nrow(parent_pos_together)){
 pos_together_final <- rbind(child_pos_together, parent_pos_together)
 ```
 
-```{r allneg, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for all negative constructions at the sentence level.", warning=FALSE}
+```{r allneg, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for all negative constructions at the sentence level for children between 12 to 72 months of age, and their parents.", warning=FALSE}
 
 neg_together_final %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Function, color = Function)) +
   geom_line(aes(linetype=Function), alpha = 1) +
   scale_color_brewer(palette = "Dark2") +
   geom_point(aes(color = Function, shape = Function), size = 1.5) +
@@ -2493,7 +2493,7 @@ neg_together_final %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(linetype = guide_legend(nrow = 2)) 
 
 ```
@@ -2502,10 +2502,10 @@ Figure \@ref(fig:allpos) shows the cumulative ratios of all positive counterpart
 
 Children start producing all positive counterparts to our negative constructions between the age range of 12-18 months. By 36 months, almost all positive constructions are being produced at a relatively constant rate close to parents' levels. Another noteworthy pattern is the relative high frequency of positive counterparts to prohibitions in the 12-24 months age period. In contrast to the production of (negative) prohibitions, positive imperatives are produced with high frequency even before 24 months of age. In other words, even though children do not frequently prohibit parents, they seem to be frequently ordering or commanding parents to do things for them; a finding that would not surprise many parents or caregivers!
 
-```{r allpos, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for the positive counpterparts to all negative constructions at the sentence level.", warning=FALSE}
+```{r allpos, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for the positive counpterparts to all negative constructions at the sentence level for children between 12 to 72 months of age, and their parents.", warning=FALSE}
 
 pos_together_final %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Function, color = Function)) +
   geom_line(aes(linetype=Function), alpha = 1) +
   scale_color_brewer(palette = "Dark2") +
   geom_point(aes(color = Function, shape = Function), size = 1.5) +
@@ -2515,7 +2515,7 @@ pos_together_final %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(linetype = guide_legend(nrow = 2)) 
 
 ```
@@ -2557,10 +2557,10 @@ discourse_together_final <- rbind(discourse_child_together, discourse_parent_tog
 
 Finally, Figure \@ref(fig:alldiscourse) illustrates the cumulative ratios of all negative responses at the discourse level. Observations for parents' speech on the right again demonstrates a relatively constant rate of production after 36 months. Before 36 months, however, most constructions show a gradual increase with the exception of prohibition. Parents start with more frequent "no!"-responses to imperatives produced by children, but the frequency of these negative responses drops to a relatively low and stable level after children are 36 months of age; this pattern again corresponds to parents' production of subjectless imperatives in Figure \@ref(fig:allneg) and Figure \@ref(fig:allpos).
 
-```{r alldiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative ratios for all negative constructions at the discourse level.", warning=FALSE}
+```{r alldiscourse, fig.env="figure", fig.pos = "H", fig.align = "center", fig.width=7, fig.height=5, set.cap.width=T, num.cols.cap=1, fig.cap="Cumulative production ratios (per thousand utterances) for all negative constructions at the discourse level for children between 12 to 72 months of age, and their parents..", warning=FALSE}
 
 discourse_together_final %>% 
-  ggplot(aes(as.numeric(as.character(Age)), Total_ratio, group = Function, color = Function)) +
+  ggplot(aes(as.numeric(as.character(Age)), Total_ratio*1000, group = Function, color = Function)) +
   geom_line(aes(linetype=Function), alpha = 1) +
   scale_color_brewer(palette = "Dark2") +
   geom_point(aes(color = Function, shape = Function), size = 1.5) +
@@ -2570,7 +2570,7 @@ discourse_together_final %>%
   theme(text = element_text(size=12, family="Times")) + 
   theme(legend.position="top") +
   xlab("child age (months)") + 
-  ylab("production ratio") + 
+  ylab("cumulative production ratio (per thousand)") + 
   guides(linetype = guide_legend(nrow = 2))
 ```
 
@@ -2584,7 +2584,7 @@ $R_{c, t} = a \times e^{-e^{(-r \times (t - i))}}$
 
 The basic assumptions behind this model are the following: First, there is an overall proportion of children producing a particular construction in childhood, compared to all other constructions. Second, this proportion or ratio is not constant across their development. It usually starts at zero (children don't produce the construction) and increases until it reaches the overall proportion (i.e. upper threshold) at a certain age. Third, this growth from no production to the upper threshold is non-linear. The ratio increases rapidly at first until it reaches peak growth of $r$ at time interval $i$, then the growth slows down until the ratio for that construction reaches the stable maximum threshold estimated by the upper asymptote $a$. The rapid growth period and the slowdown period before and after the inflection point $i$ can be asymmetrical. The inflection point represents the forward/backward shift of the curve along the age axis and it is the main parameter we are interested in. It estimates the age at which the construction has reached its maximum growth. 
 
-We used the statistical package $brms$ to implement our Gompertz growth curve analysis. We fit separate growth curves to each negative and positive construction at the sentence and discourse levels. We used uniform priors with appropriate bounds for the three parameters of our Gompertz models. For the asymptote we kept the values between 0 and 10 because we did not observe relative frequencies above 7 (per Mille) for any construction. For the growth rates we kept the values between 0 and 3 given that growth rate will always be positive and that values above 3 represent very rapid and sharp developments unlike what we have observed. All estimated growth rates were below 1. And finally for the point of inflection we kept the values between 12 and 72 given that this is children's age range in this study. Since we did not have enough data to capture the developmental paths of individual children, the logistic curves did not have random effects and were fit at the population level for each communicative function. Each model ran 4 chains with 4000 iterations each and 2000 of them as warm-up. 95% credible intervals for each parameter were derived from their respective posterior distribution.
+We used the statistical package $brms$ to implement our Gompertz growth curve analysis. We fit separate growth curves to each negative and positive construction at the sentence and discourse levels. We used uniform priors with appropriate bounds for the three parameters of our Gompertz models. For the asymptote we kept the values between 0 and 10 because we did not observe relative frequencies above 7 (per thousand) for any construction. For the growth rates we kept the values between 0 and 3 given that growth rate will always be positive and that values above 3 represent very rapid and sharp developments unlike what we have observed. All estimated growth rates were below 1. And finally for the point of inflection we kept the values between 12 and 72 given that this is children's age range in this study. Since we did not have enough data to capture the developmental paths of individual children, the logistic curves did not have random effects and were fit at the population level for each communicative function. Each model ran 4 chains with 4000 iterations each and 2000 of them as warm-up. 95% credible intervals for each parameter were derived from their respective posterior distribution.
 
 $a$ $\sim$ $Uniform(0, 10)$
 
@@ -3156,7 +3156,7 @@ predictions %>%
   geom_line(aes(color=construction)) +
   geom_label_repel(aes(label=construction), data=filter(predictions, Age.x == 60, level=="sentence", valence=="negative")) +
   geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, fill = construction), alpha=0.3, linetype=0) +
-  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  xlab("child age (months)") + ylab("cumulative production ratio (per thousand)")+
   theme_linedraw() + theme(legend.position="none")
 ```
 
@@ -3169,7 +3169,7 @@ predictions %>%
   geom_line(aes(color=valence)) +
   geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, color=valence), alpha=0.3, linetype=0) +
   facet_wrap(.~construction) +
-  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  xlab("child age (months)") + ylab("cumulative production ratio (per thousand)")+
   theme_linedraw()
 ```
 
@@ -3223,7 +3223,7 @@ predictions %>%
   geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, fill = construction), 
               alpha=0.3, 
               linetype=0) +
-  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  xlab("child age (months)") + ylab("cumulative production ratio (per thousand)")+
   theme_linedraw() + theme(legend.position="none")
 ```
 
@@ -3236,7 +3236,7 @@ predictions %>%
   geom_line(aes(color=level)) +
   geom_ribbon(aes(ymin = Age.conf.low, ymax = Age.conf.high, color=level), alpha=0.3, linetype=0) +
   facet_wrap(.~construction) +
-  xlab("child age (months)") + ylab("Cumulative Production Ratio (Per Mille)")+
+  xlab("child age (months)") + ylab("cumulative production ratio (per thousand)")+
   theme_linedraw()
 ```
 

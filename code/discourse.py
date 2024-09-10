@@ -403,15 +403,17 @@ def context(index, all_sentences):
 		previous_transcript_id = child_info[-1]
 		previous_speaker_role = previous[0][-2].split()[-1]
 
-		if previous_target_child_name == target_child_name and previous_target_child_id == target_child_id and  previous_transcript_id == transcript_id:
-			if speaker_role in ['Target_Child'] and previous_speaker_role in ['Mother', 'Father']:
-				previous = previous 
-			if speaker_role in ['Mother', 'Father'] and previous_speaker_role in ['Target_Child']:
-				previous = previous 
-			if speaker_role in ['Target_Child'] and previous_speaker_role in ['Target_Child']:
-				previous = previous 
+		if previous_target_child_name == target_child_name and previous_target_child_id == target_child_id and  previous_transcript_id == transcript_id: ## this also takes care of the age information for the previous utterance
+			if (speaker_role in ['Target_Child', 'Child'] and previous_speaker_role in ['Mother', 'Father']) or (speaker_role in ['Mother', 'Father'] and previous_speaker_role in ['Target_Child', 'Child']):
+	#			previous = previous 
+	#		if speaker_role in ['Target_Child'] and previous_speaker_role in ['Target_Child']:
+	#			previous = previous 
 
-		return previous, previous_speaker_role
+				return previous, previous_speaker_role
+			else:
+				return 'Nothing', 'Nothing'
+		else:
+			return 'Nothing', 'Nothing'
 	else:
 		return 'Nothing', 'Nothing'
 
@@ -1271,7 +1273,7 @@ def perception(index, sent, corpus_name, level, data):
 					if len(neg) != 0:
 						info = ['perception', function, tok[2], neg[-1][1], '', '', '', '', age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'negative', 'discourse']
 					else:
-						info = ['perception', function, tok[2], '', '', '', '', '', '', age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'positive', 'discourse']
+						info = ['perception', function, tok[2], '', '', '', '', '', age, previous_speaker_role, speaker_role, previous_saying, saying, len(previous), len(sent), previous_sent_type, sent_type, corpus_name + ' ' + child_name, 'positive', 'discourse']
 
 					if info != '':
 						return info
@@ -1365,6 +1367,15 @@ if __name__ == '__main__':
 	individual_parent_descriptive = [['Age','N_speaker', 'N_utterance', 'Child']]
 
 	with io.open(args.output, 'w', encoding = 'utf-8') as f:
+		header = []
+					
+		if args.level == 's':
+			header = ['Domain', 'Function', 'Head', 'Negator', 'Aux', 'Aux_stem', 'Subj', 'Subj_stem', 'Role', 'Utterance', 'Age', 'Sent_len', 'Sent_type', 'Child', 'Polarity', 'Level']
+
+		if args.level == 'd':
+			header = ['Domain', 'Function', 'Head', 'Negator', 'Aux', 'Aux_stem', 'Subj', 'Subj_stem', 'Age', 'Previous_Role', 'Role', 'Previous_Utterance', 'Utterance', 'Previous_Sent_len', 'Sent_len', 'Previous_Sent_type', 'Sent_type', 'Child', 'Polarity', 'Level']
+		
+		f.write('\t'.join(w for w in header) + '\n')
 		
 		for file in os.listdir(args.input):
 			if file.endswith('.conllu'):
@@ -1395,16 +1406,6 @@ if __name__ == '__main__':
 
 				else:
 					all_data = get_data(args.input + file)
-
-					header = []
-					
-					if args.level == 's':
-						header = ['Domain', 'Function', 'Head', 'Negator', 'Aux', 'Aux_stem', 'Subj', 'Subj_stem', 'Role', 'Utterance', 'Age', 'Sent_len', 'Sent_type', 'Child', 'Polarity', 'Level']
-
-					if args.level == 'd':
-						header = ['Domain', 'Function', 'Head', 'Negator', 'Aux', 'Aux_stem', 'Subj', 'Subj_stem', 'Age', 'Previous_Role', 'Role', 'Previous_Utterance', 'Utterance', 'Previous_Sent_len', 'Sent_len', 'Previous_Sent_type', 'Sent_type', 'Child', 'Polarity', 'Level']
-		
-					f.write('\t'.join(w for w in header) + '\n')
 
 					for i in range(len(all_data)):
 
